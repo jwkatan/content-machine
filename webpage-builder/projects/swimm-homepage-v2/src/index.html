@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swimm — Application Understanding Platform</title>
+  <meta name="description" content="The understanding layer for mainframe and legacy modernization. Deterministic business rule extraction, flow tracking, and system mapping.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #1D1E2B;
+      background: #FFFFFF;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ========================================
+       DESIGN TOKENS
+       ======================================== */
+    :root {
+      --dark-charcoal: #1D1E2B;
+      --gravel-rocks: #2F3142;
+      --deep-dive: #1F35FF;
+      --swimm-blue: #4154FF;
+      --coastal-shore: #5E6EFF;
+      --shallow-waters: #8D98FF;
+      --feet-in-water: #E4E7FF;
+      --wave-jammer: #C95FFF;
+      --high-violet: #D177FF;
+      --duck-mode: #FDF150;
+      --rise-n-shine: #FFF78E;
+      --high-tide: #878D95;
+      --wash-me: #F4F6FA;
+      --white: #FFFFFF;
+
+      --content-max: 1200px;
+      --section-pad-y: 64px;
+      --section-pad-x: 24px;
+    }
+
+    @media (min-width: 768px) {
+      :root { --section-pad-y: 80px; --section-pad-x: 40px; }
+    }
+
+    @media (min-width: 1024px) {
+      :root { --section-pad-y: 96px; --section-pad-x: 40px; }
+    }
+
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; }
+    h1 { font-size: 2.25rem; font-weight: 700; }
+    h2 { font-size: 1.75rem; font-weight: 700; }
+    h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 2.75rem; }
+      h2 { font-size: 2.125rem; }
+      h3 { font-size: 1.375rem; }
+    }
+
+    @media (min-width: 1024px) {
+      h1 { font-size: 3.25rem; }
+      h2 { font-size: 2.5rem; }
+      h3 { font-size: 1.5rem; }
+    }
+
+    /* ========================================
+       LAYOUT PRIMITIVES
+       ======================================== */
+    .container {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--section-pad-x);
+    }
+
+    .section { padding: var(--section-pad-y) 0; }
+    .section--dark { background: var(--dark-charcoal); color: var(--white); }
+    .section--light { background: var(--white); color: var(--dark-charcoal); }
+    .section--wash { background: var(--wash-me); color: var(--dark-charcoal); }
+
+    /* ========================================
+       BUTTONS
+       ======================================== */
+    .btn {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      padding: 16px 32px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn--primary { background: var(--swimm-blue); color: var(--white); }
+    .btn--primary:hover { background: var(--coastal-shore); }
+
+    .btn--primary-lg {
+      background: var(--swimm-blue);
+      color: var(--white);
+      font-size: 1.125rem;
+      padding: 18px 40px;
+    }
+    .btn--primary-lg:hover { background: var(--coastal-shore); }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--swimm-blue);
+      border: 2px solid var(--swimm-blue);
+    }
+    .btn--ghost:hover { background: var(--feet-in-water); }
+
+    /* ========================================
+       GRID UTILITIES
+       ======================================== */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-4 { gap: 40px; }
+    }
+
+    .section__header h2 { margin-bottom: 0; }
+
+    /* ========================================
+       NAV
+       ======================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(29, 30, 43, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav__inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--section-pad-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav__logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .nav__cta { font-size: 0.875rem; padding: 10px 20px; }
+
+    /* ========================================
+       S1: HERO
+       ======================================== */
+    #hero {
+      padding-top: calc(var(--section-pad-y) + 64px);
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .hero__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .hero__text {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .hero__graphic {
+      flex: 0 0 100%;
+      max-width: 100%;
+      overflow: visible;
+    }
+
+    .hero__graphic svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .hero__inner {
+        flex-direction: row;
+        align-items: center;
+        gap: 48px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .hero__text {
+        flex: 0 0 52%;
+        max-width: 52%;
+      }
+
+      .hero__graphic {
+        flex: 0 0 48%;
+        max-width: 48%;
+      }
+    }
+
+    .hero__descriptor {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--shallow-waters);
+      margin-bottom: 20px;
+    }
+
+    .hero__headline {
+      max-width: 800px;
+      margin-bottom: 24px;
+    }
+
+    .hero__subtext {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .hero__subtext { font-size: 1.25rem; }
+    }
+
+    @media (max-width: 767px) {
+      .hero__text { text-align: center; }
+      .hero__headline { font-size: 2rem; }
+      .hero__subtext { font-size: 1rem; max-width: 100%; }
+      .hero__actions { align-items: center; }
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    /* ========================================
+       LOGO SLIDER
+       ======================================== */
+    .logo-slider {
+      margin-top: 24px;
+      padding: 32px 0 40px;
+    }
+
+    .logo-slider__container {
+      overflow: clip;
+    }
+
+    .logo-slider__track {
+      display: flex;
+      gap: 72px;
+      align-items: center;
+      animation: scroll-logos 30s linear infinite;
+      width: max-content;
+    }
+
+    .logo-slider__track:hover {
+      animation-play-state: paused;
+    }
+
+    .logo-slider__logo {
+      height: 102px;
+      width: auto;
+      flex-shrink: 0;
+      opacity: 0.6;
+      filter: grayscale(100%) brightness(1.8);
+      transition: opacity 200ms ease, filter 200ms ease;
+    }
+
+    .logo-slider__logo:hover {
+      opacity: 1;
+      filter: grayscale(0%) brightness(1);
+    }
+
+    @keyframes scroll-logos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .logo-slider {
+        padding: 24px 0;
+      }
+
+      .logo-slider__track {
+        gap: 48px;
+        animation-duration: 20s;
+      }
+
+      .logo-slider__logo {
+        height: 48px;
+      }
+    }
+
+    /* ========================================
+       S1b: MAIN VALUES
+       ======================================== */
+    .values-section {
+      padding-top: 0;
+      padding-bottom: 64px;
+      position: relative;
+    }
+
+    /* Subtle divider between logos and values — barely visible, not decorative */
+    .values-section::before {
+      content: '';
+      display: block;
+      max-width: var(--content-max);
+      margin: 0 auto 48px;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(141, 152, 255, 0.10) 30%,
+        rgba(141, 152, 255, 0.10) 70%,
+        transparent 100%
+      );
+    }
+
+    /* Bottom edge — resolves dark-to-light transition */
+    .values-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(141, 152, 255, 0.12) 20%,
+        rgba(141, 152, 255, 0.12) 80%,
+        transparent 100%
+      );
+    }
+
+    .values-triplet {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .values-triplet__item {
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: -0.01em;
+    }
+
+    .values-triplet__accent {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    @media (min-width: 768px) {
+      .values-section {
+        padding-bottom: 72px;
+      }
+
+      .values-section::before {
+        margin-bottom: 52px;
+      }
+
+      .values-triplet {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+      }
+
+      .values-triplet__item {
+        font-size: 1.1875rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .values-section {
+        padding-bottom: 80px;
+      }
+
+      .values-section::before {
+        margin-bottom: 56px;
+      }
+
+      .values-triplet {
+        gap: 64px;
+      }
+
+      .values-triplet__item {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* ========================================
+       S2: DIFFERENTIATION
+       ======================================== */
+    #differentiation .section__header {
+      max-width: 700px;
+      margin-bottom: 56px;
+    }
+
+    .diff-card h3 {
+      margin-bottom: 12px;
+      color: var(--dark-charcoal);
+    }
+
+    .diff-card p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--high-tide);
+    }
+
+    /* ========================================
+       S3: ONE UNDERSTANDING
+       ======================================== */
+    #one-understanding .section__header {
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+
+    .roles__body {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--high-tide);
+      max-width: 720px;
+      margin-bottom: 12px;
+    }
+
+    .roles__closing {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--dark-charcoal);
+      margin-bottom: 56px;
+    }
+
+    .proof-bar {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 48px 0;
+      border-top: 1px solid rgba(29, 30, 43, 0.08);
+      border-bottom: 1px solid rgba(29, 30, 43, 0.08);
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .proof-bar { grid-template-columns: repeat(3, 1fr); text-align: center; }
+    }
+
+    .proof-bar__item { display: flex; flex-direction: column; gap: 4px; }
+
+    @media (min-width: 768px) {
+      .proof-bar__item { align-items: center; }
+    }
+
+    .proof-bar__number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--swimm-blue);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    @media (min-width: 1024px) {
+      .proof-bar__number { font-size: 3rem; }
+    }
+
+    .proof-bar__label { font-size: 0.9375rem; color: var(--high-tide); }
+
+    .testimonial {
+      max-width: 640px;
+      padding: 32px;
+      background: var(--wash-me);
+      border-radius: 8px;
+      border-left: 3px solid var(--swimm-blue);
+    }
+
+    .testimonial__quote {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--dark-charcoal);
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    @media (min-width: 768px) {
+      .testimonial__quote { font-size: 1.25rem; }
+    }
+
+    /* ========================================
+       S4: PRODUCT FEATURES
+       ======================================== */
+    #features .section__header {
+      max-width: 600px;
+      margin-bottom: 56px;
+    }
+
+    .feature-card {
+      padding: 32px;
+      background: var(--gravel-rocks);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-card h3 { color: var(--white); margin-bottom: 12px; }
+
+    .feature-card p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 24px;
+    }
+
+    .feature-card__img {
+      width: 100%;
+      height: 180px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: auto;
+    }
+
+    /* ========================================
+       S5: ENTERPRISE VIABILITY
+       ======================================== */
+    .enterprise {
+      background: var(--white);
+      padding: var(--section-pad-y) 0;
+    }
+
+    .enterprise__headline {
+      font-size: 2.5rem;
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--dark-charcoal);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .enterprise__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px 32px;
+    }
+
+    .enterprise__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .enterprise__icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .enterprise__label {
+      font-size: 1rem;
+      line-height: 1.375;
+      font-weight: 700;
+      color: var(--dark-charcoal);
+      margin-bottom: 4px;
+    }
+
+    .enterprise__desc {
+      font-size: 0.875rem;
+      line-height: 1.45;
+      color: var(--gravel-rocks);
+      opacity: 0.75;
+    }
+
+    @media (max-width: 1023px) {
+      .enterprise__headline { font-size: 2.125rem; }
+      .enterprise__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 767px) {
+      .enterprise__headline { font-size: 1.75rem; }
+      .enterprise__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ========================================
+       S6: PHASES / MODERNIZATION LIFECYCLE
+       ======================================== */
+    .phases {
+      background: var(--dark-charcoal);
+      padding: 96px 0;
+    }
+
+    .phases__headline {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .phases__subheadline {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--shallow-waters);
+      text-align: center;
+      margin-bottom: 48px;
+      display: none;
+    }
+
+    .phases__diagram { margin-bottom: 0; }
+    .phases__diagram svg { width: 100%; height: auto; display: block; }
+    .phases__mobile { display: none; }
+
+    .phases__columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .phases__card {
+      background: var(--gravel-rocks);
+      border-left: 4px solid var(--swimm-blue);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phases__card-number {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--swimm-blue);
+      margin-bottom: 8px;
+    }
+
+    .phases__card-name {
+      font-size: 1.125rem;
+      line-height: 1.3;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .phases__card-desc {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--shallow-waters);
+    }
+
+    .phases__band {
+      background: var(--swimm-blue);
+      border-radius: 8px;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .phases__band-logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .phases__band-label {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--shallow-waters);
+    }
+
+    @media (max-width: 1024px) {
+      .phases__headline { font-size: 2.125rem; }
+    }
+
+    @media (max-width: 768px) {
+      .phases { padding: 56px 0; }
+      .phases__headline { font-size: 1.875rem; }
+      .phases__diagram { display: none; }
+      .phases__mobile { display: block; }
+      .phases__card-name { font-size: 1rem; }
+    }
+
+    /* ========================================
+       S7: GARTNER
+       ======================================== */
+    .validation {
+      background: var(--wash-me);
+      padding: 64px 0;
+    }
+
+    .validation .container {
+      text-align: center;
+    }
+
+    .validation__badge {
+      max-width: 200px;
+      margin: 0 auto 32px;
+    }
+
+    .validation__title {
+      font-size: 1.5rem;
+      line-height: 1.35;
+      font-weight: 700;
+      color: var(--dark-charcoal);
+      margin-bottom: 16px;
+    }
+
+    .validation__body {
+      font-size: 1.125rem;
+      line-height: 1.55;
+      color: var(--gravel-rocks);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       S8: CONVERSION
+       ======================================== */
+    #conversion { text-align: center; }
+
+    .conversion__headline {
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: var(--dark-charcoal);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 32px 0;
+    }
+
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Swimm home">Swimm</a>
+      <a href="#conversion" class="btn btn--primary nav__cta">Request a demo</a>
+    </div>
+  </nav>
+
+  <!-- ========== S1: HERO ========== -->
+  <section id="hero" class="section section--dark">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__text">
+          <p class="hero__descriptor">Application Understanding Platform</p>
+          <h1 class="hero__headline">You can't modernize what you don't understand.</h1>
+          <p class="hero__subtext">The understanding layer for mainframe and legacy applications. Relied on by the teams driving change and the AI agents executing it.</p>
+          <div class="hero__actions">
+            <a href="#conversion" class="btn btn--primary">Request a demo</a>
+          </div>
+        </div>
+        <div class="hero__graphic">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-label="Complex legacy system architecture being analyzed by Swimm and resolved into clean, structured understanding">
+            <defs>
+              <style>
+                @keyframes heroPathDraw { from { stroke-dashoffset: 900; } to { stroke-dashoffset: 0; } }
+                @keyframes heroScanPulse { 0%,100% { opacity: 0.7; } 50% { opacity: 0.9; } }
+                .hero-path-draw { stroke-dasharray: 900; stroke-dashoffset: 900; animation: heroPathDraw 2.5s ease-out 0.3s forwards; }
+                .hero-path-draw-b { stroke-dasharray: 900; stroke-dashoffset: 900; animation: heroPathDraw 2.8s ease-out 0.9s forwards; }
+                .hero-path-draw-c { stroke-dasharray: 900; stroke-dashoffset: 900; animation: heroPathDraw 3s ease-out 1.4s forwards; }
+                .hero-scan-pulse { animation: heroScanPulse 4s ease-in-out infinite; }
+                @media (prefers-reduced-motion: reduce) {
+                  .hero-path-draw, .hero-path-draw-b, .hero-path-draw-c, .hero-scan-pulse { animation: none; }
+                  .hero-path-draw, .hero-path-draw-b, .hero-path-draw-c { stroke-dashoffset: 0; }
+                }
+              </style>
+              <pattern id="heroGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="40" stroke="#4154FF" stroke-width="0.5" opacity="0.06"/>
+                <line x1="0" y1="0" x2="40" y2="0" stroke="#4154FF" stroke-width="0.5" opacity="0.06"/>
+              </pattern>
+              <radialGradient id="scanAtmosphere" cx="45%" cy="50%" r="55%">
+                <stop offset="0%" stop-color="#FFF78E" stop-opacity="0.12"/>
+                <stop offset="50%" stop-color="#FFF78E" stop-opacity="0.06"/>
+                <stop offset="100%" stop-color="#FFF78E" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="rightZoneGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#4154FF" stop-opacity="0.12"/>
+                <stop offset="100%" stop-color="#4154FF" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="tierFill" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#4154FF" stop-opacity="0.20"/>
+                <stop offset="100%" stop-color="#4154FF" stop-opacity="0.08"/>
+              </linearGradient>
+              <filter id="pathGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <linearGradient id="scanDirection" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#C4B968" stop-opacity="0.06"/>
+                <stop offset="100%" stop-color="#C4B968" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="floatBlur"><feGaussianBlur stdDeviation="22"/></filter>
+              <mask id="floatMask">
+                <rect x="-20" y="-15" width="840" height="470" rx="70" fill="white" filter="url(#floatBlur)"/>
+              </mask>
+            </defs>
+            <g mask="url(#floatMask)">
+            <g id="camera">
+            <g id="heroBg">
+              <rect x="400" y="0" width="400" height="440" fill="url(#heroGrid)" opacity="0.7"/>
+              <ellipse cx="620" cy="210" rx="200" ry="210" fill="url(#rightZoneGlow)"/>
+              <ellipse cx="200" cy="220" rx="240" ry="250" fill="url(#scanAtmosphere)" class="hero-scan-pulse"/>
+              <rect x="395" y="20" width="55" height="410" fill="url(#scanDirection)" class="hero-scan-pulse"/>
+            </g>
+            <g id="tracedPaths">
+              <path d="M395,186 L430,186 L430,128 L660,128 L660,336" fill="none" stroke="#C4B968" stroke-width="4" opacity="0.04" filter="url(#pathGlow)"/>
+              <path d="M395,78 L430,78 L430,68 L700,68 L700,197" fill="none" stroke="#C4B968" stroke-width="4" opacity="0.03" filter="url(#pathGlow)"/>
+              <path d="M395,290 L430,290 L430,252 L740,252 L740,330" fill="none" stroke="#C4B968" stroke-width="4" opacity="0.03" filter="url(#pathGlow)"/>
+              <path id="heroTracePath" d="M395,186 L430,186 L430,128 L660,128 L660,336" fill="none" stroke="#C4B968" stroke-width="2.5" opacity="0.35" class="hero-path-draw"/>
+              <path id="heroVioletPath" d="M395,78 L430,78 L430,68 L700,68 L700,197" fill="none" stroke="#C4B968" stroke-width="2.5" opacity="0.35" class="hero-path-draw-b"/>
+              <path id="heroCoastalPath" d="M395,290 L430,290 L430,252 L740,252 L740,330" fill="none" stroke="#C4B968" stroke-width="2.5" opacity="0.35" class="hero-path-draw-c"/>
+              <circle r="4" fill="#C4B968" opacity="0">
+                <animateMotion dur="4s" repeatCount="indefinite" begin="3s"><mpath href="#heroTracePath"/></animateMotion>
+                <animate attributeName="opacity" values="0;0.5;0.5;0" keyTimes="0;0.1;0.9;1" dur="4s" repeatCount="indefinite" begin="3s"/>
+              </circle>
+              <circle r="4" fill="#C4B968" opacity="0">
+                <animateMotion dur="4.5s" repeatCount="indefinite" begin="3.8s"><mpath href="#heroVioletPath"/></animateMotion>
+                <animate attributeName="opacity" values="0;0.45;0.45;0" keyTimes="0;0.1;0.9;1" dur="4.5s" repeatCount="indefinite" begin="3.8s"/>
+              </circle>
+              <circle r="4" fill="#C4B968" opacity="0">
+                <animateMotion dur="5s" repeatCount="indefinite" begin="4.5s"><mpath href="#heroCoastalPath"/></animateMotion>
+                <animate attributeName="opacity" values="0;0.45;0.45;0" keyTimes="0;0.1;0.9;1" dur="5s" repeatCount="indefinite" begin="4.5s"/>
+              </circle>
+            </g>
+            <!-- LEFT ZONE: Legacy System -->
+            <g id="leftZone">
+              <g class="left-row">
+                <rect x="8" y="12" width="86" height="42" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.5" opacity="0.95"/>
+                <rect x="16" y="22" width="50" height="3" rx="1" fill="#878D95" opacity="0.5"/>
+                <rect x="16" y="29" width="32" height="2.5" rx="1" fill="#878D95" opacity="0.3"/>
+                <rect x="16" y="36" width="42" height="2.5" rx="1" fill="#878D95" opacity="0.2"/>
+                <rect x="108" y="8" width="94" height="44" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.5" opacity="0.96"/>
+                <rect x="116" y="18" width="58" height="3" rx="1" fill="#878D95" opacity="0.55"/>
+                <rect x="116" y="25" width="38" height="2.5" rx="1" fill="#878D95" opacity="0.3"/>
+                <rect x="116" y="32" width="50" height="2.5" rx="1" fill="#878D95" opacity="0.2"/>
+                <rect x="222" y="18" width="80" height="40" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.4" opacity="0.92"/>
+                <rect x="230" y="28" width="44" height="3" rx="1" fill="#878D95" opacity="0.45"/>
+                <rect x="230" y="35" width="54" height="2.5" rx="1" fill="#878D95" opacity="0.22"/>
+                <rect x="320" y="14" width="58" height="36" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.2" opacity="0.78"/>
+                <rect x="328" y="24" width="34" height="3" rx="1" fill="#878D95" opacity="0.35"/>
+              </g>
+              <g class="left-row">
+                <rect x="18" y="98" width="96" height="46" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.5" opacity="0.96"/>
+                <rect x="26" y="108" width="62" height="3" rx="1" fill="#878D95" opacity="0.55"/>
+                <rect x="26" y="115" width="42" height="2.5" rx="1" fill="#878D95" opacity="0.28"/>
+                <rect x="26" y="122" width="54" height="2.5" rx="1" fill="#878D95" opacity="0.18"/>
+                <rect x="148" y="104" width="88" height="42" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.4" opacity="0.94"/>
+                <rect x="156" y="114" width="52" height="3" rx="1" fill="#878D95" opacity="0.5"/>
+                <rect x="156" y="121" width="36" height="2.5" rx="1" fill="#878D95" opacity="0.25"/>
+                <rect x="255" y="100" width="76" height="40" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.4" opacity="0.92"/>
+                <rect x="263" y="110" width="46" height="3" rx="1" fill="#878D95" opacity="0.45"/>
+                <rect x="263" y="117" width="30" height="2.5" rx="1" fill="#878D95" opacity="0.22"/>
+                <rect x="348" y="96" width="38" height="36" rx="3" fill="#383A4E" stroke="#878D95" stroke-width="1" opacity="0.68"/>
+              </g>
+              <g class="left-row">
+                <rect x="5" y="192" width="88" height="44" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.5" opacity="0.94"/>
+                <rect x="13" y="202" width="56" height="3" rx="1" fill="#878D95" opacity="0.5"/>
+                <rect x="13" y="209" width="38" height="2.5" rx="1" fill="#878D95" opacity="0.25"/>
+                <rect x="13" y="216" width="48" height="2.5" rx="1" fill="#878D95" opacity="0.18"/>
+                <rect x="118" y="188" width="84" height="42" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.4" opacity="0.92"/>
+                <rect x="126" y="198" width="48" height="3" rx="1" fill="#878D95" opacity="0.45"/>
+                <rect x="126" y="205" width="34" height="2.5" rx="1" fill="#878D95" opacity="0.22"/>
+                <rect x="218" y="195" width="86" height="42" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.4" opacity="0.9"/>
+                <rect x="226" y="205" width="52" height="3" rx="1" fill="#878D95" opacity="0.45"/>
+                <rect x="226" y="212" width="40" height="2.5" rx="1" fill="#878D95" opacity="0.22"/>
+                <rect x="322" y="190" width="56" height="38" rx="3" fill="#383A4E" stroke="#878D95" stroke-width="1.1" opacity="0.72"/>
+                <rect x="330" y="200" width="30" height="3" rx="1" fill="#878D95" opacity="0.32"/>
+              </g>
+              <g class="left-row">
+                <rect x="15" y="290" width="78" height="40" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.4" opacity="0.9"/>
+                <rect x="23" y="300" width="46" height="3" rx="1" fill="#878D95" opacity="0.45"/>
+                <rect x="23" y="307" width="32" height="2.5" rx="1" fill="#878D95" opacity="0.22"/>
+                <rect x="130" y="288" width="76" height="38" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.3" opacity="0.86"/>
+                <rect x="138" y="298" width="42" height="3" rx="1" fill="#878D95" opacity="0.4"/>
+                <rect x="228" y="292" width="72" height="38" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.2" opacity="0.8"/>
+                <rect x="236" y="302" width="40" height="3" rx="1" fill="#878D95" opacity="0.35"/>
+                <rect x="322" y="288" width="54" height="34" rx="3" fill="#383A4E" stroke="#878D95" stroke-width="1" opacity="0.62"/>
+              </g>
+              <g class="left-row">
+                <rect x="28" y="382" width="68" height="38" rx="4" fill="#383A4E" stroke="#878D95" stroke-width="1.1" opacity="0.62"/>
+                <rect x="118" y="388" width="64" height="34" rx="3" fill="#383A4E" stroke="#878D95" stroke-width="1" opacity="0.52"/>
+                <rect x="208" y="382" width="72" height="38" rx="3" fill="#383A4E" stroke="#878D95" stroke-width="1" opacity="0.48"/>
+                <rect x="305" y="386" width="56" height="34" rx="3" fill="#383A4E" stroke="#878D95" stroke-width="0.8" opacity="0.38"/>
+              </g>
+              <g id="leftLabels">
+                <text x="116" y="48" font-family="'Courier New',monospace" font-size="7" fill="#878D95" opacity="0.22" letter-spacing="0.5">ACCT-PROC</text>
+                <text x="26" y="138" font-family="'Courier New',monospace" font-size="7" fill="#878D95" opacity="0.2" letter-spacing="0.5">CICS-TRX01</text>
+                <text x="263" y="134" font-family="'Courier New',monospace" font-size="7" fill="#878D95" opacity="0.18" letter-spacing="0.5">VSAM-IDX</text>
+                <text x="13" y="230" font-family="'Courier New',monospace" font-size="7" fill="#878D95" opacity="0.2" letter-spacing="0.5">JCL-BATCH</text>
+                <text x="226" y="231" font-family="'Courier New',monospace" font-size="7" fill="#878D95" opacity="0.18" letter-spacing="0.5">DB2-PROC</text>
+                <text x="138" y="320" font-family="'Courier New',monospace" font-size="7" fill="#878D95" opacity="0.17" letter-spacing="0.5">PGM0217</text>
+              </g>
+              <g id="leftConnections">
+                <g opacity="0.65" stroke="#878D95" fill="none">
+                  <path d="M94,33 C101,33 101,30 108,30" stroke-width="1.3"/>
+                  <path d="M202,30 C212,30 212,38 222,38" stroke-width="1.3"/>
+                  <path d="M302,38 C311,38 311,32 320,32" stroke-width="1.2"/>
+                  <path d="M114,121 C131,121 131,125 148,125" stroke-width="1.3"/>
+                  <path d="M236,125 C246,125 246,120 255,120" stroke-width="1.2"/>
+                  <path d="M331,120 C340,120 340,114 348,114" stroke-width="1.1"/>
+                  <path d="M93,214 C106,214 106,209 118,209" stroke-width="1.3"/>
+                  <path d="M202,209 C210,209 210,216 218,216" stroke-width="1.2"/>
+                  <path d="M304,216 C313,216 313,209 322,209" stroke-width="1.1"/>
+                  <path d="M93,310 C112,310 112,307 130,307" stroke-width="1.2"/>
+                  <path d="M206,307 C217,307 217,311 228,311" stroke-width="1.1"/>
+                  <path d="M300,311 C311,311 311,305 322,305" stroke-width="1"/>
+                  <path d="M96,401 C107,401 107,405 118,405" stroke-width="1"/>
+                  <path d="M182,405 C195,405 195,401 208,401" stroke-width="1"/>
+                  <path d="M280,401 C293,401 293,403 305,403" stroke-width="0.9"/>
+                </g>
+                <g opacity="0.55" stroke="#878D95" fill="none">
+                  <path d="M51,54 C51,76 66,76 66,98" stroke-width="1.3"/>
+                  <path d="M155,52 C155,78 192,78 192,104" stroke-width="1.3"/>
+                  <path d="M262,58 C262,79 293,79 293,100" stroke-width="1.2"/>
+                  <path d="M349,50 C349,73 367,73 367,96" stroke-width="1.1"/>
+                  <path d="M66,144 C66,168 49,168 49,192" stroke-width="1.3"/>
+                  <path d="M192,146 C192,167 160,167 160,188" stroke-width="1.2"/>
+                  <path d="M293,140 C293,168 261,168 261,195" stroke-width="1.2"/>
+                  <path d="M367,132 C367,161 350,161 350,190" stroke-width="1.1"/>
+                  <path d="M49,236 C49,263 54,263 54,290" stroke-width="1.2"/>
+                  <path d="M160,230 C160,259 168,259 168,288" stroke-width="1.2"/>
+                  <path d="M261,237 C261,265 264,265 264,292" stroke-width="1.1"/>
+                  <path d="M350,228 C350,258 349,258 349,288" stroke-width="1"/>
+                  <path d="M54,330 C54,356 62,356 62,382" stroke-width="1.1"/>
+                  <path d="M168,326 C168,357 150,357 150,388" stroke-width="1"/>
+                  <path d="M264,330 C264,356 244,356 244,382" stroke-width="1"/>
+                  <path d="M349,322 C349,354 333,354 333,386" stroke-width="0.9"/>
+                </g>
+                <g opacity="0.42" stroke="#878D95" fill="none">
+                  <path d="M51,54 C51,76 192,76 192,104" stroke-width="1.2"/>
+                  <path d="M155,52 C155,76 293,76 293,100" stroke-width="1.1"/>
+                  <path d="M262,58 C262,78 66,78 66,98" stroke-width="1.1"/>
+                  <path d="M66,144 C66,168 261,168 261,195" stroke-width="1.1"/>
+                  <path d="M192,146 C192,169 49,169 49,192" stroke-width="1"/>
+                  <path d="M293,140 C293,164 160,164 160,188" stroke-width="1"/>
+                  <path d="M49,236 C49,263 168,263 168,288" stroke-width="1"/>
+                  <path d="M160,230 C160,261 264,261 264,292" stroke-width="1"/>
+                  <path d="M261,237 C261,264 54,264 54,290" stroke-width="1"/>
+                  <path d="M350,228 C350,260 264,260 264,292" stroke-width="0.9"/>
+                  <path d="M54,330 C54,356 244,356 244,382" stroke-width="1"/>
+                  <path d="M51,54 C51,123 49,123 49,192" stroke-width="1"/>
+                  <path d="M349,50 C349,120 350,120 350,190" stroke-width="0.9"/>
+                  <path d="M202,30 C228,30 228,120 255,120" stroke-width="1"/>
+                </g>
+              </g>
+            </g>
+            <!-- Scan line -->
+            <g id="scanGroup">
+              <line x1="395" y1="10" x2="395" y2="430" stroke="#C4B968" stroke-width="1.5" opacity="0.40" class="hero-scan-pulse"/>
+              <line x1="395" y1="10" x2="395" y2="430" stroke="#C4B968" stroke-width="6" opacity="0.10" class="hero-scan-pulse"/>
+              <circle cx="395" cy="78" r="4" fill="#C4B968" opacity="0.4"/>
+              <circle cx="395" cy="186" r="5" fill="#C4B968" opacity="0.5"/>
+              <circle cx="395" cy="290" r="4" fill="#C4B968" opacity="0.4"/>
+              <circle cx="395" cy="395" r="3" fill="#C4B968" opacity="0.25"/>
+              <path d="M378,32 C387,32 391,55 395,78" fill="none" stroke="#878D95" stroke-width="1.2" opacity="0.35"/>
+              <path d="M367,132 C381,150 389,168 395,186" fill="none" stroke="#878D95" stroke-width="1.1" opacity="0.3"/>
+              <path d="M350,228 C370,250 385,270 395,290" fill="none" stroke="#878D95" stroke-width="1.1" opacity="0.3"/>
+              <path d="M349,322 C370,345 385,375 395,395" fill="none" stroke="#878D95" stroke-width="0.9" opacity="0.22"/>
+            </g>
+            <!-- RIGHT ZONE: Structured -->
+            <g id="rightZone">
+              <g id="tier1">
+                <rect x="430" y="30" width="355" height="82" rx="8" fill="url(#tierFill)" stroke="#4154FF" stroke-width="1.5"/>
+                <text x="445" y="50" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#4154FF" letter-spacing="2">INTERFACE LAYER</text>
+                <rect x="445" y="58" width="76" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1.4"/>
+                <rect x="453" y="67" width="44" height="3.5" rx="1" fill="#8D98FF" opacity="1"/>
+                <rect x="453" y="74" width="28" height="3" rx="1" fill="#5E6EFF" opacity="0.75"/>
+                <rect x="453" y="81" width="54" height="3" rx="1" fill="#8D98FF" opacity="0.55"/>
+                <rect x="535" y="58" width="76" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1.4"/>
+                <rect x="543" y="67" width="38" height="3.5" rx="1" fill="#8D98FF" opacity="1"/>
+                <rect x="543" y="74" width="52" height="3" rx="1" fill="#5E6EFF" opacity="0.75"/>
+                <rect x="543" y="81" width="30" height="3" rx="1" fill="#8D98FF" opacity="0.55"/>
+                <rect x="625" y="58" width="76" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1.4"/>
+                <rect x="633" y="67" width="50" height="3.5" rx="1" fill="#8D98FF" opacity="1"/>
+                <rect x="633" y="74" width="34" height="3" rx="1" fill="#5E6EFF" opacity="0.75"/>
+                <rect x="633" y="81" width="44" height="3" rx="1" fill="#8D98FF" opacity="0.55"/>
+                <rect x="715" y="58" width="58" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1" opacity="0.85"/>
+                <rect x="723" y="67" width="34" height="3.5" rx="1" fill="#8D98FF" opacity="0.75"/>
+                <rect x="723" y="74" width="42" height="3" rx="1" fill="#5E6EFF" opacity="0.45"/>
+              </g>
+              <g id="tier2">
+                <rect x="430" y="144" width="355" height="82" rx="8" fill="url(#tierFill)" stroke="#4154FF" stroke-width="1.8"/>
+                <text x="445" y="164" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#4154FF" letter-spacing="2">BUSINESS LOGIC</text>
+                <rect x="445" y="176" width="92" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1.4"/>
+                <rect x="453" y="185" width="60" height="3.5" rx="1" fill="#8D98FF" opacity="1"/>
+                <rect x="453" y="192" width="38" height="3" rx="1" fill="#5E6EFF" opacity="0.75"/>
+                <rect x="453" y="199" width="68" height="3" rx="1" fill="#8D98FF" opacity="0.55"/>
+                <rect x="551" y="176" width="92" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1.4"/>
+                <rect x="559" y="185" width="54" height="3.5" rx="1" fill="#8D98FF" opacity="1"/>
+                <rect x="559" y="192" width="72" height="3" rx="1" fill="#5E6EFF" opacity="0.75"/>
+                <rect x="559" y="199" width="40" height="3" rx="1" fill="#8D98FF" opacity="0.55"/>
+                <rect x="657" y="176" width="92" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1.4"/>
+                <rect x="665" y="185" width="64" height="3.5" rx="1" fill="#8D98FF" opacity="1"/>
+                <rect x="665" y="192" width="46" height="3" rx="1" fill="#5E6EFF" opacity="0.75"/>
+                <rect x="665" y="199" width="56" height="3" rx="1" fill="#8D98FF" opacity="0.55"/>
+              </g>
+              <g id="tier3">
+                <rect x="430" y="266" width="355" height="82" rx="8" fill="url(#tierFill)" stroke="#4154FF" stroke-width="1.5"/>
+                <text x="445" y="286" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#4154FF" letter-spacing="2">DATA &amp; CORE SYSTEMS</text>
+                <rect x="445" y="294" width="84" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1.4"/>
+                <rect x="453" y="303" width="48" height="3.5" rx="1" fill="#8D98FF" opacity="1"/>
+                <rect x="453" y="310" width="60" height="3" rx="1" fill="#5E6EFF" opacity="0.75"/>
+                <rect x="543" y="294" width="84" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1.4"/>
+                <rect x="551" y="303" width="52" height="3.5" rx="1" fill="#8D98FF" opacity="1"/>
+                <rect x="551" y="310" width="66" height="3" rx="1" fill="#5E6EFF" opacity="0.75"/>
+                <rect x="641" y="294" width="84" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1.4"/>
+                <rect x="649" y="303" width="56" height="3.5" rx="1" fill="#8D98FF" opacity="1"/>
+                <rect x="649" y="310" width="42" height="3" rx="1" fill="#5E6EFF" opacity="0.75"/>
+                <rect x="739" y="294" width="38" height="42" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="1" opacity="0.85"/>
+                <rect x="747" y="303" width="22" height="3.5" rx="1" fill="#8D98FF" opacity="0.7"/>
+              </g>
+              <g id="tierFoundation">
+                <rect x="430" y="378" width="355" height="60" rx="8" fill="url(#tierFill)" stroke="#4154FF" stroke-width="1" opacity="0.45"/>
+                <text x="445" y="398" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#4154FF" opacity="0.5" letter-spacing="2">INFRASTRUCTURE</text>
+                <rect x="445" y="406" width="76" height="30" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="0.8" opacity="0.4"/>
+                <rect x="535" y="406" width="76" height="30" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="0.8" opacity="0.35"/>
+                <rect x="625" y="406" width="76" height="30" rx="4" fill="#2F3142" stroke="#5E6EFF" stroke-width="0.8" opacity="0.3"/>
+              </g>
+              <g id="rightConnections" opacity="0.55" stroke="#5E6EFF" fill="none">
+                <path d="M483,100 V128 H650 V170 H491 V176" stroke-width="1.5"/>
+                <path d="M573,100 V125 H695 V170 H597 V176" stroke-width="1.5"/>
+                <path d="M663,100 V128 H703 V176" stroke-width="1.5"/>
+                <path d="M491,218 V246 H650 V290 H487 V294" stroke-width="1.5"/>
+                <path d="M597,218 V243 H695 V290 H585 V294" stroke-width="1.5"/>
+                <path d="M703,218 V246 H683 V294" stroke-width="1.5"/>
+                <path d="M487,336 V378" stroke-width="1.3" opacity="0.55"/>
+                <path d="M585,336 V378" stroke-width="1.3" opacity="0.55"/>
+                <path d="M683,336 V378" stroke-width="1.3" opacity="0.55"/>
+              </g>
+              <g id="arrivalMarkers">
+                <circle cx="660" cy="336" r="3" fill="#C4B968" opacity="0.35"/>
+                <circle cx="700" cy="197" r="3" fill="#C4B968" opacity="0.3"/>
+                <circle cx="740" cy="330" r="3" fill="#C4B968" opacity="0.3"/>
+              </g>
+            </g>
+            </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!-- Logo slider -->
+    <div class="logo-slider" aria-label="Trusted by leading enterprises">
+      <div class="container logo-slider__container">
+        <div class="logo-slider__track">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/recursion.png.webp" alt="Recursion" class="logo-slider__logo">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/akamai.png.webp" alt="Akamai" class="logo-slider__logo">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/ppg.png.webp" alt="PPG" class="logo-slider__logo">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/merck.png.webp" alt="Merck" class="logo-slider__logo">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/Optum.png.webp" alt="Optum" class="logo-slider__logo">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/Fifth-Third-Bank-300x222.png.webp" alt="Fifth Third Bank" class="logo-slider__logo">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/betterhelp.png.webp" alt="BetterHelp" class="logo-slider__logo">
+          <!-- Duplicate set for seamless infinite loop -->
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/recursion.png.webp" alt="" class="logo-slider__logo" aria-hidden="true">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/akamai.png.webp" alt="" class="logo-slider__logo" aria-hidden="true">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/ppg.png.webp" alt="" class="logo-slider__logo" aria-hidden="true">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/merck.png.webp" alt="" class="logo-slider__logo" aria-hidden="true">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/Optum.png.webp" alt="" class="logo-slider__logo" aria-hidden="true">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/Fifth-Third-Bank-300x222.png.webp" alt="" class="logo-slider__logo" aria-hidden="true">
+          <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2025/02/betterhelp.png.webp" alt="" class="logo-slider__logo" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== S1b: MAIN VALUES ========== -->
+  <div class="section--dark values-section" aria-label="Core value propositions">
+    <div class="container">
+      <div class="values-triplet">
+        <p class="values-triplet__item"><span class="values-triplet__accent">Accurate understanding</span> of what your applications do.</p>
+        <p class="values-triplet__item"><span class="values-triplet__accent">One source of truth</span> for stakeholders and AI.</p>
+        <p class="values-triplet__item"><span class="values-triplet__accent">Confidence to execute</span> high-stakes modernization.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== S2: CORE DIFFERENTIATION ========== -->
+  <section id="differentiation" class="section section--light">
+    <div class="container">
+      <div class="section__header">
+        <h2>Not inferred. Not summarized. Deterministic.</h2>
+      </div>
+      <div class="grid-3">
+        <div class="diff-card">
+          <h3>Traceable to source.</h3>
+          <p>Business rules and decision paths extracted through deterministic code analysis. Understanding you can verify and defend, not AI-generated summaries taken on faith.</p>
+        </div>
+        <div class="diff-card">
+          <h3>Complete, not fragmented.</h3>
+          <p>File-by-file analysis leaves teams stitching fragments. Swimm maps how systems process data, make decisions, and interact across boundaries.</p>
+        </div>
+        <div class="diff-card">
+          <h3>Readable across the business.</h3>
+          <p>Decision logic and data flows expressed so stakeholders, not just engineers, can read, verify, and act.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== S3: ONE UNDERSTANDING ========== -->
+  <section id="one-understanding" class="section section--light">
+    <div class="container">
+      <div class="section__header">
+        <h2>One understanding for people and AI.</h2>
+      </div>
+      <p class="roles__body">Business analysts read and verify rules in their own language. Architects trace dependencies across system boundaries. AI agents consume structured context for code and test generation.</p>
+      <p class="roles__closing">No reconciliation. No drift.</p>
+
+      <div class="proof-bar">
+        <div class="proof-bar__item">
+          <span class="proof-bar__number">90%</span>
+          <span class="proof-bar__label">faster business rule extraction</span>
+        </div>
+        <div class="proof-bar__item">
+          <span class="proof-bar__number">100M+</span>
+          <span class="proof-bar__label">lines of code analyzed</span>
+        </div>
+        <div class="proof-bar__item">
+          <span class="proof-bar__number">50%</span>
+          <span class="proof-bar__label">faster onboarding</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial__quote">Customer testimonial placeholder</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== S4: PRODUCT FEATURES ========== -->
+  <section id="features" class="section section--dark">
+    <div class="container">
+      <div class="section__header">
+        <h2>End-to-end application behavior.</h2>
+      </div>
+      <div class="grid-4">
+        <div class="feature-card">
+          <h3>Business rule extraction.</h3>
+          <p>Decision logic, validations, and policies identified and documented in language stakeholders can read and verify.</p>
+          <div class="feature-card__img" aria-label="Product screenshot placeholder"></div>
+        </div>
+        <div class="feature-card">
+          <h3>Flow and dependency tracking.</h3>
+          <p>Trace execution paths from entry to exit. See how data moves and transforms across programs, jobs, and system boundaries.</p>
+          <div class="feature-card__img" aria-label="Product screenshot placeholder"></div>
+        </div>
+        <div class="feature-card">
+          <h3>Screen generation.</h3>
+          <p>Assess legacy user interfaces without running the system.</p>
+          <div class="feature-card__img" aria-label="Product screenshot placeholder"></div>
+        </div>
+        <div class="feature-card">
+          <h3>System mapping.</h3>
+          <p>Your codebase, mapped to the business functions it serves.</p>
+          <div class="feature-card__img" aria-label="Product screenshot placeholder"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== S5: ENTERPRISE VIABILITY ========== -->
+  <section class="enterprise">
+    <div class="container">
+      <h2 class="enterprise__headline">Deployed where modernization is hardest</h2>
+      <div class="enterprise__grid">
+        <div class="enterprise__item">
+          <div class="enterprise__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" role="img" aria-label="Shield with lock icon">
+              <path d="M14 1.5 L25 5.5 L25 13 C25 19.5 20 25 14 26.5 C8 25 3 19.5 3 13 L3 5.5 Z" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linejoin="round"/>
+              <rect x="10" y="13" width="8" height="6" rx="1" ry="1" fill="none" stroke="#4154FF" stroke-width="1.5"/>
+              <path d="M11.5 13 L11.5 10.5 C11.5 8.5 12.5 7.5 14 7.5 C15.5 7.5 16.5 8.5 16.5 10.5 L16.5 13" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="14" cy="16" r="0.8" fill="#4154FF"/>
+            </svg>
+          </div>
+          <div>
+            <div class="enterprise__label">Security certified</div>
+            <div class="enterprise__desc">SOC 2 and ISO 27001 compliant</div>
+          </div>
+        </div>
+        <div class="enterprise__item">
+          <div class="enterprise__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" role="img" aria-label="Server rack icon">
+              <rect x="4" y="2" width="20" height="24" rx="2" ry="2" fill="none" stroke="#4154FF" stroke-width="1.5"/>
+              <line x1="4" y1="10" x2="24" y2="10" stroke="#4154FF" stroke-width="1.5"/>
+              <line x1="4" y1="18" x2="24" y2="18" stroke="#4154FF" stroke-width="1.5"/>
+              <circle cx="8" cy="6" r="1.2" fill="#4154FF"/>
+              <line x1="12" y1="6" x2="20" y2="6" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="8" cy="14" r="1.2" fill="#4154FF"/>
+              <line x1="12" y1="14" x2="20" y2="14" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="8" cy="22" r="1.2" fill="#4154FF"/>
+              <line x1="12" y1="22" x2="20" y2="22" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="enterprise__label">On-premise deployment</div>
+            <div class="enterprise__desc">Including air-gapped environments</div>
+          </div>
+        </div>
+        <div class="enterprise__item">
+          <div class="enterprise__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" role="img" aria-label="Cube with circular arrow icon">
+              <polygon points="14,3 24,8.5 14,14 4,8.5" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linejoin="round"/>
+              <polygon points="4,8.5 14,14 14,23 4,17.5" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linejoin="round"/>
+              <polygon points="24,8.5 14,14 14,23 24,17.5" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M21 21 A5 5 0 1 1 17 26" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+              <polygon points="17,24 17,28 20,26" fill="#4154FF"/>
+            </svg>
+          </div>
+          <div>
+            <div class="enterprise__label">Customer-managed LLMs</div>
+            <div class="enterprise__desc">Your data stays in your control</div>
+          </div>
+        </div>
+        <div class="enterprise__item">
+          <div class="enterprise__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" role="img" aria-label="Ascending bar chart icon">
+              <line x1="3" y1="25" x2="25" y2="25" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="5" y="18" width="4.5" height="7" rx="1" ry="1" fill="none" stroke="#4154FF" stroke-width="1.5"/>
+              <rect x="11.75" y="12" width="4.5" height="13" rx="1" ry="1" fill="none" stroke="#4154FF" stroke-width="1.5"/>
+              <rect x="18.5" y="4" width="4.5" height="21" rx="1" ry="1" fill="none" stroke="#4154FF" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="enterprise__label">Proven at scale</div>
+            <div class="enterprise__desc">100M+ lines of code analyzed</div>
+          </div>
+        </div>
+        <div class="enterprise__item">
+          <div class="enterprise__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" role="img" aria-label="Terminal monitor icon">
+              <rect x="2" y="2" width="24" height="18" rx="2" ry="2" fill="none" stroke="#4154FF" stroke-width="1.5"/>
+              <text x="6" y="10" font-family="Inter, sans-serif" font-size="4.5" fill="#4154FF" font-weight="600">&gt;_</text>
+              <line x1="15" y1="7" x2="22" y2="7" stroke="#4154FF" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+              <line x1="6" y1="13" x2="18" y2="13" stroke="#4154FF" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+              <rect x="6" y="15" width="3" height="1" fill="#4154FF" opacity="0.7"/>
+              <line x1="14" y1="20" x2="14" y2="23" stroke="#4154FF" stroke-width="1.5"/>
+              <line x1="9" y1="23" x2="19" y2="23" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="enterprise__label">Mainframe and legacy coverage</div>
+            <div class="enterprise__desc">COBOL, JCL, PL/I, and modern languages</div>
+          </div>
+        </div>
+        <div class="enterprise__item">
+          <div class="enterprise__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" role="img" aria-label="Circular refresh arrows icon">
+              <path d="M20.5 7 A8 8 0 0 1 21 14" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M21 14 A8 8 0 0 1 14 21.5" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+              <polygon points="12,20 14,23.5 16.5,20.5" fill="#4154FF"/>
+              <path d="M7.5 21 A8 8 0 0 1 7 14" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 14 A8 8 0 0 1 14 6.5" fill="none" stroke="#4154FF" stroke-width="1.5" stroke-linecap="round"/>
+              <polygon points="16,8 14,4.5 11.5,7.5" fill="#4154FF"/>
+            </svg>
+          </div>
+          <div>
+            <div class="enterprise__label">Stays current</div>
+            <div class="enterprise__desc">Understanding updates as your code evolves</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== S6: MODERNIZATION LIFECYCLE ========== -->
+  <section class="phases">
+    <div class="container">
+      <h2 class="phases__headline">How Swimm supports the modernization lifecycle</h2>
+
+      <div class="phases__diagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 460" role="img" aria-label="Modernization lifecycle diagram showing Swimm Application Understanding as the foundation layer supporting all five phases">
+          <defs>
+            <linearGradient id="pc-grad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#4154FF" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#4154FF" stop-opacity="0.08"/>
+            </linearGradient>
+            <linearGradient id="pc-hl" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#FFF78E" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#FFF78E" stop-opacity="0.08"/>
+            </linearGradient>
+            <linearGradient id="pc-glow" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#4154FF" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#4154FF" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="pc-shimmer" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#FFF" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#FFF" stop-opacity="0.06"/>
+              <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+              <animate attributeName="x1" from="-1" to="1" dur="4s" repeatCount="indefinite"/>
+              <animate attributeName="x2" from="0" to="2" dur="4s" repeatCount="indefinite"/>
+            </linearGradient>
+          </defs>
+          <rect width="1100" height="460" fill="#1D1E2B" rx="12"/>
+          <g opacity="0.04">
+            <line x1="220" y1="0" x2="220" y2="460" stroke="#E8EAFF" stroke-width="0.5"/>
+            <line x1="440" y1="0" x2="440" y2="460" stroke="#E8EAFF" stroke-width="0.5"/>
+            <line x1="660" y1="0" x2="660" y2="460" stroke="#E8EAFF" stroke-width="0.5"/>
+            <line x1="880" y1="0" x2="880" y2="460" stroke="#E8EAFF" stroke-width="0.5"/>
+            <line x1="0" y1="115" x2="1100" y2="115" stroke="#E8EAFF" stroke-width="0.5"/>
+            <line x1="0" y1="230" x2="1100" y2="230" stroke="#E8EAFF" stroke-width="0.5"/>
+            <line x1="0" y1="345" x2="1100" y2="345" stroke="#E8EAFF" stroke-width="0.5"/>
+          </g>
+          <rect x="50" y="300" width="1000" height="70" fill="url(#pc-glow)"/>
+          <rect x="50" y="370" width="1000" height="60" rx="10" fill="#4154FF"/>
+          <rect x="50" y="370" width="1000" height="60" rx="10" fill="url(#pc-shimmer)"/>
+          <text x="550" y="405" text-anchor="middle" font-family="Inter,sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">Swimm — Application Understanding Platform</text>
+          <path id="pconn1" d="M 280,370 C 280,300 140,250 140,185" fill="none" stroke="url(#pc-grad)" stroke-width="2"/>
+          <path id="pconn2" d="M 400,370 C 400,310 345,260 345,185" fill="none" stroke="url(#pc-grad)" stroke-width="2"/>
+          <path id="pconn3" d="M 550,370 C 550,300 550,250 550,185" fill="none" stroke="url(#pc-hl)" stroke-width="2.5"/>
+          <path id="pconn4" d="M 700,370 C 700,310 755,260 755,185" fill="none" stroke="url(#pc-grad)" stroke-width="2"/>
+          <path id="pconn5" d="M 820,370 C 820,300 960,250 960,185" fill="none" stroke="url(#pc-grad)" stroke-width="2"/>
+          <circle cx="280" cy="370" r="3.5" fill="#4154FF" stroke="#8D98FF" stroke-width="0.8"/>
+          <circle cx="400" cy="370" r="3.5" fill="#4154FF" stroke="#8D98FF" stroke-width="0.8"/>
+          <circle cx="550" cy="370" r="4" fill="#4154FF" stroke="#FFF78E" stroke-width="1"/>
+          <circle cx="700" cy="370" r="3.5" fill="#4154FF" stroke="#8D98FF" stroke-width="0.8"/>
+          <circle cx="820" cy="370" r="3.5" fill="#4154FF" stroke="#8D98FF" stroke-width="0.8"/>
+          <polygon points="137,190 140,182 143,190" fill="#5E6EFF" opacity="0.6"/>
+          <polygon points="342,190 345,182 348,190" fill="#5E6EFF" opacity="0.6"/>
+          <polygon points="547,190 550,182 553,190" fill="#FFF78E" opacity="0.7"/>
+          <polygon points="752,190 755,182 758,190" fill="#5E6EFF" opacity="0.6"/>
+          <polygon points="957,190 960,182 963,190" fill="#5E6EFF" opacity="0.6"/>
+          <circle r="3" fill="#8D98FF" opacity="0"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#pconn1"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.15;0.85;1" dur="3s" repeatCount="indefinite"/></circle>
+          <circle r="3" fill="#8D98FF" opacity="0"><animateMotion dur="2.8s" repeatCount="indefinite" begin="0.5s"><mpath href="#pconn2"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.15;0.85;1" dur="2.8s" repeatCount="indefinite" begin="0.5s"/></circle>
+          <circle r="4" fill="#FFF78E" opacity="0"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0.2s"><mpath href="#pconn3"/></animateMotion><animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.15;0.85;1" dur="3.2s" repeatCount="indefinite" begin="0.2s"/></circle>
+          <circle r="3" fill="#8D98FF" opacity="0"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.8s"><mpath href="#pconn4"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.15;0.85;1" dur="2.6s" repeatCount="indefinite" begin="0.8s"/></circle>
+          <circle r="3" fill="#8D98FF" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="1.2s"><mpath href="#pconn5"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.15;0.85;1" dur="3s" repeatCount="indefinite" begin="1.2s"/></circle>
+          <!-- Card 1: Assessment -->
+          <g transform="translate(50,20)">
+            <rect width="180" height="160" rx="8" fill="#2F3142" stroke="#5E6EFF" stroke-width="0.5"/>
+            <text x="20" y="28" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#4154FF">01</text>
+            <text x="20" y="52" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Assessment</text>
+            <line x1="20" y1="62" x2="160" y2="62" stroke="#5E6EFF" stroke-width="0.5" opacity="0.2"/>
+            <text font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#8D98FF">
+              <tspan x="20" y="82">Accurate current-state</tspan>
+              <tspan x="20" y="97">baseline</tspan>
+            </text>
+          </g>
+          <!-- Card 2: Planning -->
+          <g transform="translate(255,20)">
+            <rect width="180" height="160" rx="8" fill="#2F3142" stroke="#5E6EFF" stroke-width="0.5"/>
+            <text x="20" y="28" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#4154FF">02</text>
+            <text x="20" y="52" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Planning</text>
+            <line x1="20" y1="62" x2="160" y2="62" stroke="#5E6EFF" stroke-width="0.5" opacity="0.2"/>
+            <text font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#8D98FF">
+              <tspan x="20" y="82">Architecture views</tspan>
+              <tspan x="20" y="97">&amp; system maps</tspan>
+            </text>
+          </g>
+          <!-- Card 3: Requirements (highlighted) -->
+          <g transform="translate(460,20)">
+            <rect width="180" height="160" rx="8" fill="#2F3142" stroke="#FFF78E" stroke-width="0.8" opacity="0.9"/>
+            <text x="20" y="28" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#FFF78E">03</text>
+            <text x="20" y="52" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Requirements</text>
+            <line x1="20" y1="62" x2="160" y2="62" stroke="#FFF78E" stroke-width="0.5" opacity="0.2"/>
+            <text font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#FFF78E">
+              <tspan x="20" y="82">Extracted business</tspan>
+              <tspan x="20" y="97">rules &amp; specs</tspan>
+            </text>
+          </g>
+          <!-- Card 4: Forward Engineering -->
+          <g transform="translate(665,20)">
+            <rect width="180" height="160" rx="8" fill="#2F3142" stroke="#5E6EFF" stroke-width="0.5"/>
+            <text x="20" y="28" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#4154FF">04</text>
+            <text font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">
+              <tspan x="20" y="52">Forward</tspan>
+              <tspan x="20" y="70">Engineering</tspan>
+            </text>
+            <line x1="20" y1="80" x2="160" y2="80" stroke="#5E6EFF" stroke-width="0.5" opacity="0.2"/>
+            <text font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#8D98FF">
+              <tspan x="20" y="100">Verified context for</tspan>
+              <tspan x="20" y="115">AI &amp; developers</tspan>
+            </text>
+          </g>
+          <!-- Card 5: Testing & Deploy -->
+          <g transform="translate(870,20)">
+            <rect width="180" height="160" rx="8" fill="#2F3142" stroke="#5E6EFF" stroke-width="0.5"/>
+            <text x="20" y="28" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#4154FF">05</text>
+            <text font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">
+              <tspan x="20" y="52">Testing &amp;</tspan>
+              <tspan x="20" y="70">Deploy</tspan>
+            </text>
+            <line x1="20" y1="80" x2="160" y2="80" stroke="#5E6EFF" stroke-width="0.5" opacity="0.2"/>
+            <text font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#8D98FF">
+              <tspan x="20" y="100">Baseline behavior</tspan>
+              <tspan x="20" y="115">for validation</tspan>
+            </text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="phases__mobile">
+        <div class="phases__columns">
+          <div class="phases__card">
+            <span class="phases__card-number">01</span>
+            <h3 class="phases__card-name">Assessment</h3>
+            <p class="phases__card-desc">Accurate current-state baseline.</p>
+          </div>
+          <div class="phases__card">
+            <span class="phases__card-number">02</span>
+            <h3 class="phases__card-name">Planning</h3>
+            <p class="phases__card-desc">Architecture views &amp; system maps.</p>
+          </div>
+          <div class="phases__card">
+            <span class="phases__card-number">03</span>
+            <h3 class="phases__card-name">Requirements</h3>
+            <p class="phases__card-desc">Extracted business rules &amp; specs.</p>
+          </div>
+          <div class="phases__card">
+            <span class="phases__card-number">04</span>
+            <h3 class="phases__card-name">Forward Engineering</h3>
+            <p class="phases__card-desc">Verified context for AI &amp; developers.</p>
+          </div>
+          <div class="phases__card">
+            <span class="phases__card-number">05</span>
+            <h3 class="phases__card-name">Testing &amp; Deploy</h3>
+            <p class="phases__card-desc">Baseline behavior for validation.</p>
+          </div>
+        </div>
+        <div class="phases__band">
+          <span class="phases__band-logo">Swimm</span>
+          <span class="phases__band-label">Application Understanding Platform</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== S7: GARTNER RECOGNITION ========== -->
+  <section class="validation">
+    <div class="container">
+      <div class="validation__badge">
+        <img src="https://swimm.io/wp-content/webp-express/webp-images/uploads/2024/08/Gartner-badge.png.webp" alt="Gartner Cool Vendor 2024 badge">
+      </div>
+      <h3 class="validation__title">Swimm recognized as a Gartner Cool Vendor</h3>
+      <p class="validation__body">Named a Gartner Cool Vendor for 2024 in AI-Augmented Development and Testing for Software Engineering.</p>
+    </div>
+  </section>
+
+  <!-- ========== S8: CONVERSION ========== -->
+  <section id="conversion" class="section section--dark">
+    <div class="container">
+      <h2 class="conversion__headline">Make modernization decisions you can stand behind.</h2>
+      <a href="#" class="btn btn--primary-lg">Request a demo</a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span>&copy; 2026 Swimm</span>
+        <span>Application Understanding Platform</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

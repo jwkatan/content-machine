@@ -1,0 +1,7 @@
+{
+  "name": "swimm-homepage-v2-tests",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}

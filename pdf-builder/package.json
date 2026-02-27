@@ -1,0 +1,13 @@
+{
+  "name": "swimm-pdf-builder",
+  "version": "1.0.0",
+  "description": "Branded PDF generation from HTML+CSS via Puppeteer",
+  "private": true,
+  "scripts": {
+    "generate": "node generate-pdf.js",
+    "check": "node verify/brand-check.js"
+  },
+  "dependencies": {
+    "puppeteer": "^22.6.0"
+  }
+}

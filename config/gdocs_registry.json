@@ -1,0 +1,311 @@
+{
+  "_meta": {
+    "description": "Local registry of Google Docs managed by the Apps Script integration. Source of truth for doc/tab/category mappings. Synced from Script Properties via the 'status' action.",
+    "last_synced": "2026-02-26T10:08:00.061428+00:00",
+    "version": 1
+  },
+  "categories": {
+    "competitive": {
+      "docId": "1U5Qh9NjloXx-S5RhTq6l2P81q88tAdkMu_LDmNi1vYo",
+      "docName": "competitive",
+      "tabs": [
+        {
+          "tabId": "t.965qk6vwtwxc",
+          "title": "Claude Code (Anthropic)"
+        },
+        {
+          "tabId": "t.sp72lyoq9zxd",
+          "title": "Ibm Addi"
+        },
+        {
+          "tabId": "t.vct4btdcrazl",
+          "title": "Gitlab Duo"
+        },
+        {
+          "tabId": "t.32iq2zecjn4t",
+          "title": "Cast"
+        },
+        {
+          "tabId": "t.b8m1dot23tz0",
+          "title": "Devin"
+        },
+        {
+          "tabId": "t.sxksf3vy3rnv",
+          "title": "Cast Software"
+        },
+        {
+          "tabId": "t.kanxnhrszozr",
+          "title": "Amazon Q"
+        },
+        {
+          "tabId": "t.10r1zpof64qs",
+          "title": "Github Copilot"
+        },
+        {
+          "tabId": "t.21d5a0vtfz9c",
+          "title": "Anthropic (Raw Llms)"
+        },
+        {
+          "tabId": "t.i05z13uk6iyr",
+          "title": "Modern"
+        },
+        {
+          "tabId": "t.et62k9xxp5v6",
+          "title": "Mechanical Orchard"
+        },
+        {
+          "tabId": "t.1vg59vtvlmpg",
+          "title": "Ibm Watsonx"
+        },
+        {
+          "tabId": "t.ma91y9829qlf",
+          "title": "Anthropic Claude"
+        }
+      ]
+    },
+    "product_knowledge_review": {
+      "docId": "1_SGKsbGQEQHyq8hVTANG1khYQs7NGqlCwO539AqxuWg",
+      "docName": "product_knowledge_review",
+      "tabs": [
+        {
+          "tabId": "t.51jgw9ux7otw",
+          "title": "Marketecture"
+        },
+        {
+          "tabId": "t.6w790k4y1bjn",
+          "title": "User Journeys"
+        },
+        {
+          "tabId": "t.2rxxkcm05d1j",
+          "title": "undefined"
+        },
+        {
+          "tabId": "t.qgdgx1fz8va5",
+          "title": "Pricing (post-NDA)"
+        },
+        {
+          "tabId": "t.yk3h5rsmkgul",
+          "title": "Features"
+        },
+        {
+          "tabId": "t.kuhxq3gemort",
+          "title": "Technology"
+        },
+        {
+          "tabId": "t.7n7s7kobxr89",
+          "title": "Deployment (post-NDA)"
+        },
+        {
+          "tabId": "t.xqtbf1aj60i0",
+          "title": "Integrations"
+        },
+        {
+          "tabId": "t.gj3361ok8795",
+          "title": "Language Support"
+        }
+      ]
+    },
+    "competitive-comparison-claude-cobol": {
+      "docId": "1vi89tufSeGn-7pOVeodnBDOuEfbmLzKjW-Z7By6BOFs",
+      "docName": "competitive-comparison-claude-cobol",
+      "tabs": [
+        {
+          "tabId": "t.4qmckllfsvf9",
+          "title": "Content"
+        },
+        {
+          "tabId": "t.x44fkgptsbri",
+          "title": "Final"
+        }
+      ]
+    },
+    "personas": {
+      "docId": "1hkkRHBbwZ-gizH5iC-f00mm3lewrEtAaiTPtKJlLUcg",
+      "docName": "personas",
+      "tabs": [
+        {
+          "tabId": "t.i5og5bhap8f3",
+          "title": "Analyst"
+        },
+        {
+          "tabId": "t.743eep4n7hzm",
+          "title": "Program Manager"
+        },
+        {
+          "tabId": "t.shrok83w7yie",
+          "title": "Cio"
+        },
+        {
+          "tabId": "t.sj01dc43hopu",
+          "title": "Gsi Partner"
+        },
+        {
+          "tabId": "t.4w1j36yo4nm2",
+          "title": "Developer"
+        },
+        {
+          "tabId": "t.qub6o8e8bqvr",
+          "title": "Unknown"
+        },
+        {
+          "tabId": "t.me3zhprvr4te",
+          "title": "Architect"
+        }
+      ]
+    },
+    "launch_brief_template": {
+      "docId": "10YzF_m-PIUhEPbIoUsXFDCeNSppo0bP_-wqTKKiye94",
+      "docName": "launch_brief_template",
+      "tabs": [
+        {
+          "tabId": "t.f6ghb0p36lm5",
+          "title": "Launch Brief"
+        }
+      ]
+    },
+    "sales_enablement": {
+      "docId": "1lp7YAk6MrFc6p6u7Jv6PY0D56MZ2eQQwJB8avg-cheo",
+      "docName": "sales_enablement",
+      "tabs": [
+        {
+          "tabId": "t.z8nkypker7t1",
+          "title": "Objection Handling"
+        }
+      ]
+    },
+    "launch_brief_multi_test": {
+      "docId": "1PwyFRaSiQF6qbJJ8NZC6JcVd8lY-oY2SgCLkTGHkKKU",
+      "docName": "launch_brief_multi_test",
+      "tabs": [
+        {
+          "tabId": "t.csr2hwwfzbbs",
+          "title": "Overview"
+        },
+        {
+          "tabId": "t.x1r2xo2k9ilw",
+          "title": "Details"
+        },
+        {
+          "tabId": "t.ut1xu6hn8074",
+          "title": "Action Items"
+        }
+      ]
+    },
+    "partners": {
+      "docId": "1zUhcX5lwAa3SpLVqWSv-N3s7_XJouJTXn_ZzkfSjG9U",
+      "docName": "partners",
+      "tabs": [
+        {
+          "tabId": "t.1ak1ju38sozq",
+          "title": "Kyndryl"
+        },
+        {
+          "tabId": "t.10v6yooviuro",
+          "title": "Rackspace"
+        },
+        {
+          "tabId": "t.732i8at09qj9",
+          "title": "Cognizant"
+        }
+      ]
+    },
+    "icp": {
+      "docId": "1CAEn6b7LEFZzRrV_cW3VIwsx8O6ifQaSqefXvSMHh9k",
+      "docName": "icp",
+      "tabs": [
+        {
+          "tabId": "t.2d8hiws0fskv",
+          "title": "Definition"
+        }
+      ]
+    },
+    "launch_brief_test": {
+      "docId": "171WCUDeQfhJh9j_LkEXScf2GUriqf7N4aMpf7dLRDkg",
+      "docName": "launch_brief_test",
+      "tabs": [
+        {
+          "tabId": "t.tw8x0ugnlrci",
+          "title": "Launch Brief"
+        }
+      ]
+    },
+    "messaging": {
+      "docId": "1kJSwXSZPZiOkHIMIuuFudRrsHsy8T6-4Wnpo3kuOPTQ",
+      "docName": "messaging",
+      "tabs": [
+        {
+          "tabId": "t.bud70g4kkoyn",
+          "title": "Words That Work"
+        },
+        {
+          "tabId": "t.gf1dsh5ib7j0",
+          "title": "Framework"
+        }
+      ]
+    },
+    "competitive-comparison-claude-cobol-v3": {
+      "docId": "1gCebuqTBqe6UzoKlSHtyoFLF3xXvYScdtq29hC_VQLs",
+      "docName": "competitive-comparison-claude-cobol-v3",
+      "tabs": [
+        {
+          "tabId": "t.vix65flnxq",
+          "title": "Content"
+        },
+        {
+          "tabId": "t.cmpl753de2pf",
+          "title": "v2 - Inverse Pyramid"
+        }
+      ]
+    },
+    "competitive-comparison-claude-cobol-v2": {
+      "docId": "1L8L6d66ndExLavod-FPcKSdnuS78lXuHfkFWnBEg5Nw",
+      "docName": "competitive-comparison-claude-cobol-v2",
+      "tabs": [
+        {
+          "tabId": "t.opqmnmreoet0",
+          "title": "Content"
+        }
+      ]
+    },
+    "techchannel_claude_cobol": {
+      "docId": "1SfU9rxdB8A3bR0_aPsoBYbiiIWGxr5J2qlqzEpT8IkU",
+      "docName": "techchannel_claude_cobol",
+      "tabs": [
+        {
+          "tabId": "t.ipwvfkevr4zh",
+          "title": "Article v3"
+        },
+        {
+          "tabId": "t.s2zk8wy24bm0",
+          "title": "Article v4"
+        },
+        {
+          "tabId": "t.iox3jpgu831a",
+          "title": "Article v2"
+        },
+        {
+          "tabId": "t.cr9di2p36f4l",
+          "title": "Article"
+        }
+      ]
+    },
+    "jtbd": {
+      "docId": "11wQ28rNcZAYNDWAV2ZSz-UBeqYbrkTdiScJWg5u0MI8",
+      "docName": "jtbd",
+      "tabs": [
+        {
+          "tabId": "t.eaoar4r45ahk",
+          "title": "Both"
+        },
+        {
+          "tabId": "t.6lbzcap193qx",
+          "title": "Modernization"
+        },
+        {
+          "tabId": "t.p1pfc23ormv0",
+          "title": "Maintenance"
+        }
+      ]
+    }
+  }
+}
