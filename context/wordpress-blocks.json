@@ -1,13 +1,13 @@
 {
   "fetched_at": "2026-02-04T15:40:42.960787",
-  "site_url": "https://swimm.io",
+  "site_url": "https://yourcompany.com",
   "block_count": 203,
   "blocks": [
     {
       "name": "gp/accordion",
       "title": "Accordion",
       "description": "An accordion section width images for each item",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -51,7 +51,7 @@
       "name": "gp/accordion-faq",
       "title": "FAQ Accordion",
       "description": "FAQ accordion section",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -95,7 +95,7 @@
       "name": "gp/animation-hero",
       "title": "Hero with Animation",
       "description": "Hero section with animation, list and buttons",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -139,7 +139,7 @@
       "name": "gp/article-posts",
       "title": "Article Posts",
       "description": "Article posts list",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -183,7 +183,7 @@
       "name": "gp/benefits",
       "title": "Benefits",
       "description": "A Benefits section",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -228,7 +228,7 @@
       "name": "gp/blog-posts",
       "title": "Blog Posts",
       "description": "Blog posts list",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -272,7 +272,7 @@
       "name": "gp/blue-simple-list",
       "title": "Blue Simple List",
       "description": "A blue section with list",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -316,7 +316,7 @@
       "name": "gp/brands-simple",
       "title": "Brands Simple",
       "description": "A simple section width with brands logo",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -360,7 +360,7 @@
       "name": "gp/brands-slider",
       "title": "Brands Slider",
       "description": "A slider section width with brands logo",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -402,7 +402,7 @@
       "name": "gp/calculator",
       "title": "Calculator",
       "description": "Calculator section",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -446,7 +446,7 @@
       "name": "gp/capabilities",
       "title": "Capabilities",
       "description": "A section with icon info blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -490,7 +490,7 @@
       "name": "gp/case-study-posts",
       "title": "Case Study Posts",
       "description": "Case Study posts list",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -534,7 +534,7 @@
       "name": "gp/code",
       "title": "Code Highlight",
       "description": "Block with code and Highlight",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -578,7 +578,7 @@
       "name": "gp/color-blocks",
       "title": "Color Blocks Slider",
       "description": "Block with Color Blocks in Slider",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -622,7 +622,7 @@
       "name": "gp/color-simple-blocks",
       "title": "Color Simple Blocks",
       "description": "A color background section with icon info blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -666,7 +666,7 @@
       "name": "gp/column-inner-tabs",
       "title": "Column Inner Tabs",
       "description": "Column inner tabs section, similar to accordion",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -710,7 +710,7 @@
       "name": "gp/column-tabs",
       "title": "Column Tabs",
       "description": "Column tabs section, similar to accordion",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -754,7 +754,7 @@
       "name": "gp/column-tabs-list",
       "title": "Column Tabs List",
       "description": "Column tabs section, similar to accordion with custom list",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -798,7 +798,7 @@
       "name": "gp/comeet-positions",
       "title": "Comeet Positions",
       "description": "Block with positions by \"Comeet\" shortcode",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -842,7 +842,7 @@
       "name": "gp/community-demo",
       "title": "Community Demo",
       "description": "Community demo form",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -886,7 +886,7 @@
       "name": "gp/compare",
       "title": "Compare",
       "description": "Compare section",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -930,7 +930,7 @@
       "name": "gp/compare-cobol",
       "title": "Compare Cobol",
       "description": "Compare Cobol section",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -974,7 +974,7 @@
       "name": "gp/compare-hero",
       "title": "Compare Hero",
       "description": "Hero with label, title, image and text",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1018,7 +1018,7 @@
       "name": "gp/compare-table",
       "title": "Compare Table",
       "description": "Block with compare table and title content",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1062,7 +1062,7 @@
       "name": "gp/contact-us",
       "title": "Contact Us",
       "description": "Contact Us section with form and information",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1106,7 +1106,7 @@
       "name": "gp/custom-posts",
       "title": "Custom Posts",
       "description": "Blog posts list",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1150,7 +1150,7 @@
       "name": "gp/dark-blocks",
       "title": "Dark Blocks",
       "description": "A dark section with info blocks, buttons and background",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1194,7 +1194,7 @@
       "name": "gp/dark-decor-blocks",
       "title": "Dark Decor Blocks",
       "description": "A dark section with icon info blocks and decor",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1238,7 +1238,7 @@
       "name": "gp/dark-hero",
       "title": "Dark Hero",
       "description": "A dark hero section width background, label, title, video and buttons",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1282,7 +1282,7 @@
       "name": "gp/divider-text",
       "title": "Divider Text",
       "description": "Text divider section",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1326,7 +1326,7 @@
       "name": "gp/download-form",
       "title": "Downlaod form",
       "description": "A section width title, text and field for integration Hubspot form",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1370,7 +1370,7 @@
       "name": "gp/download-posts",
       "title": "Download Posts",
       "description": "Download posts list",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1414,7 +1414,7 @@
       "name": "gp/feedback",
       "title": "Feedback",
       "description": "Section with feedback",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1458,7 +1458,7 @@
       "name": "gp/feedback-carousel",
       "title": "Feedback Carousel",
       "description": "Section with feedbacks carousel",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "name": {
           "type": "string",
@@ -1500,7 +1500,7 @@
       "name": "gp/feedbacks-slider",
       "title": "Feedbacks Slider",
       "description": "Block Feedbacks in Slider",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1544,7 +1544,7 @@
       "name": "gp/form-content",
       "title": "Form Content",
       "description": "HubSpot form with text content",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1588,7 +1588,7 @@
       "name": "gp/gallery-hero",
       "title": "Hero with Gallery",
       "description": "Hero section with gallery and title label",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1632,7 +1632,7 @@
       "name": "gp/gradient-hero",
       "title": "Gradient Hero",
       "description": "Gradient hero section with title, text, buttons and additional images",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1676,7 +1676,7 @@
       "name": "gp/graphics-hero",
       "title": "Graphics Hero",
       "description": "Simple hero section with title, text and abstract graphics hero",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1720,7 +1720,7 @@
       "name": "gp/grey-blocks",
       "title": "Grey Blocks",
       "description": "A white section with grey blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1764,7 +1764,7 @@
       "name": "gp/half-hero",
       "title": "Half Hero Content",
       "description": "Simple hero section with half title and half content",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1808,7 +1808,7 @@
       "name": "gp/half-video-hero",
       "title": "Half Video Hero Content",
       "description": "Simple hero section with half content and half video",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1852,7 +1852,7 @@
       "name": "gp/hero-wires",
       "title": "Hero Wires",
       "description": "Simple Wires hero section with half content and half video",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1896,7 +1896,7 @@
       "name": "gp/hubspot-form",
       "title": "Hubspot form",
       "description": "A section width field for integration Hubspot form",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1940,7 +1940,7 @@
       "name": "gp/icon-hero",
       "title": "Hero with Icon",
       "description": "Simple hero section with title and icon",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -1984,7 +1984,7 @@
       "name": "gp/image-hero",
       "title": "Hero with Image",
       "description": "Simple hero section with label, title and image or video",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2028,7 +2028,7 @@
       "name": "gp/info-cards",
       "title": "Info Cards",
       "description": "Section with repeatable information cards",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2072,7 +2072,7 @@
       "name": "gp/intagration-cards",
       "title": "Integration Crads",
       "description": "Sections with integration cards and filter",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2116,7 +2116,7 @@
       "name": "gp/integrations",
       "title": "Integrations List",
       "description": "Integrations List",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2160,7 +2160,7 @@
       "name": "gp/integrations-grid",
       "title": "Integrations Grid",
       "description": "Integrations grid section with vertical text slider",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2204,7 +2204,7 @@
       "name": "gp/integrations-simple",
       "title": "Integrations Simple",
       "description": "Integrations Simple grid section with vertical text slider",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2248,7 +2248,7 @@
       "name": "gp/interview",
       "title": "Interview",
       "description": "A section width fields for interview",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2292,7 +2292,7 @@
       "name": "gp/long-hero",
       "title": "Long Hero",
       "description": "Long hero section with content and logos slider",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2337,7 +2337,7 @@
       "name": "gp/multimedia",
       "title": "Multimedia",
       "description": "Section with video or image with responsive option and content",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2381,7 +2381,7 @@
       "name": "gp/newspaper-simple",
       "title": "Newspaper Simple",
       "description": "A simple section title, text image and link",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2425,7 +2425,7 @@
       "name": "gp/persons-partners",
       "title": "Persons & Partners",
       "description": "Section with color underscore title, color logo cards, person cards",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2469,7 +2469,7 @@
       "name": "gp/popup-product-tour",
       "title": "Popup - Product Tour",
       "description": "Popup with title and field for integration code (for ex. Hubspot)",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2513,7 +2513,7 @@
       "name": "gp/posts-center",
       "title": "Posts Center",
       "description": "Section with posts by post type",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2557,7 +2557,7 @@
       "name": "gp/pricing-cards",
       "title": "Pricing Cards",
       "description": "Pricing Plans Cards section",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2601,7 +2601,7 @@
       "name": "gp/pricing-tables",
       "title": "Pricing Tables",
       "description": "Pricing Compare Tables section",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2645,7 +2645,7 @@
       "name": "gp/prompt-block",
       "title": "Prompt Block",
       "description": "Block with code and Prompt",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2689,7 +2689,7 @@
       "name": "gp/request-demo",
       "title": "Request Demo",
       "description": "Request demo form",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2733,7 +2733,7 @@
       "name": "gp/schedule-demo",
       "title": "Schedule Demo",
       "description": "Schedule demo form",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2777,7 +2777,7 @@
       "name": "gp/simple-background",
       "title": "Simple with Background",
       "description": "A simple section width background, title and buttons",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2821,7 +2821,7 @@
       "name": "gp/simple-gradient",
       "title": "Simple with Gradient",
       "description": "A simple section width gradient background, title and buttons",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2865,7 +2865,7 @@
       "name": "gp/simple-text",
       "title": "Simple with Text",
       "description": "A simple section title, text and buttons",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2909,7 +2909,7 @@
       "name": "gp/simple-wires",
       "title": "Simple with Wires",
       "description": "A simple section title, text, buttons and wires background",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2953,7 +2953,7 @@
       "name": "gp/subscribe",
       "title": "Subscribe",
       "description": "A section width image, title, text and field for integration code (for ex. Hubspot)",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -2997,7 +2997,7 @@
       "name": "gp/tab-images",
       "title": "Tab Images",
       "description": "Tab images blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3041,7 +3041,7 @@
       "name": "gp/table",
       "title": "Table",
       "description": "Block with custom table",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3085,7 +3085,7 @@
       "name": "gp/text-benefits",
       "title": "Text Benefits",
       "description": "Text benefits section",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3130,7 +3130,7 @@
       "name": "gp/title-label",
       "title": "Title with label",
       "description": "Section with color underscore title, label, image and button",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3174,7 +3174,7 @@
       "name": "gp/use-case",
       "title": "Use Case",
       "description": "Use case section with title and blocks repeater",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3218,7 +3218,7 @@
       "name": "gp/vidoe-benefits",
       "title": "Video Benefits",
       "description": "Section with repeat blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3262,7 +3262,7 @@
       "name": "gp/video-benefits-wires",
       "title": "Video Benefits Wires",
       "description": "Section with repeat blocks with wires decor",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3306,7 +3306,7 @@
       "name": "gp/video-hero",
       "title": "Hero with Video",
       "description": "Hero section with title and video",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3350,7 +3350,7 @@
       "name": "gp/video-tour",
       "title": "Video tour",
       "description": "Section with video tour",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3394,7 +3394,7 @@
       "name": "gp/video-tour-timeline",
       "title": "Video tour Timeline",
       "description": "Section with video timeline tour",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3438,7 +3438,7 @@
       "name": "gp/vidoes-list",
       "title": "Videos List",
       "description": "Section with videos",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3482,7 +3482,7 @@
       "name": "gp/wave-hero",
       "title": "Wave Hero",
       "description": "Hero section with title and animated wave",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3526,7 +3526,7 @@
       "name": "gp/webinar-form",
       "title": "Webinar Form",
       "description": "A section width title, Hubspot form, speakers information and webinar video",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3570,7 +3570,7 @@
       "name": "gp/webinar-hero",
       "title": "Webinar Hero",
       "description": "Webinar hero section with title, date, speakers, text and Hubspot form",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3614,7 +3614,7 @@
       "name": "gp/webinar-posts",
       "title": "Webinar Posts",
       "description": "Webinar posts list",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3658,7 +3658,7 @@
       "name": "gp/white-bg-blocks",
       "title": "White Background Blocks",
       "description": "A white section with icon info blocks and background",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3702,7 +3702,7 @@
       "name": "gp/white-blocks",
       "title": "White Blocks",
       "description": "A white section with info blocks, buttons",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3746,7 +3746,7 @@
       "name": "gp/white-color-blocks",
       "title": "White Color Blocks",
       "description": "A white section info blocks with color text and buttons",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3790,7 +3790,7 @@
       "name": "gp/white-icon-blocks",
       "title": "White Icon Blocks",
       "description": "A white section with icon info blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3834,7 +3834,7 @@
       "name": "gp/white-image-blocks",
       "title": "White Image Blocks",
       "description": "A white section with image blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3878,7 +3878,7 @@
       "name": "gp/white-label-blocks",
       "title": "White Label Blocks",
       "description": "A white section with icon labeled info blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3922,7 +3922,7 @@
       "name": "gp/white-number-blocks",
       "title": "White Number Blocks",
       "description": "A white section with number info blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -3966,7 +3966,7 @@
       "name": "gp/white-simple-blocks",
       "title": "White Simple Blocks",
       "description": "A white section with icon info blocks",
-      "category": "bcswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4010,7 +4010,7 @@
       "name": "gp/buttons",
       "title": "Component: Buttons",
       "description": "Buttons content element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4054,7 +4054,7 @@
       "name": "gp/buttons-badge",
       "title": "Component: Badge Buttons",
       "description": "Badge Buttons content element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4098,7 +4098,7 @@
       "name": "gp/card-color",
       "title": "Component: Card Color",
       "description": "Color card element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4142,7 +4142,7 @@
       "name": "gp/card-icon",
       "title": "Component: Card Icon",
       "description": "Card Icon element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4186,7 +4186,7 @@
       "name": "gp/card-logo",
       "title": "Component: Card Logo",
       "description": "Integration card element with logo image",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4230,7 +4230,7 @@
       "name": "gp/card-post",
       "title": "Component: Card Post",
       "description": "Post's Card element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4274,7 +4274,7 @@
       "name": "gp/form",
       "title": "Component: Form",
       "description": "Hubspot form element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4318,7 +4318,7 @@
       "name": "gp/html-code",
       "title": "Component: HTML editor",
       "description": "HTML murkup code admin editor",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4362,7 +4362,7 @@
       "name": "gp/image-details",
       "title": "Component: Image Details",
       "description": "Image/icon with text details content element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4406,7 +4406,7 @@
       "name": "gp/pricing-card",
       "title": "Component: Pricing Card",
       "description": "Pricing Card component",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4450,7 +4450,7 @@
       "name": "gp/tags",
       "title": "Component: Tags",
       "description": "Tags element with different styles",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4494,7 +4494,7 @@
       "name": "gp/text",
       "title": "Component: Text",
       "description": "Text content element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4538,7 +4538,7 @@
       "name": "gp/tips",
       "title": "Component: Tips",
       "description": "Expert tips element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",
@@ -4582,7 +4582,7 @@
       "name": "gp/title",
       "title": "Component: Title",
       "description": "Title text element",
-      "category": "cmswimm",
+      "category": "custom",
       "attributes": {
         "align": {
           "type": "string",

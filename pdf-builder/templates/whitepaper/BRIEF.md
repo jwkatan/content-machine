@@ -1,4 +1,4 @@
-# Swimm Whitepaper — Design Specification
+# [Company Name] Whitepaper — Design Specification
 
 This is the source of truth for every visual decision. All measurements were extracted
 from the Figma file `UYfMt04X79c7y7YXAhy3DI` (Guides). Figma canvas is 595 × 842px at 72 dpi.
@@ -27,7 +27,7 @@ These are the only hex values permitted anywhere in the output.
 
 ```
 --blue-deep-dive:   #1F35FF   (primary brand blue, darkest)
---blue-swimm:       #4154FF   (Swimm Blue — primary CTA, signature color)
+--blue-brand:       #4154FF   (Brand Blue — primary CTA, signature color)
 --blue-coastal:     #5E6EFF   (body bar, callout border, back cover CTA button)
 --blue-shallow:     #8D98FF   (page numbers, muted text)
 --blue-feet:        #E4E7FF   (callout bg, graphic placeholder, table header bg)
@@ -108,7 +108,7 @@ Two white gradient fades soften the grid:
   - `.cover-title-block` — contains two `<p>` lines:
     - `.cover-title-bold` — Roc Grotesk 700, 31pt/35pt, `#1D1E2B`
     - `.cover-title-regular` — Roc Grotesk 400, 31pt/35pt, `#1D1E2B`
-  - `.cover-asterisk` — `16.5pt × 16.5pt` — Swimm ✳ brand mark (Figma asset URL, expires)
+  - `.cover-asterisk` — `16.5pt × 16.5pt` — Brand ✳ brand mark (Figma asset URL, expires)
 
 **Wave illustration** (`.cover-wave`):
 - Position: `top: 52.14%; left: 0; width: 100%; height: 29.21%`

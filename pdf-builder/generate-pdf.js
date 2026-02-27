@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 /**
- * Swimm branded PDF generator.
+ * Branded PDF generator.
  *
  * Usage:
  *   node generate-pdf.js <input.html> [output.pdf]

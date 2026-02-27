@@ -122,7 +122,7 @@ Typical sales deck flow:
 4. `PROBLEM` — Their pain point
 5. `SOLUTION` — Your answer
 6. `OUTCOMES_METRICS` — 3 headline numbers
-7. `DIFFERENTIATORS` — Why Swimm specifically
+7. `DIFFERENTIATORS` — Why [Company Name] specifically
 8. `CASE_STUDY_3COL` or `CUSTOMER_QUOTE` — Proof
 9. `PILOT` — How to start
 10. `THANK_YOU_A` — Close with contact info

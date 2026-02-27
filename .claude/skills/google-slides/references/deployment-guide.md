@@ -3,7 +3,7 @@
 ## Initial Setup
 
 1. Go to [script.google.com](https://script.google.com) -> New project
-2. Name it "Swimm Slides Publisher" (or similar)
+2. Name it "Content Machine Slides Publisher" (or similar)
 3. Paste the code from `config/gslides_publisher_apps_script.js`
 4. Go to **Project Settings** (gear) -> **Script Properties** -> Add:
    - `API_KEY` = (generate a random string, e.g., `openssl rand -base64 32`)

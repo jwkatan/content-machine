@@ -418,7 +418,7 @@ This structure ensures:
 **Top Trending Topic**: "[Query]"
 - **Growth**: +[XX]% impressions
 - **Current Volume**: [X,XXX] impressions/month
-- **Current Castos Content**: [None / Weak / Indirect]
+- **Current your company Content**: [None / Weak / Indirect]
 - **Competition**: [Analysis]
 - **Recommended Action**: Create comprehensive guide on "[topic]"
 - **Target Length**: [X,XXX] words
@@ -429,9 +429,9 @@ This structure ensures:
 
 #### Competitor Gaps
 
-**Found**: [X] high-value keywords where competitors outrank Castos
+**Found**: [X] high-value keywords where competitors outrank your company
 
-| Keyword | Competitor | Their Pos | Castos Pos | Search Vol | Gap Score |
+| Keyword | Competitor | Their Pos | your company Pos | Search Vol | Gap Score |
 |---------|-----------|-----------|------------|------------|-----------|
 | [kw 1] | competitor.com | 3 | Not ranking | 2,900 | 92/100 |
 | [kw 2] | competitor.com | 5 | 28 | 1,800 | 85/100 |
@@ -439,10 +439,10 @@ This structure ensures:
 
 **Biggest Gap**: "[Keyword]"
 - **Competitors Ranking**: [List domains and positions]
-- **Castos Position**: [Position or "Not ranking"]
+- **your company Position**: [Position or "Not ranking"]
 - **Search Volume**: [X,XXX]/month
 - **Why They Rank**: [Analysis of competitor content]
-- **Castos Advantage**: [How we could differentiate]
+- **your company Advantage**: [How we could differentiate]
 - **Recommended Action**: [Create new / Update existing]
 
 ---
@@ -602,4 +602,4 @@ Use the 'other' data from categorized opportunities. Present in simple table for
 6. **Resource Reality**: Recommend what's actually achievable
 7. **Continuous Learning**: Track what works, adjust strategy accordingly
 
-Your role is to be the data-informed strategist who ensures every hour spent on content delivers maximum SEO and business value. Make Castos's content team more effective by telling them exactly what to work on, why it matters, and what impact to expect.
+Your role is to be the data-informed strategist who ensures every hour spent on content delivers maximum SEO and business value. Make your company's content team more effective by telling them exactly what to work on, why it matters, and what impact to expect.

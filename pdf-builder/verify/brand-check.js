@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * brand-check.js — Swimm whitepaper brand compliance checker
+ * brand-check.js — Whitepaper brand compliance checker
  *
  * Usage:
  *   node verify/brand-check.js reference/template.html
  *   node verify/brand-check.js path/to/your/output.html
  *
  * Checks:
- *   1. All hex colors are in the Swimm approved palette
+ *   1. All hex colors are in the approved palette
  *   2. Required font families are declared
  *   3. Page size is set to A4
  *   4. print-color-adjust is set (backgrounds will print)
@@ -91,7 +91,7 @@ function run(filePath) {
   let violations = 0;
   let warnings = 0;
 
-  console.log(`\nSwimm Brand Checker — ${path.basename(absPath)}`);
+  console.log(`\nBrand Checker — ${path.basename(absPath)}`);
   console.log('─'.repeat(60));
 
   // ── 1. Color check ──────────────────────────────────────────────────────

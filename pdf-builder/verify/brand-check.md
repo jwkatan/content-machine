@@ -23,11 +23,11 @@ node verify/brand-check.js reference/template.html
 
 - [ ] White background with a subtle square grid (light blue `#E8EAFF` lines, ~7mm cells)
 - [ ] Two gradient fades visible — white softening the grid at top and bottom
-- [ ] Swimm logo in top-left corner, not stretched (correct aspect ratio)
+- [ ] Company logo in top-left corner, not stretched (correct aspect ratio)
 - [ ] "Whitepaper" label in Mulish Regular above the title
 - [ ] Title renders in two lines: first line **bold**, second line regular weight — both same size
 - [ ] Title color is dark charcoal `#1D1E2B`, not black
-- [ ] Swimm ✳ asterisk icon visible below the title block
+- [ ] Brand mark icon visible below the title block
 - [ ] Wave illustration visible in the lower half of the page
 - [ ] No bleed or overflow from the wave image
 
@@ -40,7 +40,7 @@ node verify/brand-check.js reference/template.html
 - [ ] Chapter heading in Roc Grotesk Bold — noticeably larger than body text
 - [ ] Body text in Mulish — readable at ~12pt
 - [ ] Content does not overflow below the footer divider
-- [ ] Swimm logo in footer (bottom-left), correctly sized (not stretched)
+- [ ] Company logo in footer (bottom-left), correctly sized (not stretched)
 - [ ] Page number in bottom-right, muted blue `#8D98FF`
 - [ ] Thin divider line above footer (`#D7DBFF`)
 
@@ -69,7 +69,7 @@ node verify/brand-check.js reference/template.html
 ## 4. Back cover
 
 - [ ] Dark charcoal background `#1D1E2B` — not black
-- [ ] Swimm logo centered, rendered in white (inverted from dark SVG)
+- [ ] Company logo centered, rendered in white (inverted from dark SVG)
 - [ ] Tagline text in white, Mulish Regular, centered
 - [ ] CTA button: indigo `#5E6EFF`, rounded corners, white Roc Grotesk Bold text
 - [ ] Decorative hand/cursor icon visible overlapping the button
@@ -96,7 +96,7 @@ node verify/brand-check.js your-template.html
 ```
 
 Then visually confirm:
-- [ ] No bright red, green, or orange anywhere (these are not in the Swimm palette)
+- [ ] No bright red, green, or orange anywhere (these are not in your brand palette)
 - [ ] Blues are cool-toned indigo, not sky blue or royal blue
 - [ ] Dark areas use `#1D1E2B` charcoal, not pure `#000000` black
 - [ ] Light grey areas use `#F4F6FA`, not pure `#FFFFFF` white

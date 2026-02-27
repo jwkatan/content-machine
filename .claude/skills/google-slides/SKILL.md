@@ -15,7 +15,7 @@ allowed-tools:
 
 # Google Slides via Apps Script
 
-This skill creates branded Swimm presentations by duplicating a Google Slides template and filling placeholder tokens with content. All operations happen via HTTP POST to an Apps Script endpoint.
+This skill creates branded presentations by duplicating a Google Slides template and filling placeholder tokens with content. All operations happen via HTTP POST to an Apps Script endpoint.
 
 ## Architecture
 
@@ -219,7 +219,7 @@ Typical BFSI sales deck flow:
 4. `PROBLEM` — Their pain point
 5. `SOLUTION` — Your answer
 6. `OUTCOMES_METRICS` — 3 headline numbers
-7. `DIFFERENTIATORS` — Why Swimm specifically
+7. `DIFFERENTIATORS` — Why [Company Name] specifically
 8. `CASE_STUDY_3COL` or `CUSTOMER_QUOTE` — Proof
 9. `PILOT` — How to start
 10. `THANK_YOU_A` — Close with contact info

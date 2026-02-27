@@ -4,7 +4,7 @@
   HOW TO USE THIS FILE
   ────────────────────
   Fill in your content below. Claude will read this file and produce a
-  brand-approved PDF that matches the Swimm design spec in BRIEF.md.
+  brand-approved PDF that matches the design spec in BRIEF.md.
 
   WHAT YOU CONTROL HERE:
   - Cover title (two lines: bold + light)
@@ -27,9 +27,9 @@ title-bold: "Accelerating COBOL modernization"
 title-regular: "closing the knowledge gap"
 
 <!-- ✏️ BACK COVER -->
-tagline: "Swimm is an Application Understanding Platform for legacy and mainframe applications"
+tagline: "[Company Name] helps [target audience] achieve [key outcome]"
 cta-text: "Close the knowledge gap today"
-cta-url: "https://swimm.io/"
+cta-url: "https://yourcompany.com/"
 ---
 
 <!--
@@ -94,7 +94,7 @@ More text here. Lists work too:
 | Approach | Time to value | Risk level |
 |---|---|---|
 | Manual documentation | 12–18 months | High |
-| Swimm auto-docs | 2–4 weeks | Low |
+| Automated documentation | 2–4 weeks | Low |
 | Outsourced rewrite | 24+ months | Very high |
 
 <!--

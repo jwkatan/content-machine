@@ -1,5 +1,5 @@
 {
-  "name": "swimm-pdf-builder",
+  "name": "content-machine-pdf-builder",
   "version": "1.0.0",
   "description": "Branded PDF generation from HTML+CSS via Puppeteer",
   "private": true,
