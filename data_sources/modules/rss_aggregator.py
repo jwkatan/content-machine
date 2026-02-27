@@ -51,88 +51,63 @@ class RSSAggregator:
     Fetches and filters RSS feeds for LinkedIn content ideas.
     """
 
-    # Hardcoded feed configuration - focused on enterprise IT, BFSI, and mainframe
-    FEEDS = [
-        # Mainframe / Legacy specific
-        {
-            "name": "Planet Mainframe",
-            "url": "https://planetmainframe.com/feed/",
-            "topics": ["mainframe", "cobol", "z/os", "skills gap"]
-        },
-        {
-            "name": "TechChannel",
-            "url": "https://techchannel.com/feed/",
-            "topics": ["ibm z", "mainframe", "modernization", "ai"]
-        },
-        {
-            "name": "IT Jungle",
-            "url": "https://www.itjungle.com/feed/",
-            "topics": ["ibm i", "as400", "enterprise", "modernization"]
-        },
-        # BFSI / Fintech
-        {
-            "name": "Finextra",
-            "url": "https://www.finextra.com/rss/headlines.aspx",
-            "topics": ["banking", "fintech", "payments", "enterprise"]
-        },
-        # Enterprise IT leadership
-        {
-            "name": "CIO.com",
-            "url": "https://www.cio.com/feed/",
-            "topics": ["cio", "enterprise", "digital transformation"]
-        },
-        {
-            "name": "ComputerWeekly",
-            "url": "https://www.computerweekly.com/rss/All-Computer-Weekly-content.xml",
-            "topics": ["enterprise IT", "banking", "infrastructure"]
-        },
-        {
-            "name": "The Register",
-            "url": "https://www.theregister.com/headlines.atom",
-            "topics": ["enterprise", "infrastructure", "security"]
-        },
-        # Developer / Platform
-        {
-            "name": "The New Stack",
-            "url": "https://thenewstack.io/feed/",
-            "topics": ["cloud native", "devops", "platform engineering"]
-        },
-        {
-            "name": "InfoQ",
-            "url": "https://www.infoq.com/feed/",
-            "topics": ["architecture", "devops", "enterprise"]
-        },
-        {
-            "name": "Pragmatic Engineer",
-            "url": "https://blog.pragmaticengineer.com/rss/",
-            "topics": ["engineering management", "tech leadership", "software engineering"]
-        }
+    # Feed configuration loaded from JSON config, with fallback defaults
+    _CONFIG_DIR = Path(__file__).parent.parent / 'config'
+
+    _DEFAULT_FEEDS = [
+        {"name": "Planet Mainframe", "url": "https://planetmainframe.com/feed/", "topics": ["mainframe", "cobol", "z/os", "skills gap"]},
+        {"name": "TechChannel", "url": "https://techchannel.com/feed/", "topics": ["ibm z", "mainframe", "modernization", "ai"]},
+        {"name": "IT Jungle", "url": "https://www.itjungle.com/feed/", "topics": ["ibm i", "as400", "enterprise", "modernization"]},
+        {"name": "Finextra", "url": "https://www.finextra.com/rss/headlines.aspx", "topics": ["banking", "fintech", "payments", "enterprise"]},
+        {"name": "CIO.com", "url": "https://www.cio.com/feed/", "topics": ["cio", "enterprise", "digital transformation"]},
+        {"name": "ComputerWeekly", "url": "https://www.computerweekly.com/rss/All-Computer-Weekly-content.xml", "topics": ["enterprise IT", "banking", "infrastructure"]},
+        {"name": "The Register", "url": "https://www.theregister.com/headlines.atom", "topics": ["enterprise", "infrastructure", "security"]},
+        {"name": "The New Stack", "url": "https://thenewstack.io/feed/", "topics": ["cloud native", "devops", "platform engineering"]},
+        {"name": "InfoQ", "url": "https://www.infoq.com/feed/", "topics": ["architecture", "devops", "enterprise"]},
+        {"name": "Pragmatic Engineer", "url": "https://blog.pragmaticengineer.com/rss/", "topics": ["engineering management", "tech leadership", "software engineering"]},
     ]
 
-    # Keywords for relevance filtering - enterprise IT, BFSI, and mainframe focus
-    RELEVANCE_KEYWORDS = [
-        # Legacy modernization (core to Swimm)
+    _DEFAULT_RELEVANCE_KEYWORDS = [
         "legacy", "modernization", "cobol", "mainframe", "migration",
         "legacy code", "legacy system", "technical debt",
         "ibm z", "z/os", "ibm i", "as400", "iseries",
         "jcl", "cics", "db2", "replatform",
-        # BFSI specific
         "banking", "financial services", "fintech", "insurance",
         "core banking", "payments", "regulatory", "compliance",
-        # AI and coding
         "ai coding", "code assistant", "llm", "copilot", "ai agent",
         "generative ai", "genai", "ai developer",
-        # Developer productivity
         "developer productivity", "developer experience",
         "onboarding", "documentation", "knowledge management",
         "skills gap", "talent shortage",
-        # Enterprise architecture
         "enterprise architecture", "digital transformation",
         "cloud migration", "hybrid cloud", "platform engineering",
-        # Tech leadership
         "cto", "cio", "engineering leader", "tech leadership",
-        "engineering management", "software engineering"
+        "engineering management", "software engineering",
     ]
+
+    @classmethod
+    def _load_json_config(cls, filename, default):
+        """Load a JSON config file, falling back to default if not found."""
+        config_path = cls._CONFIG_DIR / filename
+        if config_path.exists():
+            try:
+                with open(config_path, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except (json.JSONDecodeError, IOError):
+                pass
+        return default
+
+    @classmethod
+    def _get_feeds(cls):
+        return cls._load_json_config('rss_feeds.json', cls._DEFAULT_FEEDS)
+
+    @classmethod
+    def _get_relevance_keywords(cls):
+        return cls._load_json_config('relevance_keywords.json', cls._DEFAULT_RELEVANCE_KEYWORDS)
+
+    # Class-level properties populated at first access
+    FEEDS = None
+    RELEVANCE_KEYWORDS = None
 
     # Keywords that suggest CEO vs company post
     CEO_KEYWORDS = [
@@ -165,6 +140,12 @@ class RSSAggregator:
         """
         if not FEEDPARSER_AVAILABLE:
             raise ImportError("feedparser is required. Install with: pip install feedparser")
+
+        # Load feeds and keywords from JSON config (with fallback to defaults)
+        if self.__class__.FEEDS is None:
+            self.__class__.FEEDS = self._get_feeds()
+        if self.__class__.RELEVANCE_KEYWORDS is None:
+            self.__class__.RELEVANCE_KEYWORDS = self._get_relevance_keywords()
 
         self.output_dir = Path(output_dir) if output_dir else Path("content/topics/linkedin/ideas")
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -250,7 +231,7 @@ class RSSAggregator:
 
     def filter_relevant(self, items: List[FeedItem]) -> List[FeedItem]:
         """
-        Filter and score items by relevance to Swimm's topics.
+        Filter and score items by relevance to configured topics.
 
         Args:
             items: List of FeedItem objects
@@ -408,7 +389,7 @@ relevance: {item.relevance_score:.2f}
 
 ## Angle (optional)
 Suggested approach based on source:
-- **Company angle**: Position Swimm's expertise on this topic
+- **Company angle**: Position company expertise on this topic
 - **CEO angle**: Personal take, contrarian view, or lessons learned
 
 ## Source

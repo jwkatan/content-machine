@@ -3,6 +3,7 @@ Export detailed opportunities data for performance review
 """
 
 import json
+import os
 from modules.data_aggregator import DataAggregator
 
 if __name__ == "__main__":
@@ -64,7 +65,8 @@ if __name__ == "__main__":
     print(json.dumps(report['summary'], indent=2))
 
     # Save to JSON for reference
-    with open('/Users/jonweidberg/swimm/swimm_content_creation/tests/seomachine/data_sources/opportunities_export.json', 'w') as f:
+    _export_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'opportunities_export.json')
+    with open(_export_path, 'w') as f:
         json.dump({
             'summary': report['summary'],
             'opportunities': opportunities,

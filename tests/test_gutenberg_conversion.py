@@ -74,9 +74,9 @@ class TestParagraphBlock:
         assert '<!-- /wp:paragraph -->' in result
 
     def test_paragraph_with_link(self):
-        result = markdown_to_gutenberg("Check out [Swimm](https://swimm.io) for more.")
+        result = markdown_to_gutenberg("Check out [Example](https://example.com) for more.")
         assert '<!-- wp:paragraph -->' in result
-        assert '<a href="https://swimm.io">Swimm</a>' in result
+        assert '<a href="https://example.com">Example</a>' in result
 
     def test_paragraph_with_bold(self):
         result = markdown_to_gutenberg("This is **important** text.")
@@ -147,9 +147,9 @@ class TestListBlock:
         assert '<li><strong>Feature two</strong>: Another description</li>' in result
 
     def test_list_with_links(self):
-        md = "- [Swimm](https://swimm.io) for docs\n- [GitHub](https://github.com) for code"
+        md = "- [Example](https://example.com) for docs\n- [GitHub](https://github.com) for code"
         result = markdown_to_gutenberg(md)
-        assert '<a href="https://swimm.io">Swimm</a>' in result
+        assert '<a href="https://example.com">Example</a>' in result
         assert '<a href="https://github.com">GitHub</a>' in result
 
     def test_asterisk_list(self):
@@ -266,10 +266,10 @@ class TestTableBlock:
         assert '<p>|' not in result
 
     def test_table_with_inline_formatting(self):
-        md = "| Tool | Description |\n|---|---|\n| **Swimm** | [Application understanding](https://swimm.io) |"
+        md = "| Tool | Description |\n|---|---|\n| **Example** | [Application understanding](https://example.com) |"
         result = markdown_to_gutenberg(md)
-        assert '<strong>Swimm</strong>' in result
-        assert '<a href="https://swimm.io">Application understanding</a>' in result
+        assert '<strong>Example</strong>' in result
+        assert '<a href="https://example.com">Application understanding</a>' in result
 
     def test_table_between_content(self):
         md = "Intro paragraph.\n\n| H1 | H2 |\n|---|---|\n| A | B |\n\nClosing paragraph."
@@ -282,7 +282,7 @@ class TestTableBlock:
         md = (
             "| Solution | Category | Strength | Model | Entry |\n"
             "|---|---|---|---|---|\n"
-            "| Swimm | Platform | Analysis | Software | Before planning |\n"
+            "| Example | Platform | Analysis | Software | Before planning |\n"
             "| IBM | Services | Delivery | Consulting | Execution |"
         )
         result = markdown_to_gutenberg(md)

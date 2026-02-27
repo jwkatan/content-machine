@@ -95,7 +95,7 @@ def main():
             try:
                 print(f"\nVerifying with DataForSEO...")
                 rankings = dfs.get_rankings(
-                    domain="castos.com",
+                    domain=os.getenv('COMPANY_DOMAIN', 'yourcompany.com'),
                     keywords=[keyword]
                 )
 

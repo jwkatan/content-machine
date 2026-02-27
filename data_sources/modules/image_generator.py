@@ -30,7 +30,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 # Logo configuration (based on Figma blog cover template)
 # At 1920x960: logo at x=69, y=835, size 228x69
-LOGO_PATH = Path(__file__).parent.parent.parent / 'context' / 'assets' / 'swimm-logo-white.svg'
+_logo_filename = os.getenv('LOGO_FILENAME', 'company-logo-white.svg')
+LOGO_PATH = Path(__file__).parent.parent.parent / 'context' / 'assets' / _logo_filename
 LOGO_MARGIN_LEFT = 69   # pixels from left edge
 LOGO_MARGIN_BOTTOM = 56  # pixels from bottom edge (960 - 835 - 69 = 56)
 LOGO_HEIGHT = 69  # target logo height in pixels
@@ -41,8 +42,12 @@ from dotenv import load_dotenv
 config_path = Path(__file__).parent.parent / 'config' / '.env'
 load_dotenv(config_path)
 
-from google import genai
-from google.genai import types
+try:
+    from google import genai
+    from google.genai import types
+    _GENAI_AVAILABLE = True
+except ImportError:
+    _GENAI_AVAILABLE = False
 
 
 # Model configuration
@@ -95,7 +100,7 @@ def timeout(seconds):
 
 def add_logo_to_image(image_path: str, logo_path: str = None) -> bool:
     """
-    Overlay the Swimm logo on the bottom-left corner of an image.
+    Overlay the company logo on the bottom-left corner of an image.
 
     Args:
         image_path: Path to the image to add logo to
@@ -154,6 +159,8 @@ def add_logo_to_image(image_path: str, logo_path: str = None) -> bool:
 
 def get_client():
     """Initialize and return the Gemini/Imagen client."""
+    if not _GENAI_AVAILABLE:
+        raise ImportError("google-genai package required. Install with: pip install google-genai")
     api_key = os.environ.get('GOOGLE_API_KEY')
     if not api_key:
         raise ValueError("GOOGLE_API_KEY not found in environment. Check data_sources/config/.env")
@@ -241,7 +248,7 @@ def generate_image(
         size: One of "1K", "2K"
         model: Model ID to use (default: gemini-3-pro-image-preview)
         use_fallback: If True, try Imagen fallback if primary model fails
-        add_logo: If True, overlay Swimm logo on bottom-left (for banners)
+        add_logo: If True, overlay company logo on bottom-left (for banners)
 
     Returns:
         dict with keys:

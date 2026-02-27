@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Planet Mainframe",
+    "url": "https://planetmainframe.com/feed/",
+    "topics": ["mainframe", "cobol", "z/os", "skills gap"]
+  },
+  {
+    "name": "TechChannel",
+    "url": "https://techchannel.com/feed/",
+    "topics": ["ibm z", "mainframe", "modernization", "ai"]
+  },
+  {
+    "name": "IT Jungle",
+    "url": "https://www.itjungle.com/feed/",
+    "topics": ["ibm i", "as400", "enterprise", "modernization"]
+  },
+  {
+    "name": "Finextra",
+    "url": "https://www.finextra.com/rss/headlines.aspx",
+    "topics": ["banking", "fintech", "payments", "enterprise"]
+  },
+  {
+    "name": "CIO.com",
+    "url": "https://www.cio.com/feed/",
+    "topics": ["cio", "enterprise", "digital transformation"]
+  },
+  {
+    "name": "ComputerWeekly",
+    "url": "https://www.computerweekly.com/rss/All-Computer-Weekly-content.xml",
+    "topics": ["enterprise IT", "banking", "infrastructure"]
+  },
+  {
+    "name": "The Register",
+    "url": "https://www.theregister.com/headlines.atom",
+    "topics": ["enterprise", "infrastructure", "security"]
+  },
+  {
+    "name": "The New Stack",
+    "url": "https://thenewstack.io/feed/",
+    "topics": ["cloud native", "devops", "platform engineering"]
+  },
+  {
+    "name": "InfoQ",
+    "url": "https://www.infoq.com/feed/",
+    "topics": ["architecture", "devops", "enterprise"]
+  },
+  {
+    "name": "Pragmatic Engineer",
+    "url": "https://blog.pragmaticengineer.com/rss/",
+    "topics": ["engineering management", "tech leadership", "software engineering"]
+  }
+]

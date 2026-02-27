@@ -40,10 +40,10 @@ def test_connection():
         print("   ✓ Client initialized successfully")
 
         # Test 1: Simple ranking check
-        print("\n2. Testing ranking check for 'podcast hosting'...")
+        print("\n2. Testing ranking check for 'developer tools'...")
         rankings = dfs.get_rankings(
-            domain="castos.com",
-            keywords=["podcast hosting"]
+            domain="example.com",
+            keywords=["developer tools"]
         )
 
         if rankings:
@@ -58,7 +58,7 @@ def test_connection():
 
         # Test 2: Get keyword ideas
         print("\n3. Testing keyword ideas for 'podcast'...")
-        ideas = dfs.get_keyword_ideas("podcast", limit=5)
+        ideas = dfs.get_keyword_ideas("developer tools", limit=5)
 
         if ideas:
             print(f"   ✓ Found {len(ideas)} keyword ideas")
@@ -70,8 +70,8 @@ def test_connection():
             print("   ⚠ No keyword ideas returned")
 
         # Test 3: Get related questions
-        print("\n4. Testing related questions for 'podcast hosting'...")
-        questions = dfs.get_questions("podcast hosting", limit=5)
+        print("\n4. Testing related questions for 'developer tools'...")
+        questions = dfs.get_questions("developer tools", limit=5)
 
         if questions:
             print(f"   ✓ Found {len(questions)} questions")

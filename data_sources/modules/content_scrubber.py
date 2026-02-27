@@ -66,7 +66,7 @@ class ContentScrubber:
         # Step 4: Clean up any double spaces created by removals
         content = self._clean_whitespace(content)
 
-        # Step 5: Fix spaces injected into URLs (e.g. "swimm. io" -> "swimm.io")
+        # Step 5: Fix spaces injected into URLs (e.g. "example. com" -> "example.com")
         # Runs after whitespace cleanup because _clean_whitespace adds spaces
         # after punctuation followed by letters, which breaks URLs.
         content = self._fix_url_spaces(content)
@@ -200,7 +200,7 @@ class ContentScrubber:
         Fix spaces injected into URLs inside markdown links and images.
 
         AI models sometimes insert spaces after dots in URLs, producing
-        patterns like "swimm. io" or "image. png". This method finds URLs
+        patterns like "example. com" or "image. png". This method finds URLs
         inside markdown link/image syntax and removes those spaces.
         """
         fixed_count = 0

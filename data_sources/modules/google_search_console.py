@@ -18,7 +18,7 @@ class GoogleSearchConsole:
         Initialize GSC client
 
         Args:
-            site_url: Site URL (e.g., "https://castos.com")
+            site_url: Site URL (e.g., "https://yourcompany.com")
             credentials_path: Path to credentials JSON
         """
         self.site_url = site_url or os.getenv('GSC_SITE_URL')
@@ -173,7 +173,7 @@ class GoogleSearchConsole:
         # MEDIUM INTENT (1.0): Informational with potential
         medium_intent = [
             'what is', 'how does', 'why', 'benefits', 'features',
-            'podcast', 'podcasting', 'audio', 'video', 'rss', 'marketing'
+            'saas', 'b2b', 'enterprise', 'developer', 'api', 'marketing'
         ]
 
         # LOW INTENT (0.1): Pure informational/celebrity/news

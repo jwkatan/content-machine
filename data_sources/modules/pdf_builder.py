@@ -1,5 +1,5 @@
 """
-Swimm Branded PDF Builder
+Branded PDF Builder
 
 Converts a PDF-format content.md into branded HTML, then renders to PDF
 via Puppeteer. Completely standalone — does not import or modify any
@@ -429,7 +429,7 @@ def render_html(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{html_module.escape(cover.get("title_bold", "Swimm Whitepaper"))}</title>
+  <title>{html_module.escape(cover.get("title_bold", f"{os.getenv('COMPANY_NAME', 'Company')} Whitepaper"))}</title>
 
   <!-- Roc Grotesk via Adobe Fonts / TypeKit -->
   <link rel="stylesheet" href="https://use.typekit.net/ghp6lrn.css">
@@ -459,7 +459,7 @@ def render_html(
   <div class="cover-fade--bottom" aria-hidden="true"></div>
 
   <div class="cover-logo">
-    <img src="{html_module.escape(logo_path)}" alt="Swimm">
+    <img src="{html_module.escape(logo_path)}" alt="{os.getenv('COMPANY_NAME', 'Company')}">
   </div>
 
   <div class="cover-content">
@@ -574,7 +574,7 @@ def render_html(
         html_parts.append(f'''  </div>
   <div class="body-divider" aria-hidden="true"></div>
   <div class="body-footer-logo">
-    <img src="{html_module.escape(logo_path)}" alt="Swimm">
+    <img src="{html_module.escape(logo_path)}" alt="{os.getenv('COMPANY_NAME', 'Company')}">
   </div>
   <span class="body-page-num">{page_num}</span>
 </div>
@@ -587,7 +587,7 @@ def render_html(
 <div class="page back-cover-page">
   <div class="back-cover-content">
     <div class="back-cover-logo">
-      <img src="{html_module.escape(logo_path)}" alt="Swimm">
+      <img src="{html_module.escape(logo_path)}" alt="{os.getenv('COMPANY_NAME', 'Company')}">
     </div>
     <p class="back-cover-tagline">{html_module.escape(back.get("tagline", ""))}</p>
     <a class="back-cover-cta" href="{html_module.escape(back.get("cta_url", "#"))}">

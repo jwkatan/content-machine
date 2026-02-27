@@ -1515,7 +1515,7 @@ def publish_markdown(
         meta_description: SEO description (included in success message for manual paste)
         slug: URL slug (auto-generated if not provided)
         categories: List of category IDs to assign
-        author: WordPress user ID. Defaults to Swimm Team (1) for articles.
+        author: WordPress user ID. Defaults to WORDPRESS_DEFAULT_AUTHOR_ID env var (1) for articles.
         featured_image: Local path to featured image (blog posts only). Uploaded to WordPress media library.
         push: If True, actually create on WordPress. If False, show preview.
 
@@ -1562,9 +1562,9 @@ def publish_markdown(
     # Convert to Gutenberg blocks
     gutenberg_html = markdown_to_gutenberg(content_without_h1)
 
-    # Default author: Swimm Team (1) for articles, caller-specified for blog posts
+    # Default author for articles, caller-specified for blog posts
     if not author and post_type == 'article':
-        author = 1  # Swimm Team
+        author = int(os.getenv('WORDPRESS_DEFAULT_AUTHOR_ID', '1'))
 
     if not push:
         # Preview mode
