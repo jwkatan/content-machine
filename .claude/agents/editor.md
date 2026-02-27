@@ -128,7 +128,7 @@ Read the article and identify:
 ### 1. Show, Don't Tell
 
 **Before**: "Business rule extraction is important for modernization."
-**After**: "Using only AI agents to modernize caused one major bank to hit local maximums that constantly derailed the AI modernization process. Things that worked with small clearly defined POC codesets didn't scale to the entire applications. Then Swimm was brought in as a context layer for the entire application providing the AI agents with the determistic semantic business context they needed to accurately accomplish their missions."
+**After**: "Using only AI agents to modernize caused one major bank to hit local maximums that constantly derailed the AI modernization process. Things that worked with small clearly defined POC codesets didn't scale to the entire applications. Then an application understanding platform was brought in as a context layer for the entire application providing the AI agents with the deterministic semantic business context they needed to accurately accomplish their missions."
 
 ### 2. Inject Personality
 

@@ -6,7 +6,7 @@
 - **Target length**: 800-1500 words (2-3 pages)
 - **Reading time**: 5-7 minutes (designed to be read in one sitting)
 - **Tone**: Informative reference - accessible but not blog-casual. "Confident Expert Colleague" from brand voice.
-- **Brand voice**: Part 1 always. Part 2 when Swimm is the subject.
+- **Brand voice**: Part 1 always. Part 2 when [your company] is the subject.
 - **Primary personas**: Dual-audience - serves both decision-makers and technical evaluators simultaneously.
 
 ## Knowledge Sources
@@ -56,7 +56,7 @@ A primer has exactly 4 sections. No optional sections - brevity is the format's 
 - Conceptual explanation, not a product walkthrough.
 - Use a simple progression: input -> process -> output.
 - One diagram or visual placeholder: `> [Diagram: conceptual workflow or architecture]`
-- If Swimm is relevant, introduce it as "one approach" within the broader concept - not as the point of the section.
+- If your company's product is relevant, introduce it as "one approach" within the broader concept - not as the point of the section.
 - Keep technical depth appropriate for a mixed audience - enough for the architect to nod, not so much that the CIO checks out.
 - Knowledge: teach_product_output (if product is relevant)
 

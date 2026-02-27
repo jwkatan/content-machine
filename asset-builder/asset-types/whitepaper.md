@@ -6,7 +6,7 @@
 - **Target length**: 3000-6000 words (8-15 pages)
 - **Reading time**: 15-30 minutes
 - **Tone**: Elevated authority - "Authority Under Scrutiny" from brand voice. Grade 9-10 for executive/strategic sections, grade 11-12 for technical sections.
-- **Brand voice**: Part 1 always. Part 2 when Swimm is the subject.
+- **Brand voice**: Part 1 always. Part 2 when [your company] is the subject.
 - **Primary personas**: `cio`, `architect` (override per project)
 
 ## Knowledge Sources

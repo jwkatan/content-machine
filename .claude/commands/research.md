@@ -20,7 +20,7 @@ If unclear, ask the user which type to use.
 1. Performs keyword research for your industry-related topics
 2. Analyzes top-ranking competitor content
 3. Identifies content gaps and opportunities
-4. Develops unique angle for Swimm perspective
+4. Develops unique angle for your company's perspective
 5. Creates detailed research brief for writing
 
 ### For thought leadership content
@@ -42,7 +42,7 @@ If unclear, ask the user which type to use.
 - **Keyword Variations**: Find semantic variations and long-tail opportunities
 - **Related Questions**: Discover what people are actually asking (People Also Ask, forums, Reddit)
 - **Search Intent**: Determine if intent is informational, navigational, commercial, or transactional
-- **Topic Cluster**: Identify how this topic fits into Swimm content clusters
+- **Topic Cluster**: Identify how this topic fits into your company's content clusters
 
 ### Competitive Analysis
 - **Top 10 SERP Review**: Analyze the top 10 ranking articles for target keyword
@@ -54,9 +54,9 @@ If unclear, ask the user which type to use.
 - **Domain Authority**: Note which competitors rank (indie blogs vs. major publications)
 
 ### Context Integration
-- **Swimm Advantage**: How can Swimm product features naturally enhance this content?
+- **Product Advantage**: How can your company's product features naturally enhance this content?
 - **Brand Alignment**: Check @context/brand-voice.md for messaging fit
-- **Existing Content**: Review @context/internal-links-map.md for related Swimm articles
+- **Existing Content**: Review @context/internal-links-map.md for related articles on your site
 - **Target Keywords**: Cross-reference with @context/target-keywords.md priority list
 - **SEO Guidelines**: Ensure research aligns with @context/seo-guidelines.md requirements
 
@@ -73,7 +73,7 @@ If unclear, ask the user which type to use.
 - **Supporting Evidence**: Identify statistics, studies, or data to include
 - **Expert Sources**: Find industry experts or quotes to reference
 - **Visual Opportunities**: Suggest images, screenshots, or graphics needed
-- **Internal Links**: Map 3-5 key Swimm pages to link to (from @context/internal-links-map.md)
+- **Internal Links**: Map 3-5 key pages on your site to link to (from @context/internal-links-map.md)
 - **External Authority**: Identify 2-3 authoritative external sources to link
 - **Structural Integrity**: Each H2/H3 must own a distinct scope - no two sections should cover the same fact, argument, or concept
 
@@ -104,7 +104,7 @@ Develop the article's core argument based on the landscape analysis and idea fil
 - **Central thesis**: One clear statement of what the article argues. This should be specific enough that someone could disagree with it.
 - **Why now**: Why does this argument matter at this moment? What's changed?
 - **What's at stake**: What happens if the reader ignores this perspective?
-- **Unique angle**: What does Swimm's experience or perspective add that others can't?
+- **Unique angle**: What does your company's experience or perspective add that others can't?
 
 ### Evidence Gathering
 Find concrete material to support the argument. Thought leadership without evidence is just opinion.
@@ -124,7 +124,7 @@ Plan how the argument builds across the article.
 - **Structural integrity**: Each H2/H3 must own a distinct scope - no two sections should cover the same fact, argument, or concept
 
 ### Context Integration
-- **Swimm relevance**: Is Swimm part of the argument, or is this pure industry thought leadership? If Swimm is relevant, where does it fit naturally?
+- **Company relevance**: Is your company part of the argument, or is this pure industry thought leadership? If your company is relevant, where does it fit naturally?
 - **Brand alignment**: Check @context/brand-voice.md Part 1 for voice consistency
 - **Existing content**: Review @context/internal-links-map.md for related articles (link only if genuinely relevant)
 
@@ -146,7 +146,7 @@ Provides a comprehensive research brief with:
 - **Top 3 Competitor Articles**: URLs and key takeaways from each
 - **Common Sections**: Must-cover topics based on SERP analysis
 - **Content Gaps**: Opportunities to provide unique value
-- **Differentiation Strategy**: How Swimm can stand out
+- **Differentiation Strategy**: How your company can stand out
 
 #### 3. Recommended Outline
 ```
@@ -176,9 +176,9 @@ Conclusion
 - **Visual Suggestions**: Screenshots, charts, or graphics needed
 
 #### 5. Internal Linking Strategy
-- **Pillar Page**: Main Swimm pillar content to link to
+- **Pillar Page**: Main pillar content to link to
 - **Related Articles**: 2-4 relevant blog posts to link
-- **Product Pages**: Swimm features to naturally mention
+- **Product Pages**: Product features to naturally mention
 - **Resource Pages**: Tools or guides to reference
 
 #### 6. Meta Elements Preview
@@ -198,7 +198,7 @@ Provides a research brief focused on argument strength:
 #### 2. Thesis and Position
 - **Central thesis**: Clear statement of what the article will argue
 - **Why this matters now**: What's changed that makes this argument timely
-- **Unique angle**: What Swimm's experience or perspective adds
+- **Unique angle**: What your company's experience or perspective adds
 
 #### 3. Recommended Outline
 ```

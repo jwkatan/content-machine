@@ -30,7 +30,7 @@ Show active webpage projects:
 ## Webpage Builder Dashboard
 
 ### Active Projects
-1. swimm-homepage-2026 — Phase 5: Review (V3, CMO: 72/100, BD: 8.2/10)
+1. your-company-homepage-2026 — Phase 5: Review (V3, CMO: 72/100, BD: 8.2/10)
 2. cobol-modernization-usecase — Phase 2: Content (3/8 sections drafted)
 
 ### Quick Actions
@@ -44,7 +44,7 @@ If no projects exist, show:
 
 No active projects.
 
-Start one: /webpage new "Swimm Homepage 2026"
+Start one: /webpage new "Your Company Homepage 2026"
 ```
 
 ---
@@ -54,14 +54,14 @@ Start one: /webpage new "Swimm Homepage 2026"
 Initialize a new page project with scaffolding.
 
 ```
-/webpage new "Swimm Homepage 2026"
+/webpage new "Your Company Homepage 2026"
 ```
 
 **Process:**
 
 1. **Derive folder name** from the page name:
    - Convention: `[company-or-product]-[page-type]-[identifier]`
-   - Example: "Swimm Homepage 2026" -> `swimm-homepage-2026`
+   - Example: "Your Company Homepage 2026" -> `your-company-homepage-2026`
    - Example: "COBOL Modernization Use Case" -> `cobol-modernization-usecase`
    - Ask user to confirm the folder name
 
@@ -106,7 +106,7 @@ Initialize a new page project with scaffolding.
 
 8. **Confirm to user**:
    ```
-   Created project: webpage-builder/projects/swimm-homepage-2026/
+   Created project: webpage-builder/projects/your-company-homepage-2026/
 
    Page type: homepage
    Template: webpage-builder/page-types/homepage.md
@@ -163,7 +163,7 @@ Resume work on the active project from its last phase.
    - Narrative arc coherence
    - Competitive differentiation clarity
    - Enterprise credibility
-   - Brand voice compliance (Part 1 universal + Part 2 if Swimm-specific)
+   - Brand voice compliance (Part 1 universal + Part 2 if company-specific)
 
 8. PMM revises based on CMO feedback. **Max 3 PMM<->CMO iterations**, then present to human.
 
@@ -389,7 +389,7 @@ After all sections built:
 
 6. **Report to user:**
    ```
-   Project finalized: webpage-builder/projects/swimm-homepage-2026/
+   Project finalized: webpage-builder/projects/your-company-homepage-2026/
 
    Final scores: CMO 82/100, Brand Director 8.9/10
    Tests: 36/36 passing

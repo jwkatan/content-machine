@@ -42,7 +42,7 @@ Each section conveys exactly one message. If a section makes two points, split i
 ### 4. Outside-in Check
 Does the sentence start from the buyer's world or the product's world? The first words of every section headline must reflect what the buyer experiences, not what the product does.
 
-**Inside-out**: "Swimm's deterministic analysis extracts business rules..."
+**Inside-out**: "[Company Name]'s deterministic analysis extracts business rules..."
 **Outside-in**: "Get verified business rules extracted in hours..."
 
 ### 5. Altitude Check
@@ -120,7 +120,7 @@ Before finalizing any section, check these terms. If they appear without expansi
 **Strong**: "See your business rules extracted — request a demo"
 
 ### CTA progression across the page
-1. **Hero CTA** (high commitment): "See Swimm on your code" / "Request a demo"
+1. **Hero CTA** (high commitment): "See [Company Name] on your code" / "Request a demo"
 2. **Mid-page CTA** (after proof): "See how it works" / "Explore the platform"
 3. **Final CTA** (after full narrative): Restate core value + primary action. Friction reducer underneath.
 

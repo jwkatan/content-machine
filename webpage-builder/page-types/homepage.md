@@ -83,7 +83,7 @@ Every sentence starts from the buyer's world, not the product. Lead with what ch
 - **No throat-clearing**: First sentence of every section does real work.
 
 ### Sentence-level discipline
-- **Active voice, strong verbs**: "Swimm reconstructs application behavior" not "Application behavior is reconstructed."
+- **Active voice, strong verbs**: "[Company Name] reconstructs application behavior" not "Application behavior is reconstructed."
 - **Rhythm over uniformity**: Short declaration + substantive supporting sentence. Avoid three or more consecutive short sentences.
 - **No filler**: Zero instances of "very," "really," "simply," "just," "actually," "in order to."
 - **Numbers over adjectives**: "90% faster" not "dramatically faster."

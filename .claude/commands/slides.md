@@ -1,6 +1,6 @@
 # Google Slides Command
 
-Create branded Swimm presentations from content using the Google Slides Apps Script integration.
+Create branded presentations from content using the Google Slides Apps Script integration.
 
 ## Usage
 
@@ -92,7 +92,7 @@ Show the user:
 Follow `context/brand-voice.md` for tone. Presentations should be:
 - **Concise**: One idea per slide
 - **Visual**: Minimal text, maximum impact
-- **Branded**: Uses Swimm template colors, fonts, layouts
+- **Branded**: Uses your company's template colors, fonts, layouts
 - **Structured**: Clear narrative arc from problem to solution
 
 ## Layout Reference

@@ -6,7 +6,7 @@
 - **Target length**: 12-16 slides (14 is the sweet spot)
 - **Presentation time**: 20-30 minutes with discussion
 - **Tone**: Confident, direct, buyer-centric. "Boardroom" register from brand voice.
-- **Brand voice**: Part 1 always. Part 2 always (sales decks are inherently about Swimm).
+- **Brand voice**: Part 1 always. Part 2 always (sales decks are inherently about your company).
 - **Primary personas**: `architect`, `program_manager` (override per project)
 
 ## Knowledge Sources
@@ -34,7 +34,7 @@ A sales deck follows this sequence. Slides marked (personalize) change per audie
 | 3 | **Why Now** | Urgency without fear tactics | "This is timely" |
 | 4 | **The Gap** | What existing approaches can't solve | "That's exactly where we're stuck" |
 | 5 | **The Approach** | Conceptual solution before product | "That makes sense" |
-| 6 | **How Swimm Works** | Product overview - concrete, not abstract | "Show me" |
+| 6 | **How [Company Name] Works** | Product overview - concrete, not abstract | "Show me" |
 | 7-9 | **Capability Deep Dives** (2-3 slides) | Key capabilities matched to their pain | "This would solve [specific problem]" |
 | 10 | **Differentiation** | Why this vs alternatives | "Why not just use [competitor]?" |
 | 11 | **Proof** (personalize) | Social proof matched to their segment | "Others like us trust this" |
@@ -45,9 +45,9 @@ A sales deck follows this sequence. Slides marked (personalize) change per audie
 ### Slide Details
 
 **Slide 1: Title**
-- Headline frames the conversation around the buyer's challenge, not Swimm.
+- Headline frames the conversation around the buyer's challenge, not your company.
 - Subheadline provides context: who this is for and what they'll learn.
-- No product logo dominating. Swimm branding present but secondary.
+- No product logo dominating. Company branding present but secondary.
 - Visual direction: clean, professional, one hero graphic or conceptual image.
 - Knowledge: messaging/framework (for positioning framing)
 
@@ -80,8 +80,8 @@ A sales deck follows this sequence. Slides marked (personalize) change per audie
 - Visual direction: conceptual architecture or framework diagram.
 - Knowledge: teach_product_output, messaging/framework
 
-**Slide 6: How Swimm Works**
-- Headline is action-oriented: what Swimm does, in one sentence.
+**Slide 6: How [Company Name] Works**
+- Headline is action-oriented: what your product does, in one sentence.
 - 4-5 step walkthrough of the core experience: ingest -> analyze -> navigate -> collaborate -> deliver.
 - Each step is one line. Speaker notes carry the detail.
 - Visual direction: product screenshot sequence or workflow diagram.
@@ -96,8 +96,8 @@ A sales deck follows this sequence. Slides marked (personalize) change per audie
 - Knowledge: teach_product_output, relevant persona
 
 **Slide 10: Differentiation**
-- Headline positions Swimm's structural advantage.
-- 3 differentiation points. Lead with evaluation criteria that favor Swimm's approach.
+- Headline positions your company's structural advantage.
+- 3 differentiation points. Lead with evaluation criteria that favor your company's approach.
 - Handle the top objection for this audience (from `objection_handling.md`).
 - Be specific: "deterministic vs probabilistic" not "better than competitors."
 - Visual direction: comparison table or conceptual contrast diagram.

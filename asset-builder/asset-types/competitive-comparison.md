@@ -6,7 +6,7 @@
 - **Target length**: 2000-2500 words (5-7 pages)
 - **Reading time**: 8-12 minutes
 - **Tone**: Elevated authority - "Authority Under Scrutiny" from brand voice. Data-driven, fair, and rigorous. Let the evidence lead.
-- **Brand voice**: Part 1 always. Part 2 when Swimm is the subject.
+- **Brand voice**: Part 1 always. Part 2 when [your company] is the subject.
 - **Primary personas**: `cio`, `architect` (override per project)
 
 ## Purpose

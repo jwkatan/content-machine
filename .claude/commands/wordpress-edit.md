@@ -48,7 +48,7 @@ if success:
 Ask the user to pick a category. If no categories exist for the post type, skip this step.
 
 **Author:**
-- **Learn articles (`article`)**: Defaults to Swimm Team (author ID 1). No need to ask.
+- **Learn articles (`article`)**: Defaults to [Company] Team (author ID 1). No need to ask.
 - **Blog posts (`posts`)**: Always ask the user who the author should be:
 
 ```python
@@ -75,7 +75,7 @@ Learn articles (`article`) do NOT have featured images — skip this step for ar
 ### Step 3: Push to WordPress
 
 ```python
-# Create as learn article (author defaults to Swimm Team, no featured image)
+# Create as learn article (author defaults to [Company] Team, no featured image)
 publish_markdown('{path}', post_type='article', categories=[{category_id}], push=True)
 
 # Create as blog post (specify author and featured image)
@@ -355,7 +355,7 @@ ok, data = wp._api_request(
     method='POST',
     data={
         'url': '/{path_prefix}/{old_slug}',
-        'action_data': {'url': 'https://swimm.io/{path_prefix}/{new_slug}'},
+        'action_data': {'url': 'https://[your-domain.com]/{path_prefix}/{new_slug}'},
         'action_type': 'url',
         'action_code': 301,
         'match_type': 'url',

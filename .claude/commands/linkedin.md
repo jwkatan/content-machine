@@ -138,17 +138,17 @@ Fetch trending topics from RSS feeds, read full articles, and present curated ca
 5. **AI curates based on actual article content**:
    - Evaluate each article for:
      - Hard data or specific quotes (not just opinions)
-     - Swimm angle potential (knowledge transfer, documentation, skills gap)
+     - [Company] angle potential ([your company's relevant perspective])
      - LinkedIn engagement potential (contrarian, surprising, practical)
    - Select ONLY genuinely interesting ones (may be 3, 4, or 5)
    - REJECT articles that are: fluff, recaps, predictions without data, generic advice
 
 6. **Present curated candidates with informed angles**:
-   | # | Title | Source | Why This Works for Swimm |
+   | # | Title | Source | Why This Works for [Company] |
 
    Each angle must reference ACTUAL article content:
    - BAD: "CEO: Personal take opportunity" (generic)
-   - GOOD: "69% now cite skills > cybersecurity (first time in 9 years) - Swimm angle: skills gap isn't about hiring, it's about knowledge transfer"
+   - GOOD: "69% now cite skills > cybersecurity (first time in 9 years) - [Company] angle: [your company's relevant perspective on why this matters]"
 
 7. **User selects which to create** (e.g., "1, 3, 4")
 
@@ -156,7 +156,7 @@ Fetch trending topics from RSS feeds, read full articles, and present curated ca
    - Filename: `[slug]-YYYY-MM-DD.md`
    - Frontmatter: type, source, origin URL, relevance score
    - Core insight: specific data/quotes from article
-   - Angle: concrete Swimm positioning based on content
+   - Angle: concrete company positioning based on content
 
 9. **Report results**:
    ```
@@ -200,7 +200,7 @@ Create a single idea file from external content or a summary.
 
 2. **Extract key points**:
    - Main topic/claim
-   - Why it matters to Swimm's audience
+   - Why it matters to your company's audience
    - Potential angles (contrarian, data-driven, personal experience)
 
 3. **Create idea file** in `content/topics/linkedin/ideas/`:

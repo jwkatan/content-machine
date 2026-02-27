@@ -21,10 +21,10 @@ Use this command to perform a final SEO optimization pass on completed articles 
 
 ### Input Resolution
 
-When the input is a **URL or slug** (starts with `http`, `www.`, a known domain like `swimm.io`, or matches a known slug in the database), resolve the article through the content library before proceeding:
+When the input is a **URL or slug** (starts with `http`, `www.`, a known domain like `[your-domain.com]`, or matches a known slug in the database), resolve the article through the content library before proceeding:
 
 #### Step 1: Extract the slug
-- If a full or partial URL is provided (e.g., `https://swimm.io/learn/...`, `www.swimm.io/learn/...`, `swimm.io/learn/...`), extract the slug from the URL path (last non-empty segment)
+- If a full or partial URL is provided (e.g., `https://[your-domain.com]/learn/...`, `www.[your-domain.com]/learn/...`, `[your-domain.com]/learn/...`), extract the slug from the URL path (last non-empty segment)
 - If a slug is provided directly (no slashes, no domain), use it as-is
 
 #### Step 2: Sync fresh content from WordPress

@@ -52,7 +52,7 @@ Generate a comprehensive markdown report (as new file or artifact) with:
 - **Critical Issues** (false claims, significant discrepancies)
 - **Improvement Opportunities** (unverified assertions, weak sources, priority fixes)
 - **Source Quality Assessment** (gold/silver/bronze tier sources identified)
-- **Vendor & Competitor Claim Assessment** (Swimm positioning, competitor claims, balance check)
+- **Vendor & Competitor Claim Assessment** (your company's positioning, competitor claims, balance check)
 - **Notes** (timing issues, hallucination risks, strengths, citation practices)
 - **Recommended Action Plan** (before-publication checklist)
 
@@ -77,7 +77,7 @@ Apply this framework consistently to evaluate source credibility:
 | Tier | Examples | Treatment |
 |------|----------|-----------|
 | **Gold** | Peer-reviewed research papers (published in established venues), government/official data, academic institutions, published case studies | Trust the source; verify it's from an established academic publisher or institution, not a student project or small-scale school paper |
-| **Silver** | Established independent publications (tech blogs, industry analysts), academic experts, Swimm whitepapers/positions | Verify with second source if the claim is novel or contradicts other sources |
+| **Silver** | Established independent publications (tech blogs, industry analysts), academic experts, your company's whitepapers/positions | Verify with second source if the claim is novel or contradicts other sources |
 | **Bronze** | Industry blogs from known experts, company whitepapers, analyst reports (Gartner, Forrester), vendor case studies | Treat as supporting evidence; search for independent corroboration before relying solely |
 | **Copper** | Marketing content, unvetted blogs, social media, vendor announcements without third-party validation | Require independent verification; flag claims as suspect unless corroborated |
 | **Lead** | Unverifiable sources, anonymous sources, claims contradicted by higher-tier sources | Flag as unreliable; do not cite without substantial corroboration |

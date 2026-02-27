@@ -152,7 +152,7 @@ If unclear, ask the user which type to use.
 - **Audience Perspective**: Write for your target audience (defined in @context/brand-voice.md)
 - **Practical Application**: Show how information applies to their specific challenges
 - **Product Integration** (SEO): Naturally mention how your features solve problems (reference @context/features.md)
-- **Product Integration** (Thought Leadership): Product mentions are optional. If Swimm is relevant to the argument, include it naturally. If the article makes a stronger case without product mentions, leave them out. Use Part 1 of brand voice only unless Swimm is genuinely part of the argument.
+- **Product Integration** (Thought Leadership): Product mentions are optional. If your company's product is relevant to the argument, include it naturally. If the article makes a stronger case without product mentions, leave them out. Use Part 1 of brand voice only unless your company is genuinely part of the argument.
 - **Industry Context**: Reference relevant trends and best practices
 - **Technical Accuracy**: Ensure terminology and processes are correct for your industry
 
@@ -382,7 +382,7 @@ Every thought leadership article must meet these requirements:
 - Framework or mental model the reader can apply
 - Internal links only where genuinely relevant (not required)
 - Compelling meta title and description
-- Brand voice maintained (Part 1 of @context/brand-voice.md; Part 2 only if Swimm is part of the argument)
+- Brand voice maintained (Part 1 of @context/brand-voice.md; Part 2 only if your company is part of the argument)
 - Target audience focused
 - Publish-ready quality
 

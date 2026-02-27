@@ -25,7 +25,7 @@ You are the last quality gate before the user sees the content. Your job is to f
 ### 2. Messaging Alignment
 
 - Does the content follow the narrative arc defined in the outline?
-- Is the messaging consistent with Swimm's brand voice (Part 1 universal rules)?
+- Is the messaging consistent with your company's brand voice (Part 1 universal rules)?
 - Does the tone match the template's specified register (elevated authority, informative reference, boardroom, etc.)?
 - Are prohibited terms avoided (check brand voice forbidden list)?
 

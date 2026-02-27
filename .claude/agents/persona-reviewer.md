@@ -102,7 +102,7 @@ These are default review emphases based on persona type. The persona file overri
 ### GSI Partner
 - Leverage-oriented: "How does this make my practice more competitive?"
 - Needs to see how it scales across their client base
-- Skeptical of solutions that require deep Swimm expertise
+- Skeptical of solutions that require deep vendor-specific expertise
 - Wants white-label or co-branded potential
 - Will share content that positions a new service offering
 

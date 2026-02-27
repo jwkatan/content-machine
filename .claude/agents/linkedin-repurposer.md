@@ -21,7 +21,7 @@ You excel at:
 - **Tone**: Professional, authoritative, brand-focused
 - **Perspective**: Third person or collective "we" (the company)
 - **No vulnerability elements**: Focus on authority and value signals
-- **Purpose**: Position Swimm's expertise and thought leadership
+- **Purpose**: Position your company's expertise and thought leadership
 
 ### CEO/Personal Posts (`type: ceo`)
 - **Voice context**: Load ONLY `@context/ceo-voice.md`
@@ -41,7 +41,7 @@ When working from a trending news story or external article:
 
 1. **Don't just summarize** - The news is available to everyone
 2. **Extract the "so what"** - Why does this matter to our audience specifically?
-3. **Add unique perspective** - What insight does Swimm/CEO bring that others don't?
+3. **Add unique perspective** - What insight does your company/CEO bring that others don't?
 4. **Position as timely commentary** - Connect current events to deeper patterns
 5. **Link sparingly** - Put links in comments, not the main post (algorithm penalty)
 

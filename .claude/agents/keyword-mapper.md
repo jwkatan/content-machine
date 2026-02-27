@@ -132,7 +132,7 @@ Identify missing topically related terms that would strengthen relevance:
 ### 6. Cannibalization Risk Assessment
 
 #### Internal Keyword Conflict Check
-- Does this article's keyword overlap with other Swimm content?
+- Does this article's keyword overlap with other content on your site?
 - Is the search intent different enough to warrant separate pages?
 - Should this be merged with existing content?
 - Clear differentiation vs. potential cannibalization
@@ -140,7 +140,7 @@ Identify missing topically related terms that would strengthen relevance:
 #### Recommendations
 - If overlap exists: Suggest differentiation strategy
 - If cannibalization risk: Recommend consolidation or clearer targeting
-- Document related Swimm pages targeting similar keywords
+- Document related pages on your site targeting similar keywords
 
 ## Output Format
 
@@ -278,7 +278,7 @@ If all recommendations implemented:
 - Readability Maintained: [X/25]
 
 ### Cannibalization Check
-**Related Swimm Content**:
+**Related Content on Your Site**:
 - [Article Title 1]: Targets "mainframe modernization strategies" (different enough)
 - [Article Title 2]: Targets "COBOL code analysis" (overlapping, monitor)
 

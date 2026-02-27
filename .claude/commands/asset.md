@@ -118,7 +118,7 @@ Execute the phase workflow. At HUMAN CHECKPOINT, update decisions.md and present
 
 **Goal**: Section-by-section outline approved by user before any writing begins.
 
-**Files to read**: `decisions.md`, `asset-builder/asset-types/[type].md`, `context/brand-voice.md` (Part 1 always; Part 2 if Swimm is subject), `context/style-guide.md`, `context/features.md` (if product referenced), all PMM knowledge files from template's Knowledge Sources table, source material files from Project Context.
+**Files to read**: `decisions.md`, `asset-builder/asset-types/[type].md`, `context/brand-voice.md` (Part 1 always; Part 2 if your company is the subject), `context/style-guide.md`, `context/features.md` (if product referenced), all PMM knowledge files from template's Knowledge Sources table, source material files from Project Context.
 
 **Process:**
 
@@ -250,6 +250,7 @@ Prevents drift when applying feedback from reviewers or user.
 
 ## PMM Knowledge Path
 
+<!-- Optional: only if using a separate PMM knowledge repo -->
 Resolve from `PMM_KNOWLEDGE_PATH` in `data_sources/config/.env`. Fallback: auto-detect `../marketing-pmm`. If neither found, ask user.
 
 ## Forward-Looking Guardrail

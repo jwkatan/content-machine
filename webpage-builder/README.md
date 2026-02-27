@@ -37,7 +37,7 @@ Planned:
 Each project in `projects/` follows this structure:
 
 ```
-projects/swimm-homepage-2026/
+projects/your-company-homepage-2026/
 ├── decisions.md              # State, decisions, score history
 ├── brief.md                  # Messaging brief (Phase 1)
 ├── content.md                # Section copy (Phase 2)
@@ -54,4 +54,4 @@ projects/swimm-homepage-2026/
 
 Project folders: `[company-or-product]-[page-type]-[identifier]`
 
-Examples: `swimm-homepage-2026`, `cobol-modernization-usecase`, `application-understanding-product`
+Examples: `your-company-homepage-2026`, `cobol-modernization-usecase`, `application-understanding-product`
