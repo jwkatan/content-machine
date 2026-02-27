@@ -7,7 +7,7 @@ This directory contains integrations for analytics and SEO data sources that pow
 Data sources provide real-time performance metrics for:
 - **Content Performance**: Which articles drive traffic and conversions
 - **SEO Opportunities**: Keywords ranking 11-20 ready to push to page 1
-- **Content Gaps**: Topics competitors rank for but Castos doesn't
+- **Content Gaps**: Topics competitors rank for but you don't
 - **Update Priority**: Articles declining in traffic or outdated
 
 ## Supported Data Sources
@@ -127,7 +127,7 @@ GA4_PROPERTY_ID=123456789
 GA4_CREDENTIALS_PATH=data_sources/config/ga4_credentials.json
 
 # Google Search Console
-GSC_SITE_URL=https://castos.com
+GSC_SITE_URL=https://yoursite.com
 GSC_CREDENTIALS_PATH=data_sources/config/gsc_credentials.json
 
 # DataForSEO

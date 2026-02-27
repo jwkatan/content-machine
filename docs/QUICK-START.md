@@ -1,12 +1,12 @@
 # Quick Start Guide
 
-Get SEO Machine running in **10 minutes** ⚡
+Get Content Machine running in **10 minutes** ⚡
 
 ## Step 1: Install Dependencies (2 min)
 
 ```bash
 # Install Python dependencies for analysis modules
-pip install -r data_sources/requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Step 2: Configure Context Files (5 min)
@@ -18,7 +18,7 @@ Fill out these **3 essential files** with your company info:
 - Add tone guidelines
 - Include do's and don'ts
 
-💡 **Tip**: Check `examples/castos/brand-voice.md` for a complete example
+**Tip**: Check your existing brand materials for inspiration
 
 ### 2. Features (`context/features.md`)
 - List your product/service features
@@ -86,8 +86,8 @@ You now have:
 ## Need Help?
 
 - 📖 **Full Documentation**: See README.md
-- 🔍 **Real Example**: Check `examples/castos/` directory
-- 🐛 **Issues**: https://github.com/[your-username]/seomachine/issues
+- **Full Documentation**: See ONBOARDING.md for detailed setup
+- 🐛 **Issues**: https://github.com/[your-username]/content-machine/issues
 
 ---
 

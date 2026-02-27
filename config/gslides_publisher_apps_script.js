@@ -18,7 +18,7 @@
 
 function doGet() {
   return ContentService.createTextOutput(JSON.stringify({
-    service: "Swimm Google Slides Publisher",
+    service: "Content Machine Slides Publisher",
     version: "1.0",
     actions: ["create", "update", "status", "template"]
   })).setMimeType(ContentService.MimeType.JSON);

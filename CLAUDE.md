@@ -1,4 +1,4 @@
-# SEO Machine - Claude Code Configuration
+# Content Machine - Claude Code Configuration
 
 ## Python Environment
 
@@ -139,9 +139,9 @@ When starting a session, run `git pull` to get the latest process updates.
 - `content/assets/` — Deep content projects (whitepapers, primers, decks, guides)
 - `webpage-builder/projects/` — Webpage project work
 
-## Reading swimm.io Articles
+## Reading WordPress Articles
 
-When given a swimm.io URL, always use `import_from_wordpress` (not WebFetch) to get the content.
+When given a URL from your WordPress site, always use `import_from_wordpress` (not WebFetch) to get the content.
 
 ## WordPress Safety
 

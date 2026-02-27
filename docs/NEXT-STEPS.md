@@ -1,12 +1,12 @@
-# Next Steps - Getting Started with SEO Machine
+# Next Steps - Getting Started with Content Machine
 
 ## Welcome! 🎉
 
-SEO Machine is ready to help you create world-class SEO content for your business. Here's what you have:
+Content Machine is ready to help you create world-class SEO content for your business. Here's what you have:
 
 ### Project Structure
 ```
-seomachine/
+content-machine/
 ├── .claude/
 │   ├── commands/          # 5 workflow commands
 │   └── agents/            # 4 specialized agents
@@ -130,7 +130,7 @@ gh repo create your company-writer --public --source=. --remote=origin --push
 
 **Option 3: Keep it Private**
 ```bash
-gh repo create swimm_writer --private --source=. --remote=origin --push
+gh repo create content-machine --private --source=. --remote=origin --push
 ```
 
 ## Recommended Workflow for First Article

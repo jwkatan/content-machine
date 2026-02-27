@@ -5,12 +5,12 @@
 1. Clone both repos into the same parent folder:
 
 ```bash
-git clone https://github.com/swimmio/marketing-content-writer.git
-git clone https://github.com/swimmio/marketing-pmm.git
-cd marketing-content-writer
+git clone https://github.com/[your-org]/content-machine.git
+git clone https://github.com/[your-org]/your-pmm-repo.git  # Optional: for /asset command
+cd content-machine
 ```
 
-2. Open a Claude Code session in the `marketing-content-writer` directory and give it this document. Claude will handle the rest of the setup for you.
+2. Open a Claude Code session in the `content-machine` directory and give it this document. Claude will handle the rest of the setup for you.
 
 ## Setup Instructions for Claude
 
@@ -20,7 +20,7 @@ Run these steps in order. Automate everything you can. Only ask the user for inp
 
 ```bash
 python3 -m venv .venv
-.venv/bin/pip install -r data_sources/requirements.txt
+.venv/bin/pip install -r requirements.txt
 ```
 
 If `python3` is not found, try `python`. If neither works, tell the user to install Python 3.10+ first.
@@ -48,7 +48,7 @@ Write all values into `data_sources/config/.env`. The other values (GA4, GSC, Da
 Auto-detect the `marketing-pmm` repo as a sibling directory and set the path. No user input needed if they followed the clone instructions.
 
 ```bash
-PMM_PATH="$(cd .. && pwd)/marketing-pmm"
+PMM_PATH="$(cd .. && pwd)/your-pmm-repo"
 if [ -d "$PMM_PATH/knowledge_base" ]; then
   grep -q 'PMM_KNOWLEDGE_PATH' data_sources/config/.env 2>/dev/null || \
     echo -e "\n# PMM Knowledge Base (Asset Builder)\nPMM_KNOWLEDGE_PATH=$PMM_PATH" >> data_sources/config/.env
@@ -71,7 +71,7 @@ The Google Docs integration publishes content to Google Docs via an Apps Script 
 
 **[ASK USER]** to perform these steps in their browser (Claude cannot access the Apps Script editor):
 
-1. Go to [script.google.com](https://script.google.com) → **New project** → name it "Swimm Docs Publisher"
+1. Go to [script.google.com](https://script.google.com) → **New project** → name it "Content Machine Docs Publisher"
 2. Paste the code Claude copied to their clipboard
 3. Click **Services** (+) → Add **Google Docs API v1** (userSymbol: `Docs`)
 4. Go to **Project Settings** (gear) → **Script Properties** → Add property:
@@ -108,7 +108,7 @@ The `/slides` command creates branded Google Slides presentations via a **separa
 
 **[ASK USER]** to perform these steps in their browser:
 
-1. Go to [script.google.com](https://script.google.com) → **New project** → name it "Swimm Slides Publisher"
+1. Go to [script.google.com](https://script.google.com) → **New project** → name it "Content Machine Slides Publisher"
 2. Paste the code Claude copied to their clipboard
 3. Go to **Project Settings** (gear) → **Script Properties** → Add property:
    - Name: `API_KEY`, Value: `<the key Claude generated>`
@@ -122,11 +122,10 @@ Once the user provides the URL, write these to `.env`:
 ```
 GSLIDES_APPS_SCRIPT_URL=<deployment URL from user>
 GSLIDES_API_KEY=<the key you generated>
-GSLIDES_TEMPLATE_ID=1zVVkqMeFLiRIupg8wO_iPUeKvbi95xtH4D0JBEdyD1E
-GSLIDES_BFSI_TEMPLATE_ID=1LFFg8mfM8HI_xJgJwjhQngf_fONFM58QDNuzElTLkPc
+GSLIDES_TEMPLATE_ID=<your Google Slides template ID>
 ```
 
-The template IDs are shared Google Slides templates with `{{TOKEN}}` placeholders. They're the same for all collaborators.
+Create your own Google Slides template with `{{TOKEN}}` placeholders and set `GSLIDES_TEMPLATE_ID` in `.env`. See the `/slides` command documentation for the expected token names and layout conventions.
 
 **Verify** (run automatically):
 ```bash
@@ -215,7 +214,7 @@ You're set up. Here are the commands you can use:
 When your project owner updates the process, context, or PMM knowledge, pull both repos:
 
 ```bash
-git pull && cd ../marketing-pmm && git pull && cd ../marketing-content-writer
+git pull && cd ../your-pmm-repo && git pull && cd ../content-machine
 ```
 
 Or just tell Claude: "pull latest updates" (for this repo) or "pull PMM updates" (for the knowledge base).

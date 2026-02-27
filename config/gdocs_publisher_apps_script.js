@@ -74,7 +74,7 @@ function doPost(e) {
 
 function doGet(e) {
   return jsonResponse({
-    service: "Google Docs Publisher",
+    service: "Content Machine Docs Publisher",
     version: "2.1",
     actions: ["publish", "unpublish", "status"],
   });

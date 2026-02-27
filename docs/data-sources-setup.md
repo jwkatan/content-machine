@@ -1,6 +1,6 @@
 # Data Sources Setup Guide
 
-This guide provides step-by-step instructions for setting up the three data source integrations used by Castos Writer: Google Analytics 4 (GA4), Google Search Console, and DataForSEO.
+This guide provides step-by-step instructions for setting up the three data source integrations used by Content Machine: Google Analytics 4 (GA4), Google Search Console, and DataForSEO.
 
 ---
 
@@ -25,7 +25,7 @@ Google Analytics 4 provides traffic data, user behavior metrics, and page perfor
 ### Step 1: Enable the Google Analytics Data API
 
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
-2. Select or create a project for your Castos Writer integration
+2. Select or create a project for your Content Machine integration
 3. Navigate to **APIs & Services > Library**
 4. Search for "Google Analytics Data API"
 5. Click on the API and click **Enable**
@@ -35,8 +35,8 @@ Google Analytics 4 provides traffic data, user behavior metrics, and page perfor
 1. In Google Cloud Console, go to **APIs & Services > Credentials**
 2. Click **Create Credentials** and select **Service Account**
 3. Fill in the service account details:
-   - **Name**: `castos-writer-ga4` (or any descriptive name)
-   - **Description**: "Service account for Castos Writer GA4 integration"
+   - **Name**: `content-machine-ga4` (or any descriptive name)
+   - **Description**: "Service account for Content Machine GA4 integration"
 4. Click **Create and Continue**
 5. Skip the optional "Grant this service account access to project" step (click **Continue**)
 6. Skip the optional "Grant users access to this service account" step (click **Done**)
@@ -59,7 +59,7 @@ Google Analytics 4 provides traffic data, user behavior metrics, and page perfor
 3. Click **Admin** (gear icon in bottom left)
 4. Under **Property**, click **Property access management**
 5. Click the **+** button in the top right and select **Add users**
-6. Enter the service account email (from Step 2, looks like `castos-writer-ga4@your-project.iam.gserviceaccount.com`)
+6. Enter the service account email (from Step 2, looks like `content-machine-ga4@your-project.iam.gserviceaccount.com`)
 7. Select the role **Viewer** (read-only access)
 8. Uncheck "Notify new users by email"
 9. Click **Add**
@@ -73,7 +73,7 @@ Google Analytics 4 provides traffic data, user behavior metrics, and page perfor
 ### Step 6: Configure the Integration
 
 1. Rename your downloaded JSON key file to `ga4-credentials.json`
-2. Move the file to: `/Users/craighewitt/Coding/castos-writer/credentials/ga4-credentials.json`
+2. Move the file to: `/path/to/content-machine/credentials/ga4-credentials.json`
 3. Create a `.env` file in the root directory if it doesn't exist
 4. Add the following line to your `.env` file:
    ```
@@ -109,8 +109,8 @@ Google Search Console provides search query data, click-through rates, average p
 1. In Google Cloud Console, go to **APIs & Services > Credentials**
 2. Click **Create Credentials** and select **Service Account**
 3. Fill in the service account details:
-   - **Name**: `castos-writer-gsc` (or any descriptive name)
-   - **Description**: "Service account for Castos Writer GSC integration"
+   - **Name**: `content-machine-gsc` (or any descriptive name)
+   - **Description**: "Service account for Content Machine GSC integration"
 4. Click **Create and Continue**
 5. Skip the optional steps and click **Done**
 6. Create and download a JSON key (same process as GA4 Step 3)
@@ -122,15 +122,15 @@ Google Search Console provides search query data, click-through rates, average p
 3. Click **Settings** in the left sidebar
 4. Click **Users and permissions**
 5. Click **Add user**
-6. Enter the service account email (e.g., `castos-writer-ga4@your-project.iam.gserviceaccount.com`)
+6. Enter the service account email (e.g., `content-machine-ga4@your-project.iam.gserviceaccount.com`)
 7. Select permission level: **Full** (required for API access, but only provides read access)
 8. Click **Add**
 
 ### Step 4: Get Your Site URL
 
 Your site URL is the property name in Search Console, typically one of:
-- `https://castos.com/` (for domain properties)
-- `sc-domain:castos.com` (for domain properties)
+- `https://yoursite.com/` (for domain properties)
+- `sc-domain:yoursite.com` (for domain properties)
 - Check in Search Console settings to confirm the exact format
 
 ### Step 5: Configure the Integration
@@ -142,7 +142,7 @@ Since you're using the same service account for both GA4 and GSC, the configurat
 1. **Credentials file**: Use the existing `credentials/ga4-credentials.json` (no additional file needed)
 2. **Add to your `.env` file**:
    ```
-   GSC_SITE_URL=https://castos.com/
+   GSC_SITE_URL=https://yoursite.com/
    GSC_CREDENTIALS_PATH=credentials/ga4-credentials.json
    ```
 3. The integration will automatically use the shared credentials file
@@ -150,10 +150,10 @@ Since you're using the same service account for both GA4 and GSC, the configurat
 **If Using a Separate Service Account** (Alternative):
 
 1. Rename the JSON key to `gsc-credentials.json`
-2. Move to: `/Users/craighewitt/Coding/castos-writer/credentials/gsc-credentials.json`
+2. Move to: `/path/to/content-machine/credentials/gsc-credentials.json`
 3. Add to your `.env` file:
    ```
-   GSC_SITE_URL=https://castos.com/
+   GSC_SITE_URL=https://yoursite.com/
    GSC_CREDENTIALS_PATH=credentials/gsc-credentials.json
    ```
 
@@ -281,7 +281,7 @@ Expected output:
 
 **Error: "Site not found"**
 - Check the `GSC_SITE_URL` format matches exactly what's in Search Console
-- Try both formats: `https://castos.com/` and `sc-domain:castos.com`
+- Try both formats: `https://yoursite.com/` and `sc-domain:yoursite.com`
 
 ### DataForSEO Issues
 
@@ -306,10 +306,10 @@ Expected output:
 - Restart your application after modifying `.env`
 
 **Credentials File Not Found**
-- Check the file path is correct: `/Users/craighewitt/Coding/castos-writer/credentials/`
+- Check the file path is correct: `/path/to/content-machine/credentials/`
 - Create the `credentials/` directory if it doesn't exist:
   ```bash
-  mkdir -p /Users/craighewitt/Coding/castos-writer/credentials/
+  mkdir -p /path/to/content-machine/credentials/
   ```
 - Verify file names match exactly (case-sensitive)
 
@@ -353,7 +353,7 @@ Store encrypted backups of your credentials in a secure location:
 
 ### File Structure
 ```
-castos-writer/
+content-machine/
 ├── .env                          # Environment variables
 ├── credentials/
 │   ├── ga4-credentials.json     # GA4 service account key
@@ -367,7 +367,7 @@ castos-writer/
 GA4_PROPERTY_ID=123456789
 
 # Google Search Console
-GSC_SITE_URL=https://castos.com/
+GSC_SITE_URL=https://yoursite.com/
 
 # DataForSEO
 DATAFORSEO_LOGIN=your_username

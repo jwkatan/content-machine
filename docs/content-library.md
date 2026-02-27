@@ -159,7 +159,7 @@ All functions are also available via command line:
 from data_sources.modules.content_library import sync_article, checkout
 
 # 1. Sync fresh from WordPress
-sync_article('https://swimm.io/learn/category/article-slug/')
+sync_article('https://yoursite.com/blog/category/article-slug/')
 
 # 2. Check out to workbench (fresh=False since we just synced)
 checkout('article-slug', fresh=False)
