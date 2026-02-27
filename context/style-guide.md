@@ -1,9 +1,11 @@
-# Swimm Style Guide
+# [Company Name] Style Guide
 
-This guide defines writing conventions, formatting standards, and editorial guidelines for all Swimm content.
+<!-- Instructions: Replace [Company Name] with your company name. Replace product-specific terminology with your own. Keep all generic grammar, formatting, and capitalization guidance as-is — these are universal best practices. -->
+
+This guide defines writing conventions, formatting standards, and editorial guidelines for all [Company Name] content.
 
 ## Instructions
-This document establishes the style standards for Swimm content creation. It complements [brand-voice.md](brand-voice.md) by providing specific formatting and mechanical guidelines. Update as the style guide evolves.
+This document establishes the style standards for [Company Name] content creation. It complements [brand-voice.md](brand-voice.md) by providing specific formatting and mechanical guidelines. Update as the style guide evolves.
 
 ---
 
@@ -13,21 +15,21 @@ This document establishes the style standards for Swimm content creation. It com
 
 **Headlines & Subheadings**:
 - Use **sentence case** (only capitalize first word and proper nouns)
-- Example: "Extracting business logic from COBOL applications"
-- Exception: Proper nouns and acronyms always capitalized (COBOL, Swimm, IBM)
+- Example: "How to automate code review for distributed teams"
+- Exception: Proper nouns and acronyms always capitalized ([Company Name], API, CI/CD)
 
 **Product Names**:
-- Swimm: Always capitalized
-- Swimm Collections: Capitalize "Collections" when referring to the specific feature
-- Swimm Context Agent: Capitalize feature names
+<!-- Instructions: List your product names and features that should be capitalized. -->
+- [Company Name]: Always capitalized
+- [Feature Name 1]: Capitalize when referring to the specific feature
+- [Feature Name 2]: Capitalize feature names
 
 **Industry Terms**:
-- COBOL: All caps (acronym)
-- JCL: All caps (acronym)
-- mainframe: Lowercase unless starting a sentence
-- legacy code: Lowercase (not a proper noun)
-- business rule extraction (BRE): Lowercase in general use, spell out acronym on first use
-- modernization: Lowercase
+<!-- Instructions: List industry terms and their capitalization rules. -->
+- API: All caps (acronym)
+- CI/CD: All caps (acronym)
+- pull request: Lowercase unless starting a sentence
+- code review: Lowercase (not a proper noun)
 
 ### Numbers
 
@@ -38,7 +40,7 @@ This document establishes the style standards for Swimm content creation. It com
   - Percentages: Always use numerals (5%, 90%)
   - Money: Always use numerals ($5, $500)
   - Measurements: Always use numerals (100 lines of code, 3 files)
-  - Statistics: Always use numerals for precision (analyzed 100+ million lines of code)
+  - Statistics: Always use numerals for precision
   - Technical specs: Always use numerals (8-character field, Level 3 complexity)
 
 **Large Numbers**:
@@ -50,18 +52,18 @@ This document establishes the style standards for Swimm content creation. It com
 
 **Oxford Comma**:
 - **Yes** - Always use the Oxford comma
-- Example: "Extract business rules, flows, and dependencies"
+- Example: "Analyze pull requests, detect vulnerabilities, and route reviews"
 
 **Em Dashes**:
-- Style: Use space-dash-space ( - ) not em dash (—)
+- Style: Use space-dash-space ( - ) not em dash (-)
 - Usage: For parenthetical statements, clarifications, or emphasis
-- Example: "Legacy applications are expensive to maintain - the actual cost isn't in the code itself - it's in the cognitive load teams carry."
-- **CRITICAL**: Never use em dash without spaces (—). Always use " - " with spaces on both sides.
+- Example: "Automated review doesn't replace human judgment - it focuses it where it matters most."
+- **CRITICAL**: Never use em dash without spaces. Always use " - " with spaces on both sides.
 
 **Quotation Marks**:
 - Use straight quotes: "text here"
 - For code or technical terms in quotes: Use backticks instead when appropriate
-- Example: The `PERFORM` statement vs. "business rules"
+- Example: The `main` branch vs. "code review"
 
 **Ellipses**:
 - Three dots: ...
@@ -72,17 +74,19 @@ This document establishes the style standards for Swimm content creation. It com
 
 **First Use**:
 - Spell out on first use with acronym in parentheses
-- Example: "Business Rule Extraction (BRE) automates the process..."
-- Exceptions for universally known in our audience: COBOL, JCL, API, SEO, URL
+- Example: "Continuous Integration/Continuous Deployment (CI/CD) automates the process..."
+- Exceptions for universally known in our audience: API, URL, SEO
 
 **Common Technical Acronyms**:
-- COBOL: COmmon Business-Oriented Language
-- JCL: Job Control Language
-- BRE: Business Rule Extraction
+<!-- Instructions: List the acronyms your content frequently uses. -->
 - API: Application Programming Interface
+- CI/CD: Continuous Integration/Continuous Deployment
+- PR: Pull Request
 - LLM: Large Language Model
 - AI: Artificial Intelligence
-- SME: Subject Matter Expert
+- RBAC: Role-Based Access Control
+- SSO: Single Sign-On
+- SLA: Service Level Agreement
 
 **Latin Abbreviations**:
 - **Avoid** e.g., i.e., etc. in favor of plain English
@@ -94,20 +98,19 @@ This document establishes the style standards for Swimm content creation. It com
 
 ### Preferred Terms
 
-**Say This** → **Not That**:
-- legacy code → old code, outdated code
-- application understanding → documentation, code knowledge
-- knowledge capture → documentation creation
-- tribal knowledge → undocumented knowledge
-- onboarding acceleration → training
-- enterprise teams → enterprise clients
-- modernization confidence → transformation
-- knowledge gap → documentation gap
-- business rule extraction (BRE) → rule extraction (use full term on first reference)
-- reverse engineering → code analysis (when technically accurate)
-- deterministic analysis → static analysis (deterministic is more precise for our approach)
-- extract → pull, get (more active and specific)
-- generate → create, make (emphasizes automation)
+<!-- Instructions: Replace this entire table with your company's preferred vs. avoided terms. -->
+
+**Say This** -> **Not That**:
+- code review -> code inspection (industry-standard term)
+- pull request -> merge request (unless GitLab-specific context)
+- review cycle time -> review latency, review delay
+- engineering velocity -> developer speed
+- defect prevention -> bug catching (proactive framing)
+- review coverage -> review completeness
+- code quality -> code health
+- automated analysis -> automated scanning (more precise for our approach)
+- surface -> find, detect (emphasizes bringing to attention)
+- integrate -> plug in, connect (more professional)
 
 ### Words to Avoid
 
@@ -115,22 +118,22 @@ This document establishes the style standards for Swimm content creation. It com
 - synergize, leverage, disrupt, innovate, transform, revolutionize
 - game-changing, cutting-edge, next-generation, best-in-class
 - unlock, unleash, empower (overused marketing terms)
-- digital transformation (use "modernization" instead)
+- digital transformation (use "modernization" or specific term instead)
 
 **Fear Language** (Replace with neutral terms):
-- nightmare → challenge, significant issue
-- disaster, catastrophe → costly problem, critical risk
-- crisis → urgent challenge
-- struggle, failing → facing challenges
+- nightmare -> challenge, significant issue
+- disaster, catastrophe -> costly problem, critical risk
+- crisis -> urgent challenge
+- struggle, failing -> facing challenges
 
 **Hedging Language** (Remove or rephrase):
 - might, could, perhaps, potentially, possibly (be direct instead)
 - very, really, actually (usually unnecessary padding)
 
 **Vague Terms** (Replace with specifics):
-- better, improved → quantify (90% faster, 50% reduction)
-- easy, simple → specific benefits
-- powerful, robust → describe actual capabilities
+- better, improved -> quantify (60% faster, 50% reduction)
+- easy, simple -> specific benefits
+- powerful, robust -> describe actual capabilities
 
 ### Inclusive Language
 - Use gender-neutral language: "they" instead of "he/she"
@@ -147,26 +150,25 @@ This document establishes the style standards for Swimm content creation. It com
 **Bold**:
 - Use for: Headers and the first word/phrase in labeled list items
 - Example in labeled lists:
-  - **Deterministic**: Swimm uses deterministic static analysis to ensure accuracy
-  - **Scalable**: Swimm can scale to millions of lines of code
+  - **Automated**: [Company Name] analyzes PRs automatically on every push
+  - **Scalable**: [Company Name] handles repositories of any size
 - Do NOT use for: Emphasis within paragraphs, key concepts, or takeaways
 - Keep it minimal: Bold should be structural, not emphatic
 
 **Italics**:
 - Use for: Emphasis (sparingly), example variable names in narrative
-- Example: "The variable *RISK-SCORE* determines the application status."
 - Avoid: Don't use for code (use backticks instead)
 
 **Code Formatting (backticks)**:
 - Use for: Code snippets, variable names, file names, program names, technical values
-- Inline: `PERFORM`, `COBOL`, `EMPENT.CBL`
-- Example: "The `PERFORM D THRU E` statement executes paragraphs D through E."
+- Inline: `main`, `develop`, `package.json`
+- Example: "The `pre-commit` hook runs analysis before each push."
 
 **Underline**:
 - Don't use (reserve for links only)
 
 **ALL CAPS**:
-- Use only for: Standard acronyms (COBOL, JCL, API, LLM)
+- Use only for: Standard acronyms (API, CI/CD, PR, LLM)
 - Never use for emphasis or shouting
 
 ### Lists
@@ -178,23 +180,11 @@ This document establishes the style standards for Swimm content creation. It com
   - Period if complete sentence
   - No period if fragment
   - Maintain parallel structure (all sentences OR all fragments, not mixed)
-- Example (standard list):
-  - Extract business rules automatically from legacy code
-  - Generate visual representations of COBOL screens
-  - Trace flows across entire applications
-- Example (labeled list with bold labels):
-  - **Deterministic**: Swimm uses deterministic static analysis to prevent hallucinations
-  - **Scalable**: Swimm can scale to millions of lines of legacy code
-  - **Traceable**: Every insight links directly back to source code
 
 **Numbered Lists**:
 - Use for: Sequential steps, processes, rankings, ordered priorities
 - Format: 1. 2. 3. (with period after number)
 - Same capitalization and punctuation rules as bullets
-- Example:
-  1. Read the code
-  2. Analyze the logic
-  3. Generate documentation
 
 **Nested Lists**:
 - Maximum 2 levels deep for readability
@@ -207,8 +197,8 @@ This document establishes the style standards for Swimm content creation. It com
 - Descriptive (tell reader where they're going)
 - Keyword-rich when appropriate for SEO
 - 2-6 words typically
-- ✅ "Learn more about business rule extraction"
-- ❌ "Click here" or "Read more"
+- Good: "Learn more about automated code review"
+- Bad: "Click here" or "Read more"
 
 **Link Formatting**:
 - Use markdown format: `[anchor text](url)`
@@ -220,11 +210,11 @@ This document establishes the style standards for Swimm content creation. It com
 
 **Inline Code**:
 - Use backticks for: Code snippets, program names, file names, variable names, commands
-- Example: "Your program `CBACT04C` processes account balances using the `INTEREST-RATE` variable."
+- Example: "Your `pre-commit` hook runs `acme-review analyze` on staged changes."
 
 **Code Blocks**:
-- Use for: Multi-line code, COBOL programs, configuration examples
-- Include language identifier: ```cobol or ```python
+- Use for: Multi-line code, configuration examples, CLI commands
+- Include language identifier: ```yaml or ```python
 - Provide context before code blocks
 - Keep examples focused and relevant
 
@@ -249,13 +239,9 @@ This document establishes the style standards for Swimm content creation. It com
 ### Article Introduction
 **Standard Structure** (150-250 words):
 1. **Hook** (1-2 sentences): Grab attention with relevant problem, statistic, or compelling statement
-   - Example: "COBOL still powers 80% of in-person credit card transactions."
 2. **Problem** (2-3 sentences): What challenge does this address?
-   - Example: "Legacy modernization stalls when teams don't understand what exists."
 3. **Promise** (2-3 sentences): What will reader learn or achieve?
-   - Example: "This guide shows how to extract business rules from complex legacy code."
 4. **Credibility** (optional, 1 sentence): Why trust this source?
-   - Example: "At Swimm, we've analyzed 100+ million lines of COBOL code."
 
 **Keyword Placement**:
 - Include primary keyword in first 100 words
@@ -272,7 +258,7 @@ This document establishes the style standards for Swimm content creation. It com
 1. **Recap** (3-5 points or brief paragraph): Summarize key takeaways
 2. **Action** (1-2 sentences): What should reader do next?
 3. **CTA** (1-2 sentences): Clear call-to-action
-   - Request-focused: "Request a demo" or "Try Swimm on your codebase"
+   - Request-focused: "Request a demo" or "Try [Company Name] on your codebase"
    - Never: "Sign up now!" or urgency manipulation
 4. **Forward-looking** (optional, 1 sentence): Encouraging or connecting thought
 
@@ -283,16 +269,15 @@ This document establishes the style standards for Swimm content creation. It com
 ### Meta Titles
 - 50-60 characters including spaces
 - Include primary keyword
-- Include "| Swimm" if space allows
+- Include "| [Company Name]" if space allows
 - No ending punctuation
-- Example: "Extract COBOL Business Rules Automatically | Swimm"
+- Example: "Automate Code Review for Faster Shipping | Acme Corp"
 
 ### Meta Descriptions
 - 150-160 characters including spaces
 - Include primary keyword naturally
 - Include benefit or value proposition
 - End with complete thought
-- Example: "Learn how to extract business logic from legacy COBOL applications automatically. Swimm analyzes code to generate human-readable business rules in hours, not weeks."
 
 ### URL Slugs
 - Lowercase only
@@ -300,14 +285,13 @@ This document establishes the style standards for Swimm content creation. It com
 - Include primary keyword
 - 3-6 words ideal
 - Remove articles (a, an, the) when possible
-- Format: `/blog/extract-cobol-business-rules`
+- Format: `/blog/automate-code-review-guide`
 
 ### Alt Text
 - Describe what image shows concisely
 - Include keyword naturally if relevant to the image
 - 125 characters or less
 - No "image of" or "picture of" (implied)
-- Example: "COBOL code snippet showing PERFORM statement with GOTO"
 
 ---
 
@@ -315,8 +299,8 @@ This document establishes the style standards for Swimm content creation. It com
 
 **Date Format**:
 - Use: Month DD, YYYY
-- Example: January 15, 2025
-- In metadata: YYYY-MM-DD (2025-01-15)
+- Example: January 15, 2026
+- In metadata: YYYY-MM-DD (2026-01-15)
 
 **Time**:
 - 12-hour format with a.m./p.m.: 3:00 p.m.
@@ -334,13 +318,13 @@ This document establishes the style standards for Swimm content creation. It com
 - Always cite statistics with sources
 - Format: "According to [Source], [statistic]."
 - Link to original source when possible
-- Include year of data: "In 2024, enterprises spent..."
-- For internal data: "Swimm has analyzed 100+ million lines of code"
+- Include year of data: "In 2025, engineering teams spent..."
+- For internal data: "[Company Name] analysis of [X] repositories shows..."
 
 ### Presenting Numbers
 - Round large numbers: "100 million" not "100,234,567"
 - Use % symbol: 90% (not "percent")
-- Use specific metrics: "90% faster" not "much faster"
+- Use specific metrics: "60% faster" not "much faster"
 - Include commas: 10,000 not 10000
 - Quantify whenever possible
 
@@ -376,46 +360,29 @@ This document establishes the style standards for Swimm content creation. It com
 
 ## Brand-Specific Guidelines
 
-### Swimm Product References
+### [Company Name] Product References
 
-**Swimm Platform**:
-- "Swimm" (not "the Swimm platform" unless needed for clarity)
-- "Swimm's analysis engine"
-- "Swimm Collections"
+<!-- Instructions: Replace all product and feature references with your own. -->
+
+**[Company Name] Platform**:
+- "[Company Name]" (not "the [Company Name] platform" unless needed for clarity)
+- "[Company Name]'s analysis engine"
 
 **Features** (capitalize when referring to specific features):
-- Business Rule Extraction
-- Flow Analysis
-- Visual Screen Generation
-- Terminology Extraction
-- Application Mapping
-- Collections
-- Context Agent
-- Collections Agent
+<!-- Instructions: List your feature names that should be capitalized. -->
+- [Feature Name 1]
+- [Feature Name 2]
+- [Feature Name 3]
 
 **Technical Approach**:
-- "Deterministic + AI approach" (our unique differentiator)
-- "Deterministic analysis" (not just "static analysis")
-- "Application understanding" (our broader value proposition)
-
-### Technology References
-
-**Legacy Technologies**:
-- COBOL (all caps)
-- JCL (all caps)
-- mainframe (lowercase)
-- Refer respectfully - these are critical business systems, not "outdated junk"
-
-**Modern Technologies**:
-- AI (all caps)
-- LLM (all caps, spell out on first use: Large Language Model)
-- API (all caps)
+<!-- Instructions: Describe your unique technical approach in 2-3 bullet points. -->
+- "[Your unique approach]" (your key differentiator)
+- "[Your analysis method]" (not generic terms)
 
 ### Competitor References
 - **Approach**: Name competitors when relevant and factual
 - Be fair and objective
 - Focus on differentiation, not criticism
-- Example: "Unlike raw LLMs that can hallucinate, Swimm's deterministic analysis ensures..."
 - Never disparage or use fear tactics
 
 ---
@@ -425,7 +392,7 @@ This document establishes the style standards for Swimm content creation. It com
 ### Screen Reader Friendly
 - Descriptive link text (never "click here")
 - Alt text for all images
-- Proper heading hierarchy (H1 → H2 → H3, never skip levels)
+- Proper heading hierarchy (H1 -> H2 -> H3, never skip levels)
 - Meaningful section headers that describe content
 
 ### Plain Language
@@ -476,7 +443,7 @@ Before publishing any content:
 
 **Style**:
 - [ ] Capitalization follows guidelines (sentence case for headings)
-- [ ] Preferred terminology used (legacy code, application understanding, etc.)
+- [ ] Preferred terminology used
 - [ ] No marketing jargon or fear language
 - [ ] No hedging language (might, could, perhaps)
 - [ ] Bold only used for headers and labeled list items (not for emphasis)
@@ -487,7 +454,7 @@ Before publishing any content:
 **Structure**:
 - [ ] Strong introduction (hook, problem, promise)
 - [ ] Logical section flow with clear transitions
-- [ ] Proper heading hierarchy (H1 → H2 → H3)
+- [ ] Proper heading hierarchy (H1 -> H2 -> H3)
 - [ ] Effective conclusion with clear next steps
 - [ ] Appropriate section lengths (150-500 words)
 - [ ] Generous white space and paragraph breaks
@@ -512,9 +479,9 @@ Before publishing any content:
 - [ ] Code examples tested (if applicable)
 - [ ] Ready for publication
 
-**Swimm-Specific**:
+**[Company Name]-Specific**:
 - [ ] Customer-centric framing (they're heroes, not the problem)
-- [ ] Quantified benefits where possible (90% faster, 50% reduction, etc.)
+- [ ] Quantified benefits where possible
 - [ ] Technical credibility demonstrated
 - [ ] Differentiators highlighted appropriately
 - [ ] Product mentions feel natural, not forced
@@ -526,10 +493,10 @@ Before publishing any content:
 ## Updates & Maintenance
 
 **Style Guide Version**: 1.0
-**Last Updated**: December 2025
+**Last Updated**: [Date]
 **Next Review**: Quarterly
 
-This style guide is a living document. Update as Swimm brand and voice evolve.
+This style guide is a living document. Update as [Company Name] brand and voice evolve.
 
 **Questions or Additions?**
 If you encounter a style question not covered here, make a decision based on the brand voice principles, document it, and add it to this guide for future reference.

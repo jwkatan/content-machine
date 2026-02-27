@@ -1,163 +1,125 @@
 # Internal Links Map
 
-This document catalogs key Swimm pages that should be referenced in blog content for strategic internal linking. Use this as your go-to reference when adding internal links to articles.
+<!-- Instructions: Replace ALL placeholder URLs with your actual website URLs. Add your real pages, blog posts, and resources. Keep the page type organization (Homepage, Product, Use Cases, Blog by Topic Cluster) — agents reference these sections at runtime. -->
+
+This document catalogs key [Company Name] pages that should be referenced in blog content for strategic internal linking. Use this as your go-to reference when adding internal links to articles.
 
 ---
 
 ## Homepage & Core Pages
 
 ### Homepage
-- **URL**: https://swimm.io/
-- **When to Link**: Rarely; only when referencing Swimm broadly or introducing the company
-- **Anchor Text Examples**: "Swimm", "Swimm's platform", "application understanding platform"
+- **URL**: https://acmecorp.com/
+- **When to Link**: Rarely; only when referencing [Company Name] broadly or introducing the company
+- **Anchor Text Examples**: "[Company Name]", "[Company Name]'s platform", "automated code review platform"
 
 ### Demo Request Page
-- **URL**: https://swimm.io/request-demo
-- **When to Link**: At the end of articles to invite readers to try Swimm, or when discussing how Swimm can solve specific problems
+- **URL**: https://acmecorp.com/request-demo
+- **When to Link**: At the end of articles to invite readers to try [Company Name], or when discussing how [Company Name] can solve specific problems
 - **Anchor Text Examples**: "request a demo", "schedule a demo", "get a demo"
-
 
 ---
 
 ## Product/Service Pages
 
+<!-- Instructions: Add one entry per product or service page on your site. -->
 
-### Application Understanding Platform
-- **URL**: https://swimm.io/application-understanding
-- **When to Link**: When discussing automated code analysis, legacy code documentation, business rule extraction, or application modernization tools
-- **Anchor Text Examples**: "application understanding platform", "automated code analysis", "Swimm's platform", "code understanding tools"
+### Automated Code Review Platform
+- **URL**: https://acmecorp.com/platform
+- **When to Link**: When discussing automated code review, PR analysis, or review automation tools
+- **Anchor Text Examples**: "automated code review platform", "PR analysis tool", "[Company Name]'s platform"
+
+### Pricing Page
+- **URL**: https://acmecorp.com/pricing
+- **When to Link**: When readers are evaluating tools or comparing options
+- **Anchor Text Examples**: "see pricing", "view plans", "pricing details"
 
 ---
 
 ## Use Case / Solution Pages
 
-### Application Modernization
-- **URL**: https://swimm.io/modernize-maintain-legacy-code
-- **When to Link**: In articles about legacy code maintenance, modernization challenges, or preserving institutional knowledge
-- **Anchor Text Examples**: "modernize and maintain legacy code", "legacy code modernization", "application modernization solution"
+<!-- Instructions: Add one entry per use case or solution page. -->
+
+### Code Review Automation
+- **URL**: https://acmecorp.com/solutions/code-review-automation
+- **When to Link**: In articles about code review bottlenecks, review cycle time, or scaling reviews
+- **Anchor Text Examples**: "code review automation", "automated code review solution", "review automation"
+
+### Security Review
+- **URL**: https://acmecorp.com/solutions/security-review
+- **When to Link**: In articles about shift-left security, vulnerability detection, or secure development
+- **Anchor Text Examples**: "security code review", "shift-left security", "automated security scanning"
+
+### Review Analytics
+- **URL**: https://acmecorp.com/solutions/review-analytics
+- **When to Link**: In articles about engineering metrics, team performance, or process improvement
+- **Anchor Text Examples**: "review analytics", "engineering metrics dashboard", "review health monitoring"
 
 ---
 
 ## Resource Pages
 
-### White Paper: Closing the COBOL Knowledge Gap with Swimm
-- **URL**: https://swimm.io/resources/downloadables/closing-the-cobol-knowledge-gap
-- **When to Link**: In articles about COBOL modernization, knowledge preservation, or addressing the retiring COBOL workforce challenge
-- **Anchor Text Examples**: "closing the COBOL knowledge gap", "COBOL knowledge preservation whitepaper", "how to preserve COBOL expertise"
+<!-- Instructions: Add your downloadable resources, whitepapers, webinars, etc. -->
 
-### Shortcomings of Traditional COBOL Business Rule Extraction Methods
-- **URL**: https://swimm.io/resources/downloadables/primer-business-rule-extraction-examination
-- **When to Link**: In articles about business rule extraction, legacy code analysis challenges, or comparing manual vs automated approaches
-- **Anchor Text Examples**: "traditional business rule extraction methods", "business rule extraction challenges", "manual BRE limitations"
+### White Paper: The State of Code Review in [Year]
+- **URL**: https://acmecorp.com/resources/state-of-code-review
+- **When to Link**: In articles about code review best practices, industry trends, or review process challenges
+- **Anchor Text Examples**: "state of code review report", "code review industry data", "review benchmarks"
 
-### Swimm Whitepaper: Automating Legacy Code Documentation
-- **URL**: https://swimm.io/resources/downloadables/primer-business-rule-extraction-examination
-- **When to Link**: In articles about documentation automation, reducing tribal knowledge dependency, or accelerating onboarding
-- **Anchor Text Examples**: "automating legacy code documentation", "automated documentation whitepaper", "documentation automation guide"
-
-### Modernize with the Swimm Application Understanding Platform
-- **URL**: https://swimm.io/webinars/modernize-with-the-swimm-application-understanding-platform
-- **When to Link**: When readers want to see Swimm in action or learn about specific modernization use cases
-- **Anchor Text Examples**: "modernization webinar", "see Swimm in action", "watch the webinar", "application understanding webinar"
-
-
+### Guide: Scaling Code Review for Growing Teams
+- **URL**: https://acmecorp.com/resources/scaling-code-review-guide
+- **When to Link**: In articles about team growth, review bottlenecks, or engineering process scaling
+- **Anchor Text Examples**: "scaling code review guide", "how to scale reviews", "review process guide"
 
 ---
 
 ## Top-Performing Blog Posts
 
-### 7 Approaches to Mainframe Modernization
-- **URL**: https://swimm.io/learn/application-modernization/7-approaches-to-mainframe-modernization
-- **Primary Topic**: Mainframe Modernization strategies and approaches
-- **When to Link**: In articles about mainframe migration, legacy system transformation, or comparing modernization strategies
-- **Anchor Text Examples**: "mainframe modernization approaches", "7 modernization strategies", "mainframe transformation options", "how to modernize mainframes"
+<!-- Instructions: Replace these with your actual top-performing blog posts. Include 10-15 posts organized by topic cluster. -->
 
-### Application Modernization: Patterns, Challenges, and Tips for Success
-- **URL**: https://swimm.io/learn/application-modernization/application-modernization-patterns-challenges-and-tips-for-success
-- **Primary Topic**: Application modernization best practices and patterns
-- **When to Link**: In articles about legacy application updates, modernization planning, or overcoming modernization challenges
-- **Anchor Text Examples**: "application modernization patterns", "modernization best practices", "application modernization challenges", "how to modernize applications"
+### How to reduce code review cycle time: 7 proven strategies
+- **URL**: https://acmecorp.com/blog/reduce-code-review-cycle-time
+- **Primary Topic**: Code review efficiency
+- **When to Link**: In articles about review speed, PR bottlenecks, or engineering velocity
+- **Anchor Text Examples**: "reduce review cycle time", "speed up code reviews", "review efficiency strategies"
 
-### Mainframe to Cloud Migration: 5 Approaches + 5 Critical Best Practices
-- **URL**: https://swimm.io/learn/mainframe-modernization/mainframe-to-cloud-migration-5-approaches-5-critical-best-practices
-- **Primary Topic**: Cloud migration strategies for mainframe systems
-- **When to Link**: In articles about cloud transformation, mainframe migration, or hybrid cloud strategies
-- **Anchor Text Examples**: "mainframe to cloud migration", "cloud migration approaches", "mainframe cloud strategies", "migrating mainframes to the cloud"
+### Code review best practices for engineering teams in [Year]
+- **URL**: https://acmecorp.com/blog/code-review-best-practices
+- **Primary Topic**: Code review process
+- **When to Link**: In articles about review quality, team standards, or engineering process
+- **Anchor Text Examples**: "code review best practices", "review process guide", "how to do code reviews"
 
-### COBOL Modernization: Benefits, Challenges, and 5 Critical Techniques
-- **URL**: https://swimm.io/learn/cobol/cobol-modernization-benefits-challenges-and-5-critical-techniques
-- **Primary Topic**: COBOL modernization strategies and techniques
-- **When to Link**: In articles about COBOL systems, legacy language updates, or mainframe application modernization
-- **Anchor Text Examples**: "COBOL modernization", "modernizing COBOL applications", "COBOL modernization techniques", "how to modernize COBOL"
+### Pull request size: why smaller is better and how to get there
+- **URL**: https://acmecorp.com/blog/pull-request-size-guide
+- **Primary Topic**: Pull request management
+- **When to Link**: In articles about PR workflows, review quality, or developer productivity
+- **Anchor Text Examples**: "pull request size guide", "smaller PRs", "optimal PR size"
 
-### Strangler Fig Pattern: Modernizing It Without Losing It
-- **URL**: https://swimm.io/learn/legacy-code/strangler-fig-pattern-modernizing-it-without-losing-it
-- **Primary Topic**: Strangler fig pattern for incremental modernization
-- **When to Link**: In articles about phased modernization, migration patterns, or risk-reduction strategies
-- **Anchor Text Examples**: "strangler fig pattern", "incremental modernization approach", "phased migration strategy", "strangler pattern for legacy systems"
+### Automated code review tools: comparison guide for [Year]
+- **URL**: https://acmecorp.com/blog/automated-code-review-tools
+- **Primary Topic**: Code review tooling
+- **When to Link**: In articles about tool selection, review automation, or development tools
+- **Anchor Text Examples**: "automated code review tools", "review tool comparison", "best code review tools"
 
-### Understanding COBOL Migration and a 9-Step Migration Plan
-- **URL**: https://swimm.io/learn/cobol/understanding-cobol-migration-and-a-9-step-migration-plan
-- **Primary Topic**: COBOL migration planning and execution
-- **When to Link**: In articles about COBOL modernization, migration strategies, or legacy code transformation
-- **Anchor Text Examples**: "COBOL migration", "COBOL migration plan", "how to migrate COBOL", "9-step COBOL migration process"
+### How to measure code review effectiveness
+- **URL**: https://acmecorp.com/blog/measure-code-review-effectiveness
+- **Primary Topic**: Engineering metrics
+- **When to Link**: In articles about engineering metrics, process improvement, or team performance
+- **Anchor Text Examples**: "measure review effectiveness", "code review metrics", "review KPIs"
 
-### COBOL for Mainframes and the Future of Mainframe Applications
-- **URL**: https://swimm.io/learn/cobol/cobol-for-mainframes-and-the-future-of-mainframe-applications
-- **Primary Topic**: COBOL's role in mainframe environments
-- **When to Link**: In articles about mainframe programming, COBOL systems, or the future of legacy applications
-- **Anchor Text Examples**: "COBOL for mainframes", "COBOL mainframe applications", "future of COBOL", "mainframe COBOL systems"
+### Security code review: a practical guide for development teams
+- **URL**: https://acmecorp.com/blog/security-code-review-guide
+- **Primary Topic**: Security in code review
+- **When to Link**: In articles about application security, secure coding, or shift-left practices
+- **Anchor Text Examples**: "security code review", "secure code review guide", "security in reviews"
 
-### Converting COBOL to Java with GenAI: 5 Tools and 5 Best Practices
-- **URL**: https://swimm.io/learn/cobol/converting-cobol-to-java-with-genai-5-tools-and-5-best-practices
-- **Primary Topic**: AI-assisted COBOL to Java conversion
-- **When to Link**: In articles about code conversion, AI in modernization, or COBOL transformation
-- **Anchor Text Examples**: "COBOL to Java conversion", "converting COBOL with AI", "COBOL to Java tools", "automated COBOL conversion"
-
-### Mainframe Migration: 5 Strategies and 5 Tips for Success
-- **URL**: https://swimm.io/learn/mainframe-modernization/mainframe-migration-5-strategies-and-5-tips-for-success
-- **Primary Topic**: Mainframe migration strategies and best practices
-- **When to Link**: In articles about mainframe transformation, migration planning, or legacy system updates
-- **Anchor Text Examples**: "mainframe migration strategies", "migrating mainframes", "mainframe migration best practices", "how to migrate mainframes"
-
-### Legacy System Modernization: Approaches, Challenges, and Best Practices
-- **URL**: https://swimm.io/learn/application-modernization/legacy-system-modernization-approaches-challenges-and-best-practices
-- **Primary Topic**: Legacy system modernization strategies
-- **When to Link**: In articles about legacy code updates, system transformation, or modernization challenges
-- **Anchor Text Examples**: "legacy system modernization", "modernizing legacy systems", "legacy modernization approaches", "legacy system transformation"
-
-### Reverse Engineering in Software Engineering: Process and Best Practices
-- **URL**: https://swimm.io/learn/mainframe-modernization/reverse-engineering-in-software-engineering-process-and-best-practices
-- **Primary Topic**: Reverse engineering for legacy code understanding
-- **When to Link**: In articles about code analysis, business rule extraction, or understanding legacy systems
-- **Anchor Text Examples**: "reverse engineering legacy code", "software reverse engineering", "reverse engineering process", "code reverse engineering"
-
-### AWS Mainframe Migration: The Basics and a Quick Tutorial
-- **URL**: https://swimm.io/learn/mainframe-modernization/aws-mainframe-migration-the-basics-and-a-quick-tutorial
-- **Primary Topic**: AWS-based mainframe migration
-- **When to Link**: In articles about cloud migration, AWS services, or mainframe cloud strategies
-- **Anchor Text Examples**: "AWS mainframe migration", "migrating mainframes to AWS", "AWS mainframe services", "mainframe migration on AWS"
-
-### Understanding COBOL Divisions: Syntax, Challenges, and Modernizing Your Code
-- **URL**: https://swimm.io/learn/cobol/understanding-cobol-divisions-syntax-challenges-and-modernizing-your-code
-- **Primary Topic**: COBOL structure and syntax fundamentals
-- **When to Link**: In articles about COBOL basics, COBOL learning, or understanding COBOL code structure
-- **Anchor Text Examples**: "COBOL divisions", "COBOL syntax", "COBOL code structure", "understanding COBOL"
-
-### COBOL vs Java: 7 Key Differences and Migrating from COBOL to Java
-- **URL**: https://swimm.io/learn/cobol/cobol-vs-java-7-key-differences-and-migrating-from-cobol-to-java
-- **Primary Topic**: Comparing COBOL and Java for migration planning
-- **When to Link**: In articles about language comparison, COBOL migration, or choosing modernization targets
-- **Anchor Text Examples**: "COBOL vs Java", "COBOL and Java differences", "migrating COBOL to Java", "comparing COBOL to Java"
-
-### Best COBOL Tools: Top 12 Tools to Know in 2025
-- **URL**: https://swimm.io/learn/cobol/best-cobol-tools-top-12-tools-to-know-in-2025
-- **Primary Topic**: COBOL development and modernization tools
-- **When to Link**: In articles about COBOL development, modernization tooling, or COBOL ecosystem
-- **Anchor Text Examples**: "COBOL tools", "best COBOL development tools", "COBOL modernization tools", "top COBOL tools"
+### Code review checklist: what to look for in every PR
+- **URL**: https://acmecorp.com/blog/code-review-checklist
+- **Primary Topic**: Review quality
+- **When to Link**: In articles about review thoroughness, quality standards, or reviewer guides
+- **Anchor Text Examples**: "code review checklist", "PR review checklist", "what to check in code review"
 
 ---
-
 
 ## Internal Linking Best Practices
 
@@ -174,36 +136,28 @@ When adding internal links to blog content:
 
 ## Quick Reference by Topic
 
-**When writing about Application modernization**, link to:
-- https://swimm.io/modernize-maintain-legacy-code - Swimm's application modernization solution page
-- https://swimm.io/learn/application-modernization/application-modernization-patterns-challenges-and-tips-for-success - Comprehensive guide to modernization patterns and best practices
-- https://swimm.io/learn/application-modernization/7-approaches-to-mainframe-modernization - Overview of mainframe modernization strategies
-- https://swimm.io/learn/application-modernization/legacy-system-modernization-approaches-challenges-and-best-practices - Legacy system modernization guide
+<!-- Instructions: Organize your links by topic cluster so agents can quickly find the right links for any article topic. -->
 
-**When writing about COBOL**, link to:
-- https://swimm.io/learn/cobol/understanding-cobol-divisions-syntax-challenges-and-modernizing-your-code - COBOL fundamentals and structure
-- https://swimm.io/learn/cobol/cobol-modernization-benefits-challenges-and-5-critical-techniques - COBOL modernization techniques
-- https://swimm.io/learn/cobol/understanding-cobol-migration-and-a-9-step-migration-plan - COBOL migration planning
-- https://swimm.io/learn/cobol/converting-cobol-to-java-with-genai-5-tools-and-5-best-practices - AI-assisted COBOL conversion
-- https://swimm.io/learn/cobol/cobol-for-mainframes-and-the-future-of-mainframe-applications - COBOL's role in mainframes
-- https://swimm.io/resources/downloadables/closing-the-cobol-knowledge-gap - COBOL knowledge preservation whitepaper
+**When writing about code review process**, link to:
+- https://acmecorp.com/blog/code-review-best-practices - Comprehensive guide to code review
+- https://acmecorp.com/blog/code-review-checklist - Review checklist for every PR
+- https://acmecorp.com/blog/reduce-code-review-cycle-time - Strategies for faster reviews
 
-**When writing about legacy code**, link to:
-- https://swimm.io/application-understanding - Swimm's application understanding platform
-- https://swimm.io/learn/legacy-code/strangler-fig-pattern-modernizing-it-without-losing-it - Strangler fig pattern for incremental modernization
-- https://swimm.io/learn/application-modernization/legacy-system-modernization-approaches-challenges-and-best-practices - Legacy system modernization approaches
-- https://swimm.io/resources/downloadables/primer-business-rule-extraction-examination - Legacy code documentation whitepaper
+**When writing about engineering metrics**, link to:
+- https://acmecorp.com/solutions/review-analytics - Review analytics product page
+- https://acmecorp.com/blog/measure-code-review-effectiveness - How to measure review effectiveness
 
-**When writing about business rule extraction**, link to:
-- https://swimm.io/resources/downloadables/primer-business-rule-extraction-examination - Business rule extraction methods whitepaper
-- https://swimm.io/learn/mainframe-modernization/reverse-engineering-in-software-engineering-process-and-best-practices - Reverse engineering for business rule extraction
-- https://swimm.io/application-understanding - Automated business rule extraction platform
+**When writing about security**, link to:
+- https://acmecorp.com/solutions/security-review - Security review solution page
+- https://acmecorp.com/blog/security-code-review-guide - Security code review guide
 
-**When writing about mainframe migration**, link to:
-- https://swimm.io/learn/mainframe-modernization/mainframe-migration-5-strategies-and-5-tips-for-success - Mainframe migration strategies
-- https://swimm.io/learn/mainframe-modernization/mainframe-to-cloud-migration-5-approaches-5-critical-best-practices - Mainframe to cloud migration guide
-- https://swimm.io/learn/mainframe-modernization/aws-mainframe-migration-the-basics-and-a-quick-tutorial - AWS mainframe migration tutorial
-- https://swimm.io/learn/application-modernization/7-approaches-to-mainframe-modernization - Mainframe modernization approaches
+**When writing about pull requests**, link to:
+- https://acmecorp.com/blog/pull-request-size-guide - PR size best practices
+- https://acmecorp.com/blog/automated-code-review-tools - Automated review tools
+
+**When writing about scaling teams**, link to:
+- https://acmecorp.com/resources/scaling-code-review-guide - Guide to scaling reviews
+- https://acmecorp.com/solutions/code-review-automation - Review automation solution
 
 ---
 

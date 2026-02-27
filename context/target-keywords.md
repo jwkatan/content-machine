@@ -1,6 +1,8 @@
 # Target Keywords & Topic Clusters
 
-This document organizes Swimm's target keywords by topic cluster for strategic content planning and SEO optimization.
+<!-- Instructions: Replace ALL keyword clusters with your actual target keywords. The Acme Corp examples below use "code review automation" as a sample domain. Keep the Pillar/Cluster/Long-Tail/Search Intent structure intact — agents reference this format at runtime. -->
+
+This document organizes [Company Name]'s target keywords by topic cluster for strategic content planning and SEO optimization.
 
 ## Instructions
 This template contains target keywords organized by topic cluster. Update regularly based on keyword research and content performance.
@@ -17,10 +19,12 @@ Each topic cluster should have:
 
 ---
 
-## Cluster 1: Business Rule Extraction
+## Cluster 1: [Primary Product Category]
+
+<!-- Instructions: Replace with your #1 keyword cluster — the term that best describes what your product does. -->
 
 ### Pillar Keyword
-- **Keyword**: business rule extraction
+- **Keyword**: code review automation
 - **Search Volume**: [monthly searches]
 - **Difficulty**: [competition level]
 - **Intent**: Informational/Commercial
@@ -28,117 +32,120 @@ Each topic cluster should have:
 - **Pillar Content URL**: [URL of main guide]
 
 ### Cluster Keywords (Subtopics)
-1. **business rule extraction tools**
+1. **automated code review tools**
    - Volume: [searches]
    - Difficulty: [level]
    - Content: [URL if exists, or "Not yet created"]
 
-2. **extract business rules from legacy code**
+2. **automate pull request reviews**
    - Volume: [searches]
    - Difficulty: [level]
    - Content: [URL or status]
 
-3. **business rule extraction from COBOL**
+3. **code review automation platform**
    - Volume: [searches]
    - Difficulty: [level]
    - Content: [URL or status]
 
-4. **automated business rule extraction**
+4. **AI code review**
    - Volume: [searches]
    - Difficulty: [level]
    - Content: [URL or status]
 
-5. **business rule mining**
+5. **automated code analysis**
    - Volume: [searches]
    - Difficulty: [level]
    - Content: [URL or status]
 
-6. **business logic extraction**
+6. **code review bot**
    - Volume: [searches]
    - Difficulty: [level]
    - Content: [URL or status]
 
 ### Long-Tail Keywords
-- how to extract business rules from legacy systems
-- business rule extraction best practices
-- extract business rules from mainframe applications
-- automated business rule discovery
-- business rule extraction methodology
-- extracting business logic from COBOL programs
-- business rule extraction for modernization
-- reverse engineer business rules
-- business rule documentation generation
-- extract validation rules from legacy code
-- business rule analysis tools
-- how to identify business rules in code
-- business rule extraction challenges
-- extract business rules for application modernization
-- business rule extraction techniques
+- how to automate code review process
+- best automated code review tools for teams
+- code review automation for GitHub
+- automate pull request analysis
+- automated security code review
+- code review automation best practices
+- how to set up automated code review
+- automated code review vs manual review
+- code review automation for enterprise teams
+- AI-powered code review tools comparison
+- automate code quality checks in CI/CD
+- code review automation ROI
+- automated code review for monorepos
+- reduce code review time with automation
+- code review automation setup guide
 
 ### Related Questions (People Also Ask)
-- What is business rule extraction?
-- How do you extract business rules from legacy code?
-- What are business rule extraction tools?
-- Why is business rule extraction important for modernization?
-- How long does business rule extraction take?
-- What is the difference between business rules and business logic?
+- What is automated code review?
+- How do you automate code reviews?
+- What are the best code review automation tools?
+- Is automated code review better than manual?
+- How much time does code review automation save?
+- What should automated code review check for?
 
 ---
 
-## Cluster 2: COBOL Modernization
+## Cluster 2: [Core Use Case / Pain Point]
+
+<!-- Instructions: Replace with your primary pain point keyword cluster. -->
 
 ### Pillar Keyword
-- **Keyword**: COBOL modernization
+- **Keyword**: pull request best practices
 - **Search Volume**: [monthly searches]
 - **Difficulty**: [competition level]
-- **Intent**: Informational/Commercial
+- **Intent**: Informational
 - **Current Ranking**: [position if known]
 - **Pillar Content URL**: [URL or "To create"]
 
 ### Cluster Keywords (Subtopics)
-1. **mainframe modernization**
-2. **COBOL application modernization**
-3. **modernize legacy COBOL**
-4. **COBOL to Java migration**
-5. **COBOL code analysis**
-6. **COBOL decompiler**
-7. **COBOL reverse engineering**
-8. **legacy system modernization**
-9. **mainframe application modernization**
-10. **COBOL refactoring**
+1. **pull request size best practices**
+2. **PR review process**
+3. **pull request workflow**
+4. **code review checklist**
+5. **PR description template**
+6. **pull request approval process**
+7. **code review guidelines**
+8. **pull request turnaround time**
+9. **PR review efficiency**
+10. **merge request best practices**
 
 ### Long-Tail Keywords
-- how to modernize COBOL applications
-- COBOL modernization strategies
-- modernize mainframe applications without rewriting
-- COBOL application assessment
-- understand legacy COBOL code
-- COBOL business logic extraction
-- mainframe modernization tools
-- COBOL code documentation
-- COBOL modernization best practices
-- legacy COBOL system migration
-- analyze COBOL codebase
-- COBOL program flow analysis
-- modernization vs rewrite COBOL
-- COBOL modernization approach
-- legacy mainframe modernization planning
+- how to write a good pull request
+- pull request review best practices for teams
+- optimal pull request size
+- how to speed up pull request reviews
+- pull request description best practices
+- how to review pull requests effectively
+- pull request workflow for large teams
+- reduce pull request review time
+- pull request review checklist template
+- how long should a PR review take
+- pull request review bottleneck solutions
+- best practices for PR comments
+- how to manage large pull requests
+- pull request review automation tips
+- improving pull request quality
 
 ### Related Questions
-- What is COBOL modernization?
-- How do you modernize a COBOL application?
-- Should I rewrite or modernize COBOL?
-- What are COBOL modernization tools?
-- How much does COBOL modernization cost?
-- What is the best approach to COBOL modernization?
-- How long does COBOL modernization take?
+- What is a good pull request size?
+- How do you write a good PR description?
+- How long should code review take?
+- What should you check in a pull request?
+- How do you speed up PR reviews?
+- What is the best pull request workflow?
 
 ---
 
-## Cluster 3: Legacy Code Understanding
+## Cluster 3: [Secondary Product Feature]
+
+<!-- Instructions: Replace with a keyword cluster around your second most important feature or use case. -->
 
 ### Pillar Keyword
-- **Keyword**: legacy code understanding
+- **Keyword**: code quality metrics
 - **Search Volume**: [monthly searches]
 - **Difficulty**: [competition level]
 - **Intent**: Informational
@@ -146,48 +153,50 @@ Each topic cluster should have:
 - **Pillar Content URL**: [URL or status]
 
 ### Cluster Keywords
-1. **understand legacy code**
-2. **legacy code analysis**
-3. **reverse engineering legacy systems**
-4. **legacy code documentation**
-5. **legacy application understanding**
-6. **code comprehension tools**
-7. **legacy system analysis**
-8. **understand unfamiliar code**
-9. **legacy code visualization**
-10. **tribal knowledge capture**
+1. **engineering metrics dashboard**
+2. **code review metrics**
+3. **software quality metrics**
+4. **developer productivity metrics**
+5. **code review cycle time**
+6. **engineering team performance**
+7. **code quality KPIs**
+8. **review throughput metrics**
+9. **defect escape rate**
+10. **engineering velocity metrics**
 
 ### Long-Tail Keywords
-- how to understand legacy code quickly
-- tools for understanding legacy code
-- legacy code analysis techniques
-- reverse engineer mainframe applications
-- understand COBOL code
-- legacy application documentation
-- extract knowledge from legacy systems
-- understand complex legacy codebases
-- legacy code comprehension strategies
-- analyze undocumented legacy code
-- legacy system knowledge transfer
-- understand legacy business logic
-- legacy code onboarding
-- decode legacy applications
-- legacy code understanding tools
+- how to measure code quality
+- code review metrics that matter
+- engineering team performance dashboard
+- how to track code review cycle time
+- developer productivity metrics for managers
+- code quality metrics for engineering leaders
+- measuring code review effectiveness
+- engineering metrics best practices
+- code review analytics tools
+- how to reduce code review cycle time
+- engineering team health metrics
+- code review bottleneck identification
+- developer experience metrics
+- code quality measurement tools
+- review turnaround time benchmarks
 
 ### Related Questions
-- How do you understand legacy code?
-- What is the fastest way to understand legacy code?
-- How do you document legacy code?
-- What tools help understand legacy systems?
-- How do you reverse engineer legacy applications?
-- What is application understanding?
+- What are the most important code quality metrics?
+- How do you measure code review effectiveness?
+- What is a good code review cycle time?
+- How do you track engineering team performance?
+- What metrics should engineering managers track?
+- How do you identify code review bottlenecks?
 
 ---
 
-## Cluster 4: Mainframe Applications
+## Cluster 4: [Industry/Domain Topic]
+
+<!-- Instructions: Replace with a broader industry topic cluster relevant to your audience. -->
 
 ### Pillar Keyword
-- **Keyword**: mainframe applications
+- **Keyword**: engineering team productivity
 - **Search Volume**: [monthly searches]
 - **Difficulty**: [competition level]
 - **Intent**: Informational
@@ -195,97 +204,49 @@ Each topic cluster should have:
 - **Pillar Content URL**: [URL or status]
 
 ### Cluster Keywords
-1. **mainframe application development**
-2. **mainframe legacy systems**
-3. **mainframe COBOL applications**
-4. **mainframe application analysis**
-5. **mainframe batch processing**
-6. **mainframe application architecture**
-7. **understanding mainframe applications**
-8. **mainframe application documentation**
-9. **mainframe JCL**
-10. **mainframe program flow**
+1. **developer productivity tools**
+2. **engineering team efficiency**
+3. **software development velocity**
+4. **developer experience**
+5. **engineering process improvement**
+6. **developer workflow optimization**
+7. **engineering team scaling**
+8. **developer onboarding**
+9. **engineering bottlenecks**
+10. **software development best practices**
 
 ### Long-Tail Keywords
-- what are mainframe applications
-- how mainframe applications work
-- mainframe application components
-- analyze mainframe applications
-- mainframe application structure
-- mainframe batch job analysis
-- understand mainframe architecture
-- mainframe screen applications
-- mainframe application dependencies
-- mainframe program calls
-- mainframe application complexity
-- mainframe copybooks
-- mainframe application modernization challenges
-- documenting mainframe applications
-- mainframe application reverse engineering
+- how to improve engineering team productivity
+- developer productivity tools for teams
+- engineering team efficiency strategies
+- how to scale engineering teams
+- developer onboarding best practices
+- reducing engineering bottlenecks
+- improving developer experience
+- engineering process optimization
+- software development workflow tips
+- engineering team health assessment
+- developer time management strategies
+- engineering team communication best practices
+- how to reduce context switching for developers
+- improving software development velocity
+- engineering leadership best practices
 
 ### Related Questions
-- What are mainframe applications?
-- How do mainframe applications work?
-- What languages are used for mainframe applications?
-- How do you analyze a mainframe application?
-- What is JCL in mainframe?
-- How are mainframe applications structured?
+- How do you improve developer productivity?
+- What tools help engineering teams work faster?
+- How do you scale an engineering team?
+- What are the biggest engineering team bottlenecks?
+- How do you measure developer productivity?
 
 ---
 
-## Cluster 5: Reverse Engineering
+## Cluster 5: [Security/Compliance Topic]
+
+<!-- Instructions: Replace with a keyword cluster relevant to a secondary audience or buying trigger. -->
 
 ### Pillar Keyword
-- **Keyword**: reverse engineering software
-- **Search Volume**: [monthly searches]
-- **Difficulty**: [competition level]
-- **Intent**: Informational
-- **Current Ranking**: [position]
-- **Pillar Content URL**: [URL or status]
-
-### Cluster Keywords
-1. **reverse engineering legacy code**
-2. **software reverse engineering tools**
-3. **reverse engineer COBOL**
-4. **application reverse engineering**
-5. **code reverse engineering**
-6. **reverse engineering for modernization**
-7. **reverse engineering mainframe**
-8. **static code analysis**
-9. **reverse engineering techniques**
-10. **legacy system reverse engineering**
-
-### Long-Tail Keywords
-- how to reverse engineer legacy applications
-- reverse engineering tools for COBOL
-- reverse engineer business logic
-- reverse engineering for application modernization
-- reverse engineer mainframe applications
-- software reverse engineering methodology
-- reverse engineering legacy systems
-- reverse engineer undocumented code
-- reverse engineering to extract business rules
-- automated reverse engineering
-- reverse engineering COBOL programs
-- reverse engineer application flows
-- legacy code reverse engineering best practices
-- reverse engineering for documentation
-- reverse engineer dependencies
-
-### Related Questions
-- What is software reverse engineering?
-- How do you reverse engineer legacy code?
-- What tools are used for reverse engineering?
-- Is reverse engineering legal?
-- How does reverse engineering help modernization?
-- What is the difference between reverse engineering and decompiling?
-
----
-
-## Cluster 6: Application Modernization
-
-### Pillar Keyword
-- **Keyword**: application modernization
+- **Keyword**: secure code review
 - **Search Volume**: [monthly searches]
 - **Difficulty**: [competition level]
 - **Intent**: Informational/Commercial
@@ -293,225 +254,111 @@ Each topic cluster should have:
 - **Pillar Content URL**: [URL or status]
 
 ### Cluster Keywords
-1. **legacy application modernization**
-2. **modernization strategy**
-3. **application modernization tools**
-4. **modernization vs migration**
-5. **application modernization roadmap**
-6. **modernization challenges**
-7. **enterprise application modernization**
-8. **modernization assessment**
-9. **application modernization best practices**
-10. **modernization planning**
+1. **security code review checklist**
+2. **automated security scanning**
+3. **shift-left security**
+4. **secure development practices**
+5. **vulnerability detection in code review**
+6. **application security testing**
+7. **SAST tools**
+8. **secure coding standards**
+9. **code review for compliance**
+10. **DevSecOps code review**
 
 ### Long-Tail Keywords
-- how to modernize legacy applications
-- application modernization approach
-- legacy system modernization strategy
-- application modernization steps
-- modernization assessment methodology
-- application modernization risks
-- modernization vs rewrite decision
-- enterprise modernization planning
-- application modernization timeline
-- modernization cost estimation
-- application portfolio modernization
-- modernization readiness assessment
-- successful application modernization
-- application modernization framework
-- modernization project planning
+- how to do a security code review
+- security code review checklist for teams
+- automated security scanning in CI/CD
+- shift-left security best practices
+- how to find vulnerabilities in code review
+- security code review tools comparison
+- secure code review process
+- DevSecOps code review integration
+- code review for SOC 2 compliance
+- automated vulnerability detection in PRs
+- security best practices for pull requests
+- how to build a secure code review process
+- SAST vs manual security review
+- code review security checklist template
+- integrating security into code review workflow
 
 ### Related Questions
-- What is application modernization?
-- How do you modernize legacy applications?
-- What are the steps in application modernization?
-- Should I modernize or rewrite?
-- What are application modernization tools?
-- How much does application modernization cost?
-- What are the risks of application modernization?
+- What is a security code review?
+- How do you integrate security into code review?
+- What should a security code review check for?
+- What are shift-left security best practices?
+- How do you automate security in code review?
 
 ---
 
-## Cluster 7: Knowledge Capture & Documentation
+## Cluster 6: [Comparison/Alternative Topic]
+
+<!-- Instructions: This cluster targets users comparing tools. Replace with your competitive comparison keywords. -->
 
 ### Pillar Keyword
-- **Keyword**: tribal knowledge capture
+- **Keyword**: code review tools comparison
 - **Search Volume**: [monthly searches]
 - **Difficulty**: [competition level]
-- **Intent**: Informational
+- **Intent**: Commercial
 - **Current Ranking**: [position]
 - **Pillar Content URL**: [URL or status]
 
 ### Cluster Keywords
-1. **knowledge transfer tools**
-2. **legacy system documentation**
-3. **institutional knowledge capture**
-4. **code documentation automation**
-5. **knowledge preservation**
-6. **SME knowledge capture**
-7. **application documentation**
-8. **knowledge retention**
-9. **automated documentation generation**
-10. **developer knowledge transfer**
+1. **best code review tools**
+2. **code review tool comparison [year]**
+3. **[Competitor A] alternatives**
+4. **[Competitor B] vs [Competitor C]**
+5. **code review platform comparison**
+6. **automated code review tool comparison**
 
 ### Long-Tail Keywords
-- how to capture tribal knowledge
-- preserve institutional knowledge before retirement
-- automate legacy code documentation
-- knowledge transfer from retiring developers
-- capture SME knowledge
-- document undocumented systems
-- knowledge preservation strategies
-- prevent knowledge loss
-- accelerate developer onboarding
-- capture application knowledge
-- legacy system knowledge transfer
-- document business logic automatically
-- tribal knowledge in legacy systems
-- knowledge capture before employee departure
-- automated code documentation tools
-
-### Related Questions
-- What is tribal knowledge?
-- How do you capture tribal knowledge?
-- How do you prevent knowledge loss when employees leave?
-- What are knowledge transfer tools?
-- How do you document legacy systems?
-- What is institutional knowledge?
-
----
-
-## Cluster 8: COBOL Analysis & Understanding
-
-### Pillar Keyword
-- **Keyword**: COBOL code analysis
-- **Search Volume**: [monthly searches]
-- **Difficulty**: [competition level]
-- **Intent**: Informational
-- **Current Ranking**: [position]
-- **Pillar Content URL**: [URL or status]
-
-### Cluster Keywords
-1. **COBOL static analysis**
-2. **COBOL program analysis**
-3. **understand COBOL code**
-4. **COBOL flow analysis**
-5. **COBOL dependency analysis**
-6. **COBOL code review**
-7. **analyze COBOL programs**
-8. **COBOL complexity analysis**
-9. **COBOL screen analysis**
-10. **COBOL business logic**
-
-### Long-Tail Keywords
-- how to analyze COBOL code
-- COBOL static analysis tools
-- understand COBOL program flow
-- analyze COBOL dependencies
-- COBOL code complexity
-- COBOL program structure analysis
-- extract COBOL business rules
-- COBOL variable analysis
-- COBOL paragraph analysis
-- analyze COBOL perform statements
-- COBOL copybook analysis
-- COBOL call hierarchy
-- understand COBOL screens
-- COBOL batch job analysis
-- COBOL code comprehension
-
-### Related Questions
-- How do you analyze COBOL code?
-- What are COBOL static analysis tools?
-- How do COBOL programs work?
-- How do you understand COBOL code?
-- What is a COBOL copybook?
-- How do you trace COBOL program flow?
-
----
-
-## Cluster 9: Developer Onboarding
-
-### Pillar Keyword
-- **Keyword**: developer onboarding
-- **Search Volume**: [monthly searches]
-- **Difficulty**: [competition level]
-- **Intent**: Informational
-- **Current Ranking**: [position]
-- **Pillar Content URL**: [URL or status]
-
-### Cluster Keywords
-1. **onboard developers quickly**
-2. **reduce developer ramp-up time**
-3. **accelerate developer onboarding**
-4. **developer onboarding tools**
-5. **onboarding to legacy code**
-6. **new developer training**
-7. **codebase onboarding**
-8. **developer productivity**
-9. **reduce time to productivity**
-10. **onboarding automation**
-
-### Long-Tail Keywords
-- how to onboard developers to legacy code
-- accelerate developer onboarding time
-- reduce developer ramp-up time
-- onboarding new developers to COBOL
-- developer onboarding best practices
-- onboard to unfamiliar codebase
-- speed up developer onboarding
-- legacy system onboarding
-- reduce time to first commit
-- developer onboarding challenges
-- onboarding tools for legacy applications
-- improve developer time to productivity
-- onboard to mainframe applications
-- new hire developer onboarding
-- technical onboarding acceleration
-
-### Related Questions
-- How do you onboard developers quickly?
-- How long does developer onboarding take?
-- How do you onboard to legacy code?
-- What tools help developer onboarding?
-- How do you reduce developer ramp-up time?
+- best code review tools for engineering teams
+- code review tools comparison guide
+- [Competitor A] alternative for enterprise
+- automated vs manual code review tools
+- best code review tools for GitHub
+- code review platform features comparison
+- how to choose a code review tool
+- code review tool evaluation criteria
+- top code review tools for [year]
+- enterprise code review tool comparison
 
 ---
 
 ## Seasonal/Trending Keywords
 
 ### Q1 Keywords (Jan-Mar)
-- modernization planning 2025
-- legacy system assessment
-- modernization budget planning
-- new year modernization goals
+- engineering planning [year]
+- developer tool evaluation
+- engineering team goals
+- code quality improvement plan
 
 ### Q2 Keywords (Apr-Jun)
-- mid-year modernization review
+- mid-year engineering review
 - summer intern onboarding
-- Q2 modernization milestones
+- engineering process audit
 
 ### Q3 Keywords (Jul-Sep)
-- preparing for year-end modernization
-- modernization project timeline
-- Q3 assessment
+- engineering team scaling
+- preparing for year-end goals
+- developer productivity assessment
 
 ### Q4 Keywords (Oct-Dec)
-- year-end knowledge capture
-- retiring developer knowledge transfer
-- 2026 modernization planning
-- budget planning for modernization
+- year-end engineering retrospective
+- [next year] developer tool trends
+- budget planning for engineering tools
+- engineering team planning [next year]
 
 ---
 
 ## Competitor Keyword Gaps
 
-Track keywords where competitors rank but Swimm doesn't:
+Track keywords where competitors rank but [Company Name] doesn't:
 
-### Competitor: [CAST, Micro Focus, etc.]
+### Competitor: [Competitor Name]
 - **Keyword**: [keyword they rank for]
   - Their Position: [rank]
-  - Swimm Position: [rank or "Not ranking"]
+  - [Company Name] Position: [rank or "Not ranking"]
   - Opportunity: [High/Medium/Low]
   - Action: [Create content, optimize existing, etc.]
 
@@ -524,72 +371,55 @@ Track keywords where competitors rank but Swimm doesn't:
 ### High Priority (Create Soon)
 Keywords with high volume, achievable difficulty, strong business value:
 
-1. **Keyword**: business rule extraction
+1. **Keyword**: code review automation
    - Volume: [searches]
    - Difficulty: [score]
    - Intent: Informational/Commercial
-   - Why Priority: Core Swimm value proposition
+   - Why Priority: Core [Company Name] value proposition
    - Action: Create comprehensive pillar content
 
-2. **Keyword**: COBOL modernization
+2. **Keyword**: pull request best practices
    - Volume: [searches]
    - Difficulty: [score]
-   - Intent: Informational/Commercial
-   - Why Priority: Primary target market
+   - Intent: Informational
+   - Why Priority: Primary audience pain point
    - Action: Create pillar guide
 
-3. **Keyword**: legacy code understanding
+3. **Keyword**: code quality metrics
    - Volume: [searches]
    - Difficulty: [score]
    - Intent: Informational
-   - Why Priority: Core pain point Swimm solves
+   - Why Priority: Core feature differentiation
    - Action: Create pillar content
-
-4. **Keyword**: mainframe application modernization
-   - Volume: [searches]
-   - Difficulty: [score]
-   - Intent: Commercial
-   - Why Priority: High-value enterprise keyword
-   - Action: Create detailed guide
-
-5. **Keyword**: tribal knowledge capture
-   - Volume: [searches]
-   - Difficulty: [score]
-   - Intent: Informational
-   - Why Priority: Growing concern with aging workforce
-   - Action: Create thought leadership content
 
 [List 5-10 high-priority keywords]
 
 ### Medium Priority (Next Quarter)
-- reverse engineering legacy systems
-- COBOL code analysis tools
-- mainframe application analysis
-- automated documentation generation
-- legacy system knowledge transfer
-- developer onboarding to legacy code
-- COBOL business logic extraction
-- application modernization assessment
+- engineering team productivity
+- secure code review
+- code review tools comparison
+- developer onboarding best practices
+- code review checklist
+- engineering metrics dashboard
 
 ### Low Priority (Future Consideration)
-- COBOL to cloud migration
-- legacy system integration
-- mainframe DevOps
-- COBOL testing tools
-- legacy code refactoring
+- developer experience platform
+- engineering operations
+- code review culture
+- software quality assurance
 
 ---
 
 ## Keyword Tracking & Performance
 
 ### Top Performing Keywords
-Keywords where Swimm ranks in positions 1-10:
+Keywords where [Company Name] ranks in positions 1-10:
 
 1. **Keyword**: [keyword]
    - Position: [current rank]
    - Volume: [searches]
    - URL: [ranking page]
-   - Trend: [↑ Rising / → Stable / ↓ Declining]
+   - Trend: [Rising / Stable / Declining]
 
 [List current winners]
 
@@ -624,59 +454,51 @@ Track multiple pages targeting same/similar keywords:
 
 ## LSI & Semantic Keywords
 
-Common related terms to include across legacy modernization content:
+Common related terms to include across your content domain:
 
-### Legacy Technology Terms
-- COBOL
-- mainframe
-- JCL (Job Control Language)
-- CICS
-- DB2
-- IMS
-- batch processing
-- copybook
-- VSAM
-- z/OS
+<!-- Instructions: Replace all four lists below with terms relevant to your product and industry. -->
 
-### Modernization Terms
-- application modernization
-- legacy migration
-- system transformation
-- re-engineering
-- code refactoring
-- platform migration
-- cloud migration
-- application portfolio
+### Product/Technology Terms
+- pull request
+- code review
+- static analysis
+- CI/CD pipeline
+- version control
+- Git workflow
+- merge request
+- code diff
+- branch protection
+- pre-commit hooks
+
+### Process Terms
+- code review process
+- review workflow
+- approval gates
+- quality gates
+- code ownership
+- review assignment
+- review checklist
+- coding standards
 
 ### Business Terms
-- business rules
-- business logic
-- validation rules
-- business processes
-- workflows
-- dependencies
-- data flows
-- system architecture
+- engineering velocity
+- developer productivity
+- review cycle time
+- defect prevention
+- code quality
+- team scaling
+- engineering metrics
+- process improvement
 
 ### Problem/Pain Point Terms
-- tribal knowledge
-- knowledge gap
-- aging workforce
-- retiring developers
-- undocumented code
-- technical debt
-- maintenance costs
-- complexity
-
-### Solution/Benefit Terms
-- knowledge capture
-- automated analysis
-- application understanding
-- code comprehension
-- onboarding acceleration
-- documentation generation
-- deterministic analysis
-- AI-powered
+- review bottleneck
+- slow reviews
+- reviewer fatigue
+- inconsistent quality
+- escaped defects
+- context switching
+- knowledge silos
+- onboarding time
 
 ---
 
@@ -707,7 +529,7 @@ Common related terms to include across legacy modernization content:
 
 ## Maintenance
 
-**Last Updated**: 31/12/2025
+**Last Updated**: [Date]
 **Next Review**: [Date - quarterly recommended]
 
 **Regular Updates**:

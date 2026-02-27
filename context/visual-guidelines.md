@@ -1,49 +1,61 @@
-# Swimm Visual Guidelines
+# [Company Name] Visual Guidelines
 
-This document defines the visual style, brand colors, and design principles for Swimm content. Reference this when generating images for blog posts, social media, and other visual content.
+<!-- Instructions: Replace ALL color values, Figma URLs, and logo references with your own brand assets. Keep the structure and design principle sections intact — agents reference these when generating images. -->
 
-## Figma Sources
+This document defines the visual style, brand colors, and design principles for [Company Name] content. Reference this when generating images for blog posts, social media, and other visual content.
 
-Brand colors: https://www.figma.com/design/4HBgkNt1z4IPrE3VXYLRGl/Website-library-2022
+## Brand Asset Sources
 
-Blog post images (style reference): https://www.figma.com/design/C88Kft2CG6iavNd29Ofnb9/Blogs-Post-Images
+<!-- Instructions: Replace these links with your actual brand library locations. -->
+
+Brand colors: [Link to your brand library or style guide]
+
+Blog post images (style reference): [Link to your design templates or Figma file]
 
 ---
 
 ## Brand Colors
 
-### Primary Blues (Swimm Core)
-- **deep-dive**: #1F35FF - Darkest primary, strong emphasis
-- **swimm-blue**: #4154FF - Main brand color
-- **coastal-shore**: #5E6EFF - Secondary blue
-- **shallow-waters**: #8D98FF - Light blue accent
-- **feet-in-water**: #E4E7FF - Very light blue, backgrounds
+<!-- Instructions: Replace ALL hex values and color names with your brand colors. Keep the category structure (Primary, Accent, Neutrals, Gradients). -->
 
-### Accent Purples
-- **wave-jammer**: #C95FFF - Bold purple accent
-- **high-violet**: #D177FF - Medium purple
-- **wide-awake**: #DE9DFF - Light purple
-- **safe-zone**: #EDD9FF - Very light purple
+### Primary Colors
+| Name | Hex | Usage |
+|------|-----|-------|
+| [primary-dark] | #[XXXXXX] | Darkest primary, strong emphasis |
+| [primary-main] | #[XXXXXX] | Main brand color |
+| [primary-medium] | #[XXXXXX] | Secondary shade |
+| [primary-light] | #[XXXXXX] | Light accent |
+| [primary-bg] | #[XXXXXX] | Very light, backgrounds |
 
-### Accent Yellows
-- **duck-mode**: #FDF150 - Bold yellow accent
-- **rise-n-shine**: #FFF78E - Medium yellow
-- **just-hatched**: #FFFAB6 - Light yellow
-- **light-as-feather**: #FFFDE5 - Very light yellow
+### Accent Colors
+| Name | Hex | Usage |
+|------|-----|-------|
+| [accent-bold] | #[XXXXXX] | Bold accent |
+| [accent-medium] | #[XXXXXX] | Medium accent |
+| [accent-light] | #[XXXXXX] | Light accent |
+| [accent-bg] | #[XXXXXX] | Very light accent |
+
+### Secondary Accent Colors (Optional)
+| Name | Hex | Usage |
+|------|-----|-------|
+| [secondary-bold] | #[XXXXXX] | Bold secondary accent |
+| [secondary-medium] | #[XXXXXX] | Medium secondary |
+| [secondary-light] | #[XXXXXX] | Light secondary |
+| [secondary-bg] | #[XXXXXX] | Very light secondary |
 
 ### Neutrals
-- **dark-charcoal**: #1D1E2B - Dark backgrounds, text
-- **gravel-rocks**: #2F3142 - Secondary dark
-- **high-tide**: #878D95 - Medium gray
-- **wash-me**: #F4F6FA - Light backgrounds
-- **white**: #FFFFFF - Pure white
+| Name | Hex | Usage |
+|------|-----|-------|
+| [dark-bg] | #[XXXXXX] | Dark backgrounds, text |
+| [dark-secondary] | #[XXXXXX] | Secondary dark |
+| [mid-gray] | #[XXXXXX] | Medium gray |
+| [light-bg] | #[XXXXXX] | Light backgrounds |
+| white | #FFFFFF | Pure white |
 
-### Brand Gradients
-- **swimm-shades**: #4154FF → #8D98FF (swimm-blue to shallow-waters)
-- **beach-time**: #8D98FF → #E4E7FF → #0E68FF (multi-stop blue)
-- **pink-hour**: #8D98FF → #E4E7FF → #DE9DFF (blue to purple)
-- **shore-to-shore**: #8D98FF → #E4E7FF → #8D98FF (symmetric blue)
-- **night-swimming**: #1D1E2B → #4154FF → #1D1E2B (dark with blue center)
+### Brand Gradients (Optional)
+<!-- Instructions: Define any gradient combinations used in your brand. -->
+- [gradient-name-1]: #[XXXXXX] to #[XXXXXX] (description of usage)
+- [gradient-name-2]: #[XXXXXX] to #[XXXXXX] (description of usage)
 
 ---
 
@@ -59,11 +71,12 @@ Blog header images should convey **abstract relatability** to the subject matter
 - **Minimalist complexity**: Simple compositions that communicate clearly
 
 ### Color Application
-- **Background**: dark-charcoal (#1D1E2B) as default
-- **Base color within shapes**: swimm-blue (#4154FF) - most used after background
-- **Accent colors**: rise-n-shine (#FFF78E), high-violet (#D177FF)
-- **Stroke colors**: rise-n-shine (#FFF78E), high-violet (#D177FF)
-- **Stroke weight**: 1px for outlines and accents (same as grid)
+<!-- Instructions: Map your brand colors to these usage categories. -->
+- **Background**: [dark-bg] (#[XXXXXX]) as default
+- **Base color within shapes**: [primary-main] (#[XXXXXX]) - most used after background
+- **Accent colors**: [accent-medium] (#[XXXXXX]), [secondary-medium] (#[XXXXXX])
+- **Stroke colors**: [accent-medium] (#[XXXXXX]), [secondary-medium] (#[XXXXXX])
+- **Stroke weight**: 1px for outlines and accents
 
 ### Composition Rules
 - **Edge-to-edge**: Visuals fill the frame completely, OR
@@ -76,7 +89,7 @@ Blog header images should convey **abstract relatability** to the subject matter
 
 When using a grid overlay to add depth:
 - **Dimensions**: 20 columns x 10 rows
-- **Color**: #E8EAFF at 50% opacity
+- **Color**: [light color] at 50% opacity
 - **Coverage**: Edge to edge (always full-bleed when used)
 - **Line weight**: 1px
 
@@ -98,7 +111,7 @@ When incorporating charts or graphs for data-related topics:
 - **No axes**: Charts are purely visual
 - **No titles**: No chart titles or headers
 - **No labels**: No series labels or data point labels
-- **Color palette**: shallow-waters (#8D98FF), deep-dive (#1F35FF), swimm-blue (#4154FF), rise-n-shine (#FFF78E)
+- **Color palette**: Use your primary and accent colors
 
 Charts are decorative and conceptual - they suggest data/analytics without presenting actual information.
 
@@ -124,16 +137,18 @@ Charts are decorative and conceptual - they suggest data/analytics without prese
 
 ## Logo Placement
 
+<!-- Instructions: Update the logo file reference. The LOGO_FILENAME environment variable in your .env file controls which logo file is used. -->
+
 - **Position**: Bottom-left corner
 - **Color**: White (#FFFFFF)
 - **Required on**: All banner images
-- **File**: `context/assets/swimm-logo-white.svg`
+- **File**: `context/assets/${LOGO_FILENAME}`
 
 ### Logo Zone (for prompt composition)
 The logo will be automatically added by the image generator. **Prompts must account for this space:**
 
-- **Logo size**: 228x69 pixels (at 1920x960 resolution)
-- **Position**: 69px from left edge, 56px from bottom edge
+- **Logo size**: [Width]x[Height] pixels (at 1920x960 resolution)
+- **Position**: [X]px from left edge, [Y]px from bottom edge
 - **Clear zone**: Bottom-left ~300x130 pixels to give breathing room
 - **In prompts**: Explicitly state "leave bottom-left corner clear for logo placement"
 - **Composition tip**: Avoid placing key visual elements in the bottom-left quadrant
@@ -173,8 +188,7 @@ When constructing prompts for image generation:
 
 ### Color References
 
-Imagen and some AI models render hex codes as literal text in images. Explicitly explain that the the values given are hex values not text for the image. 
-
+Some AI image models render hex codes as literal text in images. Explicitly explain that the values given are hex values not text for the image.
 
 ### Prompt Approach
 Let prompts be constructed dynamically from:

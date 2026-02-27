@@ -1,6 +1,8 @@
-# SEO Guidelines for Castos Content
+# SEO Guidelines for [Company Name] Content
 
-This document outlines SEO best practices and requirements for all Castos blog content to maximize organic search visibility and rankings.
+<!-- Instructions: Replace [Company Name] with your company name. Replace all industry-specific examples with examples from your domain. Keep ALL the SEO best practice content — it is already generic and applies to any B2B SaaS company. -->
+
+This document outlines SEO best practices and requirements for all [Company Name] blog content to maximize organic search visibility and rankings.
 
 ## Content Length Requirements
 
@@ -14,7 +16,7 @@ This document outlines SEO best practices and requirements for all Castos blog c
 - **Maximum for most articles**: 3,000 words
 - **Maximum for pillar content**: 5,000 words
 - If a topic requires more than the maximum, break it into a series of related articles
-- Aim for the lower end of ranges when possible—concise, focused content often performs better
+- Aim for the lower end of ranges when possible - concise, focused content often performs better
 
 ### Why Length Matters
 - Longer content typically ranks higher in search results
@@ -26,7 +28,7 @@ This document outlines SEO best practices and requirements for all Castos blog c
 - Don't add fluff just to hit word counts
 - Every section should provide genuine value
 - Better to have 2,000 valuable words than 3,000 padded words
-- **Stay within the maximum word counts**—overly long articles hurt user experience
+- **Stay within the maximum word counts** - overly long articles hurt user experience
 
 ## Keyword Optimization
 
@@ -41,7 +43,7 @@ Before writing any article:
 ### Keyword Density Guidelines
 - **Primary Keyword**: 1-2% density
   - Example: In a 2,000-word article, use keyword 20-40 times
-  - Natural integration is critical—never force keywords
+  - Natural integration is critical - never force keywords
 - **Secondary Keywords**: 0.5-1% density each
 - **LSI Keywords**: Sprinkle throughout naturally
 
@@ -58,16 +60,16 @@ Primary keyword MUST appear in:
 ### Keyword Integration Best Practices
 - **Natural language first**: Write for humans, optimize for search engines
 - **Use variations**: Don't repeat exact phrase robotically
-  - Example: "podcast hosting" → "hosting your podcast" → "podcast host"
+  - Example: "code review automation" -> "automating code reviews" -> "automated review process"
 - **Question formats**: Include conversational variations
-  - "How to start a podcast" vs "starting a podcast"
+  - "How to automate code reviews" vs "automating code reviews"
 - **Semantic keywords**: Use related terms to support topical authority
-  - For "podcast editing": include "audio editing", "post-production", "editing workflow"
+  - For "code review automation": include "pull request analysis", "review workflow", "CI/CD integration"
 
 ### Keyword Stuffing (Avoid)
-❌ "Podcast hosting is important. Podcast hosting helps podcasters. Our podcast hosting platform offers podcast hosting services for podcast hosting needs."
+Bad: "Code review automation is important. Code review automation helps teams. Our code review automation platform offers code review automation services for code review automation needs."
 
-✅ "Podcast hosting is important for creators who want to distribute their show to major platforms. A reliable host ensures your episodes are accessible wherever listeners discover new content."
+Good: "Code review automation is essential for teams that want to ship faster without sacrificing quality. A reliable automated review process ensures vulnerabilities and logic errors are caught before code reaches production."
 
 ## Content Structure Requirements
 
@@ -136,23 +138,23 @@ Primary keyword MUST appear in:
 
 ### Meta Title
 **Requirements**:
-- **Length**: 50-60 characters (including "| Castos" if used)
+- **Length**: 50-60 characters (including "| [Company Name]" if used)
 - **Primary keyword**: Must be included
 - **Compelling**: Should encourage clicks from SERP
-- **Unique**: Different from all other Castos page titles
+- **Unique**: Different from all other page titles
 - **Accurate**: Must match page content
 
 **Format Options**:
 - `[Primary Keyword]: [Benefit/Promise]`
 - `How to [Goal] | [Qualifier]`
 - `[Number] Ways to [Achieve Benefit]`
-- `[Topic] Guide for [Audience] | Castos`
+- `[Topic] Guide for [Audience] | [Company Name]`
 
 **Examples**:
-- ✅ "How to Start a Podcast in 2025: Complete Guide"
-- ✅ "12 Proven Podcast Growth Strategies | Castos"
-- ❌ "Podcast Tips and Tricks" (too vague, no keyword)
-- ❌ "The Ultimate Comprehensive Guide to Everything About Starting Your First Podcast Successfully" (too long)
+- Good: "How to Automate Code Review in 2026: Complete Guide"
+- Good: "7 Code Review Best Practices for Teams | Acme Corp"
+- Bad: "Code Review Tips and Tricks" (too vague, no keyword)
+- Bad: "The Ultimate Comprehensive Guide to Everything About Automating Your Code Review Process Successfully" (too long)
 
 ### Meta Description
 **Requirements**:
@@ -169,9 +171,9 @@ Primary keyword MUST appear in:
 ```
 
 **Examples**:
-- ✅ "Learn how to start a podcast with our step-by-step guide. Everything from equipment to launch strategy. Perfect for beginners. Start your show today." (159 chars)
-- ✅ "Discover 12 proven podcast growth strategies that top creators use. Increase downloads, engagement, and audience loyalty. Actionable tips inside." (155 chars)
-- ❌ "This is a blog post about podcasting where we discuss many podcast-related topics." (vague, no value prop, no CTA)
+- Good: "Learn how to automate code review with our step-by-step guide. Reduce review cycle time by 60% while catching more defects. Start improving today." (156 chars)
+- Good: "Discover 7 proven code review practices that top engineering teams use. Reduce escaped defects and ship faster. Actionable tips inside." (148 chars)
+- Bad: "This is a blog post about code review where we discuss many review-related topics." (vague, no value prop, no CTA)
 
 ### URL Slug
 **Requirements**:
@@ -184,11 +186,11 @@ Primary keyword MUST appear in:
 **Format**: `/blog/[primary-keyword-phrase]`
 
 **Examples**:
-- ✅ `/blog/start-podcast-guide`
-- ✅ `/blog/podcast-growth-strategies`
-- ✅ `/blog/podcast-editing-software`
-- ❌ `/blog/how-to-start-a-podcast-in-2025-the-complete-guide` (too long)
-- ❌ `/blog/post-12345` (no keywords)
+- Good: `/blog/automate-code-review-guide`
+- Good: `/blog/code-review-best-practices`
+- Good: `/blog/reduce-review-cycle-time`
+- Bad: `/blog/how-to-automate-your-code-review-process-in-2026-the-complete-guide` (too long)
+- Bad: `/blog/post-12345` (no keywords)
 
 ## Internal Linking Strategy
 
@@ -211,7 +213,7 @@ Primary keyword MUST appear in:
 
 #### 3. Product/Feature Pages (0-1 link)
 - Only when contextually relevant
-- Natural mention of how Castos solves problem
+- Natural mention of how [Company Name] solves the problem
 - Never forced or overly promotional
 
 #### 4. Resource Pages (0-1 link)
@@ -222,10 +224,10 @@ Primary keyword MUST appear in:
 ### Internal Linking Best Practices
 
 **Anchor Text**:
-- ✅ Descriptive and keyword-rich: "our complete guide to podcast analytics"
-- ✅ Natural in sentence flow: "Learn more about podcast SEO strategies"
-- ❌ Generic: "click here" or "read more"
-- ❌ Exact match repeatedly: Always using same anchor text for same page
+- Good: Descriptive and keyword-rich: "our complete guide to code review automation"
+- Good: Natural in sentence flow: "Learn more about review cycle time metrics"
+- Bad: Generic: "click here" or "read more"
+- Bad: Exact match repeatedly: Always using same anchor text for same page
 
 **Placement**:
 - Within body paragraphs (most valuable)
@@ -253,11 +255,8 @@ Primary keyword MUST appear in:
 
 ### External Link Quality Standards
 - **Authority**: Link to credible, well-known sources
-  - ✅ Industry publications (Podcast Host, Podnews, etc.)
-  - ✅ Research institutions and studies
-  - ✅ Established media outlets
-  - ❌ Random blogs with no authority
-  - ❌ Spammy or low-quality sites
+  - Good: Industry publications, research institutions, established media outlets
+  - Bad: Random blogs with no authority, spammy or low-quality sites
 
 - **Relevance**: Links must directly support content claims
 - **Freshness**: Prefer recent sources (within 1-2 years for data)
@@ -307,16 +306,16 @@ Use transition words to improve flow (target: one per paragraph):
 ### Expertise, Authoritativeness, Trustworthiness (E-A-T)
 
 #### Expertise
-- Provide accurate, detailed information on podcasting topics
+- Provide accurate, detailed information on your domain topics
 - Back claims with data and examples
-- Demonstrate deep understanding of podcast creator needs
+- Demonstrate deep understanding of your audience's needs
 - Include actionable, practical advice
 
 #### Authoritativeness
 - Cite credible sources
 - Reference industry data and trends
 - Include expert quotes when relevant
-- Leverage Castos's position as hosting platform
+- Leverage [Company Name]'s position and experience
 
 #### Trustworthiness
 - Be transparent and honest
@@ -335,8 +334,8 @@ Use transition words to improve flow (target: one per paragraph):
 ### Factual Accuracy
 - **Verify statistics**: Check all numbers and data points
 - **Current information**: Ensure practices/processes are up-to-date
-- **Technical accuracy**: Podcasting terminology and processes must be correct
-- **Castos features**: Ensure product references are accurate
+- **Technical accuracy**: Domain terminology and processes must be correct
+- **Product features**: Ensure product references are accurate
 
 ## Image Optimization
 
@@ -349,15 +348,15 @@ Use transition words to improve flow (target: one per paragraph):
 ### Image SEO
 **File Names**:
 - Descriptive and keyword-rich
-- ✅ `podcast-editing-software-interface.jpg`
-- ❌ `IMG_12345.jpg`
+- Good: `code-review-automation-dashboard.jpg`
+- Bad: `IMG_12345.jpg`
 
 **Alt Text**:
 - Describe what image shows (accessibility + SEO)
 - Include keywords naturally where relevant
 - 125 characters or less
-- ✅ "Podcast editing software interface showing waveform and timeline"
-- ❌ "Image"
+- Good: "Code review automation dashboard showing review cycle time metrics"
+- Bad: "Image"
 
 **Placement**:
 - Break up long text sections
@@ -375,9 +374,9 @@ Featured snippets appear at position 0 in Google search results. Optimize for th
 
 **Example**:
 ```markdown
-## What is Podcast Hosting?
+## What is code review automation?
 
-Podcast hosting is a service that stores your audio files and generates an RSS feed that distributes your episodes to podcast platforms like Apple Podcasts, Spotify, and Google Podcasts. Without a host, listeners can't discover or access your show on their favorite apps.
+Code review automation uses software tools to analyze pull requests for quality, security, and architectural issues before human reviewers see them. It reduces review cycle time, catches defects earlier, and frees senior engineers to focus on complex design decisions rather than routine checks.
 ```
 
 ### List-Based Snippets
@@ -496,4 +495,4 @@ Before publishing, verify:
 
 ---
 
-**Remember**: SEO serves the user, not the algorithm. Never sacrifice content quality, accuracy, or helpfulness for keyword optimization. The best SEO is great content that genuinely helps podcast creators succeed.
+**Remember**: SEO serves the user, not the algorithm. Never sacrifice content quality, accuracy, or helpfulness for keyword optimization. The best SEO is great content that genuinely helps your audience succeed.

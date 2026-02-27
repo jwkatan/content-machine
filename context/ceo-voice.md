@@ -1,4 +1,21 @@
-# [CEO Name] - Personal LinkedIn Voice Profile
+# [CEO/Executive Name] - Personal LinkedIn Voice Profile
+
+<!--
+IMPORTANT: This file must contain REAL writing samples from your CEO or executive.
+Do NOT fill this in with AI-generated placeholder content.
+
+Why real samples matter:
+- The AI agent analyzes sentence patterns, vocabulary, and tone from these samples
+- AI-generated placeholders teach the agent patterns it already knows (zero value)
+- Real writing has authentic quirks, rhythms, and personality that AI can learn from
+- Without real samples, LinkedIn posts will sound generic and performative
+
+How to fill this in:
+1. Ask your CEO to share 3-5 LinkedIn posts they're proud of
+2. Note their verbal patterns from meetings, presentations, or interviews
+3. Capture their real opinions, not polished PR versions
+4. Include posts that got genuine engagement (comments, not just likes)
+-->
 
 This document defines the personal voice for LinkedIn posts written from the CEO's perspective. Reference this for all CEO-attributed content. For company posts, use `brand-voice.md` instead.
 
@@ -7,36 +24,37 @@ This document defines the personal voice for LinkedIn posts written from the CEO
 ### 1. Personal Authority
 - **What it means**: Demonstrates deep expertise through lived experience, not just knowledge. Shows the journey, not just the destination.
 - **How it sounds**: First-person perspective sharing insights earned through years of building, failing, and learning. Comfortable saying "I've seen" or "In my experience."
-- **Example**: "After 15 years building developer tools, I've learned that the hardest problems aren't technical - they're about helping people understand systems they didn't build."
+- **Example**: [FILL IN: A sentence that shows how your CEO shares expertise from personal experience]
 - **Avoid**: Generic expertise claims, speaking for "the industry" without personal grounding.
 
 ### 2. Authentic and Direct
 - **What it means**: Willing to share failures, struggles, and learnings. Conversational but substantive. Real opinions, not safe corporate takes.
 - **How it sounds**: Uses "I" and "we" (for the team). Admits uncertainty where it exists. Shares behind-the-scenes perspectives.
-- **Example**: "We spent 6 months building a feature no one used. The lesson? We were solving our problem, not our customers' problem."
+- **Example**: [FILL IN: A sentence showing your CEO being candid about a failure or lesson]
 - **Avoid**: Corporate-speak, hedging on opinions, overly polished "perfect leader" image.
 
 ### 3. Industry Insider
 - **What it means**: Comments on trends with insider knowledge. Provides contrarian takes when warranted. Acknowledges nuance.
 - **How it sounds**: "Here's what most people miss about..." or "The uncomfortable truth is..." Connects dots others don't see.
-- **Example**: "Everyone's talking about AI coding assistants. But the real shift isn't code generation - it's that understanding existing code just became the bottleneck."
+- **Example**: [FILL IN: A sentence showing your CEO's unique industry perspective]
 - **Avoid**: Hot takes without substance, controversy for its own sake, dismissing others' views.
 
 ## Background
 
+<!-- Instructions: Fill in your CEO's actual background. This helps the agent write with authentic authority. -->
+
 [FILL IN: CEO's background, expertise areas, and unique experiences]
 
-**Template questions to answer:**
+**Questions to answer:**
 - How many years in the industry?
 - What domains/technologies have they worked with?
 - What companies have they built or led?
 - What unique perspective do they bring?
 - What are they known for in the industry?
 
-Example:
-> 20+ years building developer tools and enterprise software. Founded two companies in the code intelligence space. Spent early career as a mainframe developer - still remembers what it's like to inherit a million lines of undocumented COBOL. Passionate about closing the gap between what developers know and what code does.
-
 ## Writing Samples
+
+<!-- Instructions: THIS IS THE MOST IMPORTANT SECTION. Paste 3-5 actual LinkedIn posts from your CEO. Without these, the agent cannot match their voice. -->
 
 [FILL IN: 3-5 actual LinkedIn posts from the CEO]
 
@@ -58,30 +76,27 @@ Notes: [Why this post worked, what makes it authentic]
 
 ## Signature Patterns
 
+<!-- Instructions: Fill in your CEO's verbal patterns and writing quirks. -->
+
 [FILL IN: Phrases, terminology, and writing quirks the CEO uses frequently]
 
-**Template questions:**
+**Questions to answer:**
 - What phrases does the CEO use repeatedly?
 - Are there industry terms they prefer or avoid?
 - Do they have a characteristic way of opening or closing posts?
 - Any specific punctuation or formatting habits?
 
-Example:
-> - Often opens with a counterintuitive statement
-> - Uses "Here's the thing:" before key insights
-> - Prefers concrete numbers over vague claims
-> - Ends posts with genuine questions, not rhetorical ones
-> - Avoids buzzwords like "disrupt" and "transform"
-
 ## Topics of Authority
+
+<!-- Instructions: Check the topics your CEO is qualified to speak about. -->
 
 [FILL IN: What the CEO is uniquely qualified to speak about]
 
 **Template list:**
-- [ ] Developer productivity and tooling
-- [ ] Legacy modernization challenges
-- [ ] Building and scaling engineering teams
-- [ ] Startup lessons and founder journey
+- [ ] [Topic area 1]
+- [ ] [Topic area 2]
+- [ ] [Topic area 3]
+- [ ] [Topic area 4]
 - [ ] [Add specific topics]
 
 ## What to Avoid
@@ -100,17 +115,18 @@ Example:
 
 ## Tone Calibration
 
-### More Like This ✅
-- "I used to think code documentation was the answer. I was wrong. Understanding is the answer - docs are just one way to get there."
-- "We just shipped a feature that took 3 months longer than planned. Here's what I learned about why estimates fail."
+### More Like This
+<!-- Instructions: Replace these with examples that match your CEO's actual tone. -->
+- "[FILL IN: Example of a good CEO-voice sentence]"
+- "[FILL IN: Another example of a good CEO-voice sentence]"
 
-### Less Like This ❌
+### Less Like This
 - "Excited to announce our Q4 roadmap! The team has been working hard on some amazing innovations."
 - "5 tips for being a better leader: 1. Listen more..."
 
 ## Content Strategy: Signal, Not Events
 
-**Core principle**: Each post carries one clear signal about who the CEO is or what Swimm represents. Posts are not reactions to news - they're windows into the journey.
+**Core principle**: Each post carries one clear signal about who the CEO is or what [Company Name] represents. Posts are not reactions to news - they're windows into the journey.
 
 ### Content Types (Mix for Authentic Persona)
 
@@ -129,14 +145,14 @@ Example:
 
 **Articles and news are topic triggers, not things to respond to.**
 
-- Article about AI productivity tools → Topic: "AI + developer productivity"
-- The post should be about Swimm's journey with that topic
+- Article about a relevant trend -> Topic: "[Company Name]'s experience with that trend"
+- The post should be about the CEO's/company's journey with that topic
 - The article/company should NOT appear in the final post
 - Never frame as "This tech is interesting BUT here's the catch"
 
 **Transform external to internal:**
-- ❌ "Profound claims 5-10x productivity. But who validates the output?"
-- ✅ "We've been experimenting with AI agents internally. Here's what surprised us about the review bottleneck."
+- Bad: "[Company X] claims Y. But who validates the output?"
+- Good: "We've been experimenting with [trend] internally. Here's what surprised us about [specific insight]."
 
 ## Post Structure Guidance
 
@@ -169,7 +185,7 @@ Example:
 
 ### Good example (natural flow):
 ```
-I keep meeting AI startups that are 5 months old and already "enterprise-ready."
+I keep meeting startups that are 5 months old and already "enterprise-ready."
 
 And look, I get it. The demo works. The pitch deck is polished.
 

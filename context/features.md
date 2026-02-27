@@ -1,200 +1,187 @@
-# Swimm Features & Benefits
+# [Company Name] Features & Benefits
 
-This document outlines Swimm's key features, benefits, and differentiators to inform content creation that drives trial conversions and customer acquisition.
+<!-- Instructions: Replace [Company Name] with your company name throughout. Replace all Acme Corp features with your actual product features. Keep ALL section headers intact — agents reference these at runtime. -->
+
+This document outlines [Company Name]'s key features, benefits, and differentiators to inform content creation that drives trial conversions and customer acquisition.
 
 ## Core Value Propositions
 
-### 1. **Automated Business Rule Extraction**
-- **Feature**: Deterministic static analysis combined with AI automatically extracts business rules, validations, and logic from legacy code without requiring manual line-by-line review
-- **Benefit**: Extract comprehensive business rules in hours instead of weeks, eliminating dependency on scarce senior engineers and accelerating modernization timelines
-- **Conversion Angle**: "Stop waiting weeks for senior engineers to explain code. Get verified business rules extracted automatically in hours, not weeks—90% faster than manual approaches."
+<!-- Instructions: List your 5-8 most important features. For each, provide the Feature (what it does), Benefit (why it matters), and Conversion Angle (how to pitch it). Replace the Acme Corp examples below with your own. -->
 
-### 2. **Application-Wide Flow and Dependency Analysis**
-- **Feature**: Holistic analysis that traces execution paths, data flows, and dependencies across entire applications—not just individual programs or files
-- **Benefit**: Understand what flows exist, what they do, and how systems are interconnected, preventing missed dependencies that cause costly rework and production defects
-- **Conversion Angle**: "See the complete picture. Trace business logic from entry points to exit points across your entire application with automatically generated flow diagrams and dependency maps."
+### 1. **Automated Pull Request Analysis**
+- **Feature**: Analyzes every pull request for security vulnerabilities, logic errors, and architectural risks using deterministic static analysis combined with AI summarization
+- **Benefit**: Catch high-risk defects before they merge, without requiring senior engineers to review every line of every PR
+- **Conversion Angle**: "Stop bottlenecking senior engineers on routine reviews. Get automated analysis that catches security vulnerabilities and logic errors in minutes, not days."
 
-### 3. **Deterministic + AI Approach**
-- **Feature**: Interweaves deterministic static analysis (trustworthy, traceable) with generative AI (human-readable explanations), grounding all insights in actual code to prevent hallucinations
-- **Benefit**: Get trustworthy, verifiable insights you can rely on for critical modernization decisions, with every explanation traceable back to the source code
-- **Conversion Angle**: "Trust your modernization foundation. Unlike raw LLMs that hallucinate, Swimm's deterministic analysis ensures every insight is grounded in actual code and fully traceable."
+### 2. **Intelligent Review Routing**
+- **Feature**: Automatically assigns reviewers based on code ownership, expertise areas, and current workload, ensuring the right person reviews the right code
+- **Benefit**: Reduce review cycle time by eliminating the guesswork of who should review what, and prevent reviewer burnout from uneven distribution
+- **Conversion Angle**: "Route every PR to the reviewer who knows that code best. Cut review cycle time by 60% with intelligent assignment."
 
-### 4. **Visual Screen Generation**
-- **Feature**: Automatically converts COBOL screen code into accurate visual representations showing layouts, fields, and user interactions
-- **Benefit**: Quickly understand legacy UI functionality without running the application, enabling faster requirements gathering and modernization design
-- **Conversion Angle**: "Visualize legacy screens instantly. See what your COBOL screens look like without spinning up the mainframe."
+### 3. **Risk-Based Review Prioritization**
+- **Feature**: Scores each pull request by risk level based on files changed, complexity of changes, security surface area, and dependency impact
+- **Benefit**: Focus human review time on the changes that matter most instead of treating every PR equally
+- **Conversion Angle**: "Not all PRs are equal. Surface the 20% of changes that carry 80% of the risk so reviewers focus where it counts."
 
-### 5. **Terminology Extraction and Translation**
-- **Feature**: Converts cryptic program names, variable names, and legacy terminology into human-readable, customer-specific glossaries using your business language
-- **Benefit**: Bridge the gap between technical code and business understanding, enabling collaboration between business and technical stakeholders with shared vocabulary
-- **Conversion Angle**: "Decode your legacy systems. Transform cryptic variable names into business language your entire team can understand."
+### 4. **Review Analytics Dashboard**
+- **Feature**: Centralized dashboard showing review cycle time, reviewer workload, approval rates, defect escape rates, and bottleneck identification across teams
+- **Benefit**: Give engineering leadership visibility into review health and team performance, enabling data-driven process improvement
+- **Conversion Angle**: "See review health across every team in one dashboard. Identify bottlenecks, track cycle time, and measure quality trends."
 
-### 6. **Application Map for Navigation**
-- **Feature**: Turns complex programs and files into organized modules of functionality with clear relationships, dependencies, and flows
-- **Benefit**: Navigate massive legacy codebases confidently, quickly finding relevant code for any business function without tribal knowledge
-- **Conversion Angle**: "Stop getting lost in millions of lines of code. Navigate directly to the business logic you need with AI-powered application maps."
+### 5. **Security Vulnerability Detection**
+- **Feature**: Scans code changes for known vulnerability patterns, dependency risks, and security anti-patterns before code reaches the main branch
+- **Benefit**: Shift security left by catching vulnerabilities during review instead of discovering them in production or during audits
+- **Conversion Angle**: "Catch security vulnerabilities before they merge. Automated detection integrated directly into your review workflow."
 
-### 7. **Collaborative Collections**
-- **Feature**: Curate and combine understanding from relevant parts of the application that meet specific needs or goals, with ability to add SME context and organizational knowledge
-- **Benefit**: Preserve institutional knowledge independent of individual availability, ensuring critical understanding persists as people change roles or leave
-- **Conversion Angle**: "Capture knowledge before it walks out the door. Build collections of business logic that persist beyond individual experts."
+### 6. **CI/CD Pipeline Integration**
+- **Feature**: Native integrations with GitHub, GitLab, Bitbucket, and major CI/CD platforms. Review automation runs as part of the existing pipeline with no workflow disruption
+- **Benefit**: Add automated review quality without changing how your team already works. No new tools to learn, no new workflows to adopt
+- **Conversion Angle**: "Works where you already work. Native integration with your existing Git platform and CI/CD pipeline."
 
-### 8. **Context-Aware AI Agents**
-- **Feature**: Collections agent builds comprehensive analysis based on end goals; Context agent provides Swimm's understanding layer to AI code assistants and other tools
-- **Benefit**: Accelerate both understanding and forward engineering with AI tools that have accurate, complete context instead of hallucinating on incomplete information
-- **Conversion Angle**: "Give your AI tools the context they need. Stop hallucinations and get accurate code generation grounded in real business logic."
+### 7. **Custom Review Rules Engine**
+- **Feature**: Define organization-specific review rules, quality gates, and approval requirements. Enforce architectural standards, naming conventions, and team-specific policies automatically
+- **Benefit**: Codify your team's best practices into enforceable rules that apply consistently across every PR, regardless of who reviews it
+- **Conversion Angle**: "Turn your team's best practices into automated rules. Enforce standards consistently across every pull request."
+
+### 8. **Knowledge Capture from Reviews**
+- **Feature**: Extracts patterns, decisions, and institutional knowledge from review comments and discussions, building a searchable knowledge base of architectural decisions
+- **Benefit**: Preserve the expertise that surfaces during code review, making it accessible to the whole team instead of locked in Slack threads and PR comments
+- **Conversion Angle**: "Stop losing the knowledge that surfaces during reviews. Build a searchable record of architectural decisions and coding standards."
 
 ## Technical Features
 
-### Analysis Engine Capabilities
-- **Business rule extraction**: Automatically identify and document validations, calculations, decision logic, and business policies embedded in code
-- **Flow and dependency analysis**: Map execution paths, call hierarchies, and system interdependencies across the entire application
-- **Visual screen generation**: Convert COBOL screen definitions into accurate visual representations
-- **Terminology extraction**: Build customer-specific glossaries mapping technical names to business concepts
-- **Variable and data flow tracking**: Trace how data moves, transforms, and is used throughout the system
-- **Job flow analysis**: Understand execution sequences and business logic in batch job workflows
-- **Dependency visualization**: Generate Mermaid diagrams showing system connections and relationships
+<!-- Instructions: Replace these feature lists with your actual technical capabilities. Keep the category headers. -->
 
-### Understanding Capabilities
-- **Application mapping**: Organize complex codebases into logical modules with clear navigation paths
-- **Flow diagrams with explanations**: Visual representations of execution paths with plain-English descriptions of what happens at each step
-- **Business rule documentation**: Comprehensive, readable explanations of business logic including validations and decision criteria
-- **Code-to-insight traceability**: Every explanation links directly back to source code for verification
+### Analysis Engine Capabilities
+- **Pull request analysis**: Automatically analyze code diffs for security, quality, and architectural risks
+- **Dependency impact mapping**: Trace how changes propagate through the dependency graph
+- **Security scanning**: Detect vulnerability patterns, insecure configurations, and dependency risks
+- **Complexity scoring**: Assess change complexity to prioritize human review effort
+- **Custom rule execution**: Run organization-defined rules against every code change
+
+### Review Workflow Capabilities
+- **Intelligent routing**: Assign reviewers based on ownership, expertise, and workload
+- **Risk prioritization**: Score and rank PRs by risk level for focused human attention
+- **Approval workflows**: Configurable approval gates based on risk level, team, or file path
+- **Review templates**: Standardized checklists for different change types
 
 ### Collaboration Features
-- **Collections**: Curated combinations of insights focused on specific modernization needs or business domains
-- **Context enrichment**: Add SME knowledge and organizational context to automatically generated insights
-- **Shared understanding**: Business and technical stakeholders collaborate using common business language
-- **Knowledge preservation**: Capture institutional knowledge independent of individual availability
-
-### Agent Capabilities
-- **Collections agent**: Automatically assembles relevant application understanding based on specified goals or requirements
-- **Context agent**: Integrates Swimm's understanding layer into AI code assistants and modernization tools
-- **Accurate AI context**: Provides grounded, complete context to prevent hallucinations in AI-assisted development
+- **Review analytics**: Team-level dashboards for cycle time, workload, and quality metrics
+- **Knowledge capture**: Extract and index decisions from review discussions
+- **Shared standards**: Organization-wide review rules and quality gates
+- **Onboarding acceleration**: New engineers learn codebase standards through review history
 
 ### Enterprise & Security
-- **On-premise deployment**: Runs in secure environments including air-gapped networks at major financial institutions
-- **Internal LLM support**: Works with customer-managed AI models for maximum data control
-- **SOC 2 and ISO 27001 certified**: Enterprise-grade security and compliance
-- **Stays current with code changes**: Keeps understanding updated as the codebase evolves
+- **SSO and RBAC**: Enterprise authentication and role-based access control
+- **On-premise deployment**: Available for air-gapped and regulated environments
+- **SOC 2 certified**: Enterprise-grade security and compliance
+- **Audit logging**: Complete audit trail of all review decisions and approvals
 
 ## Competitive Differentiators
 
-### vs. Raw LLMs (ChatGPT, Claude, GitHub Copilot used standalone)
-- **Deterministic analysis prevents hallucinations** (Raw LLMs frequently generate plausible-sounding but incorrect explanations of business logic)
-- **Complete application context** (LLMs can only process small code snippets and miss cross-program dependencies)
-- **Traceable to source code** (Every Swimm insight links to actual implementation; LLM outputs can't be verified)
-- **Comprehensive flow analysis** (LLMs explain individual functions; Swimm maps entire business processes across the application)
-- **Enterprise-scale reliability** (Proven on 100+ million lines of code; LLMs struggle with large legacy systems)
+<!-- Instructions: Replace these competitor comparisons with your actual competitive landscape. Keep the "vs." format. -->
 
-### vs. Legacy Static Analysis Tools (CAST, traditional code scanners)
-- **Business rule focused, not just technical metrics** (Legacy tools find technical debt; Swimm extracts business logic and requirements)
-- **Human-readable explanations in business language** (Legacy tools produce technical reports; Swimm translates code into stakeholder-friendly documentation)
-- **AI-enhanced understanding** (Legacy tools provide raw metrics; Swimm combines deterministic analysis with AI for intuitive insights)
-- **Modernization-oriented** (Legacy tools assess code quality; Swimm extracts the understanding needed to rebuild systems)
-- **Collaborative and editable** (Legacy tools generate static reports; Swimm enables teams to enrich insights with organizational knowledge)
+### vs. Manual Code Review Only
+- **Automated risk scoring** (Manual review treats all PRs equally, missing high-risk changes in the volume)
+- **Consistent quality** (Human reviewers vary in thoroughness based on time pressure and fatigue)
+- **Measurable metrics** (No visibility into review health without automation)
+- **Scalable** (Manual review doesn't scale as team and codebase grow)
+
+### vs. Linters and Basic Static Analysis
+- **Architectural and logic analysis, not just style** (Linters catch formatting; Acme Corp catches security and design flaws)
+- **Context-aware** (Understands the full dependency graph, not just individual files)
+- **Review workflow integration** (Part of the review process, not a separate CI step)
+- **Human-readable findings** (AI-summarized explanations, not cryptic tool output)
+
+### vs. AI Code Assistants (Copilot, etc.)
+- **Deterministic analysis prevents hallucinations** (AI assistants can suggest plausible but incorrect fixes)
+- **Enterprise-grade security** (Code stays in your environment, not sent to third-party LLMs)
+- **Review-focused, not generation-focused** (Built for catching issues, not writing code)
+- **Traceable findings** (Every finding links to the specific code change and rule that triggered it)
 
 ## Use Cases by Customer Segment
 
-### Modernization Program Managers
-- Eliminate knowledge bottleneck blocking modernization timelines
-- Get comprehensive, verified business rule coverage early to prevent scope creep and late surprises
-- Reduce dependency on scarce senior engineer availability for assessment and requirements
-- De-risk execution with traceable evidence for testing, cutover, compliance, and audit
-- Execute programs on-time and on-budget with predictable phase gates
+<!-- Instructions: Replace these personas and use cases with your actual customer segments. -->
 
-### Business Analysts
-- Extract business rules and flows independently without waiting for senior engineer availability
-- Build complete, accurate requirements faster with confidence nothing is missed
-- Understand complex system behavior in hours instead of weeks
-- Collaborate with technical teams using shared business language
-- Reduce risk of missed requirements that emerge late and block programs
+### Engineering Managers
+- Reduce review cycle time without sacrificing code quality
+- Balance reviewer workload across the team fairly
+- Get visibility into review health and team bottlenecks
+- Enforce consistent standards across distributed teams
+- Measure and improve engineering process over time
 
-### Software Engineers/Developers
-- Understand unfamiliar code in hours instead of days or weeks for maintenance tasks
-- Identify dependencies and impacts before making changes to reduce production risk
-- Reclaim time spent on repetitive knowledge transfer and code explanation
-- Navigate complex codebases confidently without tribal knowledge
-- Onboard to new systems 50% faster with comprehensive application context
+### Senior Engineers / Tech Leads
+- Spend review time on architecture and logic, not style and formatting
+- Ensure security best practices are followed in every PR
+- Codify team standards into automated rules
+- Onboard junior engineers faster through consistent review feedback
 
-### CIO/SVP IT Leaders
-- De-risk modernization portfolio with comprehensive understanding before making build decisions
-- Control costs and timelines by eliminating the knowledge bottleneck across all initiatives
-- Preserve institutional knowledge as experienced engineers retire or change roles
-- Accelerate development velocity on aging systems by reducing the understanding tax
-- Enable audit-ready traceability and compliance for regulatory requirements
+### Security Teams
+- Shift security left into the code review process
+- Catch vulnerability patterns before code reaches production
+- Maintain audit trails for compliance requirements
+- Enforce security review gates for sensitive code paths
 
-### System Integrators and Consulting Firms
-- Deliver modernization projects faster with comprehensive business rule extraction
-- Scale assessment and requirements phases across multiple client applications
-- Reduce rework and defects with complete dependency mapping
-- Provide traceable, verifiable deliverables clients can trust
-- Differentiate with AI-powered modernization capabilities
+### VP/Director of Engineering
+- Scale code review as the organization grows
+- Reduce escaped defects and production incidents from review gaps
+- Measure engineering efficiency with review analytics
+- Demonstrate quality and security practices to auditors and stakeholders
 
 ## Key Messaging for Conversions
 
+<!-- Instructions: Replace all messaging with your own product's conversion copy. -->
+
 ### Trial Conversion Messages
-- "Extract business rules from your most complex legacy system in hours. See what 90% faster business rule extraction means for your modernization timeline."
-- "Stop modernization delays caused by knowledge gaps. Get comprehensive application understanding before senior engineers retire."
-- "Join enterprises that have analyzed 100+ million lines of code with Swimm. De-risk your next modernization initiative."
-- "Turn weeks of manual analysis into hours of automated understanding. Try Swimm on your most challenging legacy application."
+- "Analyze your first pull request in 5 minutes. See what automated review finds that manual review missed."
+- "Stop bottlenecking senior engineers on routine reviews. Try automated PR analysis on your actual codebase."
+- "See your team's review health score. Identify bottlenecks and quality gaps in minutes."
 
 ### Pain Point Solutions
-- **"We don't know what we have, so modernization is too risky"** → "Swimm extracts comprehensive business rules, flows, and dependencies automatically—giving you the understanding foundation to modernize confidently."
-- **"Senior engineers are bottlenecked explaining code and blocking our timeline"** → "Analysts and developers get verified business rules in hours without pulling senior engineers away from critical work—90% faster than manual approaches."
-- **"Critical knowledge is locked in people's heads and walking out the door"** → "Swimm captures institutional knowledge automatically and makes it searchable, preserving understanding independent of who's available."
-- **"LLM tools hallucinate and we can't trust their explanations for critical decisions"** → "Swimm's deterministic analysis grounds every insight in actual code with full traceability—preventing the hallucinations that make raw LLMs unreliable for modernization."
-- **"We've tried legacy static analysis tools but they don't give us business understanding"** → "Swimm focuses on extracting business rules and logic in human-readable language, not just technical code metrics—giving you the understanding needed for modernization decisions."
-- **"Our development velocity is slowing as systems age and complexity grows"** → "Swimm eliminates the understanding tax on every task, helping developers navigate unfamiliar code 50% faster so productivity stays high even as systems age."
-- **"Past modernization projects ran over budget with costly rework from missed requirements"** → "Swimm's comprehensive dependency mapping and flow analysis ensures nothing is missed, reducing the late surprises that cause scope creep and budget overruns."
+- **"Reviews take too long and block shipping"** -> "Acme Corp scores PR risk automatically and routes to the right reviewer, cutting cycle time by 60%."
+- **"Senior engineers spend all their time reviewing instead of building"** -> "Automated analysis handles routine checks so senior engineers focus on the 20% of changes that need their expertise."
+- **"We have no visibility into review quality or team health"** -> "Acme Corp's analytics dashboard shows cycle time, reviewer workload, and defect trends across every team."
+- **"Review quality is inconsistent across the team"** -> "Custom rules enforce your standards on every PR, regardless of who reviews it."
+- **"We keep finding bugs in production that should have been caught in review"** -> "Risk-based prioritization ensures high-risk changes get thorough human review before they merge."
 
 ### Social Proof Elements
-- "Proven at enterprise scale: 100+ million lines of code analyzed across complex legacy systems"
-- "90% faster business rule extraction compared to manual line-by-line approaches"
-- "50% faster onboarding for new team members joining legacy application projects"
-- "Trusted by major financial institutions with SOC 2 and ISO 27001 certification"
-- "Deployed on-premise in air-gapped environments at the world's largest enterprises"
+<!-- Instructions: Replace with your actual metrics and proof points. Use [placeholder] if you don't have data yet. -->
+- "[X]% reduction in review cycle time for teams using automated PR analysis"
+- "[X]% fewer escaped defects after implementing risk-based review prioritization"
+- "Trusted by [X] engineering teams across [industries]"
+- "SOC 2 certified with on-premise deployment available"
 
 ## Common Questions & Objections
 
-### "How is this different from using ChatGPT or GitHub Copilot to understand my code?"
-**Answer**: Raw LLMs frequently hallucinate when explaining business logic because they lack full application context and can't verify their outputs against code. Swimm combines deterministic static analysis with AI to ground every insight in actual code with full traceability. While LLMs explain small snippets, Swimm analyzes entire applications, mapping flows and dependencies across millions of lines of code. You get human-readable explanations you can trust for critical modernization decisions.
+<!-- Instructions: Replace these Q&As with objections your sales team actually hears. -->
 
-### "We already have CAST or another legacy analysis tool. Why do we need Swimm?"
-**Answer**: Traditional static analysis tools focus on technical metrics like code quality, complexity, and technical debt—they don't extract business rules or explain what the code actually does. Swimm is purpose-built for modernization: it extracts business logic, translates it into human-readable documentation, and traces flows across your entire application. Think of legacy tools as assessing code health; Swimm extracts the understanding you need to rebuild the system.
+### "How is this different from just using a linter?"
+**Answer**: Linters catch style and formatting issues. Acme Corp analyzes architectural risks, security vulnerabilities, logic errors, and dependency impacts. It understands the full context of a code change - not just whether brackets are in the right place, but whether the change introduces a security risk or breaks an API contract.
 
-### "Can Swimm analyze our specific legacy language or platform?"
-**Answer**: Swimm specializes in mainframe and legacy application analysis, including COBOL, JCL, and related technologies. The platform is designed specifically for the complex, interdependent systems that are hardest to understand. If you have a specific language or platform question, we can verify compatibility during a trial on your actual codebase.
+### "Won't this slow down our CI pipeline?"
+**Answer**: Analysis runs in parallel with your existing CI steps and typically completes in under two minutes. Results appear as review comments on the PR, not as a blocking pipeline step. Teams configure their own gates for what blocks merge versus what is advisory.
 
-### "How long does it take to analyze our application?"
-**Answer**: Initial analysis typically completes in hours, not weeks—even for applications with millions of lines of code. The exact time depends on application size and complexity, but the value becomes clear immediately: business rules that would take senior engineers weeks to manually document are extracted and ready to review in a fraction of the time. You can start with a focused module or expand to full application coverage based on your priorities.
+### "Our senior engineers already do thorough reviews. Why do we need automation?"
+**Answer**: Automation doesn't replace senior engineers - it focuses their time. Instead of reviewing every PR equally, senior engineers spend their expertise on the high-risk changes that automation surfaces. Routine PRs get automated analysis, freeing senior engineers to build instead of review.
 
-### "Our code is highly secure and can't leave our environment. Can Swimm work on-premise?"
-**Answer**: Yes. Swimm is deployed on-premise at major financial institutions and other highly regulated enterprises, including air-gapped environments. You can use your own internal LLMs for maximum data control. We're SOC 2 and ISO 27001 certified, and our architecture is designed specifically for enterprises with strict security requirements.
+### "Can this work with our monorepo / specific setup?"
+**Answer**: Acme Corp supports monorepos, polyrepos, and hybrid setups. Native integrations with GitHub, GitLab, and Bitbucket. Custom rules can be scoped to specific directories, teams, or file types. If you have a specific configuration question, we can verify compatibility during a trial on your actual codebase.
 
-### "What if the automatically extracted business rules are wrong?"
-**Answer**: Swimm's deterministic analysis ensures insights are grounded in actual code, not hallucinated. Every explanation includes direct links back to source code so SMEs can verify accuracy. Additionally, Swimm enables collaboration—subject matter experts can review, edit, and add context to automatically generated insights, combining the speed of automation with human validation. The result is comprehensive, trustworthy documentation you can rely on for critical decisions.
-
-### "We don't have budget for another tool. Can't our developers just do this manually?"
-**Answer**: Manual approaches have a hidden cost: senior engineer time. When developers spend weeks explaining code line-by-line, they're blocked from actual modernization work, delaying your entire program timeline. Swimm delivers 90% faster business rule extraction, freeing senior engineers to focus on high-value work while analysts and other team members get the understanding they need independently. The ROI comes from accelerated timelines, reduced rework, and avoided cost overruns—not from replacing headcount.
-
-### "How does Swimm handle changes to our codebase over time?"
-**Answer**: Swimm stays current as your code evolves. When code changes, you can re-run analysis to update understanding, ensuring documentation doesn't become stale. This is especially valuable during phased modernization where legacy systems continue changing while new systems are built—Swimm keeps everyone working from accurate, up-to-date business logic throughout the program lifecycle.
+### "What about false positives?"
+**Answer**: Acme Corp's deterministic analysis produces traceable findings - every result links to the specific code change and rule that triggered it. Teams tune sensitivity by adjusting rules and risk thresholds. False positive rates typically drop below [X]% within the first two weeks as teams calibrate their configuration.
 
 ## Content Creation Guidelines
 
-When writing about Swimm features:
+When writing about [Company Name] features:
 
-1. **Lead with benefits, not features**: Don't just say "deterministic analysis"—explain "trustworthy insights you can verify, preventing the hallucinations that make raw LLMs unreliable for critical modernization decisions"
-2. **Use specific examples**: Show how features solve real problems (e.g., "trace a payment validation rule from input screen through 15 interconnected programs to database update")
-3. **Include proof points**: 90% faster business rule extraction, 100+ million lines analyzed, 50% faster onboarding, SOC 2/ISO 27001 certified
-4. **Address objections proactively**: Explain why Swimm is different from LLMs and legacy static analysis before they ask
-5. **Create clear CTAs**: Make next steps obvious (try Swimm on your codebase, see business rules extracted in hours, schedule a demo with your code)
-6. **Emphasize uniqueness**: Highlight deterministic + AI approach, business rule focus, entire application coverage, and enterprise security
-7. **Match audience to use case**: Tailor messaging to segment (Program Managers need timeline de-risking; Developers need time reclaimed; CIOs need cost control and risk reduction)
-8. **Use customer business language**: Speak in terms of business outcomes and modernization goals, not technical jargon
-9. **Emphasize trust and traceability**: Every insight links to code, preventing the "black box" concern with AI tools
-10. **Position for enterprise modernization**: This is a strategic platform for transformation initiatives, not a developer productivity toy
+1. **Lead with benefits, not features**: Don't just say "static analysis" - explain "catch security vulnerabilities before they merge, without adding review overhead"
+2. **Use specific examples**: Show how features solve real problems (e.g., "flag a SQL injection risk in a PR that touches the payment endpoint")
+3. **Include proof points**: Use your actual metrics and customer data
+4. **Address objections proactively**: Explain why [Company Name] is different from linters and AI assistants before they ask
+5. **Create clear CTAs**: Make next steps obvious (try on your codebase, see analysis on a real PR, schedule a demo)
+6. **Match audience to use case**: Tailor messaging to segment (Managers need cycle time reduction; Developers need focused review time; Security needs shift-left)
+7. **Use customer business language**: Speak in terms of engineering outcomes, not technical jargon
+8. **Emphasize trust and traceability**: Every finding links to code, preventing the "black box" concern with AI tools
 
 ---
 
