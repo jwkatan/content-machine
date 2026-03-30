@@ -1,0 +1,36 @@
+name: "Stat Block"
+description: "Statistics display. Large numeral in brand blue + label text. Desktop and mobile variants. Radial gradient background in light mode."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7090"
+      label: "Desktop"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - data-highlight
+  - metric-showcase
+  - benchmark-result
+
+when_to_use: "When presenting key statistics, metrics, or numerical data points. The oversized numeral creates visual hierarchy. Typically used in a row of 2-4 stats."
+when_not_to_use: "For qualitative content. For numbers that need additional context beyond a short label."
+
+swappable_slots:
+  - name: number
+    type: text
+    description: "Large display numeral (Special size, 60px, weight 300, line-height 0.85)"
+  - name: label
+    type: text
+    description: "Label XL secondary text below the number"
+  - name: description
+    type: text
+    description: "Optional additional context line"
+
+surfaces:
+  - dark
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

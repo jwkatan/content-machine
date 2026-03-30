@@ -1,0 +1,28 @@
+name: "Screenshot Home — Rules"
+description: "Homepage screenshot frame: Business rule extraction. Desktop (660x371px). Screenshot is swappable; the gradient-backed frame treatment is the constant."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:13401"
+      label: "Desktop"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - screenshot-frame
+  - product-screenshot
+
+when_to_use: "When presenting a product screenshot. The screenshot sits inside a gradient-backed frame — never show a raw floating screenshot."
+when_not_to_use: "For decorative images or icons. Only for actual product screenshots."
+
+swappable_slots:
+  - name: screenshot
+    type: image
+    description: "Product screenshot displayed inside the gradient frame. Replace the placeholder with the actual screenshot."
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

@@ -1,0 +1,17 @@
+name: "Blog Banner"
+description: "Wide hero banner for blog posts. Dark background with title, subtitle, and test-stack visual. Supports {{TITLE}}, {{SUBTITLE}}, {{CATEGORY}} tokens."
+
+use_cases:
+  - blog-banner
+  - hero-image
+  - article-header
+
+output:
+  width: 1960
+  height: 960
+  format: png
+  lossless: true
+  background: "#0D0D1A"
+
+inputs:
+  static: true

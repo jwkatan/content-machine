@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Stages Progression</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 900px;
+      height: 380px;
+      background: #ffffff;
+      font-family: 'Mulish', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 32px 24px;
+      gap: 20px;
+    }
+
+    .cards {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      gap: 0;
+    }
+
+    .card {
+      flex: 1;
+      background: #ffffff;
+      border: 1.5px solid #E4E4F0;
+      border-radius: 10px;
+      padding: 20px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+
+    /* Arrow connector */
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      flex-shrink: 0;
+      padding: 0 2px;
+    }
+
+    .arrow svg {
+      width: 20px;
+      height: 14px;
+    }
+
+    .stage-badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .stage-num {
+      width: 22px;
+      height: 22px;
+      background: #5E6EFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .stage-name {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #9898B0;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0D0D1A;
+      line-height: 1.25;
+    }
+
+    .review-unit {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #F0F0FF;
+      border-radius: 5px;
+      padding: 3px 8px;
+      width: fit-content;
+    }
+
+    .review-unit-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #5E6EFF;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .review-unit-value {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #0D0D1A;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: #F0F0F7;
+    }
+
+    .card-body {
+      font-size: 11.5px;
+      font-weight: 400;
+      color: #4A4A6A;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .human-role {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .role-dot {
+      width: 6px;
+      height: 6px;
+      background: #5E6EFF;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .role-text {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0D0D1A;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .footer-line {
+      flex: 1;
+      height: 1px;
+      background: #EEEEF7;
+    }
+
+    .footer-text {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #A0A0BC;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cards">
+
+    <!-- Stage 1: Autocomplete -->
+    <div class="card">
+      <div class="stage-badge">
+        <div class="stage-num">1</div>
+        <div class="stage-name">Autocomplete</div>
+      </div>
+      <div class="card-title">Review every<br>suggestion</div>
+      <div class="review-unit">
+        <span class="review-unit-label">Unit</span>
+        <span class="review-unit-value">A single line</span>
+      </div>
+      <div class="divider"></div>
+      <div class="card-body">The AI proposes; the developer accepts or rejects. Human judgment at the line level. The cost of a bad suggestion is low.</div>
+      <div class="human-role">
+        <div class="role-dot"></div>
+        <div class="role-text">Human reviews every output</div>
+      </div>
+    </div>
+
+    <!-- Arrow 1 -->
+    <div class="arrow">
+      <svg viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 7H19M19 7L13 1M19 7L13 13" stroke="#5E6EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Stage 2: AI Assistant -->
+    <div class="card">
+      <div class="stage-badge">
+        <div class="stage-num">2</div>
+        <div class="stage-name">AI Assistant</div>
+      </div>
+      <div class="card-title">Review outputs,<br>not suggestions</div>
+      <div class="review-unit">
+        <span class="review-unit-label">Unit</span>
+        <span class="review-unit-value">A block of code</span>
+      </div>
+      <div class="divider"></div>
+      <div class="card-body">A developer asks for a function, reviews the draft, and accepts most of what's generated. Still close to every change.</div>
+      <div class="human-role">
+        <div class="role-dot"></div>
+        <div class="role-text">Human reviews most outputs</div>
+      </div>
+    </div>
+
+    <!-- Arrow 2 -->
+    <div class="arrow">
+      <svg viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 7H19M19 7L13 1M19 7L13 13" stroke="#5E6EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Stage 3: AI Agent -->
+    <div class="card">
+      <div class="stage-badge">
+        <div class="stage-num" style="background: #D177FF;">3</div>
+        <div class="stage-name">AI Agent</div>
+      </div>
+      <div class="card-title">Review outcomes,<br>not code</div>
+      <div class="review-unit" style="background: #FDF0FF;">
+        <span class="review-unit-label" style="color: #D177FF;">Unit</span>
+        <span class="review-unit-value">A deliverable</span>
+      </div>
+      <div class="divider"></div>
+      <div class="card-body">The agent handles a task and surfaces completed work. Reviewing every line doesn't scale - may have touched hundreds of files.</div>
+      <div class="human-role">
+        <div class="role-dot" style="background: #D177FF;"></div>
+        <div class="role-text">Human reviews the final gate</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-line"></div>
+    <div class="footer-text">As AI autonomy increases, human oversight consolidates at the final gate</div>
+    <div class="footer-line"></div>
+  </div>
+
+</body>
+</html>

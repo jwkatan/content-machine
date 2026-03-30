@@ -1,3 +1,8 @@
+/* ==============================================
+   BRAND CONFIGURATION
+   Replace --brand-primary and --brand-secondary
+   with your company's brand palette colors.
+   ============================================== */
 /*
  * SWIMM WHITE PAPER TEMPLATE — styles.css
  *
@@ -42,8 +47,8 @@ html, body {
 :root {
   /* Blues */
   --blue-deep-dive:   #1F35FF;
-  --blue-swimm:       #4154FF;
-  --blue-coastal:     #5E6EFF;
+  --brand-primary:       #4154FF;
+  --brand-secondary:     #5E6EFF;
   --blue-shallow:     #8D98FF;
   --blue-feet:        #E4E7FF;
 
@@ -83,6 +88,14 @@ html, body {
   margin: 0;
 }
 
+/* Named page rules — cover and back cover: zero margins for full bleed.
+   Body pages: margins derived from Figma body-page layout (595×842px):
+     top  59px → 20.8mm, right 68px → 24mm, left 60px → 21.2mm.
+     Bottom 18mm — no footer in flow layout. */
+@page cover    { size: A4; margin: 0; }
+@page body     { size: A4; margin: 21mm 24mm 18mm 21mm; }
+@page backcover { size: A4; margin: 0; }
+
 @media print {
   html, body {
     width: 210mm;
@@ -95,6 +108,7 @@ html, body {
    3. PAGE BASE
 ============================================================ */
 
+/* Fixed-size page wrapper (cover + back cover only) */
 .page {
   width: 210mm;
   height: 297mm;
@@ -224,6 +238,7 @@ html, body {
 ============================================================ */
 
 .cover-page {
+  page: cover;
   background-color: var(--neutral-white);
   color: var(--neutral-charcoal);
   /*
@@ -354,7 +369,7 @@ html, body {
   margin: 0;
 }
 
-/* Asterisk / Swimm ✳ accent icon — 16.5pt */
+/* Asterisk / [COMPANY] ✳ accent icon — 16.5pt */
 .cover-asterisk {
   width: 16.5pt;
   height: 16.5pt;
@@ -397,12 +412,35 @@ html, body {
 
 
 /* ============================================================
+   5b. BODY FLOW CONTAINER
+   Replaces the fixed-height body-page approach with a single
+   flowing container. Content paginates naturally via Chromium's
+   print engine. Named page "body" applies @page body margins.
+============================================================ */
+
+.body-flow {
+  page: body;
+  font-family: var(--font-body);
+  font-size: 12pt;
+  line-height: 18pt;
+  color: var(--neutral-charcoal);
+  /* Margins are applied via @page body rule above.
+     padding: 0 so content fills the @page margin area on every page. */
+}
+
+/* Heading group: keeps heading together with its first paragraph
+   to prevent orphaned headings at the bottom of a page */
+.heading-group {
+  break-inside: avoid;
+}
+
+/* ============================================================
    6. BODY CONTENT PAGE  (repeatable)
    Source: Figma "WP body" node 3614:140 + "WP body_2" node 3614:157
    Canvas: 595 × 842px. Positions as %.
 ============================================================ */
 
-/* Page base */
+/* Page base (legacy — used when fixed-height pages are needed) */
 .body-page {
   background-color: var(--neutral-white);
   color: var(--neutral-charcoal);
@@ -416,7 +454,7 @@ html, body {
   left: 0;
   right: 0;
   height: 1.07%;   /* 9 / 842 */
-  background: var(--blue-coastal);
+  background: var(--brand-secondary);
   z-index: 2;
 }
 
@@ -444,7 +482,8 @@ html, body {
   font-size: 24pt;
   line-height: 30pt;
   color: var(--neutral-charcoal);
-  margin: 0;
+  margin: 0 0 16pt 0;
+  break-after: avoid;
 }
 
 /* Body text block — wraps <p> and <ul> */
@@ -455,6 +494,8 @@ html, body {
   line-height: 18pt;
   color: var(--neutral-charcoal);
   letter-spacing: -0.015pt;
+  orphans: 3;
+  widows: 3;
 }
 
 .body-text p {
@@ -487,9 +528,11 @@ html, body {
  */
 .body-callout {
   background: var(--blue-feet);
-  border-left: 3pt solid var(--blue-coastal);
+  border-left: 3pt solid var(--brand-secondary);
   padding: 13pt 16pt;
+  margin: 12pt 0;
   flex-shrink: 0;
+  break-inside: avoid;
 }
 
 .body-callout p {
@@ -530,7 +573,9 @@ html, body {
 .body-stats {
   display: flex;
   gap: 24pt;
+  margin: 12pt 0;
   flex-shrink: 0;
+  break-inside: avoid;
 }
 
 .body-stat {
@@ -547,7 +592,7 @@ html, body {
   font-weight: 700;
   font-size: 36pt;
   line-height: 1;
-  color: var(--blue-coastal);
+  color: var(--brand-secondary);
 }
 
 .body-stat__label {
@@ -566,7 +611,9 @@ html, body {
 .body-table {
   width: 100%;
   border-collapse: collapse;
+  margin: 12pt 0;
   flex-shrink: 0;
+  break-inside: avoid;
 }
 
 .body-table th {
@@ -637,7 +684,20 @@ html, body {
 ============================================================ */
 
 .back-cover-page {
+  /* NOTE: page: backcover is intentionally omitted. Chromium does not reliably
+     switch named-page contexts for siblings following a named-page flow container.
+     Instead we stay in the @page body margin context and use negative margins
+     to break out to the full page bleed area. */
   background-color: var(--neutral-charcoal);
+  break-before: page;
+  page-break-before: always; /* legacy fallback */
+  /* Counteract @page body margins (21mm left, 24mm right, 18mm bottom, 21mm top)
+     so background covers the entire page. */
+  margin: -21mm -24mm -18mm -21mm;
+  width: 210mm;
+  height: 297mm;
+  position: relative;
+  overflow: hidden;
 }
 
 /*
@@ -654,7 +714,7 @@ html, body {
   align-items: center;
 }
 
-/* Swimm wordmark — inverted to white for dark background */
+/* [COMPANY] wordmark — inverted to white for dark background */
 .back-cover-logo {
   margin-bottom: 33pt;  /* 33px gap to tagline (71 - 38 = 33) */
 }
@@ -688,7 +748,7 @@ html, body {
   justify-content: center;
   width: 268pt;
   height: 44pt;
-  background: var(--blue-coastal);  /* #5E6EFF */
+  background: var(--brand-secondary);  /* #5E6EFF */
   border-radius: 10.304pt;
   font-family: var(--font-heading);
   font-weight: 700;

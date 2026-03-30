@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desktop Hero Visual — Swimm Design System Element</title>
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <!-- Manrope (text font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       Desktop Hero Visual
+       ==========================================================
+       Full-width homepage hero illustration at 3840x900px native
+       resolution. Features a dramatic diagonal sweep of layered
+       geometric strips running from bottom-left to upper-right,
+       transitioning from warm light (Gray 50 / Yellow 200) on the
+       left through Blue 400 / Blue 700 to dark Blue 900 on the
+       right. The strips have subtle gradients and a bright glow
+       at the transition point.
+
+       Figma source:
+         File  epnCa2oEzyBli5hF8YI8Ed
+         Node  3914:15913
+       ========================================================== */
+
+    body {
+      background: var(--gray-100);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ---------- Hero visual container ---------- */
+    .desktop-hero-visual {
+      position: relative;
+      width: 100%;
+      height: 0;
+      /* 3840 x 900 native aspect ratio = 23.4375% */
+      padding-bottom: 23.4375%;
+      overflow: hidden;
+    }
+
+    /* ---------- Background base ----------
+       Left side: light warm tone. Right side: dark navy. */
+    .desktop-hero-visual__base {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        var(--gray-100) 0%,
+        var(--gray-100) 35%,
+        var(--blue-900) 65%,
+        var(--blue-900) 100%
+      );
+    }
+
+    /* ---------- Diagonal strip layer ----------
+       Layered parallelogram strips create the signature sweep.
+       Each strip is a skewed div with gradient fills running from
+       warm accent colors through blue spectrum. The stack creates
+       a fan/blade effect radiating from the center-right area. */
+
+    .desktop-hero-visual__strips {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .desktop-hero-visual__strip {
+      position: absolute;
+      transform-origin: center center;
+    }
+
+    /* Individual strips — positioned and rotated to form the
+       diagonal fan pattern from the Figma design. Each strip
+       has a gradient from warm light to cool dark. */
+
+    .desktop-hero-visual__strip--1 {
+      top: -20%;
+      left: 25%;
+      width: 120%;
+      height: 18%;
+      transform: rotate(-25deg);
+      background: linear-gradient(
+        90deg,
+        rgba(253, 252, 254, 0.9) 0%,
+        var(--yellow-200) 15%,
+        var(--blue-400) 40%,
+        var(--blue-700) 65%,
+        var(--blue-900) 85%
+      );
+    }
+
+    .desktop-hero-visual__strip--2 {
+      top: -10%;
+      left: 22%;
+      width: 120%;
+      height: 18%;
+      transform: rotate(-25deg);
+      background: linear-gradient(
+        90deg,
+        rgba(253, 252, 254, 0.8) 0%,
+        var(--yellow-300) 12%,
+        var(--pink-400) 25%,
+        var(--blue-400) 45%,
+        var(--blue-700) 68%,
+        var(--blue-900) 88%
+      );
+    }
+
+    .desktop-hero-visual__strip--3 {
+      top: 0%;
+      left: 19%;
+      width: 120%;
+      height: 18%;
+      transform: rotate(-25deg);
+      background: linear-gradient(
+        90deg,
+        rgba(253, 252, 254, 0.7) 0%,
+        var(--yellow-200) 18%,
+        var(--blue-400) 42%,
+        var(--blue-700) 66%,
+        var(--blue-900) 90%
+      );
+    }
+
+    .desktop-hero-visual__strip--4 {
+      top: 10%;
+      left: 16%;
+      width: 120%;
+      height: 18%;
+      transform: rotate(-25deg);
+      background: linear-gradient(
+        90deg,
+        rgba(253, 252, 254, 0.6) 0%,
+        var(--yellow-300) 14%,
+        var(--pink-400) 28%,
+        var(--blue-400) 48%,
+        var(--blue-700) 70%,
+        var(--blue-900) 92%
+      );
+    }
+
+    .desktop-hero-visual__strip--5 {
+      top: 20%;
+      left: 13%;
+      width: 120%;
+      height: 18%;
+      transform: rotate(-25deg);
+      background: linear-gradient(
+        90deg,
+        rgba(253, 252, 254, 0.5) 0%,
+        var(--yellow-200) 20%,
+        var(--blue-400) 46%,
+        var(--blue-700) 72%,
+        var(--blue-900) 94%
+      );
+    }
+
+    .desktop-hero-visual__strip--6 {
+      top: 30%;
+      left: 10%;
+      width: 120%;
+      height: 18%;
+      transform: rotate(-25deg);
+      background: linear-gradient(
+        90deg,
+        rgba(253, 252, 254, 0.4) 0%,
+        var(--yellow-300) 16%,
+        var(--pink-400) 30%,
+        var(--blue-400) 50%,
+        var(--blue-700) 74%,
+        var(--blue-900) 96%
+      );
+    }
+
+    .desktop-hero-visual__strip--7 {
+      top: 40%;
+      left: 7%;
+      width: 120%;
+      height: 18%;
+      transform: rotate(-25deg);
+      background: linear-gradient(
+        90deg,
+        rgba(253, 252, 254, 0.3) 0%,
+        var(--yellow-200) 22%,
+        var(--blue-400) 50%,
+        var(--blue-700) 76%,
+        var(--blue-900) 100%
+      );
+    }
+
+    .desktop-hero-visual__strip--8 {
+      top: 50%;
+      left: 4%;
+      width: 120%;
+      height: 18%;
+      transform: rotate(-25deg);
+      background: linear-gradient(
+        90deg,
+        rgba(253, 252, 254, 0.2) 0%,
+        var(--yellow-300) 18%,
+        var(--pink-400) 32%,
+        var(--blue-400) 54%,
+        var(--blue-700) 78%,
+        var(--blue-900) 100%
+      );
+    }
+
+    .desktop-hero-visual__strip--9 {
+      top: 60%;
+      left: 1%;
+      width: 120%;
+      height: 18%;
+      transform: rotate(-25deg);
+      background: linear-gradient(
+        90deg,
+        rgba(253, 252, 254, 0.1) 0%,
+        var(--yellow-200) 24%,
+        var(--blue-400) 54%,
+        var(--blue-700) 80%,
+        var(--blue-900) 100%
+      );
+    }
+
+    /* ---------- Glow accent ----------
+       Bright warm glow at the transition point where light
+       meets dark, creating the "sunrise" focal effect. */
+    .desktop-hero-visual__glow {
+      position: absolute;
+      top: 10%;
+      left: 30%;
+      width: 40%;
+      height: 80%;
+      background: radial-gradient(
+        ellipse at 40% 50%,
+        rgba(255, 223, 187, 0.35) 0%,
+        rgba(255, 195, 129, 0.2) 20%,
+        rgba(104, 145, 249, 0.1) 50%,
+        transparent 75%
+      );
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Desktop Hero Visual
+       ============================================================
+       Full-width banner. Place at the top of the homepage. Content
+       (headline, subheading, CTA) should be overlaid with absolute
+       positioning and a higher z-index.
+       ============================================================ -->
+  <div class="desktop-hero-visual">
+
+    <!-- Flat gradient base (light left, dark right) -->
+    <div class="desktop-hero-visual__base"></div>
+
+    <!-- Diagonal strip fan -->
+    <div class="desktop-hero-visual__strips">
+      <div class="desktop-hero-visual__strip desktop-hero-visual__strip--1"></div>
+      <div class="desktop-hero-visual__strip desktop-hero-visual__strip--2"></div>
+      <div class="desktop-hero-visual__strip desktop-hero-visual__strip--3"></div>
+      <div class="desktop-hero-visual__strip desktop-hero-visual__strip--4"></div>
+      <div class="desktop-hero-visual__strip desktop-hero-visual__strip--5"></div>
+      <div class="desktop-hero-visual__strip desktop-hero-visual__strip--6"></div>
+      <div class="desktop-hero-visual__strip desktop-hero-visual__strip--7"></div>
+      <div class="desktop-hero-visual__strip desktop-hero-visual__strip--8"></div>
+      <div class="desktop-hero-visual__strip desktop-hero-visual__strip--9"></div>
+    </div>
+
+    <!-- Warm glow at transition point -->
+    <div class="desktop-hero-visual__glow"></div>
+
+  </div>
+
+</body>
+</html>

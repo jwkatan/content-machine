@@ -1,0 +1,713 @@
+/*
+ * SWIMM ONE-PAGER TEMPLATE — styles.css
+ *
+ * Design tokens sourced from:
+ *   design-system/tokens/colors.json
+ *   design-system/tokens/typography.json
+ *   design-system/tokens/brand.json
+ *
+ * Page order:
+ *   1. Front (product overview, capabilities, flow, logos)
+ *   2. Back  (value, deployment, use cases, stats, security, CTA)
+ *
+ * Fixed 2-page layout — no repeatable body pages.
+ */
+
+
+/* ============================================================
+   0. RESET + PRINT GLOBALS
+============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* Force Chromium to print background colors + images */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ============================================================
+   1. DESIGN TOKEN VARIABLES
+   Source of truth: design-system/tokens/
+   Identical to whitepaper — same palette, same fonts, same grid.
+============================================================ */
+
+:root {
+  /* Blues */
+  --blue-900:   #1A2761;
+  --blue-800:   #2635A7;
+  --blue-700:   #325BFF;
+  --blue-600:   #527DFF;
+  --blue-400:   #6891F9;
+  --blue-300:   #AFC8FB;
+  --blue-200:   #D5E3FF;
+  --blue-100:   #E2EBFF;
+
+  /* Grays (blue-tinted) */
+  --gray-500:   #415992;
+  --gray-300:   #8594BE;
+  --gray-250:   #C6D1F3;
+  --gray-200:   #DEE3F6;
+  --gray-150:   #EAECF9;
+  --gray-100:   #F3F3FB;
+  --gray-50:    #FDFCFE;
+
+  /* Accents */
+  --pink-400:   #E99DB1;
+  --yellow-300: #FFC381;
+  --yellow-200: #FFDFBB;
+
+  /* Semantic aliases (backward-compat with template markup) */
+  --blue-deep-dive:   var(--blue-900);
+  --blue-swimm:       var(--blue-700);
+  --blue-coastal:     var(--blue-600);
+  --blue-shallow:     var(--blue-400);
+  --blue-feet:        var(--blue-100);
+  --yellow-duck:      var(--yellow-300);
+  --yellow-shine:     var(--yellow-200);
+  --neutral-charcoal: var(--blue-900);
+  --neutral-gravel:   var(--blue-800);
+  --neutral-tide:     var(--gray-300);
+  --neutral-wash:     var(--gray-100);
+  --neutral-white:    #FFFFFF;
+
+  /* Typography */
+  --font-heading: 'Regesto Grotesk', sans-serif;
+  --font-body:    'Manrope', sans-serif;
+
+  /* 8pt spacing grid */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 32px;
+  --sp-5: 40px;
+  --sp-6: 48px;
+  --sp-7: 56px;
+  --sp-8: 64px;
+}
+
+
+/* ============================================================
+   2. @PAGE RULES (A4 full-bleed)
+============================================================ */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+}
+
+
+/* ============================================================
+   3. PAGE BASE
+============================================================ */
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  position: relative;
+  overflow: hidden;
+  break-after: page;
+  page-break-after: always; /* legacy fallback */
+}
+
+.page:last-child {
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+
+/* ============================================================
+   4. FRONT PAGE
+   Solid white background. Dense layout with positioned zones:
+   header, intro, illustration, section heading, capability grid,
+   flow diagram, and logo bar.
+============================================================ */
+
+.onepager-front {
+  background-color: var(--neutral-white);
+  color: var(--neutral-charcoal);
+  font-family: var(--font-body);
+}
+
+
+/* ============================================================
+   5. FRONT PAGE — HEADER (logo + title)
+   Top strip: product title on the left, Swimm logo on the right.
+   Position: top 4%, left/right 6%.
+============================================================ */
+
+.onepager-header {
+  position: absolute;
+  top: 4%;
+  left: 6%;
+  right: 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.onepager-title-block {
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.onepager-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 28pt;
+  line-height: 34pt;
+  color: var(--neutral-charcoal);
+  margin: 0;
+}
+
+.onepager-subtitle {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 14pt;
+  line-height: 20pt;
+  color: var(--neutral-tide);
+  margin: 4pt 0 0 0;
+}
+
+.onepager-logo {
+  flex-shrink: 0;
+}
+
+.onepager-logo img {
+  display: block;
+  height: 9mm;
+  width: auto;
+}
+
+
+/* ============================================================
+   6. FRONT PAGE — INTRO
+   2-3 sentence value proposition below the title, left-aligned.
+   Constrained to ~52% width to avoid the illustration zone.
+============================================================ */
+
+.onepager-intro {
+  position: absolute;
+  top: 15%;
+  left: 6%;
+  width: 52%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.onepager-intro p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 10pt;
+  line-height: 15pt;
+  color: var(--neutral-charcoal);
+  margin: 0;
+}
+
+.onepager-intro p + p {
+  margin-top: 6pt;
+}
+
+
+/* ============================================================
+   7. FRONT PAGE — ILLUSTRATION PLACEHOLDER
+   Circular element on the right side, overlapping the header area.
+   Uses --blue-feet as a placeholder background.
+============================================================ */
+
+.onepager-illustration {
+  position: absolute;
+  top: 5%;
+  right: 6%;
+  width: 30%;
+  /* Square aspect ratio via padding trick — height derived from width */
+  height: 0;
+  padding-bottom: 30%;
+  border-radius: 50%;
+  background: var(--blue-feet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.onepager-illustration img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.onepager-illustration__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-body);
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-shallow);
+}
+
+
+/* ============================================================
+   8. FRONT PAGE — SECTION HEADING
+   Full-width heading that introduces the capability grid.
+============================================================ */
+
+.onepager-section-heading {
+  position: absolute;
+  top: 29%;
+  left: 6%;
+  right: 6%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.onepager-section-heading h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16pt;
+  line-height: 22pt;
+  color: var(--neutral-charcoal);
+  margin: 0;
+  padding-bottom: 6pt;
+  border-bottom: 2pt solid var(--blue-swimm);
+}
+
+
+/* ============================================================
+   9. FRONT PAGE — CAPABILITY GRID
+   3-column layout with column headers + bullet lists.
+   CSS Grid with equal columns and consistent gap.
+============================================================ */
+
+.onepager-capabilities {
+  position: absolute;
+  top: 35%;
+  left: 6%;
+  right: 6%;
+  z-index: 2;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16pt;
+}
+
+.capability-column {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.capability-header {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11pt;
+  line-height: 16pt;
+  color: var(--neutral-charcoal);
+  background: var(--blue-feet);
+  padding: 6pt 8pt;
+  margin: 0 0 8pt 0;
+}
+
+.capability-list {
+  list-style: disc;
+  padding-left: 12pt;
+  margin: 0;
+}
+
+.capability-list li {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 9pt;
+  line-height: 14pt;
+  color: var(--neutral-charcoal);
+  margin-bottom: 3pt;
+}
+
+.capability-list li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   10. FRONT PAGE — FLOW DIAGRAM
+   Horizontal sequence of steps with numbered circles and arrows.
+   Flexbox layout with even distribution.
+============================================================ */
+
+.onepager-flow {
+  position: absolute;
+  top: 62%;
+  left: 6%;
+  right: 6%;
+  z-index: 2;
+  overflow: hidden;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.flow-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.flow-step__circle {
+  width: 32pt;
+  height: 32pt;
+  border-radius: 50%;
+  background: var(--blue-swimm);
+  color: var(--neutral-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14pt;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.flow-step__label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 9pt;
+  line-height: 13pt;
+  color: var(--neutral-charcoal);
+  margin-top: 6pt;
+}
+
+.flow-step__caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 8pt;
+  line-height: 11pt;
+  color: var(--neutral-tide);
+  margin-top: 2pt;
+  max-width: 90%;
+}
+
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24pt;
+  flex-shrink: 0;
+  color: var(--blue-shallow);
+  font-size: 14pt;
+  line-height: 1;
+  /* Vertically align with the step circles */
+  margin-top: 8pt;
+}
+
+
+/* ============================================================
+   11. FRONT PAGE — LOGO BAR
+   Dark strip at the very bottom of the front page.
+   Customer/partner logos displayed in a flex row.
+============================================================ */
+
+.onepager-logobar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 7%;
+  background: var(--neutral-charcoal);
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32pt;
+}
+
+.onepager-logobar__item {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 7pt;
+  line-height: 10pt;
+  color: var(--neutral-white);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.onepager-logobar__item img {
+  display: block;
+  height: 14pt;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+
+/* ============================================================
+   12. BACK PAGE
+   White background with a top accent bar, content zones,
+   and a dark CTA strip at the bottom.
+============================================================ */
+
+.onepager-back {
+  background-color: var(--neutral-white);
+  color: var(--neutral-charcoal);
+  font-family: var(--font-body);
+}
+
+
+/* ============================================================
+   13. BACK PAGE — BUSINESS VALUE
+   Top section with heading + body paragraphs.
+   Position: top 4%, full width minus margins.
+============================================================ */
+
+.onepager-back-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.07%;   /* 9 / 842 — matches whitepaper body bar */
+  background: var(--blue-coastal);
+  z-index: 2;
+}
+
+.onepager-value {
+  position: absolute;
+  top: 4%;
+  left: 6%;
+  right: 6%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.onepager-value h3,
+.onepager-deploy h3,
+.onepager-usecases h3,
+.onepager-security h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14pt;
+  line-height: 18pt;
+  color: var(--neutral-charcoal);
+  margin: 0 0 8pt 0;
+}
+
+.onepager-value p,
+.onepager-deploy p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 9pt;
+  line-height: 14pt;
+  color: var(--neutral-charcoal);
+  margin: 0 0 6pt 0;
+}
+
+.onepager-value p:last-child,
+.onepager-deploy p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   14. BACK PAGE — DEPLOYMENT
+   "Deploy in hours" section below business value.
+============================================================ */
+
+.onepager-deploy {
+  position: absolute;
+  top: 24%;
+  left: 6%;
+  right: 6%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   15. BACK PAGE — USE CASES
+   Left half of the mid-page area. Rounded pill tags.
+============================================================ */
+
+.onepager-usecases {
+  position: absolute;
+  top: 40%;
+  left: 6%;
+  right: 48%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.usecase-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8pt;
+  margin-top: 4pt;
+}
+
+.usecase-tag {
+  display: inline-block;
+  padding: 5pt 12pt;
+  border-radius: 16pt;
+  background: var(--blue-feet);
+  color: var(--neutral-charcoal);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 8pt;
+  line-height: 12pt;
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   16. BACK PAGE — STATS
+   Right half of the mid-page area, beside use cases.
+   Vertical stack of stat tiles.
+============================================================ */
+
+.onepager-stats {
+  position: absolute;
+  top: 40%;
+  left: 54%;
+  right: 6%;
+  z-index: 2;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12pt;
+}
+
+.onepager-stat {
+  padding: 10pt 12pt;
+  background: var(--neutral-wash);
+  display: flex;
+  flex-direction: column;
+  gap: 3pt;
+}
+
+.onepager-stat__value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 24pt;
+  line-height: 1;
+  color: var(--blue-coastal);
+}
+
+.onepager-stat__label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 8pt;
+  line-height: 12pt;
+  color: var(--neutral-charcoal);
+}
+
+
+/* ============================================================
+   17. BACK PAGE — SECURITY
+   Full-width section with checkmark-decorated bullet list
+   in a 2-column grid layout.
+============================================================ */
+
+.onepager-security {
+  position: absolute;
+  top: 68%;
+  left: 6%;
+  right: 6%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.security-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6pt 24pt;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.security-list li {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 9pt;
+  line-height: 13pt;
+  color: var(--neutral-charcoal);
+  padding-left: 14pt;
+  position: relative;
+}
+
+.security-list li::before {
+  content: "\2713";  /* checkmark */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--blue-coastal);
+  font-weight: 700;
+  font-size: 9pt;
+  line-height: 13pt;
+}
+
+
+/* ============================================================
+   18. BACK PAGE — CTA
+   Dark strip at the bottom with a centered CTA button.
+============================================================ */
+
+.onepager-cta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12%;
+  background: var(--neutral-charcoal);
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onepager-cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10pt 32pt;
+  background: var(--blue-coastal);
+  border-radius: 10.304pt;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14pt;
+  line-height: 18pt;
+  color: var(--neutral-white);
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 10.304pt rgba(0, 0, 0, 0.16);
+}

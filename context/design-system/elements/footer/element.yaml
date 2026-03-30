@@ -1,0 +1,30 @@
+name: "Footer"
+description: "Site footer. Logo, social links, certification badge, link columns organized by category, credits line. 1440x383px."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:6854"
+      label: "Footer"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - page-footer
+
+when_to_use: "At the bottom of every page. Contains logo, social links, certification badge, categorized link columns, and credits."
+when_not_to_use: "Inside modals, overlays, or email templates."
+
+swappable_slots:
+  - name: link_columns
+    type: structured
+    description: "Array of column objects, each with a heading and array of link items."
+  - name: credits
+    type: text
+    description: "Copyright and credits line text"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

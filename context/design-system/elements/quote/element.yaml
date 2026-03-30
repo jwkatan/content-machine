@@ -1,0 +1,35 @@
+name: "Quote"
+description: "Testimonial/quote block. Desktop (990px) and mobile (335px) variants. Features gradient background with mesh grid overlay, gradient-highlighted keywords, and author attribution with avatar."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7097"
+      label: "Desktop"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - testimonial
+  - customer-quote
+  - pullquote
+
+when_to_use: "For customer testimonials and pull quotes. The gradient background and mesh overlay give it visual weight. Use the gradient text span for key phrases."
+when_not_to_use: "For generic text callouts that are not quotes. For inline citations."
+
+swappable_slots:
+  - name: quote_text
+    type: text
+    description: "Quote body text (30px, Manrope Regular, line-height 1.4). Supports gradient-highlighted spans."
+  - name: attribution
+    type: text
+    description: "Author name (12px bold)"
+  - name: role
+    type: text
+    description: "Author role/company (12px regular, Gray 500)"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

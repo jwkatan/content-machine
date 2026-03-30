@@ -1,0 +1,24 @@
+name: "Gated Document Landing Page"
+description: "Stacked blue border frame with white card. PDF first page fills the card area."
+
+use_cases:
+  - landing-page
+  - gated-document
+  - whitepaper
+  - guide
+  - competitive-comparison
+
+output:
+  width: 1206
+  height: 1562
+  format: webp
+  lossless: true
+  background: white
+
+inputs:
+  pdf_first_page: true
+
+figma:
+  file: [YOUR_FIGMA_FILE_KEY]
+  node: "3757:25"
+  last_synced: "2026-03-05"

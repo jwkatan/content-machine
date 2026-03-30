@@ -1,0 +1,24 @@
+name: "Background Mesh"
+description: "Decorative mesh background pattern for adding visual texture to sections. Layered over dark surfaces for subtle depth."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:13856"
+      label: "Background Mesh"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - section-texture
+  - dark-background-depth
+
+when_to_use: "When a dark section needs subtle texture. Layer behind content."
+when_not_to_use: "On light surfaces or over already-complex backgrounds like hero-background. One texture layer at a time."
+
+swappable_slots: []
+
+surfaces:
+  - dark
+mediums:
+  - html
+  - marp

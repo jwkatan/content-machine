@@ -1,0 +1,39 @@
+name: "Main Button"
+description: "Primary CTA button. Blue 700 background, Gray 50 text. Available in Text+Icon and Text-only variants with Default and Hover states."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7402"
+      label: "Default, Text+Icon"
+    - id: "3914:7408"
+      label: "Default, Text-only"
+    - id: "3914:7411"
+      label: "Hover, Text+Icon"
+    - id: "3914:7417"
+      label: "Hover, Text-only"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - primary-cta
+  - form-submit
+  - hero-action
+
+when_to_use: "Primary call-to-action. Use for the most important action on a page or slide."
+when_not_to_use: "Secondary actions — use secondary-button instead."
+
+swappable_slots:
+  - name: text
+    type: text
+    description: "Button label text"
+  - name: icon
+    type: boolean
+    description: "Whether to show the arrow icon (Text+Icon variant)"
+
+surfaces:
+  - dark
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

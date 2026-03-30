@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Button — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Main Button — Base Styles
+       ============================================================
+       Two variants:
+         .main-button              → Text+Icon (default)
+         .main-button.text-only    → Text-only (no arrow)
+       Hover state applied via CSS :hover pseudo-class.
+       ============================================================ */
+
+    .main-button {
+      display: inline-flex;
+      align-items: center;
+      isolation: isolate;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      padding: 0;
+      background: none;
+    }
+
+    /* --- Text Label Container --- */
+    .main-button__label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 34px;
+      padding: 10px;
+      position: relative;
+      z-index: 2;
+      background-image: linear-gradient(
+        45deg,
+        var(--blue-800) 7.87%,
+        var(--blue-700) 67.64%,
+        var(--blue-600) 94.61%,
+        var(--blue-400) 100%
+      );
+      transition: background-image 0.2s ease;
+    }
+
+    .main-button__label span {
+      font-family: var(--text-font);
+      font-weight: var(--label-l-weight, 400);
+      font-size: var(--label-l-size);
+      line-height: 0.85;
+      color: var(--blue-100);
+      text-align: center;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    /* --- Arrow Icon Container (Text+Icon variant only) --- */
+    .main-button__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 34px;
+      position: relative;
+      z-index: 1;
+      margin-left: -1px;
+      background-image: linear-gradient(
+        45deg,
+        var(--blue-800) 7.87%,
+        var(--blue-700) 67.64%,
+        var(--blue-600) 94.61%,
+        var(--blue-400) 100%
+      );
+      transition: background-image 0.2s ease;
+    }
+
+    .main-button__icon svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: var(--blue-100);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.2s ease;
+    }
+
+    /* --- Text+Icon: label gets right margin overlap --- */
+    .main-button:not(.text-only) .main-button__label {
+      margin-right: -1px;
+    }
+
+    /* --- Text-only variant: hide icon --- */
+    .main-button.text-only .main-button__icon {
+      display: none;
+    }
+
+    /* ============================================================
+       Hover State — Text+Icon
+       Gradient shifts pink-400 into the end stop.
+       Text color shifts from blue-100 to gray-50.
+       ============================================================ */
+    .main-button:not(.text-only):hover .main-button__label {
+      background-image: linear-gradient(
+        45deg,
+        var(--blue-800) 15.22%,
+        var(--blue-700) 65.44%,
+        var(--blue-600) 84.41%,
+        var(--pink-400) 100%
+      );
+    }
+
+    .main-button:not(.text-only):hover .main-button__icon {
+      background-image: linear-gradient(
+        45deg,
+        var(--blue-800) 15.22%,
+        var(--blue-700) 65.44%,
+        var(--blue-600) 84.41%,
+        var(--pink-400) 100%
+      );
+    }
+
+    .main-button:not(.text-only):hover .main-button__label span {
+      color: var(--gray-50);
+    }
+
+    .main-button:not(.text-only):hover .main-button__icon svg {
+      stroke: var(--gray-50);
+    }
+
+    /* ============================================================
+       Hover State — Text-only
+       Gradient shifts further with pink-400 and yellow-300.
+       Text color shifts from blue-100 to gray-50.
+       ============================================================ */
+    .main-button.text-only:hover .main-button__label {
+      background-image: linear-gradient(
+        45deg,
+        var(--blue-800) 50.73%,
+        var(--blue-700) 42.53%,
+        var(--pink-400) 86.99%,
+        var(--yellow-300) 100%
+      );
+    }
+
+    .main-button.text-only:hover .main-button__label span {
+      color: var(--gray-50);
+    }
+
+    /* ============================================================
+       Preview Layout (for standalone element preview only)
+       ============================================================ */
+    .preview-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 48px;
+      background: var(--gray-100);
+      min-height: 100vh;
+    }
+
+    .preview-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .preview-label {
+      font-family: var(--text-font);
+      font-size: 12px;
+      color: var(--gray-500);
+      width: 140px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-layout">
+
+    <!-- ========== Text+Icon Variant (Default — hover to see state change) ========== -->
+    <div class="preview-row">
+      <span class="preview-label">Text+Icon</span>
+      <a href="#" class="main-button" role="button">
+        <div class="main-button__label">
+          <!-- SWAPPABLE: text --><span>Get a demo</span><!-- /SWAPPABLE: text -->
+        </div>
+        <!-- SWAPPABLE: icon -->
+        <div class="main-button__icon">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <line x1="1" y1="8" x2="15" y2="8" />
+            <polyline points="9 2 15 8 9 14" />
+          </svg>
+        </div>
+        <!-- /SWAPPABLE: icon -->
+      </a>
+    </div>
+
+    <!-- ========== Text-only Variant (Default — hover to see state change) ========== -->
+    <div class="preview-row">
+      <span class="preview-label">Text-only</span>
+      <a href="#" class="main-button text-only" role="button">
+        <div class="main-button__label">
+          <!-- SWAPPABLE: text --><span>Get a demo</span><!-- /SWAPPABLE: text -->
+        </div>
+        <!-- SWAPPABLE: icon -->
+        <!-- icon hidden by .text-only class -->
+        <div class="main-button__icon">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <line x1="1" y1="8" x2="15" y2="8" />
+            <polyline points="9 2 15 8 9 14" />
+          </svg>
+        </div>
+        <!-- /SWAPPABLE: icon -->
+      </a>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,1001 @@
+/* ============================================================
+   SWIMM MARP THEME v6 — SVG Depth from Real Elements
+   ============================================================
+
+   All depth, gradients, and surface treatments use SVG/CSS
+   patterns extracted from the actual Figma element library.
+
+   v5 → v6 changes:
+   - SVG radial gradients from icon-card-dark/stat-block replace
+     CSS radial-gradient approximations
+   - Zero border-radius on cards, screenshots, flow boxes
+   - Zero box-shadow everywhere
+   - Stat numbers use Manrope (--text-font) not Regesto Grotesk
+   - Screenshot frames: sharp corners, 10px left border, bottom
+     fade with mix-blend-mode: multiply
+   - Dot-matrix mesh from background-mesh element available
+   - Title/closing use grad-section SVG radial + CTA nesting
+   - Hero wave gradient bar on divider slides
+
+   ============================================================ */
+
+/* ---- Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap');
+
+@font-face {
+  font-family: 'Regesto Grotesk';
+  src: local('Regesto Grotesk'), local('Roc Grotesk');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Regesto Grotesk';
+  src: local('Regesto Grotesk'), local('Roc Grotesk');
+  font-weight: 400;
+}
+
+/* ---- Tokens ---- */
+:root {
+  /* Colors */
+  --blue-900: #1A2761;
+  --blue-800: #2635A7;
+  --blue-700: #325BFF;
+  --blue-600: #527DFF;
+  --blue-400: #6891F9;
+  --blue-300: #AFC8FB;
+  --blue-200: #D5E3FF;
+  --blue-100: #E2EBFF;
+  --gray-500: #415992;
+  --gray-300: #8594BE;
+  --gray-250: #C6D1F3;
+  --gray-200: #DEE3F6;
+  --gray-150: #EAECF9;
+  --gray-100: #F3F3FB;
+  --gray-50: #FDFCFE;
+  --pink-400: #E99DB1;
+  --yellow-300: #FFC381;
+  --yellow-200: #FFDFBB;
+
+  /* Typography */
+  --title-font: 'Regesto Grotesk', sans-serif;
+  --text-font: 'Manrope', sans-serif;
+
+  /* Gradients (from actual elements) */
+  --gradient-cta: linear-gradient(180deg, #1A2761 34.286%, #325BFF 56.023%, #E99DB1 70.306%, #FFDFBB 83.838%, #F3F3FB 91.355%);
+  --gradient-cta-outer: linear-gradient(180deg, #1A2761 32.193%, #325BFF 50.144%, #E99DB1 68.795%, #FFDFBB 83.015%, rgba(243, 243, 251, 0) 90.915%);
+  --gradient-blue: linear-gradient(239.66deg, #6891F9 24.153%, #325BFF 60.201%);
+  --gradient-wave: linear-gradient(0deg, #FFDFBB 0%, #E99DB1 18%, #6891F9 44%, #325BFF 72%, #1A2761 100%);
+  --gradient-accent: linear-gradient(180deg, rgba(253,252,254,0) 0%, #FFDFBB 17.929%, #E99DB1 44.716%, #6891F9 76.917%, #325BFF 95.028%, #2635A7 107.44%);
+
+  /* Named Gradients (from swimm.io website redesign) */
+  --gradient-light-50: radial-gradient(125.72% 101.41% at 33.17% 0, #DEE3F6 0%, rgba(225,231,248,0) 100%);
+  --gradient-light-100: radial-gradient(132.76% 119.84% at 33.95% 0, #EAECF9 50%, #D5E3FF 75%, #C6D1F3 100%);
+  --gradient-light-200: linear-gradient(106deg, #EAECF9 50%, #E2EBFF 75%, #DEE3F6 100%);
+  --gradient-light-300: linear-gradient(135deg, #C6D1F3 0.52%, #AFC8FB 100.52%);
+  --gradient-blue-100: linear-gradient(252deg, #6891F9 -24.15%, #325BFF 60.2%);
+  --gradient-accent-300: linear-gradient(180deg, #1A2761 0%, #325BFF 0%, #E99DB1 55.31%, #FFDFBB 83.84%, #F3F3FB 100%);
+  --gradient-accent-500: radial-gradient(113.06% 100% at 50% -0.06%, #1A2761 43.96%, #325BFF 53.45%, #E99DB1 68.28%, #FFDFBB 76.58%, #F3F3FB 83.7%);
+  --gradient-accent-700: linear-gradient(270deg, rgba(255,223,187,0) -35.47%, #FFDFBB -11.77%, #E99DB1 23.64%, #6891F9 66.2%, #325BFF 90.14%, #2635A7 106.54%);
+}
+
+
+/* ============================================================
+   SECTION RESET — Base for all slides
+   ============================================================ */
+section {
+  font-family: var(--text-font);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.4;
+  padding: 64px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+section h1 {
+  font-family: var(--title-font);
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0 0 16px 0;
+}
+section h2 {
+  font-family: var(--title-font);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 24px 0;
+}
+section h3 {
+  font-family: var(--title-font);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 12px 0;
+}
+section h4 {
+  font-family: var(--title-font);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 8px 0;
+}
+section p {
+  margin: 0 0 8px 0;
+}
+
+/* Ensure all direct children sit above depth layers */
+section > * {
+  position: relative;
+  z-index: 1;
+}
+section::before,
+section::after {
+  z-index: 0;
+}
+
+
+/* ============================================================
+   1. TITLE SLIDE — Grad-section radial + CTA nesting
+   ============================================================
+
+   Usage: <!-- _class: title-gradient -->
+   HTML:  <div class="content-card">
+            <h1>Title</h1>
+            <p class="subtitle">Subtitle</p>
+            <p class="speakers">Name, Role</p>
+          </div>
+
+   Background: SVG radial from grad-section (warm-to-cool glow
+   from bottom center). Three CTA gradient rings via section bg,
+   ::before, and ::after. Content card is Gray 100, sharp corners,
+   no shadow.
+   ============================================================ */
+section.title-gradient {
+  background-color: var(--blue-900);
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 472' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='1'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-5.984e-14 -35.492 115.63 -5.7906e-13 720 530.51)'><stop stop-color='rgba(38,53,167,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.1599'/><stop stop-color='rgba(50,91,255,1)' offset='0.3198'/><stop stop-color='rgba(77,118,252,1)' offset='0.47842'/><stop stop-color='rgba(104,145,249,1)' offset='0.63705'/><stop stop-color='rgba(136,148,231,1)' offset='0.66408'/><stop stop-color='rgba(169,151,213,1)' offset='0.69112'/><stop stop-color='rgba(233,157,177,1)' offset='0.74519'/><stop stop-color='rgba(255,223,187,1)' offset='0.8642'/><stop stop-color='rgba(253,252,254,0)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+  color: var(--gray-50);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+}
+/* Outer CTA gradient ring */
+section.title-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 24px;
+  background: var(--gradient-accent);
+  opacity: 0.6;
+  pointer-events: none;
+}
+/* Inner CTA gradient ring */
+section.title-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 52px;
+  background: var(--gradient-accent);
+  opacity: 0.45;
+  pointer-events: none;
+}
+section.title-gradient .content-card {
+  position: relative;
+  z-index: 2;
+  background: var(--gray-100);
+  padding: 56px 72px 48px;
+  color: var(--blue-900);
+  text-align: center;
+  max-width: 720px;
+  width: 80%;
+}
+section.title-gradient .content-card h1 {
+  color: var(--blue-900);
+  margin: 0 0 16px 0;
+}
+section.title-gradient .content-card .subtitle {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--gray-500);
+  margin: 0 0 28px 0;
+  line-height: 1.4;
+}
+section.title-gradient .content-card .speakers {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--blue-800);
+  margin: 0;
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   2. DARK BASE — SVG radial depth on every dark slide
+   ============================================================
+
+   All dark-* slides get Blue 900 background + SVG radial depth
+   from the icon-card-dark element (Blue 700 -> #2C48D3 -> Blue
+   800 at 20% opacity). Each variant positions the radial
+   differently for visual variety.
+
+   Depth is ALWAYS present — no flat dark slides possible.
+   ============================================================ */
+section[class*="dark"] {
+  background-color: var(--blue-900);
+  color: var(--gray-50);
+}
+section[class*="dark"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+section[class*="dark"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+section[class*="dark"] h1,
+section[class*="dark"] h2,
+section[class*="dark"] h3,
+section[class*="dark"] h4 {
+  color: var(--gray-50);
+  position: relative;
+  z-index: 1;
+}
+section[class*="dark"] p,
+section[class*="dark"] li {
+  color: var(--blue-300);
+  position: relative;
+  z-index: 1;
+}
+/* Accent highlights */
+section[class*="dark"] .accent { color: var(--pink-400); font-weight: 400; }
+section[class*="dark"] .accent-blue { color: var(--blue-400); }
+section[class*="dark"] .accent-yellow { color: var(--yellow-300); }
+section[class*="light"] .accent { color: var(--pink-400); font-weight: 400; }
+section[class*="light"] .accent-blue { color: var(--blue-700); }
+
+
+/* ============================================================
+   2a. DARK-STATEMENT — Bold typographic statement
+   ============================================================
+   Depth: SVG radial from top-left + second from bottom-right.
+   ============================================================ */
+section.dark-statement {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 120px;
+}
+section.dark-statement::before {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.2'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(40 29.3 -2.7062 36.344 0 0)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+section.dark-statement::after {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.15'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-40 -29.3 2.7062 -36.344 400 293)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+section.dark-statement h1 {
+  max-width: 85%;
+}
+section.dark-statement p {
+  max-width: 700px;
+  font-size: 22px;
+}
+
+
+/* ============================================================
+   2b. DARK-BULLETS — Heading + bullet list
+   ============================================================
+   Depth: SVG radial from bottom-left + bottom-right.
+   ============================================================ */
+section.dark-bullets {
+  align-items: flex-start;
+  justify-content: center;
+  padding: 72px 100px;
+}
+section.dark-bullets::before {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.2'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(40 -29.3 -2.7062 -36.344 0 293)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+section.dark-bullets::after {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.15'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-40 -29.3 2.7062 -36.344 400 293)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+
+
+/* ============================================================
+   2c. DARK-CARDS — Heading + card row (2-4 cards)
+   ============================================================
+   Depth: SVG radial from top-center + dot-matrix from BR.
+   ============================================================ */
+section.dark-cards {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 72px;
+  gap: 8px;
+}
+section.dark-cards::before {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.22'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-60 0 0 -35 200 0)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+section.dark-cards::after {
+  /* Dot-matrix mesh from background-mesh element */
+  background-image: radial-gradient(circle at center, rgba(104, 145, 249, 0.4) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  background-position: 8px 8px;
+  opacity: 0.3;
+  -webkit-mask-image: linear-gradient(315deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0) 80%);
+  mask-image: linear-gradient(315deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0) 80%);
+}
+section.dark-cards h2 {
+  margin-bottom: 4px;
+}
+section.dark-cards p {
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+
+/* ============================================================
+   2d. DARK-STATS — Heading + stat block row
+   ============================================================
+   Depth: SVG radial from top-center + subtle bottom-right.
+   ============================================================ */
+section.dark-stats {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 80px;
+  gap: 12px;
+}
+section.dark-stats::before {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.22'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-60 0 0 -35 200 0)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+section.dark-stats::after {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.12'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-40 -29.3 2.7062 -36.344 400 293)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+
+
+/* ============================================================
+   2e. DARK-SPLIT — Two-column layout on dark
+   ============================================================
+   Depth: SVG radial from top-left + dot-matrix from BR.
+   ============================================================ */
+section.dark-split {
+  align-items: stretch;
+  justify-content: center;
+  padding: 64px 80px;
+}
+section.dark-split::before {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.2'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(40 29.3 -2.7062 36.344 0 0)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+section.dark-split::after {
+  background-image: radial-gradient(circle at center, rgba(104, 145, 249, 0.35) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  background-position: 8px 8px;
+  opacity: 0.25;
+  -webkit-mask-image: linear-gradient(315deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 35%, rgba(0,0,0,0) 70%);
+  mask-image: linear-gradient(315deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 35%, rgba(0,0,0,0) 70%);
+}
+
+
+/* ============================================================
+   2f. DARK-DIVIDER — Section divider (topic transition)
+   ============================================================
+   Depth: Strong center SVG radial.
+   Decoration: Hero wave gradient bar at bottom (24px) showing
+   the full warm spectrum from the hero-background element.
+   ============================================================ */
+section.dark-divider {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 120px;
+}
+section.dark-divider::before {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.3'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-50 0 0 -45 200 146)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+section.dark-divider::after {
+  /* Hero wave gradient bar — full spectrum from hero-background element */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: linear-gradient(0deg, #FFDFBB 0%, #E99DB1 30%, #6891F9 65%, #325BFF 85%, #1A2761 100%);
+  inset: auto 0 0 0;
+  opacity: 0.85;
+  -webkit-mask-image: linear-gradient(90deg, transparent 5%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, transparent 95%);
+  mask-image: linear-gradient(90deg, transparent 5%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, transparent 95%);
+}
+section.dark-divider h2 {
+  max-width: 80%;
+  font-size: 48px;
+}
+
+
+/* ============================================================
+   2g. DARK-TWOCOL — Two-column comparison on dark
+   ============================================================
+   Depth: SVG radial from top-right + bottom-left.
+   ============================================================ */
+section.dark-twocol {
+  align-items: flex-start;
+  justify-content: center;
+  padding: 64px 80px;
+  gap: 24px;
+}
+section.dark-twocol::before {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.18'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-40 29.3 2.7062 36.344 400 0)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+section.dark-twocol::after {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.15'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(40 -29.3 -2.7062 -36.344 0 293)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+
+
+/* ============================================================
+   2h. DARK-FLOW — Process/flow diagram on dark
+   ============================================================
+   Depth: SVG radial center + dot-matrix.
+   ============================================================ */
+section.dark-flow {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 80px;
+  gap: 16px;
+}
+section.dark-flow::before {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.25'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-50 0 0 -45 200 146)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+section.dark-flow::after {
+  background-image: radial-gradient(circle at center, rgba(104, 145, 249, 0.35) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  background-position: 8px 8px;
+  opacity: 0.2;
+  -webkit-mask-image: linear-gradient(315deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0) 75%);
+  mask-image: linear-gradient(315deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0) 75%);
+}
+
+
+/* ============================================================
+   3. LIGHT BASE — SVG radial depth from stat-block
+   ============================================================ */
+section[class*="light"] {
+  /* Light surface depth: stat-block SVG radial (gray-150 → blue-200 → gray-250) */
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 329 187' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='1'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(21.746 18.7 -19.081 22.336 111.79 0)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+  color: var(--blue-900);
+}
+section[class*="light"] h1,
+section[class*="light"] h2,
+section[class*="light"] h3,
+section[class*="light"] h4 {
+  color: var(--blue-900);
+}
+section[class*="light"] p,
+section[class*="light"] li {
+  color: var(--gray-500);
+}
+
+
+/* ============================================================
+   3a. LIGHT-SCREENSHOT — Full-width screenshot with heading
+   ============================================================ */
+section.light-screenshot {
+  align-items: flex-start;
+  justify-content: center;
+  padding: 56px 72px;
+  gap: 24px;
+}
+
+
+/* ============================================================
+   3b. LIGHT-SPLIT — Text + screenshot side-by-side
+   ============================================================ */
+section.light-split {
+  align-items: stretch;
+  justify-content: center;
+  padding: 56px 72px;
+}
+
+
+/* ============================================================
+   3c. LIGHT-MULTI — Multiple screenshots in a row
+   ============================================================ */
+section.light-multi {
+  align-items: flex-start;
+  justify-content: center;
+  padding: 56px 64px;
+  gap: 20px;
+}
+
+
+/* ============================================================
+   3d. LIGHT-BULLETS — Heading + bullet list on light
+   ============================================================ */
+section.light-bullets {
+  align-items: flex-start;
+  justify-content: center;
+  padding: 72px 100px;
+}
+
+
+/* ============================================================
+   3e. LIGHT-CARDS — Heading + card row on light surface
+   ============================================================
+
+   Usage: <!-- _class: light-cards -->
+   HTML:  <h2>Section heading</h2>
+          <div class="card-row">
+            <div class="content-card"> ... </div>
+            <div class="content-card"> ... </div>
+          </div>
+
+   Cards on light surfaces use the Light-100 radial gradient
+   background — NOT flat Gray-100. The asymmetric radial bloom
+   from ~33% left creates subtle depth per card.
+   ============================================================ */
+section.light-cards {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 72px;
+  gap: 8px;
+}
+section.light-cards h2 {
+  color: var(--blue-900);
+}
+section.light-cards p {
+  color: var(--gray-500);
+}
+section.light-cards .content-card {
+  background: var(--gradient-light-100);
+  color: var(--blue-900);
+  padding: 32px;
+  text-align: left;
+}
+section.light-cards .content-card h3,
+section.light-cards .content-card h4 {
+  color: var(--blue-900);
+  margin-bottom: 12px;
+}
+section.light-cards .content-card p {
+  color: var(--gray-500);
+  font-size: 16px;
+}
+
+
+/* ============================================================
+   4. CLOSING SLIDE — CTA gradient nesting
+   ============================================================
+
+   Usage: <!-- _class: closing-gradient -->
+   HTML:  <div class="content-card">
+            <h2>Closing headline</h2>
+            <p class="subtitle">Supporting text</p>
+          </div>
+
+   Same structure as title-gradient but with H2.
+   ============================================================ */
+section.closing-gradient {
+  background-color: var(--blue-900);
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 472' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='1'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-5.984e-14 -35.492 115.63 -5.7906e-13 720 530.51)'><stop stop-color='rgba(38,53,167,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.1599'/><stop stop-color='rgba(50,91,255,1)' offset='0.3198'/><stop stop-color='rgba(77,118,252,1)' offset='0.47842'/><stop stop-color='rgba(104,145,249,1)' offset='0.63705'/><stop stop-color='rgba(136,148,231,1)' offset='0.66408'/><stop stop-color='rgba(169,151,213,1)' offset='0.69112'/><stop stop-color='rgba(233,157,177,1)' offset='0.74519'/><stop stop-color='rgba(255,223,187,1)' offset='0.8642'/><stop stop-color='rgba(253,252,254,0)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+  color: var(--gray-50);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+}
+section.closing-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 24px;
+  background: var(--gradient-accent);
+  opacity: 0.6;
+  pointer-events: none;
+}
+section.closing-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 52px;
+  background: var(--gradient-accent);
+  opacity: 0.45;
+  pointer-events: none;
+}
+section.closing-gradient .content-card {
+  position: relative;
+  z-index: 2;
+  background: var(--gray-100);
+  padding: 56px 72px 48px;
+  color: var(--blue-900);
+  text-align: center;
+  max-width: 640px;
+  width: 75%;
+}
+section.closing-gradient .content-card h2 {
+  color: var(--blue-900);
+  margin: 0 0 16px 0;
+}
+section.closing-gradient .content-card .subtitle {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--gray-500);
+  margin: 0;
+  line-height: 1.4;
+}
+
+
+/* ============================================================
+   COMPONENT CLASSES — Reusable within any slide type
+   ============================================================ */
+
+/* ---- Card Row ---- */
+.card-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /* Dark surface: SVG radial (boosted to 0.3) + dot-matrix mesh */
+  background-color: transparent;
+  background-image:
+    radial-gradient(circle at center, rgba(104, 145, 249, 0.4) 1.5px, transparent 1.5px),
+    url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.3'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-40 -29.3 2.7062 -36.344 400 293)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 16px 16px, 100% 100%;
+  background-position: 8px 8px, center;
+  /* Dot-matrix fades from bottom-right */
+  -webkit-mask-image: none;
+}
+/* Spectrum gradient bar at top of each dark card */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #325BFF 0%, #6891F9 30%, #E99DB1 65%, #FFDFBB 90%, transparent 100%);
+  z-index: 2;
+}
+section[class*="light"] .card {
+  /* Light surface: stat-block SVG radial */
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 329 187' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='1'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(21.746 18.7 -19.081 22.336 111.79 0)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 100% 100%;
+}
+.card h3 { margin: 0; }
+.card p { margin: 0; font-size: 20px; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  font-family: var(--text-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+}
+.badge-new {
+  background: rgba(50, 91, 255, 0.35);
+  color: var(--blue-200);
+}
+.badge-proven {
+  background: rgba(233, 157, 177, 0.30);
+  color: var(--pink-400);
+}
+.badge-accent {
+  background: rgba(255, 195, 129, 0.25);
+  color: var(--yellow-300);
+}
+
+/* ---- Stat Row ---- */
+.stat-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.stat-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  /* Dark: SVG radial (boosted) + dot-matrix mesh */
+  background-image:
+    radial-gradient(circle at center, rgba(104, 145, 249, 0.35) 1.5px, transparent 1.5px),
+    url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.3'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-40 -29.3 2.7062 -36.344 400 293)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 16px 16px, 100% 100%;
+  background-position: 8px 8px, center;
+}
+/* Spectrum gradient bar at top of each stat block */
+.stat-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #325BFF 0%, #6891F9 30%, #E99DB1 65%, #FFDFBB 90%, transparent 100%);
+  z-index: 2;
+}
+.stat-number {
+  /* CRITICAL: Manrope Light 300, NOT Regesto Grotesk — matches stat-block element */
+  font-family: var(--text-font);
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 0.85;
+  color: var(--blue-300);
+}
+.stat-label {
+  font-family: var(--text-font);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--gray-150);
+}
+
+/* ---- Screenshot Frame ---- */
+/* From screenshot-home-flow element: gradient bg, sharp corners,
+   10px left border on content area, bottom fade with multiply */
+.screenshot-frame {
+  background: var(--gradient-blue);
+  /* Tighter frame: top/right padding shows gradient, left has border accent */
+  padding: 36px 24px 0 0;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.screenshot-inner {
+  background: white;
+  border-left: 10px solid var(--blue-800);
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-300);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 24px;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+/* Bottom fade overlay from screenshot-home-flow element */
+.screenshot-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(180deg, rgba(157, 192, 255, 0) 35%, rgba(157, 192, 255, 0.45) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 2;
+}
+/* Full-width screenshot fills available space */
+section.light-screenshot .screenshot-frame {
+  width: 100%;
+  flex: 1;
+}
+section.light-screenshot .screenshot-inner {
+  min-height: 300px;
+}
+
+/* ---- Split Layout ---- */
+.split {
+  display: flex;
+  gap: 48px;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+.split-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.split-visual {
+  flex: 3;
+  display: flex;
+  align-items: center;
+}
+.split-visual .screenshot-frame {
+  width: 100%;
+}
+.split-visual .screenshot-inner {
+  min-height: 260px;
+}
+
+/* ---- Two Column ---- */
+.two-col {
+  display: flex;
+  gap: 48px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  align-items: flex-start;
+}
+.col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.col-number {
+  font-family: var(--title-font);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--blue-400);
+}
+section[class*="light"] .col-number {
+  color: var(--blue-700);
+}
+
+/* ---- Bullet List ---- */
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+.bullet-list li {
+  font-family: var(--text-font);
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.5;
+  padding-left: 28px;
+  position: relative;
+}
+.bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 10px;
+  height: 10px;
+  background: var(--blue-700);
+}
+section[class*="light"] .bullet-list li {
+  color: var(--gray-500);
+}
+section[class*="light"] .bullet-list li::before {
+  background: var(--blue-700);
+}
+
+/* ---- Feature Chips ---- */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+.chip {
+  font-family: var(--text-font);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 5px 14px;
+  background: rgba(50, 91, 255, 0.12);
+  color: var(--blue-300);
+}
+section[class*="light"] .chip {
+  background: rgba(50, 91, 255, 0.08);
+  color: var(--blue-700);
+}
+
+/* ---- Flow Diagram ---- */
+.flow-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.flow-box {
+  background-image:
+    radial-gradient(circle at center, rgba(104, 145, 249, 0.3) 1.5px, transparent 1.5px),
+    url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' width='100%' height='100%' fill='url(%23g)' opacity='0.25'/><defs><radialGradient id='g' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-40 -29.3 2.7062 -36.344 400 293)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+  background-size: 16px 16px, 100% 100%;
+  background-position: 8px 8px, center;
+  border: 1px solid rgba(104, 145, 249, 0.4);
+  padding: 16px 28px;
+  text-align: center;
+  font-family: var(--text-font);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--gray-50);
+}
+.flow-arrow {
+  font-size: 28px;
+  color: var(--pink-400);
+}
+
+/* ---- Multi-Image Grid ---- */
+.image-grid {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  align-items: stretch;
+}
+.image-grid .screenshot-frame {
+  flex: 1;
+}
+.image-grid .screenshot-inner {
+  min-height: 180px;
+}
+
+/* ---- Accent Text ---- */
+.accent { color: var(--pink-400); }
+.accent-blue { color: var(--blue-400); }
+.accent-yellow { color: var(--yellow-300); }
+
+/* ---- Accent Gradient Line ---- */
+.accent-line {
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-wave);
+  background-image: linear-gradient(90deg, var(--blue-700) 0%, var(--blue-400) 25%, var(--pink-400) 60%, var(--yellow-200) 85%, transparent 100%);
+  position: relative;
+  z-index: 1;
+  margin: 16px 0;
+}
+.accent-line-short {
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-700) 0%, var(--pink-400) 100%);
+  position: relative;
+  z-index: 1;
+  margin: 12px 0;
+}

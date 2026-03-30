@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav Item — Swimm Design System</title>
+  <link rel="stylesheet" href="../../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Nav Item — Base Styles
+       ============================================================
+       Single variant with optional dropdown chevron.
+         .nav-item                   -> Without dropdown
+         .nav-item.has-dropdown      -> With dropdown chevron
+       Default: blue-900 text. Hover: blue-700 text.
+       Uses Label L: 16px, weight 400, line-height 0.85.
+       ============================================================ */
+
+    .nav-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-item__text {
+      font-family: var(--text-font);
+      font-weight: var(--label-l-weight, 400);
+      font-size: var(--label-l-size);
+      line-height: 0.85;
+      color: var(--blue-900);
+      text-align: center;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    /* --- Dropdown Chevron --- */
+    .nav-item__dropdown {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+    }
+
+    .nav-item__dropdown svg {
+      width: 7.66px;
+      height: 4.11px;
+      fill: none;
+      stroke: var(--blue-900);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.2s ease;
+    }
+
+    /* Show dropdown arrow when .has-dropdown is applied */
+    .nav-item.has-dropdown .nav-item__dropdown {
+      display: flex;
+    }
+
+    /* ============================================================
+       Hover State
+       Text and chevron shift from blue-900 to blue-700.
+       ============================================================ */
+    .nav-item:hover .nav-item__text {
+      color: var(--blue-700);
+    }
+
+    .nav-item:hover .nav-item__dropdown svg {
+      stroke: var(--blue-700);
+    }
+
+    /* ============================================================
+       Preview Layout (for standalone element preview only)
+       ============================================================ */
+    .preview-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 48px;
+      background: var(--gray-100);
+      min-height: 100vh;
+    }
+
+    .preview-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .preview-label {
+      font-family: var(--text-font);
+      font-size: 12px;
+      color: var(--gray-500);
+      width: 140px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-layout">
+
+    <!-- ========== With Dropdown (Default — hover to see state change) ========== -->
+    <div class="preview-row">
+      <span class="preview-label">With dropdown</span>
+      <a href="#" class="nav-item has-dropdown">
+        <!-- SWAPPABLE: text --><span class="nav-item__text">Product</span><!-- /SWAPPABLE: text -->
+        <!-- SWAPPABLE: dropdown -->
+        <div class="nav-item__dropdown">
+          <svg viewBox="0 0 8 5" aria-hidden="true">
+            <polyline points="1 1 4 4 7 1" />
+          </svg>
+        </div>
+        <!-- /SWAPPABLE: dropdown -->
+      </a>
+    </div>
+
+    <!-- ========== Without Dropdown (Default — hover to see state change) ========== -->
+    <div class="preview-row">
+      <span class="preview-label">Without dropdown</span>
+      <a href="#" class="nav-item">
+        <!-- SWAPPABLE: text --><span class="nav-item__text">About</span><!-- /SWAPPABLE: text -->
+        <!-- SWAPPABLE: dropdown -->
+        <!-- dropdown hidden without .has-dropdown class -->
+        <div class="nav-item__dropdown">
+          <svg viewBox="0 0 8 5" aria-hidden="true">
+            <polyline points="1 1 4 4 7 1" />
+          </svg>
+        </div>
+        <!-- /SWAPPABLE: dropdown -->
+      </a>
+    </div>
+
+  </div>
+</body>
+</html>

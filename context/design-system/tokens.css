@@ -1,0 +1,218 @@
+/* ============================================================
+   Swimm Design System — Shared Tokens
+   ============================================================
+   Single source of truth for all design system elements.
+   Values sourced from context/visual-guidelines.md.
+   Naming convention: --[category]-[variant]
+   ============================================================ */
+
+/* ============================================================
+   1. COLOR TOKENS
+   ============================================================ */
+:root {
+  /* Blues (Primary) */
+  --blue-900: #1A2761;
+  --blue-800: #2635A7;
+  --blue-700: #325BFF;
+  --blue-600: #527DFF;
+  --blue-400: #6891F9;
+  --blue-300: #AFC8FB;
+  --blue-200: #D5E3FF;
+  --blue-100: #E2EBFF;
+
+  /* Grays (Blue-tinted) */
+  --gray-500: #415992;
+  --gray-300: #8594BE;
+  --gray-250: #C6D1F3;
+  --gray-200: #DEE3F6;
+  --gray-150: #EAECF9;
+  --gray-100: #F3F3FB;
+  --gray-50:  #FDFCFE;
+
+  /* Accents */
+  --pink-400:   #E99DB1;
+  --yellow-300: #FFC381;
+  --yellow-200: #FFDFBB;
+
+  /* Semantic Aliases */
+  --bg-dark:       var(--blue-900);
+  --bg-light:      var(--gray-100);
+  --bg-off-white:  var(--gray-50);
+  --text-heading-light: var(--blue-900);
+  --text-body-light:    var(--gray-500);
+  --text-heading-dark:  var(--gray-50);
+  --text-body-dark:     var(--blue-300);
+  --accent-primary:     var(--blue-700);
+  --accent-secondary:   var(--blue-400);
+
+  /* ============================================================
+     2. TYPOGRAPHY TOKENS
+     ============================================================ */
+
+  /* Font Families */
+  --title-font: 'Regesto Grotesk', sans-serif;
+  --text-font:  'Manrope', sans-serif;
+
+  /* Heading Scale (Regesto Grotesk) */
+  --h1-size: 60px;  --h1-weight: 400;  --h1-lh: 1.1;
+  --h2-size: 42px;  --h2-weight: 400;  --h2-lh: 1.1;
+  --h3-size: 26px;  --h3-weight: 400;  --h3-lh: 1.1;
+  --h4-size: 20px;  --h4-weight: 400;  --h4-lh: 1.1;
+  --h5-size: 16px;  --h5-weight: 400;  --h5-lh: 1.1;
+  --special-size: 60px;  --special-weight: 300;  --special-lh: 0.85;
+
+  /* Body Scale (Manrope) */
+  --p1-size: 18px;  --p1-weight: 400;  --p1-lh: 1.4;
+  --p2-size: 24px;  --p2-weight: 300;  --p2-lh: 1.4;
+  --p3-size: 20px;  --p3-weight: 300;  --p3-lh: 1.4;
+  --p4-size: 16px;  --p4-weight: 400;  --p4-lh: 1.4;
+
+  /* Label Scale (Manrope) — all Regular (400) weight */
+  --label-s-size: 12px;   --label-s-weight: 400;  --label-s-lh: 1.4;
+  --label-m-size: 14px;   --label-m-weight: 400;  --label-m-lh: 1.0;
+  --label-l-size: 16px;   --label-l-weight: 400;  --label-l-lh: 0.85;
+  --label-xl-size: 20px;  --label-xl-weight: 300;  --label-xl-lh: 1.2;  /* XL is Light */
+
+  /* ============================================================
+     3. SPACING TOKENS (8px grid)
+     ============================================================ */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 32px;
+  --sp-5: 40px;
+  --sp-6: 48px;
+  --sp-7: 56px;
+  --sp-8: 64px;
+
+  /* Section Spacing */
+  --section-pad-v: 100px;
+  --section-pad-h: 120px;
+  --header-pad-h: 48px;
+  --content-max-w: 1200px;
+  --page-max-w: 1440px;
+
+  /* Card Spacing */
+  --card-pad: var(--sp-4);       /* 32px */
+  --card-icon-gap: var(--sp-3);  /* 24px */
+  --card-text-gap: 12px;
+
+  /* ============================================================
+     4. SIGNATURE GRADIENTS
+     ============================================================ */
+
+  /* CTA Bridge Gradient (vertical) */
+  --gradient-cta: linear-gradient(
+    180deg,
+    var(--blue-900) 34.286%,
+    var(--blue-700) 56.023%,
+    var(--pink-400) 70.306%,
+    var(--yellow-200) 83.838%,
+    var(--gray-100) 91.355%
+  );
+
+  /* Blue Gradient (for screenshot frames) */
+  --gradient-blue: linear-gradient(
+    242.78deg,
+    var(--blue-400) 24.153%,
+    var(--blue-700) 60.201%
+  );
+
+  /* ============================================================
+     5. NAMED GRADIENTS
+     ============================================================
+     Formal gradient system from the swimm.io website redesign.
+     Light gradients: subtle radial blooms for card/panel backgrounds.
+     Blue gradients: linear accents for borders and accent lines.
+     Accent gradients: full brand spectrum (Blue → Pink → Yellow).
+     ============================================================ */
+
+  /* Light Gradients — card and panel backgrounds */
+  --gradient-light-50: radial-gradient(
+    125.72% 101.41% at 33.17% 0,
+    var(--gray-200) 0%,
+    rgba(225, 231, 248, 0) 100%
+  );
+  --gradient-light-100: radial-gradient(
+    132.76% 119.84% at 33.95% 0,
+    var(--gray-150) 50%,
+    var(--blue-200) 75%,
+    var(--gray-250) 100%
+  );
+  --gradient-light-200: linear-gradient(
+    106deg,
+    var(--gray-150) 50%,
+    var(--blue-100) 75%,
+    var(--gray-200) 100%
+  );
+  --gradient-light-300: linear-gradient(
+    135deg,
+    var(--gray-250) 0.52%,
+    var(--blue-300) 100.52%
+  );
+
+  /* Blue Gradients — borders and accent lines */
+  --gradient-blue-100: linear-gradient(
+    252deg,
+    var(--blue-400) -24.15%,
+    var(--blue-700) 60.2%
+  );
+
+  /* Accent Gradients — full brand spectrum */
+  --gradient-accent-300: linear-gradient(
+    180deg,
+    var(--blue-900) 0%,
+    var(--blue-700) 0%,
+    var(--pink-400) 55.31%,
+    var(--yellow-200) 83.84%,
+    var(--gray-100) 100%
+  );
+  --gradient-accent-500: radial-gradient(
+    113.06% 100% at 50% -0.06%,
+    var(--blue-900) 43.96%,
+    var(--blue-700) 53.45%,
+    var(--pink-400) 68.28%,
+    var(--yellow-200) 76.58%,
+    var(--gray-100) 83.7%
+  );
+  --gradient-accent-700: linear-gradient(
+    270deg,
+    rgba(255, 223, 187, 0) -35.47%,
+    var(--yellow-200) -11.77%,
+    var(--pink-400) 23.64%,
+    var(--blue-400) 66.2%,
+    var(--blue-700) 90.14%,
+    var(--blue-800) 106.54%
+  );
+
+  /* Content Width Additions (from website redesign) */
+  --content-inner-w: 1152px;   /* inner content card max-width */
+  --content-small-w: 1040px;   /* stats, quotes containers */
+}
+
+/* ============================================================
+   5. BASE RESETS (for element preview)
+   ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--text-font);
+  font-size: var(--p4-size);
+  font-weight: var(--p4-weight);
+  line-height: var(--p4-lh);
+  color: var(--text-heading-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--title-font);
+}
+h1 { font-size: var(--h1-size); font-weight: var(--h1-weight); line-height: var(--h1-lh); }
+h2 { font-size: var(--h2-size); font-weight: var(--h2-weight); line-height: var(--h2-lh); }
+h3 { font-size: var(--h3-size); font-weight: var(--h3-weight); line-height: var(--h3-lh); }
+h4 { font-size: var(--h4-size); font-weight: var(--h4-weight); line-height: var(--h4-lh); }
+h5 { font-size: var(--h5-size); font-weight: var(--h5-weight); line-height: var(--h5-lh); }

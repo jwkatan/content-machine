@@ -1,0 +1,33 @@
+name: "Differentiation Visual A"
+description: "Background treatment A for differentiating content. Two variants: Icon (648x192px) and Pattern. Layered over backgrounds for visual interest. Use to distinguish otherwise similar content blocks."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:8486"
+      label: "State=Icon"
+    - id: "3914:9464"
+      label: "State=Pattern"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - content-differentiator
+  - visual-accent
+  - background-layer
+
+when_to_use: "Layered over backgrounds to distinguish otherwise similar content blocks. Use one differentiation visual per block to create variety."
+when_not_to_use: "Not as a standalone visual. Not over busy imagery or complex gradients where the pattern would be lost."
+
+swappable_slots: []
+
+surfaces:
+  - dark
+  - light
+mediums:
+  - html
+  - marp
+  - pptx
+
+masks:
+  - mask-icon.svg
+  - mask-pattern.svg

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Features — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Product Features — Element Styles
+       Figma node 3914:7381 (Desktop)
+       ============================================================
+       Full assembled section: 1160px wide.
+       Left side: vertical feature list (accordion-style, one
+       active at a time). Right side: screenshot area inside a
+       blue gradient frame with a blue-800 left-border inset card.
+       ============================================================ */
+
+    body {
+      background: var(--bg-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- Section Container --- */
+    .product-features {
+      display: flex;
+      align-items: flex-start;
+      width: 1160px;
+      max-width: 100%;
+    }
+
+    /* === LEFT: Feature List === */
+    .product-features__list {
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 0;
+      min-width: 0;
+    }
+
+    /* --- Individual Feature Item (Default) --- */
+    .product-features__item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: var(--sp-3);
+      width: 100%;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+
+      /*
+       * Default: light radial gradient from Figma
+       * Stops: gray-150 50% -> blue-200 75% -> gray-250 100%
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 471 70' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(31.108 7 -27.296 8.3612 159.92 0)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+    }
+
+    /* --- Hover (Default items only) --- */
+    .product-features__item:hover:not(.product-features__item--active) {
+      filter: brightness(0.97);
+    }
+
+    /* --- Active Item --- */
+    .product-features__item--active {
+      background-image: none;
+      background-color: var(--gray-50);
+      border-bottom-color: rgba(255, 223, 187, 0);
+    }
+
+    /* --- Feature Details Container --- */
+    .product-features__details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    /* --- Feature Title --- */
+    .product-features__title {
+      font-family: var(--title-font);
+      font-size: var(--h3-size);
+      font-weight: var(--h3-weight);
+      line-height: var(--h3-lh);
+      color: var(--text-heading-light);
+      width: 100%;
+    }
+
+    /* Default items: smaller title, muted color */
+    .product-features__item:not(.product-features__item--active) .product-features__title {
+      font-size: var(--h4-size);
+      color: var(--gray-500);
+    }
+
+    /* --- Feature Description --- */
+    .product-features__desc {
+      font-family: var(--text-font);
+      font-size: var(--p4-size);
+      font-weight: var(--p4-weight);
+      line-height: var(--p4-lh);
+      color: var(--text-body-light);
+      width: 100%;
+    }
+
+    /* Hide description on default items */
+    .product-features__item:not(.product-features__item--active) .product-features__desc {
+      display: none;
+    }
+
+    /* === RIGHT: Screenshot Area === */
+    .product-features__visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 680px;
+      width: 680px;
+      height: 435px;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      /*
+       * Blue gradient frame from Figma
+       * linear-gradient(242.78deg, blue-400 24.153%, blue-700 60.201%)
+       */
+      background-image: linear-gradient(
+        242.78deg,
+        var(--blue-400) 24.153%,
+        var(--blue-700) 60.201%
+      );
+    }
+
+    /* --- Screenshot Frame (with blue-800 left border) --- */
+    .product-features__frame {
+      position: relative;
+      width: 560px;
+      height: 309px;
+
+      /*
+       * Inner frame: light radial gradient from Figma
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 560 309' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(36.986 30.897 -32.454 36.905 190.14 0)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+      border-left: 10px solid var(--blue-800);
+    }
+
+    /* --- Screenshot Image Container --- */
+    .product-features__screenshot {
+      position: absolute;
+      top: 31px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+    }
+
+    /* SWAPPABLE: screenshot */
+    .product-features__screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+    }
+
+    /* --- Bottom fade overlay on the visual --- */
+    .product-features__visual-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65px;
+      background: linear-gradient(
+        180deg,
+        rgba(157, 192, 255, 0) 45.7%,
+        rgba(157, 192, 255, 0.54) 130.6%
+      );
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="product-features">
+
+    <!-- LEFT: Feature List -->
+    <!-- SWAPPABLE: features -->
+    <div class="product-features__list">
+
+      <!-- Feature 1 (Active) -->
+      <div class="product-features__item product-features__item--active">
+        <div class="product-features__details">
+          <h3 class="product-features__title">Map the application</h3>
+          <p class="product-features__desc">See your application organized by business function. Automatically grouped into domains, explorable visually or with AI.</p>
+        </div>
+      </div>
+
+      <!-- Feature 2 (Default) -->
+      <div class="product-features__item">
+        <div class="product-features__details">
+          <h3 class="product-features__title">Unify domain language</h3>
+          <p class="product-features__desc">A glossary unifies code-derived terminology and SME-defined concepts into a single source of truth.</p>
+        </div>
+      </div>
+
+      <!-- Feature 3 (Default) -->
+      <div class="product-features__item">
+        <div class="product-features__details">
+          <h3 class="product-features__title">Identify cross-system impact</h3>
+          <p class="product-features__desc">Execution flows and dependency diagrams expose how changes propagate across programs, jobs, and data flows.</p>
+        </div>
+      </div>
+
+      <!-- Feature 4 (Default) -->
+      <div class="product-features__item">
+        <div class="product-features__details">
+          <h3 class="product-features__title">Create specs and user stories</h3>
+          <p class="product-features__desc">Convert natural language business rules and organizational knowledge into modernization specifications and user stories.</p>
+        </div>
+      </div>
+
+      <!-- Feature 5 (Default) -->
+      <div class="product-features__item">
+        <div class="product-features__details">
+          <h3 class="product-features__title">Establish a verified baseline</h3>
+          <p class="product-features__desc">Validate test suites against the existing and intended business rules to reduce the risk in agentic modernization.</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- /SWAPPABLE: features -->
+
+    <!-- RIGHT: Screenshot Area -->
+    <div class="product-features__visual">
+      <div class="product-features__frame">
+        <div class="product-features__screenshot">
+          <!-- SWAPPABLE: screenshot -->
+          <img src="https://placehold.co/560x278/F3F3FB/1A2761?text=Product+Screenshot" alt="Product feature screenshot">
+          <!-- /SWAPPABLE: screenshot -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

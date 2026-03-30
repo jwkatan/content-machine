@@ -1,0 +1,28 @@
+name: "Screenshot Platform — Map"
+description: "Platform page screenshot frame: Map the application. Desktop (680x435px). Blue 400 to Blue 700 gradient background with white content area."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:15915"
+      label: "Desktop"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - screenshot-frame
+  - product-screenshot
+
+when_to_use: "When presenting a product screenshot. The screenshot sits inside a gradient-backed frame — never show a raw floating screenshot."
+when_not_to_use: "For decorative images or icons. Only for actual product screenshots."
+
+swappable_slots:
+  - name: screenshot
+    type: image
+    description: "Product screenshot displayed inside the gradient frame. Replace the placeholder with the actual screenshot."
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

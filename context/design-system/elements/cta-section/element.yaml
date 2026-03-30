@@ -1,0 +1,37 @@
+name: "CTA Section"
+description: "Bottom-of-page closer. Triple-nested containers with the signature Blue 900 to Blue 700 to Pink 400 to Yellow 200 to Gray 100 gradient creating concentric border frames around a light content card. Reserved for page/deck endings only."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7308"
+      label: "1440px breakpoint"
+    - id: "3914:7321"
+      label: "1920px breakpoint"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - page-closer
+  - closing-slide
+  - final-cta
+
+when_to_use: "The LAST section before the footer, or the closing slide. The dramatic closer. Never mid-page."
+when_not_to_use: "Mid-page. As a regular section. More than once per page/deck."
+
+swappable_slots:
+  - name: heading
+    type: text
+    description: "H2 heading inside the content card"
+  - name: cta_button
+    type: component
+    description: "CTA button (use main-button element)"
+
+surfaces:
+  - dark-to-light-transition
+mediums:
+  - html
+  - marp
+  - pptx
+breakpoints:
+  - 1440
+  - 1920

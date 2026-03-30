@@ -1,0 +1,31 @@
+name: "Feature"
+description: "Single feature list item. Active state: title + description with bottom border accent on white background. Default: title only on gradient background. Hover: title only with hover treatment."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7369"
+      label: "Active state"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - feature-list-item
+  - navigation-item
+
+when_to_use: "As an individual item in a feature list or navigation sidebar. Active state shows expanded details. Typically stacked vertically with one active and the rest default. Used inside product-features element."
+when_not_to_use: "As a standalone card. For grid layouts — use icon-card instead."
+
+swappable_slots:
+  - name: title
+    type: text
+    description: "Feature title (H3 in active, H4 in default)"
+  - name: description
+    type: text
+    description: "P4 feature description (visible only in active state)"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

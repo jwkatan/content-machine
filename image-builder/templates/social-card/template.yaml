@@ -1,0 +1,20 @@
+name: "Social Card"
+description: "1200x630 OG social sharing card. Dark background with article title and subtitle. Standard Open Graph size for LinkedIn, Twitter/X, Facebook."
+
+use_cases:
+  - social-media
+  - open-graph
+  - og-image
+  - linkedin
+  - twitter
+  - social-card
+
+output:
+  width: 1200
+  height: 630
+  format: png
+  lossless: true
+  background: "#0D0D1A"
+
+inputs:
+  static: true

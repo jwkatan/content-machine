@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon Text — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Icon Text — Element Styles
+       Figma node 3914:6917
+       ============================================================ */
+
+    body {
+      background: var(--blue-900);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- List Context --- */
+    .icon-text-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+      max-width: var(--content-max-w);
+      width: 100%;
+    }
+
+    /* --- Icon + Text Row --- */
+    .icon-text {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: var(--sp-3);            /* 24px gap between icon and text */
+      width: 355px;
+    }
+
+    /* --- Light Surface Variant --- */
+    .icon-text--light {
+      /* Override colors for light backgrounds */
+    }
+
+    .icon-text--light .icon-text__title {
+      color: var(--blue-900);
+    }
+
+    .icon-text--light .icon-text__desc {
+      color: var(--gray-500);
+    }
+
+    /* --- Icon Slot --- */
+    .icon-text__icon {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .icon-text__icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* --- Info Group --- */
+    .icon-text__info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: var(--sp-1);            /* 8px gap between title and description */
+      flex: 1 0 0;
+      align-self: stretch;
+      min-height: 1px;
+      min-width: 1px;
+    }
+
+    /* --- Title (H4 / 20px) --- */
+    .icon-text__title {
+      font-family: var(--title-font);
+      font-size: var(--h4-size);
+      font-weight: var(--h4-weight);
+      line-height: var(--h4-lh);
+      color: var(--gray-150);
+      width: 100%;
+    }
+
+    /* --- Description (P4 / 16px) --- */
+    .icon-text__desc {
+      font-family: var(--text-font);
+      font-size: var(--p4-size);
+      font-weight: var(--p4-weight);
+      line-height: var(--p4-lh);
+      color: var(--blue-300);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark surface example (default from Figma) -->
+  <div class="icon-text-list">
+
+    <!-- Item 1 -->
+    <div class="icon-text">
+      <!-- SWAPPABLE: icon -->
+      <div class="icon-text__icon">
+        <img src="https://placehold.co/64x64/325BFF/E2EBFF?text=Icon" alt="Feature icon">
+      </div>
+      <!-- /SWAPPABLE: icon -->
+
+      <div class="icon-text__info">
+        <!-- SWAPPABLE: title -->
+        <h4 class="icon-text__title">Security certified</h4>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="icon-text__desc">SOC 2 and ISO 27001 compliant</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="icon-text">
+      <!-- SWAPPABLE: icon -->
+      <div class="icon-text__icon">
+        <img src="https://placehold.co/64x64/325BFF/E2EBFF?text=Icon" alt="Feature icon">
+      </div>
+      <!-- /SWAPPABLE: icon -->
+
+      <div class="icon-text__info">
+        <!-- SWAPPABLE: title -->
+        <h4 class="icon-text__title">Enterprise ready</h4>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="icon-text__desc">Scales across teams and repositories</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="icon-text">
+      <!-- SWAPPABLE: icon -->
+      <div class="icon-text__icon">
+        <img src="https://placehold.co/64x64/325BFF/E2EBFF?text=Icon" alt="Feature icon">
+      </div>
+      <!-- /SWAPPABLE: icon -->
+
+      <div class="icon-text__info">
+        <!-- SWAPPABLE: title -->
+        <h4 class="icon-text__title">Private deployment</h4>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="icon-text__desc">Your code never leaves your environment</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

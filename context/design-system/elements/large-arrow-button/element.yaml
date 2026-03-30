@@ -1,0 +1,31 @@
+name: "Large Arrow Button"
+description: "Expand/collapse trigger. Two types (Arrow, Plus) x two states (Default, Hover). 42x42px. Arrow type uses a deep blue gradient; hover shifts to lighter gradient. Plus type uses the same pattern with a plus icon."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7004"
+      label: "Arrow, Default"
+    - id: "3914:7007"
+      label: "Arrow, Hover"
+    - id: "3914:7010"
+      label: "Plus, Hover"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - expand-trigger
+  - collapse-trigger
+  - navigation-arrow
+
+when_to_use: "Use as an expand/collapse toggle or directional navigation trigger. Commonly paired with accordion sections or carousels."
+when_not_to_use: "Not for primary or secondary CTA actions — use main-button or secondary-button instead."
+
+swappable_slots: []
+
+surfaces:
+  - dark
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

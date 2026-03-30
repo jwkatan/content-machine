@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTA Section — Swimm Design System Element</title>
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <!-- Manrope (text font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       CTA Section
+       ==========================================================
+       Bottom-of-page closer with triple-nested containers.
+       Each nesting level applies the signature CTA bridge gradient
+       (Blue 900 -> Blue 700 -> Pink 400 -> Yellow 200 -> Gray 100)
+       as an absolutely-positioned background, creating concentric
+       border frames that converge on a light content card.
+
+       Figma source:
+         File  epnCa2oEzyBli5hF8YI8Ed
+         Node  3914:7308  (1440px breakpoint)
+       ========================================================== */
+
+    /* ---------- Shared gradient definitions ---------- */
+
+    /*
+     * Outer gradient: used by the section-level backgrounds
+     * and the first two nesting layers.
+     * Stops: 32.193% / 50.144% / 68.795% / 83.015% / 90.915% (fades to transparent)
+     */
+    .cta-section__gradient-outer {
+      background-image: linear-gradient(
+        180deg,
+        var(--blue-900) 32.193%,
+        var(--blue-700) 50.144%,
+        var(--pink-400) 68.795%,
+        var(--yellow-200) 83.015%,
+        rgba(243, 243, 251, 0) 90.915%
+      );
+    }
+
+    /*
+     * Inner gradient: used by the innermost nesting layer.
+     * Stops: 34.286% / 56.023% / 70.306% / 83.838% / 91.355% (solid gray-100 end)
+     * Matches --gradient-cta in tokens.css.
+     */
+    .cta-section__gradient-inner {
+      background-image: linear-gradient(
+        180deg,
+        var(--blue-900) 34.286%,
+        var(--blue-700) 56.023%,
+        var(--pink-400) 70.306%,
+        var(--yellow-200) 83.838%,
+        var(--gray-100) 91.355%
+      );
+    }
+
+    /* ---------- Outermost wrapper ---------- */
+    .cta-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 36px;
+    }
+
+    /* ---------- Frame 0 — section container ---------- */
+    .cta-section__frame-0 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 36px 36px 0;
+      gap: 10px;
+      background-color: var(--gray-100);
+      overflow: clip;
+    }
+
+    /*
+     * Two stacked gradient backgrounds at the top of frame 0.
+     * Both positioned above the container (top: -126px), 1440px wide,
+     * 390px tall. The doubling intensifies the gradient.
+     */
+    .cta-section__frame-0-bg {
+      position: absolute;
+      top: -126px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1440px;
+      height: 390px;
+    }
+
+    /* ---------- Frame 1 — first nesting layer ---------- */
+    .cta-section__frame-1 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1368px;
+      padding: 36px 36px 0;
+      gap: 10px;
+      overflow: clip;
+    }
+
+    .cta-section__frame-1-bg {
+      position: absolute;
+      bottom: 117px;
+      left: 0;
+      right: 0;
+      height: 472px;
+    }
+
+    /* ---------- Frame 2 — second nesting layer ---------- */
+    .cta-section__frame-2 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 36px 36px 0;
+      gap: 10px;
+      overflow: clip;
+    }
+
+    .cta-section__frame-2-bg {
+      position: absolute;
+      bottom: 11px;
+      left: 0;
+      right: 0;
+      height: 632px;
+    }
+
+    /* ---------- Frame 3 — innermost nesting layer ---------- */
+    .cta-section__frame-3 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 36px;
+      gap: 10px;
+      overflow: clip;
+    }
+
+    .cta-section__frame-3-bg {
+      position: absolute;
+      bottom: -65px;
+      left: 0;
+      right: 0;
+      height: 798px;
+    }
+
+    /* ---------- Content card ---------- */
+    .cta-section__content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 64px 100px;
+      background-color: var(--gray-100);
+      overflow: clip;
+    }
+
+    /* ---------- Heading ---------- */
+    .cta-section__heading {
+      font-family: var(--title-font);
+      font-size: var(--h2-size);
+      font-weight: var(--h2-weight);
+      line-height: var(--h2-lh);
+      color: var(--text-heading-light);
+      text-align: center;
+      width: 428px;
+      max-width: 100%;
+    }
+
+    /* ============================================================
+       Preview Layout (for standalone element preview only)
+       ============================================================ */
+    .preview-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      background: var(--gray-100);
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-layout">
+
+    <!-- ============================================================
+         CTA Section — 1440px breakpoint
+         ============================================================
+         Triple-nested containers. Each layer's absolutely-positioned
+         gradient background peeks past the next container's padding,
+         forming concentric border frames that converge on the
+         center content card.
+         ============================================================ -->
+    <div class="cta-section">
+      <!-- Frame 0: section container with gray-100 background -->
+      <div class="cta-section__frame-0">
+        <!-- Two stacked gradient overlays at the top (doubled for intensity) -->
+        <div class="cta-section__frame-0-bg cta-section__gradient-outer"></div>
+        <div class="cta-section__frame-0-bg cta-section__gradient-outer"></div>
+
+        <!-- Frame 1: first nesting layer -->
+        <div class="cta-section__frame-1">
+          <div class="cta-section__frame-1-bg cta-section__gradient-outer"></div>
+
+          <!-- Frame 2: second nesting layer -->
+          <div class="cta-section__frame-2">
+            <div class="cta-section__frame-2-bg cta-section__gradient-outer"></div>
+
+            <!-- Frame 3: innermost nesting layer (uses inner gradient) -->
+            <div class="cta-section__frame-3">
+              <div class="cta-section__frame-3-bg cta-section__gradient-inner"></div>
+
+              <!-- Content card -->
+              <div class="cta-section__content">
+
+                <!-- SWAPPABLE: heading -->
+                <h2 class="cta-section__heading">Agentic modernization starts with Swimm</h2>
+                <!-- /SWAPPABLE: heading -->
+
+                <!-- SWAPPABLE: cta_button -->
+                <a href="#" class="main-button" role="button">
+                  <div class="main-button__label">
+                    <span>Get a demo</span>
+                  </div>
+                  <div class="main-button__icon">
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <line x1="1" y1="8" x2="15" y2="8" />
+                      <polyline points="9 2 15 8 9 14" />
+                    </svg>
+                  </div>
+                </a>
+                <!-- /SWAPPABLE: cta_button -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

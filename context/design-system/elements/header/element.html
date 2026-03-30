@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Header — Element Styles
+       Figma node 3914:7052 (Default Desktop)
+       ============================================================ */
+
+    body {
+      background: var(--gray-50);
+    }
+
+    /* --- Header Container --- */
+    .site-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px var(--header-pad-h);
+      width: 100%;
+      max-width: var(--page-max-w);
+      margin: 0 auto;
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1920px;
+    }
+
+    /* --- Logo + Nav Group --- */
+    .site-header__left {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-6);
+    }
+
+    /* --- Logo --- */
+    .site-header__logo {
+      width: 94px;
+      height: 34px;
+      flex-shrink: 0;
+    }
+
+    .site-header__logo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* --- Navigation --- */
+    .site-header__nav {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
+    /* --- Nav Item --- */
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-item__label {
+      font-family: var(--text-font);
+      font-size: var(--label-l-size);
+      font-weight: var(--label-l-weight);
+      line-height: var(--label-l-lh);
+      color: var(--blue-900);
+      white-space: nowrap;
+    }
+
+    .nav-item:hover .nav-item__label {
+      color: var(--blue-700);
+    }
+
+    /* --- Dropdown Arrow --- */
+    .nav-item__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 7px;
+      align-self: stretch;
+    }
+
+    .nav-item__arrow svg {
+      width: 7.66px;
+      height: 4.11px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-item:hover .nav-item__arrow svg {
+      transform: translateY(1px);
+    }
+
+    /* --- CTA Button --- */
+    .site-header__cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      height: 34px;
+      background-image: linear-gradient(
+        45deg,
+        var(--blue-800) 7.87%,
+        var(--blue-700) 67.64%,
+        var(--blue-600) 94.61%,
+        var(--blue-400) 100%
+      );
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .site-header__cta:hover {
+      opacity: 0.88;
+    }
+
+    .site-header__cta-text {
+      font-family: var(--text-font);
+      font-size: var(--label-l-size);
+      font-weight: var(--label-l-weight);
+      line-height: var(--label-l-lh);
+      color: var(--blue-100);
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    /* --- Sticky State --- */
+    .site-header--sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--gray-50);
+      box-shadow: 0 2px 8px rgba(26, 39, 97, 0.08);
+      padding: 16px var(--header-pad-h);
+    }
+
+    /* --- Mobile (375px) --- */
+    @media (max-width: 768px) {
+      .site-header {
+        padding: 20px var(--sp-3);
+      }
+
+      .site-header__nav {
+        display: none;
+      }
+
+      .site-header__logo {
+        width: 76px;
+        height: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Default State -->
+  <header class="site-header" data-node-id="3914:7052">
+    <div class="site-header__inner" data-node-id="3914:7053">
+
+      <!-- Logo + Nav -->
+      <div class="site-header__left" data-node-id="3914:7054">
+
+        <!-- Logo -->
+        <div class="site-header__logo" data-node-id="3914:13767">
+          <svg viewBox="0 0 94 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Swimm wordmark "swim" -->
+            <path d="M10.8 24.6c-3.2 0-5.8-1-7.8-3l2.4-3c1.6 1.4 3.4 2.1 5.3 2.1 1.8 0 2.7-.6 2.7-1.6 0-.5-.2-.9-.5-1.2-.3-.3-.9-.5-1.6-.6l-2.5-.4C6.4 16.5 5 14.8 5 12.3c0-1.5.6-2.8 1.7-3.8 1.2-1 2.9-1.5 5.1-1.5 2.8 0 5 .8 6.6 2.3l-2.3 2.8c-1.4-1.1-3-1.7-4.5-1.7-1.5 0-2.3.5-2.3 1.4 0 .5.2.8.5 1.1.4.3.9.5 1.6.6l2.5.4c2.4.4 3.7 2 3.7 4.5 0 1.6-.6 3-1.8 4-1.2 1.1-3 1.7-5.2 1.7zM28.6 24.3l-4.1-10-2.3 10h-4.4l4-17h4l4.3 10.8L34.3 7.3h4l4 17h-4.4l-2.3-10-4 10h-2.9zM46.8 7.3h4.2v17h-4.2v-17zM55.3 7.3h4.3l3.2 10.2 3.2-10.2h4.4l3.2 10.2 3.2-10.2h4.2l-5.2 17h-4.1l-3.3-10.5-3.3 10.5h-4.1l-5.7-17z" fill="var(--blue-900)"/>
+          </svg>
+        </div>
+
+        <!-- Nav -->
+        <nav class="site-header__nav" data-node-id="3914:7056">
+
+          <!-- SWAPPABLE: nav_items -->
+          <a class="nav-item" data-node-id="3914:7043">
+            <span class="nav-item__label">Platform</span>
+          </a>
+
+          <a class="nav-item">
+            <span class="nav-item__label">Resources</span>
+            <div class="nav-item__arrow" data-node-id="3914:7045">
+              <svg viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1l3 3 3-3" stroke="var(--blue-900)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+
+          <a class="nav-item">
+            <span class="nav-item__label">Company</span>
+            <div class="nav-item__arrow">
+              <svg viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1l3 3 3-3" stroke="var(--blue-900)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+          <!-- /SWAPPABLE: nav_items -->
+
+        </nav>
+      </div>
+
+      <!-- CTA -->
+      <div data-node-id="3914:7061">
+        <!-- SWAPPABLE: cta_text -->
+        <a class="site-header__cta" href="#" data-node-id="3914:7408">
+          <span class="site-header__cta-text">Get a demo</span>
+        </a>
+        <!-- /SWAPPABLE: cta_text -->
+      </div>
+
+    </div>
+  </header>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Background — Swimm Design System Element</title>
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <!-- Manrope (text font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       Hero Background
+       ==========================================================
+       Dark navy background with geometric dot-matrix wave pattern.
+       Symmetric wave columns extend from both edges toward center,
+       creating a "valley" silhouette. Two layers: solid columns on
+       bottom, lighter translucent columns on top for depth.
+
+       Figma source:
+         File  epnCa2oEzyBli5hF8YI8Ed
+         Node  3914:16307
+       ========================================================== */
+
+    /* ---------- Outermost wrapper ---------- */
+    .hero-bg {
+      position: relative;
+      width: 100%;
+      height: 457px;
+      overflow: hidden;
+      background-color: var(--blue-900);
+    }
+
+    /* ---------- Column strips (shared base) ---------- */
+    .hero-bg__col {
+      position: absolute;
+      bottom: 0;
+    }
+
+    /* ---------- Wave layer 1: solid columns ----------
+       These form the base wave. Each column is a vertical gradient
+       strip fading from Blue 700 through Blue 400 to Pink 400 to
+       Yellow 200 at the bottom. They are mirrored left/right. */
+
+    .hero-bg__wave-base .hero-bg__col {
+      background: linear-gradient(
+        0deg,
+        var(--yellow-200) 0%,
+        var(--pink-400) 18%,
+        var(--blue-400) 44%,
+        var(--blue-700) 72%,
+        var(--blue-900) 100%
+      );
+    }
+
+    /* -- Left-side columns (tallest at edge, shortest at center) -- */
+    .hero-bg__col--l1 { left: 0%;     width: 5.91%; height: 107%; }
+    .hero-bg__col--l2 { left: 5.91%;  width: 5.91%; height: 82%; }
+    .hero-bg__col--l3 { left: 11.82%; width: 5.91%; height: 69.2%; }
+    .hero-bg__col--l4 { left: 17.73%; width: 5.91%; height: 59.7%; }
+    .hero-bg__col--l5 { left: 23.64%; width: 5.91%; height: 46.8%; }
+    .hero-bg__col--l6 { left: 29.55%; width: 5.91%; height: 37.6%; }
+    .hero-bg__col--l7 { left: 35.45%; width: 5.91%; height: 31.8%; }
+    .hero-bg__col--l8 { left: 41.36%; width: 5.91%; height: 31.3%; }
+
+    /* -- Right-side columns (mirror of left) -- */
+    .hero-bg__col--r1 { right: 0%;     width: 5.91%; height: 107%; }
+    .hero-bg__col--r2 { right: 5.91%;  width: 5.91%; height: 82%; }
+    .hero-bg__col--r3 { right: 11.82%; width: 5.91%; height: 69.2%; }
+    .hero-bg__col--r4 { right: 17.73%; width: 5.91%; height: 59.7%; }
+    .hero-bg__col--r5 { right: 23.64%; width: 5.91%; height: 46.8%; }
+    .hero-bg__col--r6 { right: 29.55%; width: 5.91%; height: 37.6%; }
+    .hero-bg__col--r7 { right: 35.45%; width: 5.91%; height: 31.8%; }
+    .hero-bg__col--r8 { right: 41.36%; width: 5.91%; height: 31.3%; }
+
+    /* -- Center column (shortest, valley floor) -- */
+    .hero-bg__col--c  { left: 47.26%; width: 5.91%; height: 21.6%; }
+
+    /* ---------- Wave layer 2: translucent glow columns ----------
+       Same structure as base but taller, with mix-blend-mode: lighten
+       and lower opacity. Creates the brighter "aura" behind the
+       solid wave. */
+
+    .hero-bg__wave-glow {
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: lighten;
+    }
+
+    .hero-bg__wave-glow .hero-bg__col {
+      background: linear-gradient(
+        0deg,
+        var(--yellow-200) 0%,
+        var(--pink-400) 14%,
+        var(--blue-400) 38%,
+        var(--blue-700) 66%,
+        var(--blue-900) 100%
+      );
+      opacity: 0.85;
+    }
+
+    /* -- Left glow columns (taller than base) -- */
+    .hero-bg__col--gl1 { left: 0%;     width: 5.91%; height: 149%; }
+    .hero-bg__col--gl2 { left: 5.91%;  width: 5.91%; height: 114%; }
+    .hero-bg__col--gl3 { left: 11.82%; width: 5.91%; height: 96.3%; }
+    .hero-bg__col--gl4 { left: 17.73%; width: 5.91%; height: 83.1%; }
+    .hero-bg__col--gl5 { left: 23.64%; width: 5.91%; height: 65.2%; }
+    .hero-bg__col--gl6 { left: 29.55%; width: 5.91%; height: 52.3%; }
+    .hero-bg__col--gl7 { left: 35.45%; width: 5.91%; height: 44.2%; }
+    .hero-bg__col--gl8 { left: 41.36%; width: 5.91%; height: 43.5%; }
+
+    /* -- Right glow columns (mirror) -- */
+    .hero-bg__col--gr1 { right: 0%;     width: 5.91%; height: 149%; }
+    .hero-bg__col--gr2 { right: 5.91%;  width: 5.91%; height: 114%; }
+    .hero-bg__col--gr3 { right: 11.82%; width: 5.91%; height: 96.3%; }
+    .hero-bg__col--gr4 { right: 17.73%; width: 5.91%; height: 83.1%; }
+    .hero-bg__col--gr5 { right: 23.64%; width: 5.91%; height: 65.2%; }
+    .hero-bg__col--gr6 { right: 29.55%; width: 5.91%; height: 52.3%; }
+    .hero-bg__col--gr7 { right: 35.45%; width: 5.91%; height: 44.2%; }
+    .hero-bg__col--gr8 { right: 41.36%; width: 5.91%; height: 43.5%; }
+
+    /* -- Center glow column -- */
+    .hero-bg__col--gc  { left: 47.26%; width: 5.91%; height: 30.1%; }
+
+    /* ---------- Top overlay ----------
+       Subtle Blue 900 overlay at 24% opacity over the top portion
+       to darken the upper wave area and maintain text contrast. */
+    .hero-bg__overlay {
+      position: absolute;
+      top: -48.8%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--blue-900);
+      mix-blend-mode: lighten;
+      opacity: 0.24;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Hero Background
+       ============================================================
+       Place content over this element using position: relative
+       with a higher z-index. The wave pattern sits at the bottom
+       and extends upward.
+       ============================================================ -->
+  <div class="hero-bg">
+
+    <!-- Overlay for upper contrast -->
+    <div class="hero-bg__overlay"></div>
+
+    <!-- Wave layer 1: solid base columns -->
+    <div class="hero-bg__wave-base">
+      <!-- Left side (outer to inner) -->
+      <div class="hero-bg__col hero-bg__col--l1"></div>
+      <div class="hero-bg__col hero-bg__col--l2"></div>
+      <div class="hero-bg__col hero-bg__col--l3"></div>
+      <div class="hero-bg__col hero-bg__col--l4"></div>
+      <div class="hero-bg__col hero-bg__col--l5"></div>
+      <div class="hero-bg__col hero-bg__col--l6"></div>
+      <div class="hero-bg__col hero-bg__col--l7"></div>
+      <div class="hero-bg__col hero-bg__col--l8"></div>
+
+      <!-- Center (valley floor) -->
+      <div class="hero-bg__col hero-bg__col--c"></div>
+
+      <!-- Right side (inner to outer) -->
+      <div class="hero-bg__col hero-bg__col--r8"></div>
+      <div class="hero-bg__col hero-bg__col--r7"></div>
+      <div class="hero-bg__col hero-bg__col--r6"></div>
+      <div class="hero-bg__col hero-bg__col--r5"></div>
+      <div class="hero-bg__col hero-bg__col--r4"></div>
+      <div class="hero-bg__col hero-bg__col--r3"></div>
+      <div class="hero-bg__col hero-bg__col--r2"></div>
+      <div class="hero-bg__col hero-bg__col--r1"></div>
+    </div>
+
+    <!-- Wave layer 2: translucent glow columns -->
+    <div class="hero-bg__wave-glow">
+      <!-- Left glow -->
+      <div class="hero-bg__col hero-bg__col--gl1"></div>
+      <div class="hero-bg__col hero-bg__col--gl2"></div>
+      <div class="hero-bg__col hero-bg__col--gl3"></div>
+      <div class="hero-bg__col hero-bg__col--gl4"></div>
+      <div class="hero-bg__col hero-bg__col--gl5"></div>
+      <div class="hero-bg__col hero-bg__col--gl6"></div>
+      <div class="hero-bg__col hero-bg__col--gl7"></div>
+      <div class="hero-bg__col hero-bg__col--gl8"></div>
+
+      <!-- Center glow -->
+      <div class="hero-bg__col hero-bg__col--gc"></div>
+
+      <!-- Right glow -->
+      <div class="hero-bg__col hero-bg__col--gr8"></div>
+      <div class="hero-bg__col hero-bg__col--gr7"></div>
+      <div class="hero-bg__col hero-bg__col--gr6"></div>
+      <div class="hero-bg__col hero-bg__col--gr5"></div>
+      <div class="hero-bg__col hero-bg__col--gr4"></div>
+      <div class="hero-bg__col hero-bg__col--gr3"></div>
+      <div class="hero-bg__col hero-bg__col--gr2"></div>
+      <div class="hero-bg__col hero-bg__col--gr1"></div>
+    </div>
+
+  </div>
+
+</body>
+</html>

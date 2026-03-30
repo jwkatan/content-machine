@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stat Block — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Stat Block — Element Styles
+       Figma node 3914:7090 (Desktop variant)
+       ============================================================ */
+
+    body {
+      background: var(--bg-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- Stat Row Context --- */
+    .stat-row {
+      display: flex;
+      gap: var(--sp-3);
+      max-width: var(--content-max-w);
+      width: 100%;
+    }
+
+    /* --- Stat Block --- */
+    .stat-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 38px var(--sp-6);
+      width: 329.25px;
+      position: relative;
+
+      /*
+       * CRITICAL: Radial gradient background from Figma.
+       * Exact gradient transform matrix: matrix(21.746 18.7 -19.081 22.336 111.79 0)
+       * Stops: Gray 150 → Blue 200 → Gray 250
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 329.25 187' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(21.746 18.7 -19.081 22.336 111.79 0.0000014216)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+    }
+
+    /* --- Dark Variant --- */
+    .stat-block--dark {
+      background-image: none;
+      background-color: var(--blue-900);
+    }
+
+    .stat-block--dark .stat-block__number {
+      color: var(--blue-300);
+    }
+
+    .stat-block--dark .stat-block__label {
+      color: var(--gray-150);
+    }
+
+    /* --- Number (Special / 60px) --- */
+    .stat-block__number {
+      font-family: var(--text-font);
+      font-size: var(--special-size);
+      font-weight: var(--special-weight);
+      line-height: var(--special-lh);
+      color: var(--blue-900);
+      white-space: nowrap;
+    }
+
+    /* --- Label (Label XL) --- */
+    .stat-block__label {
+      font-family: var(--text-font);
+      font-size: var(--label-xl-size);
+      font-weight: var(--label-xl-weight);
+      line-height: var(--label-xl-lh);
+      color: var(--gray-500);
+      width: 160px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 3-stat row context -->
+  <div class="stat-row">
+
+    <!-- Stat 1 -->
+    <div class="stat-block">
+      <!-- SWAPPABLE: number -->
+      <p class="stat-block__number">XX%</p>
+      <!-- /SWAPPABLE: number -->
+
+      <!-- SWAPPABLE: label -->
+      <p class="stat-block__label">Secondary Text Line</p>
+      <!-- /SWAPPABLE: label -->
+    </div>
+
+    <!-- Stat 2 -->
+    <div class="stat-block">
+      <!-- SWAPPABLE: number -->
+      <p class="stat-block__number">4.5x</p>
+      <!-- /SWAPPABLE: number -->
+
+      <!-- SWAPPABLE: label -->
+      <p class="stat-block__label">Faster onboarding</p>
+      <!-- /SWAPPABLE: label -->
+    </div>
+
+    <!-- Stat 3 -->
+    <div class="stat-block">
+      <!-- SWAPPABLE: number -->
+      <p class="stat-block__number">90%</p>
+      <!-- /SWAPPABLE: number -->
+
+      <!-- SWAPPABLE: label -->
+      <p class="stat-block__label">Reduction in manual documentation</p>
+      <!-- /SWAPPABLE: label -->
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screenshot Home — Rules — Swimm Design System Element</title>
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <!-- Manrope (text font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       Screenshot Home — Business Rule Extraction
+       ==========================================================
+       Homepage screenshot frame at 660x371px.
+       Blue 400 → Blue 700 gradient background (239.66deg) with
+       a white content area where the screenshot sits.
+       Left border accent in Blue 800.
+       Bottom-right diagonal fade overlay for depth.
+
+       Figma source:
+         File  epnCa2oEzyBli5hF8YI8Ed
+         Node  3914:13401  (Desktop)
+       ========================================================== */
+
+    /* ---------- Outer frame ---------- */
+    .screenshot-home-rules {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 660px;
+      height: 371px;
+      overflow: hidden;
+      position: relative;
+      background-image: linear-gradient(
+        239.66deg,
+        var(--blue-400) 24.153%,
+        var(--blue-700) 60.201%
+      );
+    }
+
+    /* ---------- Clip container ---------- */
+    .screenshot-home-rules__clip {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    /* ---------- White content area ---------- */
+    .screenshot-home-rules__content {
+      position: absolute;
+      top: 61.25px;
+      left: 67.5px;
+      width: 705px;
+      height: 337.5px;
+      border-left: 10px solid var(--blue-800);
+      overflow: hidden;
+    }
+
+    /* ---------- Screenshot image ---------- */
+    .screenshot-home-rules__screenshot {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---------- Bottom-right fade overlay ---------- */
+    .screenshot-home-rules__fade {
+      position: absolute;
+      bottom: 1px;
+      left: 67.5px;
+      width: 592.5px;
+      height: 310px;
+      background: linear-gradient(
+        147.23deg,
+        rgba(157, 192, 255, 0) 32.213%,
+        rgba(157, 192, 255, 0.6) 65.174%
+      );
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Screenshot Home — Business Rule Extraction (660x371px)
+       ============================================================ -->
+  <div class="screenshot-home-rules">
+    <div class="screenshot-home-rules__clip">
+
+      <!-- White content area with left border accent -->
+      <div class="screenshot-home-rules__content">
+        <!-- SWAPPABLE: screenshot -->
+        <img
+          class="screenshot-home-rules__screenshot"
+          src="https://placehold.co/705x338/F3F3FB/1A2761?text=Business+Rule+Extraction"
+          alt="Business rule extraction screenshot"
+        >
+        <!-- /SWAPPABLE: screenshot -->
+      </div>
+
+      <!-- Bottom-right fade overlay -->
+      <div class="screenshot-home-rules__fade"></div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screenshot Home — Flow — Swimm Design System Element</title>
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <!-- Manrope (text font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       Screenshot Home — Flow & Dependency Tracking
+       ==========================================================
+       Homepage screenshot frame at 660x371px.
+       Blue 400 → Blue 700 gradient background (239.66deg) with
+       a white content area where the screenshot sits.
+       Left border accent in Blue 800.
+       Bottom fade overlay (mix-blend-multiply) for depth.
+
+       Figma source:
+         File  epnCa2oEzyBli5hF8YI8Ed
+         Node  3914:13241  (Desktop)
+       ========================================================== */
+
+    /* ---------- Outer frame ---------- */
+    .screenshot-home-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 660px;
+      height: 371px;
+      overflow: hidden;
+      position: relative;
+      background-image: linear-gradient(
+        239.66deg,
+        var(--blue-400) 24.153%,
+        var(--blue-700) 60.201%
+      );
+    }
+
+    /* ---------- Clip container ---------- */
+    .screenshot-home-flow__clip {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    /* ---------- White content area ---------- */
+    .screenshot-home-flow__content {
+      position: absolute;
+      top: 61.25px;
+      left: 67.5px;
+      width: 663.75px;
+      height: 346.5px;
+      background-color: var(--gray-100);
+      border-left: 10px solid var(--blue-800);
+    }
+
+    /* ---------- Screenshot image ---------- */
+    .screenshot-home-flow__screenshot {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---------- Bottom fade overlay ---------- */
+    .screenshot-home-flow__fade {
+      position: absolute;
+      bottom: 1px;
+      left: 0;
+      width: 660px;
+      height: 152.25px;
+      background: linear-gradient(
+        180deg,
+        rgba(157, 192, 255, 0) 35%,
+        rgba(157, 192, 255, 0.54) 100%
+      );
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Screenshot Home — Flow & Dependency Tracking (660x371px)
+       ============================================================ -->
+  <div class="screenshot-home-flow">
+    <div class="screenshot-home-flow__clip">
+
+      <!-- White content area with left border accent -->
+      <div class="screenshot-home-flow__content">
+        <!-- SWAPPABLE: screenshot -->
+        <img
+          class="screenshot-home-flow__screenshot"
+          src="https://placehold.co/664x347/F3F3FB/1A2761?text=Flow+%26+Dependency+Tracking"
+          alt="Flow and dependency tracking screenshot"
+        >
+        <!-- /SWAPPABLE: screenshot -->
+      </div>
+
+      <!-- Bottom fade overlay -->
+      <div class="screenshot-home-flow__fade"></div>
+
+    </div>
+  </div>
+
+</body>
+</html>

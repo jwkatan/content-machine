@@ -1,0 +1,26 @@
+name: "Hero Background"
+description: "Dark navy (#1A2761) background with geometric dot-matrix wave pattern. The signature background treatment for hero sections and dark statement slides."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:16307"
+      label: "Background"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - hero-section
+  - dark-statement
+  - title-slide
+
+when_to_use: "Hero sections, title slides, any dark section needing visual depth beyond a flat Blue 900 fill."
+when_not_to_use: "Light surfaces or sections where a flat Blue 900 is sufficient. Do not layer over other complex background patterns."
+
+swappable_slots: []
+
+surfaces:
+  - dark
+mediums:
+  - html
+  - marp
+  - pptx

@@ -167,7 +167,7 @@ class WordPressClient:
             post_types = [post_type]
         else:
             # Try common types - 'article' is common for /learn/ content
-            post_types = ['posts', 'article', 'pages']
+            post_types = ['posts', 'article', 'pages', 'download', 'webinar']
 
         post = None
         found_post_type = None
@@ -1633,6 +1633,372 @@ def publish_markdown(
     )
     if meta_description:
         msg += f"\n\n  Meta description (paste into Yoast):\n  {meta_description}"
+
+    return True, msg
+
+
+if __name__ == '__main__':
+    import sys
+
+    if len(sys.argv) < 2:
+        print("Usage:")
+        print("  Import: python wordpress_client.py import <url>")
+        print("  Export: python wordpress_client.py export <folder_path> [--edited] [--push]")
+        print("")
+        print("Import creates a folder with:")
+        print("  - article.md     (markdown for editing)")
+        print("  - original.html  (raw WordPress HTML)")
+        print("  - metadata.json  (post metadata)")
+        print("")
+        print("Export options:")
+        print("  --edited    Use article.md instead of original.html")
+        print("  --push      Actually push to WordPress (without this, only shows preview)")
+        print("")
+        print("Requires environment variables:")
+        print("  WORDPRESS_SITE_URL, WORDPRESS_USERNAME, WORDPRESS_APP_PASSWORD")
+        sys.exit(1)
+
+    command = sys.argv[1]
+
+    if command == 'import' and len(sys.argv) >= 3:
+        url = sys.argv[2]
+        print(f"Importing from: {url}")
+        success, result = import_from_wordpress(url)
+        if success:
+            print(f"Success! Saved to: {result}")
+        else:
+            print(f"Failed: {result}")
+
+    elif command == 'export' and len(sys.argv) >= 3:
+        folder_path = sys.argv[2]
+        use_edited = '--edited' in sys.argv
+        push = '--push' in sys.argv
+        print(f"Exporting: {folder_path}")
+        success, result = export_to_wordpress(folder_path, use_edited=use_edited, push=push)
+        if success:
+            print(result)
+        else:
+            print(f"Failed: {result}")
+
+    else:
+        print(f"Unknown command: {command}")
+        sys.exit(1)
+
+def _build_download_blocks(
+    hubspot_form_id: str,
+    thank_you_title: str,
+    thank_you_text: str,
+    benefit_cards: list,
+    benefit_section_title: str = "In the white paper",
+    icon_ids: Optional[list] = None,
+) -> str:
+    """
+    Build Gutenberg block markup for a gated download landing page.
+
+    Args:
+        hubspot_form_id: HubSpot form GUID
+        thank_you_title: Shown after form submission
+        thank_you_text: HTML with download link
+        benefit_cards: List of dicts with 'title' and 'text' keys
+        benefit_section_title: Heading for benefits section
+        icon_ids: Optional list of WordPress media IDs for card icons
+
+    Returns:
+        Gutenberg block HTML string
+    """
+    import json as _json
+
+    # Block 1: download-form
+    form_data = {
+        "title_type": "h1",
+        "title_style": "h3",
+        "hubspot_form_id": hubspot_form_id,
+        "thank_you_icon": "",
+        "thank_you_title": thank_you_title,
+        "thank_you_text": thank_you_text,
+        "section_id": "download-form",
+    }
+    block1 = f'<!-- wp:gp/download-form {_json.dumps({"name": "gp/download-form", "data": form_data, "mode": "edit"})} /-->'
+
+    # Block 2: white-blocks (benefit cards)
+    default_icons = [int(x) for x in os.getenv('WP_DEFAULT_CARD_ICON_IDS', '1,2,3').split(',')]
+    cards_data = {
+        "section_title": benefit_section_title,
+        "type": "h2",
+        "style": "h2",
+        "content_animation": "none",
+        "section_blocks": len(benefit_cards),
+        "blocks_align": "left",
+        "blocks_width": "one-third",
+        "section_buttons": "",
+    }
+    for i, card in enumerate(benefit_cards):
+        icon_id = (icon_ids[i] if icon_ids and i < len(icon_ids) else default_icons[i % len(default_icons)])
+        cards_data[f"section_blocks_{i}_image"] = icon_id
+        cards_data[f"section_blocks_{i}_title"] = card['title']
+        cards_data[f"section_blocks_{i}_text"] = card['text']
+        cards_data[f"section_blocks_{i}_label"] = ""
+        cards_data[f"section_blocks_{i}_label_color"] = "blue"
+        cards_data[f"section_blocks_{i}_link"] = ""
+        cards_data[f"section_blocks_{i}_link_hidden_seo_text"] = ""
+        cards_data[f"section_blocks_{i}_button"] = ""
+        cards_data[f"section_blocks_{i}_button_hidden_seo_text"] = ""
+
+    block2 = f'<!-- wp:gp/white-blocks {_json.dumps({"name": "gp/white-blocks", "data": cards_data, "mode": "edit"})} /-->'
+
+    return f"{block1}\n\n{block2}"
+
+
+def _build_webinar_blocks(
+    hubspot_form_id: str,
+    webinar_description: str,
+    speakers: list,
+    takeaways: list,
+    youtube_video_id: str = "",
+    takeaways_title: str = "What you'll learn",
+) -> str:
+    """
+    Build Gutenberg block markup for a webinar landing page.
+
+    Args:
+        hubspot_form_id: HubSpot form GUID
+        webinar_description: Short description text
+        speakers: List of dicts with 'name', 'position', 'portrait_photo', 'square_photo', 'decoration'
+        takeaways: List of dicts with 'title' and 'text' keys
+        youtube_video_id: YouTube video ID (empty for upcoming webinars)
+        takeaways_title: Heading for takeaways section
+
+    Returns:
+        Gutenberg block HTML string
+    """
+    import json as _json
+
+    # Block 1: webinar-form
+    # ACF field references are required for WordPress to render the block data.
+    # These map data keys to ACF field definitions in the theme.
+    form_data = {
+        "title_type": "h1",
+        "_title_type": "field_66db140f0582b",
+        "title_style": "h3",
+        "_title_style": "field_66db140f05847",
+        "subheader": "0",
+        "_subheader": "field_66e2d5419b0df",
+        "hubspot_form_id": hubspot_form_id,
+        "_hubspot_form_id": "field_66db140f05861",
+        "speakers": len(speakers),
+        "_speakers": "field_66db238a426ef",
+        "speaker_text_color": "dark",
+        "_speaker_text_color": "field_689dcc3f85d96",
+        "youtube_video_id": youtube_video_id,
+        "_youtube_video_id": "field_66db233e426ed",
+        "webinar_description": webinar_description,
+        "_webinar_description": "field_66db2361426ee",
+    }
+    decorations = ["hidden", "yellow", "blue", "purple"]
+    for i, speaker in enumerate(speakers):
+        form_data[f"speakers_{i}_portrait_photo"] = speaker.get('portrait_photo', 0)
+        form_data[f"_speakers_{i}_portrait_photo"] = "field_66ddc3152b91f"
+        form_data[f"speakers_{i}_square_photo"] = speaker.get('square_photo', 0)
+        form_data[f"_speakers_{i}_square_photo"] = "field_66db2398426f0"
+        form_data[f"speakers_{i}_name"] = speaker['name']
+        form_data[f"_speakers_{i}_name"] = "field_66db23aa426f1"
+        form_data[f"speakers_{i}_position"] = speaker['position']
+        form_data[f"_speakers_{i}_position"] = "field_66db23b3426f2"
+        form_data[f"speakers_{i}_decoration"] = speaker.get('decoration', decorations[i % len(decorations)])
+        form_data[f"_speakers_{i}_decoration"] = "field_66dec08ffc38d"
+
+    block1 = f'<!-- wp:gp/webinar-form {_json.dumps({"name": "gp/webinar-form", "data": form_data, "mode": "edit"})} /-->'
+
+    # Block 2: white-number-blocks (takeaways)
+    takeaways_data = {
+        "section_title": takeaways_title,
+        "_section_title": "field_65435702955d5",
+        "type": "h2",
+        "_type": "field_65435702955de",
+        "style": "h2",
+        "_style": "field_668fc3be4ca6a",
+        "content_animation": "none",
+        "_content_animation": "field_65435702955f2",
+        "section_blocks": len(takeaways),
+        "_section_blocks": "field_654357029560a",
+        "blocks_columns": str(len(takeaways)),
+        "_blocks_columns": "field_668fc599cc98c",
+        "blocks_style": "style-2",
+        "_blocks_style": "field_668fca7954362",
+        "blocks_mark": "number",
+        "_blocks_mark": "field_66d00b8d3192e",
+        "buttons": "",
+        "_buttons": "field_668ff237f730c",
+        "show_howto_schema": "0",
+        "_show_howto_schema": "field_6555f2e7adac3",
+    }
+    for i, item in enumerate(takeaways):
+        takeaways_data[f"section_blocks_{i}_title"] = item['title']
+        takeaways_data[f"_section_blocks_{i}_title"] = "field_654357029a076"
+        takeaways_data[f"section_blocks_{i}_text"] = item['text']
+        takeaways_data[f"_section_blocks_{i}_text"] = "field_654357029a07d"
+        takeaways_data[f"section_blocks_{i}_title_style"] = "h5"
+        takeaways_data[f"_section_blocks_{i}_title_style"] = "field_66d009943192d"
+
+    block2 = f'<!-- wp:gp/white-number-blocks {_json.dumps({"name": "gp/white-number-blocks", "data": takeaways_data, "mode": "edit"})} /-->'
+
+    return f"{block1}\n\n{block2}"
+
+
+def publish_landing_page(
+    post_type: str,
+    title: str,
+    excerpt: str = "",
+    slug: Optional[str] = None,
+    meta_description: Optional[str] = None,
+    categories: Optional[list] = None,
+    featured_image: Optional[str] = None,
+    hubspot_form_id: str = "",
+    page_content: Optional[Dict] = None,
+    push: bool = False,
+) -> Tuple[bool, str]:
+    """
+    Create a gated download or webinar landing page on WordPress.
+
+    Args:
+        post_type: 'download' or 'webinar'
+        title: Page title
+        excerpt: Short description (shown below title and in cards)
+        slug: URL slug (auto-generated if not provided)
+        meta_description: SEO description (for Yoast)
+        categories: List of category IDs (download_category or webinar_category)
+        featured_image: Local path to featured image (uploaded to WordPress)
+        hubspot_form_id: HubSpot form GUID (created separately via HubSpot client)
+        page_content: Dict with type-specific content fields:
+            For 'download':
+                - thank_you_title: str
+                - thank_you_text: str (HTML with download link)
+                - benefit_cards: list of {'title': str, 'text': str}
+                - benefit_section_title: str (default: "In the white paper")
+                - icon_ids: list of int (WordPress media IDs, optional)
+            For 'webinar':
+                - webinar_description: str
+                - speakers: list of {'name', 'position', 'portrait_photo', 'square_photo', 'decoration'}
+                - takeaways: list of {'title': str, 'text': str}
+                - youtube_video_id: str (empty for upcoming)
+                - takeaways_title: str (default: "What you'll learn")
+        push: If True, create on WordPress. If False, show preview.
+
+    Returns:
+        Tuple of (success, message)
+    """
+    if post_type not in ('download', 'webinar'):
+        return False, f"Invalid post type: {post_type}. Must be 'download' or 'webinar'."
+
+    if not page_content:
+        page_content = {}
+
+    # Build block content
+    if post_type == 'download':
+        if not page_content.get('benefit_cards'):
+            return False, "page_content must include 'benefit_cards' for download pages."
+        content = _build_download_blocks(
+            hubspot_form_id=hubspot_form_id,
+            thank_you_title=page_content.get('thank_you_title', f'Thanks for requesting the {title}!'),
+            thank_you_text=page_content.get('thank_you_text', ''),
+            benefit_cards=page_content['benefit_cards'],
+            benefit_section_title=page_content.get('benefit_section_title', 'In the white paper'),
+            icon_ids=page_content.get('icon_ids'),
+        )
+    else:  # webinar
+        if not page_content.get('speakers'):
+            return False, "page_content must include 'speakers' for webinar pages."
+        if not page_content.get('takeaways'):
+            return False, "page_content must include 'takeaways' for webinar pages."
+        content = _build_webinar_blocks(
+            hubspot_form_id=hubspot_form_id,
+            webinar_description=page_content.get('webinar_description', ''),
+            speakers=page_content['speakers'],
+            takeaways=page_content['takeaways'],
+            youtube_video_id=page_content.get('youtube_video_id', ''),
+            takeaways_title=page_content.get('takeaways_title', "What you'll learn"),
+        )
+
+    if not push:
+        # Preview mode
+        block_count = len(re.findall(r'<!-- wp:gp/', content))
+        summary = (
+            f"=== LANDING PAGE PREVIEW (not pushed) ===\n"
+            f"Post Type: {post_type}\n"
+            f"Title: {title}\n"
+            f"Excerpt: {excerpt or '(none)'}\n"
+            f"Meta Description: {meta_description or '(none)'}\n"
+            f"Slug: {slug or '(auto-generated)'}\n"
+            f"Categories: {categories or '(none)'}\n"
+            f"Featured Image: {featured_image or '(none)'}\n"
+            f"HubSpot Form ID: {hubspot_form_id or '(not set)'}\n"
+            f"Gutenberg Blocks: {block_count}\n"
+        )
+        if post_type == 'download':
+            cards = page_content.get('benefit_cards', [])
+            summary += f"Benefit Cards: {len(cards)}\n"
+            for i, card in enumerate(cards):
+                summary += f"  {i+1}. {card['title']}: {card['text']}\n"
+        else:
+            speakers = page_content.get('speakers', [])
+            takeaways = page_content.get('takeaways', [])
+            summary += f"Speakers: {len(speakers)}\n"
+            for s in speakers:
+                summary += f"  - {s['name']} ({s['position']})\n"
+            summary += f"Takeaways: {len(takeaways)}\n"
+            for i, t in enumerate(takeaways):
+                summary += f"  {i+1}. {t['title']}: {t['text']}\n"
+            if page_content.get('youtube_video_id'):
+                summary += f"YouTube Video: {page_content['youtube_video_id']}\n"
+
+        summary += f"\nTo actually create on WordPress, run with push=True\n"
+        summary += f"==================================="
+        return True, summary
+
+    # Actually create on WordPress
+    try:
+        client = WordPressClient()
+    except ValueError as e:
+        return False, str(e)
+
+    # Upload featured image if provided
+    featured_media_id = None
+    if featured_image:
+        fi_path = Path(featured_image)
+        if not fi_path.exists():
+            return False, f"Featured image not found: {featured_image}"
+        print(f"Uploading featured image: {fi_path.name}")
+        fi_success, fi_result = client.upload_media(str(fi_path), alt_text=title or '')
+        if not fi_success:
+            return False, f"Failed to upload featured image: {fi_result}"
+        featured_media_id = fi_result['id']
+        print(f"Featured image uploaded (media ID: {featured_media_id})")
+
+    success, result = client.create_draft(
+        title=title,
+        content=content,
+        post_type=post_type,
+        meta_description=meta_description,
+        slug=slug,
+        categories=categories,
+        featured_media=featured_media_id,
+        excerpt=excerpt,
+    )
+
+    if not success:
+        return False, f"Failed to create draft: {result}"
+
+    msg = (
+        f"Created new {post_type} landing page draft on WordPress!\n"
+        f"  Post ID: {result['id']}\n"
+        f"  Slug: {result['slug']}\n"
+        f"  Post Type: {result['post_type']}\n"
+        f"  Preview: {result['preview_url']}"
+    )
+    if meta_description:
+        msg += f"\n\n  Meta description (paste into Yoast):\n  {meta_description}"
+    if hubspot_form_id:
+        msg += f"\n\n  HubSpot Form ID: {hubspot_form_id}"
 
     return True, msg
 

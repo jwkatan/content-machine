@@ -1,0 +1,23 @@
+name: "Desktop Hero Visual"
+description: "Full-width hero visual element (3840x900px). The main homepage hero illustration with geometric patterns."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:15913"
+      label: "Desktop Hero Visual"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - homepage-hero
+  - hero-illustration
+
+when_to_use: "Homepage hero section. The main visual banner."
+when_not_to_use: "Interior pages, slides, or any non-homepage hero. Use hero-background for generic dark hero sections."
+
+swappable_slots: []
+
+surfaces:
+  - dark
+mediums:
+  - html

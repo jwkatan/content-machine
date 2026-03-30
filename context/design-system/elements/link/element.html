@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link — Swimm Design System</title>
+  <link rel="stylesheet" href="../../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Link — Base Styles
+       ============================================================
+       Single variant. Default (blue-700) and Hover (blue-800) states.
+       Uses P4 text style: 16px, weight 400, line-height 1.4.
+       ============================================================ */
+
+    .link {
+      display: inline-flex;
+      align-items: center;
+      height: 34px;
+      padding: 6px 0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .link__text {
+      font-family: var(--text-font);
+      font-weight: var(--p4-weight, 400);
+      font-size: var(--p4-size);
+      line-height: var(--p4-lh);
+      color: var(--blue-700);
+      transition: color 0.2s ease;
+    }
+
+    /* ============================================================
+       Hover State
+       Text color shifts from blue-700 to blue-800.
+       ============================================================ */
+    .link:hover .link__text {
+      color: var(--blue-800);
+    }
+
+    /* ============================================================
+       Preview Layout (for standalone element preview only)
+       ============================================================ */
+    .preview-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 48px;
+      background: var(--gray-100);
+      min-height: 100vh;
+    }
+
+    .preview-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .preview-label {
+      font-family: var(--text-font);
+      font-size: 12px;
+      color: var(--gray-500);
+      width: 140px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-layout">
+
+    <!-- ========== Default Link (hover to see state change) ========== -->
+    <div class="preview-row">
+      <span class="preview-label">Default</span>
+      <a href="#" class="link">
+        <!-- SWAPPABLE: text --><span class="link__text">Application understanding</span><!-- /SWAPPABLE: text -->
+      </a>
+    </div>
+
+  </div>
+</body>
+</html>
