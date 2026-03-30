@@ -1,0 +1,34 @@
+name: "Value Visual"
+description: "Box design for value propositions. The frame/treatment is the element; content inside is swappable. Three variants: Accurate, Source, Confidence."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:15846"
+      label: "Accurate"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - value-proposition
+  - benefit-card
+
+when_to_use: "When presenting a value proposition with a decorative gradient bar treatment. Each variant (Accurate, Source, Confidence) uses a different bar pattern. The frame is the element — swap the title, description, and icon inside."
+when_not_to_use: "For plain text cards without the decorative gradient bars. Use visual-block instead for simpler content blocks."
+
+swappable_slots:
+  - name: title
+    type: text
+    description: "H4 value proposition title"
+  - name: description
+    type: text
+    description: "P3 description text"
+  - name: icon
+    type: component
+    description: "Small icon or graphic in the top-left area"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

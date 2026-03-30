@@ -1,0 +1,26 @@
+name: "Icon Set"
+description: "Product capability icons. Security, On-premise, Customer-managed LLMs, Proven at scale, Mainframe & legacy, Stays current. 64x64px each. Used in icon-text grids."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:13205"
+      label: "Security"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - capability-icon
+  - trust-icon
+
+when_to_use: "When presenting product capabilities or trust signals in an icon-text grid layout. Each variant is a specific capability — use the one that matches the content."
+when_not_to_use: "For feature-level icons in card grids (use feature-icons instead). As generic decorative icons."
+
+swappable_slots: []
+
+surfaces:
+  - dark
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

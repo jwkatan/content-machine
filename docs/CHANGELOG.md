@@ -99,3 +99,70 @@ No manual `original.html` deletion or regeneration needed.
 **File:** `data_sources/modules/wordpress_client.py`
 
 **Change:** Both `update_post_to_draft()` (for article updates) and `create_draft()` (for new articles) now include `date: datetime.now().isoformat()` in the WordPress API payload. This ensures the publication date is updated to the current date whenever an article is pushed, whether it's a new draft or an update to an existing article.
+
+---
+
+## 2026-03-15: Feature parity sync with source project
+
+### Added: Launch Orchestrator
+
+**Files:** `.claude/commands/launch.md`, `.claude/launch/` (10 files), `.claude/agents/cmo-reviewer.md`, `.claude/agents/cross-pillar-linker.md`, `.claude/agents/messaging-drift-checker.md`
+
+**Change:** Added full launch orchestration system — cornerstone-first workflow with human-in-the-loop checkpoints, messaging propagation, and multi-pillar dispatch. Outputs centralized in `content/launches/`.
+
+---
+
+### Added: HubSpot Client module
+
+**File:** `data_sources/modules/hubspot_client.py`
+
+**Change:** Added full HubSpot marketing automation: form creation, email creation (DnD modules), workflow creation, file upload, contact lists, and end-to-end `setup_landing_page_pipeline()` orchestrator. All sensitive IDs and credentials are env-var driven (see `.env.example` for new vars). Workflows are always created disabled.
+
+---
+
+### Added: Image Builder system
+
+**Files:** `data_sources/modules/image_builder.py`, `image-builder/` directory, `.claude/commands/image.md`, `.claude/agents/image-designer.md`
+
+**Change:** Added deterministic branded image generation from HTML/CSS templates. Pre-built `gated-document` template produces 1206×1562px landing page banners from PDF first pages. Uses Puppeteer + sharp + ImageMagick.
+
+---
+
+### Added: Landing page support (download + webinar)
+
+**Files:** `data_sources/modules/wordpress_client.py`, `docs/landing-pages.md`
+
+**Change:** Added `_build_download_blocks()`, `_build_webinar_blocks()`, and `publish_landing_page()` to `wordpress_client.py`. Supports gated document and webinar landing page post types with full Gutenberg block construction.
+
+---
+
+### Added: PDF builder WeasyPrint migration
+
+**Files:** `pdf-builder/render.py`, `pdf-builder/INSTRUCTION.md`, `pdf-builder/templates/whitepaper/styles.css`, `pdf-builder/assets/`
+
+**Change:** Migrated PDF builder from Puppeteer (Node.js) to WeasyPrint (Python). Added one-pager template support in `pdf_builder.py`. CSS variables renamed to `--brand-primary` / `--brand-secondary` for easier customization. Old Node.js files removed.
+
+---
+
+### Added: 12 new asset types
+
+**Files:** `asset-builder/asset-types/` (battle-card, discovery-guide, email-campaign, gated-download, objection-guide, one-pager, partner-brief, press-release, talk-track, video-script, webinar-deck, webinar-landing)
+
+**Change:** Expanded asset type library from 4 to 16 types covering the full content spectrum. Updated `competitive-comparison.md` with improved structure.
+
+---
+
+### Added: 5 new agents, 2 updated agents
+
+**Files:** `.claude/agents/`
+
+**Change:** Added `cmo-reviewer.md`, `cross-pillar-linker.md`, `messaging-drift-checker.md`, `video-script-editor.md`, `image-designer.md`. Updated `asset-reviewer.md` and `editor.md` with improvements.
+
+---
+
+### Added: 3 new commands
+
+**Files:** `.claude/commands/image.md`, `.claude/commands/launch.md`, `.claude/commands/update-email.md`
+
+**Change:** Added `/image` (branded image generation), `/launch` (launch orchestrator), and `/update-email` (HubSpot email template updates).
+

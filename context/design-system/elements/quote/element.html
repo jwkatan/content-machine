@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Quote — Element Styles
+       Figma node 3914:7097 (Desktop variant)
+       ============================================================ */
+
+    body {
+      background: var(--bg-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- Quote Block --- */
+    .quote {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      padding: 36px var(--sp-6);
+      width: 990px;
+      position: relative;
+      overflow: hidden;
+
+      /*
+       * CRITICAL: Gradient background from Figma.
+       * Gradient/Light/200: 138.8deg, Gray 150 → Blue 100 → Gray 200
+       */
+      background: linear-gradient(
+        138.82deg,
+        var(--gray-150) 50%,
+        var(--blue-100) 75%,
+        var(--gray-200) 100%
+      );
+    }
+
+    /* --- Mesh Grid Overlay ---
+     * Decorative dot-grid pattern behind the quote text.
+     * Centered, 50% opacity, 1104x324px.
+     */
+    .quote__mesh {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1104px;
+      height: 324px;
+      opacity: 0.5;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .quote__mesh-inner {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 864px;
+      height: 324px;
+      background-image: radial-gradient(
+        circle,
+        var(--gray-250) 1px,
+        transparent 1px
+      );
+      background-size: 24px 24px;
+    }
+
+    /* --- Quote Text (30px / P1-large) --- */
+    .quote__text {
+      font-family: var(--text-font);
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--blue-900);
+      max-width: 676px;
+      min-width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* --- Gradient Highlight Span ---
+     * For key phrases that get the Blue 700 → Pink 400 gradient treatment.
+     */
+    .quote__highlight {
+      background: linear-gradient(
+        90deg,
+        var(--blue-700) 50%,
+        var(--pink-400) 70%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* --- Author Block --- */
+    .quote__author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* --- Avatar (Blank) --- */
+    .quote__avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--gray-250);
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quote__avatar svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--gray-500);
+    }
+
+    /* --- Author Info --- */
+    .quote__author-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: 0.12px;
+      white-space: nowrap;
+    }
+
+    /* --- Attribution (Bold Name) --- */
+    .quote__attribution {
+      font-family: var(--text-font);
+      font-weight: 700;
+      color: var(--blue-900);
+    }
+
+    /* --- Role (Regular) --- */
+    .quote__role {
+      font-family: var(--text-font);
+      font-weight: 400;
+      color: var(--gray-500);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quote">
+    <!-- Mesh grid overlay -->
+    <div class="quote__mesh">
+      <div class="quote__mesh-inner"></div>
+    </div>
+
+    <!-- SWAPPABLE: quote_text -->
+    <p class="quote__text">
+      &ldquo;Swimm gave us a map of our application which we verified to be <span class="quote__highlight">100% accurate</span> and had all the details our business analysts needed&rdquo;
+    </p>
+    <!-- /SWAPPABLE: quote_text -->
+
+    <div class="quote__author">
+      <!-- Blank avatar -->
+      <div class="quote__avatar">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="9" r="4"/>
+          <path d="M12 14c-4.42 0-8 1.79-8 4v1h16v-1c0-2.21-3.58-4-8-4z"/>
+        </svg>
+      </div>
+
+      <div class="quote__author-info">
+        <!-- SWAPPABLE: attribution -->
+        <span class="quote__attribution">Executive Director</span>
+        <!-- /SWAPPABLE: attribution -->
+
+        <!-- SWAPPABLE: role -->
+        <span class="quote__role">Mainframe, Top 5 US Bank</span>
+        <!-- /SWAPPABLE: role -->
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

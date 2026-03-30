@@ -1,0 +1,31 @@
+name: "Header"
+description: "Site header. Logo, navigation items, CTA button. Default and Sticky states. Desktop (1440px) and Mobile (375px) breakpoints."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7052"
+      label: "Default Desktop"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - page-header
+  - navigation-bar
+
+when_to_use: "At the top of every page. Default state for initial load, Sticky state after scroll."
+when_not_to_use: "Inside modals or overlays. As a standalone navigation component without the full header frame."
+
+swappable_slots:
+  - name: nav_items
+    type: list
+    description: "Navigation items. Each item has a label and optional dropdown boolean."
+  - name: cta_text
+    type: text
+    description: "CTA button label text (default: 'Get a demo')"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

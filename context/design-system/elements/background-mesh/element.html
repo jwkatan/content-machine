@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Mesh — Swimm Design System Element</title>
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <!-- Manrope (text font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       Background Mesh
+       ==========================================================
+       Decorative dot-matrix mesh pattern that adds subtle texture
+       to dark sections. The pattern is a grid of small circles
+       with a radial fade from bottom-right, creating a diagonal
+       density gradient. Rendered at 50% opacity over dark surfaces.
+
+       Figma source:
+         File  epnCa2oEzyBli5hF8YI8Ed
+         Node  3914:13856
+       ========================================================== */
+
+    body {
+      background: var(--blue-900);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ---------- Mesh container ---------- */
+    .bg-mesh {
+      position: relative;
+      width: 100%;
+      max-width: 1104px;
+      height: 324px;
+      opacity: 0.5;
+      overflow: hidden;
+    }
+
+    /* ---------- Mesh pattern ----------
+       Uses a radial-gradient dot grid. Each dot is a small circle
+       of Blue 400 on a transparent background, tiled in a uniform
+       grid. A masking gradient fades density from bottom-right
+       (full) to top-left (transparent).
+
+       The dot grid is 16px spacing with 2px radius dots, matching
+       the Figma mesh-grid asset. The fade mask uses a diagonal
+       linear-gradient so the pattern appears to emerge from the
+       bottom-right corner. */
+
+    .bg-mesh__pattern {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 864px;
+      height: 324px;
+
+      /* Dot grid layer */
+      background-image:
+        radial-gradient(circle at center, var(--blue-400) 1.5px, transparent 1.5px);
+      background-size: 16px 16px;
+      background-position: 8px 8px;
+
+      /* Fade mask: diagonal from top-left (transparent) to bottom-right (opaque) */
+      -webkit-mask-image: linear-gradient(
+        315deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.7) 30%,
+        rgba(0, 0, 0, 0.3) 55%,
+        rgba(0, 0, 0, 0) 80%
+      );
+      mask-image: linear-gradient(
+        315deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.7) 30%,
+        rgba(0, 0, 0, 0.3) 55%,
+        rgba(0, 0, 0, 0) 80%
+      );
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Background Mesh
+       ============================================================
+       Position this element absolutely behind section content.
+       The mesh fades in from the bottom-right corner, providing
+       subtle texture without competing with foreground content.
+       ============================================================ -->
+  <div class="bg-mesh">
+    <div class="bg-mesh__pattern"></div>
+  </div>
+
+</body>
+</html>

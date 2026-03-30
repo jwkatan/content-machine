@@ -1,0 +1,28 @@
+name: "Visual Block"
+description: "Standalone content block (330x218px). Building block used within sections for structured content display. Features the Value Visuals decorative gradient bars as background treatment with text overlaid."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:6922"
+      label: "Default"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - content-card
+  - info-block
+
+when_to_use: "When you need a compact content block with the decorative gradient bar background. Good for structured information in a grid layout."
+when_not_to_use: "For full-width content sections. For cards that need icon + title + description (use value-visual instead)."
+
+swappable_slots:
+  - name: content
+    type: text
+    description: "P3 text content displayed at the bottom of the block"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

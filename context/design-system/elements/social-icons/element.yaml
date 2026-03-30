@@ -1,0 +1,34 @@
+name: "Social Icons"
+description: "Social platform icons. GitHub, Twitter, LinkedIn, TikTok, YouTube. Default + Hover states. 24x24px each."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:13770"
+      label: "GitHub Default"
+    - id: "3914:13774"
+      label: "Twitter Default"
+    - id: "3914:13778"
+      label: "LinkedIn Default"
+    - id: "3914:13782"
+      label: "TikTok Default"
+    - id: "3914:13786"
+      label: "YouTube Default"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - social-links
+  - footer-social
+
+when_to_use: "In the footer social links row, or anywhere social platform links are displayed. Use the specific platform variant."
+when_not_to_use: "As generic action icons. For non-social link purposes."
+
+swappable_slots: []
+
+surfaces:
+  - dark
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

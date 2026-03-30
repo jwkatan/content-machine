@@ -1,7 +1,22 @@
-# [Company Name] Whitepaper — Design Specification
+# [COMPANY] Whitepaper — Design Specification
 
 This is the source of truth for every visual decision. All measurements were extracted
 from the Figma file `UYfMt04X79c7y7YXAhy3DI` (Guides). Figma canvas is 595 × 842px at 72 dpi.
+
+---
+
+## §0 Renderer
+
+**WeasyPrint** (Python) is the PDF renderer. Puppeteer is no longer used — it had
+persistent, unreliable layout issues.
+
+Render command:
+```bash
+.venv/bin/python3 pdf-builder/render.py input.html output.pdf
+```
+
+See `pdf-builder/INSTRUCTION.md` for the full process guide, solved difficulties, and
+how to create new PDFs from the template.
 
 ---
 
@@ -10,14 +25,14 @@ from the Figma file `UYfMt04X79c7y7YXAhy3DI` (Guides). Figma canvas is 595 × 84
 | Property | Value |
 |---|---|
 | Page size | A4 — `210mm × 297mm` |
-| Margins | Zero (full bleed) |
-| CSS page rule | `@page { size: A4; margin: 0; }` |
-| Puppeteer options | `format: 'A4'`, `printBackground: true`, `preferCSSPageSize: true`, `margin: {top:0, right:0, bottom:0, left:0}` |
-| Background printing | `print-color-adjust: exact` + `-webkit-print-color-adjust: exact` on all elements |
-| Unit conversion | 1 Figma px = 1 CSS pt (both at 72 dpi) |
-| Position system | Absolute %, derived as `(Figma px / canvas dimension) × 100` |
+| Renderer | WeasyPrint (Python) — see `pdf-builder/INSTRUCTION.md` |
+| Background printing | `print-color-adjust: exact` on all elements |
+| Unit conversion | 1 Figma px ≈ 0.265mm; design values expressed in `mm` or `pt` |
+| Position system | Absolute `mm` values for cover; CSS Paged Media `@page` rules for body |
 
-Each page is a `div.page` with `width: 210mm; height: 297mm; position: relative; overflow: hidden; break-after: page`.
+Body pages use CSS named pages (`page: body`) with `@page body` rules for the accent
+bar and footer. Cover and back cover use `page: cover` / `page: backcover` with
+`margin: 0` (full bleed, no header/footer).
 
 ---
 
@@ -27,8 +42,8 @@ These are the only hex values permitted anywhere in the output.
 
 ```
 --blue-deep-dive:   #1F35FF   (primary brand blue, darkest)
---blue-brand:       #4154FF   (Brand Blue — primary CTA, signature color)
---blue-coastal:     #5E6EFF   (body bar, callout border, back cover CTA button)
+--brand-primary:       #4154FF   ([COMPANY] Blue — primary CTA, signature color)
+--brand-secondary:     #5E6EFF   (body bar, callout border, back cover CTA button)
 --blue-shallow:     #8D98FF   (page numbers, muted text)
 --blue-feet:        #E4E7FF   (callout bg, graphic placeholder, table header bg)
 --yellow-duck:      #FDF150   (energetic accent — use sparingly)
@@ -108,7 +123,7 @@ Two white gradient fades soften the grid:
   - `.cover-title-block` — contains two `<p>` lines:
     - `.cover-title-bold` — Roc Grotesk 700, 31pt/35pt, `#1D1E2B`
     - `.cover-title-regular` — Roc Grotesk 400, 31pt/35pt, `#1D1E2B`
-  - `.cover-asterisk` — `16.5pt × 16.5pt` — Brand ✳ brand mark (Figma asset URL, expires)
+  - `.cover-asterisk` — `16.5pt × 16.5pt` — [COMPANY] brand mark (Figma asset URL, expires)
 
 **Wave illustration** (`.cover-wave`):
 - Position: `top: 52.14%; left: 0; width: 100%; height: 29.21%`
@@ -207,7 +222,7 @@ Background: `#1D1E2B` (--neutral-charcoal), full bleed.
 **CTA button** (`.back-cover-cta`):
 - `display:flex; align-items:center; justify-content:center`
 - `width:268pt; height:44pt`
-- Background: `#5E6EFF` (--blue-coastal)
+- Background: `#5E6EFF` (--brand-secondary)
 - `border-radius: 10.304pt`
 - `box-shadow: 0 0 10.304pt rgba(0,0,0,0.16)`
 - Text: Roc Grotesk 700, 16pt, `#FFFFFF`

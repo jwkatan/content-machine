@@ -1,0 +1,32 @@
+name: "Link"
+description: "Text link. Blue 700 text color in default state, shifting to blue-800 on hover. Uses P4 text style (16px, line-height 1.4)."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7113"
+      label: "Default"
+    - id: "3914:7116"
+      label: "Hover"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - inline-link
+  - footer-link
+  - navigation-link
+
+when_to_use: "Use for text-based navigation links, inline body links, and footer links."
+when_not_to_use: "Not for primary or secondary actions — use main-button or secondary-button instead. Not for top-level nav — use nav-item."
+
+swappable_slots:
+  - name: text
+    type: text
+    description: "Link text"
+
+surfaces:
+  - dark
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

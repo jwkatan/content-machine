@@ -1,0 +1,39 @@
+name: "Secondary Button"
+description: "Secondary button. Same variant/state matrix as main button (Text+Icon, Text-only, Default, Hover) but different styling — light gradient fill with blue-900 text (default) shifting to blue-700 text on hover."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7421"
+      label: "Default, Text+Icon"
+    - id: "3914:7427"
+      label: "Default, Text-only"
+    - id: "3914:7430"
+      label: "Hover, Text+Icon"
+    - id: "3914:7436"
+      label: "Hover, Text-only"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - secondary-action
+  - cancel
+  - learn-more
+
+when_to_use: "Secondary call-to-action. Use for actions that complement the primary CTA but have lower emphasis."
+when_not_to_use: "Primary actions — use main-button instead."
+
+swappable_slots:
+  - name: text
+    type: text
+    description: "Button label text"
+  - name: icon
+    type: boolean
+    description: "Whether to show the arrow icon (Text+Icon variant)"
+
+surfaces:
+  - dark
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

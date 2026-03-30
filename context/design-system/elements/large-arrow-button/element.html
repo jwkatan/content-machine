@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Large Arrow Button — Swimm Design System</title>
+  <link rel="stylesheet" href="../../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Large Arrow Button — Base Styles
+       ============================================================
+       Two types:
+         .large-arrow-button               -> Arrow icon (default)
+         .large-arrow-button.type-plus     -> Plus icon
+       42x42px square. Hover state via CSS :hover.
+       Default: deep blue gradient. Hover: same gradient with
+       extended stops (arrow) or light gradient (plus).
+       ============================================================ */
+
+    .large-arrow-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      overflow: hidden;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      background-image: linear-gradient(
+        45deg,
+        var(--blue-800) 81.75%,
+        var(--blue-700) 45.75%,
+        var(--blue-600) 91.29%,
+        var(--blue-400) 100.4%
+      );
+      transition: background-image 0.2s ease;
+    }
+
+    /* --- Arrow Icon (default type) --- */
+    .large-arrow-button__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .large-arrow-button__arrow svg {
+      width: 16px;
+      height: 14px;
+      fill: none;
+      stroke: var(--blue-100);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* --- Plus Icon (type-plus) --- */
+    .large-arrow-button__plus {
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .large-arrow-button__plus svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: var(--blue-100);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .large-arrow-button.type-plus .large-arrow-button__arrow {
+      display: none;
+    }
+
+    .large-arrow-button.type-plus .large-arrow-button__plus {
+      display: flex;
+    }
+
+    /* ============================================================
+       Hover State — Arrow Type
+       Gradient shifts; arrow icon stays white.
+       ============================================================ */
+    .large-arrow-button:not(.type-plus):hover {
+      background-image: linear-gradient(
+        45deg,
+        var(--blue-800) 0.4%,
+        var(--blue-700) 81.23%,
+        var(--blue-600) 104.33%,
+        var(--blue-400) 115.87%
+      );
+    }
+
+    /* ============================================================
+       Hover State — Plus Type
+       Shifts to light gradient (gray-250 to blue-300).
+       Icon color shifts to blue-900.
+       ============================================================ */
+    .large-arrow-button.type-plus:hover {
+      background-image: linear-gradient(
+        135deg,
+        var(--gray-250) 0.52%,
+        var(--blue-300) 100.52%
+      );
+    }
+
+    .large-arrow-button.type-plus:hover .large-arrow-button__plus svg {
+      stroke: var(--blue-900);
+    }
+
+    /* ============================================================
+       Preview Layout (for standalone element preview only)
+       ============================================================ */
+    .preview-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 48px;
+      background: var(--gray-100);
+      min-height: 100vh;
+    }
+
+    .preview-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .preview-label {
+      font-family: var(--text-font);
+      font-size: 12px;
+      color: var(--gray-500);
+      width: 140px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-layout">
+
+    <!-- ========== Arrow Type (Default — hover to see state change) ========== -->
+    <div class="preview-row">
+      <span class="preview-label">Arrow</span>
+      <a href="#" class="large-arrow-button" role="button" aria-label="Next">
+        <div class="large-arrow-button__arrow">
+          <svg viewBox="0 0 16 14" aria-hidden="true">
+            <line x1="0" y1="7" x2="14" y2="7" />
+            <polyline points="8 1 14 7 8 13" />
+          </svg>
+        </div>
+        <div class="large-arrow-button__plus">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <line x1="8" y1="1" x2="8" y2="15" />
+            <line x1="1" y1="8" x2="15" y2="8" />
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- ========== Plus Type (Default — hover to see state change) ========== -->
+    <div class="preview-row">
+      <span class="preview-label">Plus</span>
+      <a href="#" class="large-arrow-button type-plus" role="button" aria-label="Expand">
+        <div class="large-arrow-button__arrow">
+          <svg viewBox="0 0 16 14" aria-hidden="true">
+            <line x1="0" y1="7" x2="14" y2="7" />
+            <polyline points="8 1 14 7 8 13" />
+          </svg>
+        </div>
+        <div class="large-arrow-button__plus">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <line x1="8" y1="1" x2="8" y2="15" />
+            <line x1="1" y1="8" x2="15" y2="8" />
+          </svg>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</body>
+</html>

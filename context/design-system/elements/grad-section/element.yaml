@@ -1,0 +1,40 @@
+name: "Grad Section"
+description: "Stunning gradient section with nested layered border frames. The signature Blue 900 to Blue 700 to Pink 400 to Yellow 200 to Gray 100 spectrum creates concentric gradient borders around content."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7214"
+      label: "1440px breakpoint"
+    - id: "3914:7226"
+      label: "1920px breakpoint"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - title-slide-background
+  - section-highlight
+  - transition-moment
+
+when_to_use: "When a section needs to be a showstopper. Title sections, transition moments, or any section that needs maximum visual impact. Limit to ONE per page or deck."
+when_not_to_use: "Mid-page for regular content. Not for every section — restraint is the design choice."
+
+swappable_slots:
+  - name: heading
+    type: text
+    description: "H2 heading text inside the content area"
+  - name: subheading
+    type: text
+    description: "Optional P3 subheading below heading"
+  - name: cta_button
+    type: component
+    description: "Optional CTA button (use main-button element)"
+
+surfaces:
+  - dark-to-light-transition
+mediums:
+  - html
+  - marp
+  - pptx
+breakpoints:
+  - 1440
+  - 1920

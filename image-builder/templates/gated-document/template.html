@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gated Document Landing Image</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 1206px;
+      height: 1562px;
+      background: white;
+    }
+
+    body {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    /* Container holding all stacked borders + card */
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Stacked border rectangles (5 nested boxes) */
+    .border-stack {
+      position: absolute;
+      border: 5.482px solid #5E6EFF /* Replace with your brand color */; /* coastal-shore */
+      background: transparent;
+      pointer-events: none;
+    }
+
+    /* Each border offset progressively */
+    .border-1 { left: 240px; top: 252px; width: 786px; height: 1038px; }
+    .border-2 { left: 273px; top: 216px; width: 789px; height: 1116px; }
+    .border-3 { left: 312px; top: 180px; width: 783px; height: 1194px; }
+    .border-4 { left: 348px; top: 141px; width: 786px; height: 1275px; }
+    .border-5 { left: 384px; top: 105px; width: 786px; height: 1353px; }
+
+    /* Main white card with shadow */
+    .card {
+      position: absolute;
+      left: 199px;
+      top: 294px;
+      width: 788px;
+      height: 954px;
+      background: white;
+      border: 1.827px solid #D177FF; /* high-violet */
+      box-shadow: 0px 0px 48px rgba(0, 0, 0, 0.24);
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    /* First page content */
+    .first-page {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .first-page-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      margin-top: 30px;
+      margin-bottom: -30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Stacked border rectangles -->
+    <div class="border-stack border-1"></div>
+    <div class="border-stack border-2"></div>
+    <div class="border-stack border-3"></div>
+    <div class="border-stack border-4"></div>
+    <div class="border-stack border-5"></div>
+
+    <!-- Main card with first-page content -->
+    <div class="card">
+      <div class="first-page" name="first-page">
+        <img class="first-page-image" src="{{PDF_FIRST_PAGE_BASE64}}" alt="Document first page">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

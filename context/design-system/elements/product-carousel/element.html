@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Carousel — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Product Carousel — Element Styles
+       Figma node 3914:7031 (Active/Expanded state)
+       ============================================================
+       Three cards in a row. One is active (expanded, 660px),
+       two are collapsed (241px). Radial gradient backgrounds
+       shift between light (default) and blue (active).
+       ============================================================ */
+
+    body {
+      background: var(--bg-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- Row Container --- */
+    .product-carousel {
+      display: flex;
+      gap: 4px;
+      max-width: var(--content-max-w);
+      width: 100%;
+    }
+
+    /* --- Card Base --- */
+    .product-carousel__card {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow: hidden;
+      position: relative;
+      width: 241px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: width 0.4s ease;
+
+      /*
+       * Default state: light radial gradient background
+       * Figma radialGradient: matrix(42.799 7 -37.553 8.3612 220.01 ...)
+       * Stops: gray-150 50% -> blue-200 75% -> gray-250 100%
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 660 485' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(43.591 48.525 -38.249 57.961 224.09 0)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+    }
+
+    /* --- Hover State: subtle brightness shift --- */
+    .product-carousel__card:hover:not(.product-carousel__card--active) {
+      filter: brightness(0.97);
+    }
+
+    /* --- Active State: expanded width --- */
+    .product-carousel__card--active {
+      width: 660px;
+    }
+
+    /* --- Visual Area (screenshot frame) --- */
+    .product-carousel__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 660 / 371;
+
+      /*
+       * Blue gradient frame from Figma
+       * linear-gradient(239.66deg, blue-400 24.153%, blue-700 60.201%)
+       */
+      background-image: linear-gradient(
+        239.66deg,
+        var(--blue-400) 24.153%,
+        var(--blue-700) 60.201%
+      );
+    }
+
+    /* --- Screenshot image inside the frame --- */
+    .product-carousel__visual-inner {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .product-carousel__visual-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* --- Screenshot container with blue-800 left border --- */
+    .product-carousel__screenshot {
+      position: relative;
+      background: var(--bg-light);
+      border-left: 10px solid var(--blue-800);
+      margin: 0 auto;
+      width: 85%;
+      height: 80%;
+      overflow: hidden;
+    }
+
+    .product-carousel__screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* --- Bottom fade overlay on the visual --- */
+    .product-carousel__visual-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 152px;
+      background: linear-gradient(
+        180deg,
+        rgba(157, 192, 255, 0) 35%,
+        rgba(157, 192, 255, 0.54) 100%
+      );
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    /* --- Hide visual on collapsed cards --- */
+    .product-carousel__card:not(.product-carousel__card--active) .product-carousel__visual {
+      display: none;
+    }
+
+    /* --- Text Area --- */
+    .product-carousel__text {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: var(--sp-3);
+      padding: var(--sp-3);
+      width: 100%;
+    }
+
+    /* --- Collapsed: stack title vertically --- */
+    .product-carousel__card:not(.product-carousel__card--active) .product-carousel__text {
+      display: flex;
+      flex-direction: column;
+      padding: var(--sp-3);
+    }
+
+    /* --- Title (H3 in active, H4 in collapsed) --- */
+    .product-carousel__title {
+      font-family: var(--title-font);
+      font-size: var(--h3-size);
+      font-weight: var(--h3-weight);
+      line-height: var(--h3-lh);
+      color: var(--text-heading-light);
+      grid-column: 1;
+    }
+
+    .product-carousel__card:not(.product-carousel__card--active) .product-carousel__title {
+      font-size: var(--h4-size);
+    }
+
+    /* --- Description Box --- */
+    .product-carousel__desc-box {
+      grid-column: 2 / span 2;
+      padding: 4px 34px 18px 4px;
+    }
+
+    .product-carousel__desc {
+      font-family: var(--text-font);
+      font-size: var(--p4-size);
+      font-weight: var(--p4-weight);
+      line-height: var(--p4-lh);
+      color: var(--text-body-light);
+    }
+
+    /* --- Hide description on collapsed cards --- */
+    .product-carousel__card:not(.product-carousel__card--active) .product-carousel__desc-box {
+      display: none;
+    }
+
+    /* --- Arrow Button (bottom-right) --- */
+    .product-carousel__arrow {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      /*
+       * Button gradient from Figma
+       * linear-gradient(45deg, blue-800 81.746%, blue-700 45.754%, ...)
+       */
+      background-image: linear-gradient(
+        45deg,
+        var(--blue-800) 7.87%,
+        var(--blue-700) 67.64%,
+        var(--blue-600) 94.61%,
+        var(--blue-400) 100%
+      );
+    }
+
+    .product-carousel__arrow svg {
+      width: 16px;
+      height: 14px;
+      fill: none;
+      stroke: var(--blue-100);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* --- Hide arrow on collapsed cards --- */
+    .product-carousel__card:not(.product-carousel__card--active) .product-carousel__arrow {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="product-carousel">
+
+    <!-- Card 1 (Active / Expanded) -->
+    <div class="product-carousel__card product-carousel__card--active">
+      <div class="product-carousel__visual">
+        <div class="product-carousel__visual-inner">
+          <!-- SWAPPABLE: image -->
+          <div class="product-carousel__screenshot">
+            <img src="https://placehold.co/660x371/F3F3FB/1A2761?text=Feature+Screenshot" alt="Feature screenshot">
+          </div>
+          <!-- /SWAPPABLE: image -->
+        </div>
+        <div class="product-carousel__visual-fade"></div>
+      </div>
+
+      <div class="product-carousel__text">
+        <!-- SWAPPABLE: title -->
+        <h3 class="product-carousel__title">Flow & dependency tracking</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <div class="product-carousel__desc-box">
+          <!-- SWAPPABLE: description -->
+          <p class="product-carousel__desc">Decision logic, validations, and policies structured for agentic modernization.</p>
+          <!-- /SWAPPABLE: description -->
+        </div>
+      </div>
+
+      <div class="product-carousel__arrow">
+        <svg viewBox="0 0 16 14" aria-hidden="true">
+          <line x1="1" y1="7" x2="15" y2="7" />
+          <polyline points="9 1 15 7 9 13" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Card 2 (Collapsed / Default) -->
+    <div class="product-carousel__card">
+      <div class="product-carousel__visual">
+        <div class="product-carousel__visual-inner">
+          <!-- SWAPPABLE: image -->
+          <div class="product-carousel__screenshot">
+            <img src="https://placehold.co/660x371/F3F3FB/1A2761?text=Feature+Screenshot" alt="Feature screenshot">
+          </div>
+          <!-- /SWAPPABLE: image -->
+        </div>
+        <div class="product-carousel__visual-fade"></div>
+      </div>
+
+      <div class="product-carousel__text">
+        <!-- SWAPPABLE: title -->
+        <h3 class="product-carousel__title">Business rule extraction</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <div class="product-carousel__desc-box">
+          <!-- SWAPPABLE: description -->
+          <p class="product-carousel__desc">Extract and structure business rules for validation and modernization.</p>
+          <!-- /SWAPPABLE: description -->
+        </div>
+      </div>
+
+      <div class="product-carousel__arrow">
+        <svg viewBox="0 0 16 14" aria-hidden="true">
+          <line x1="1" y1="7" x2="15" y2="7" />
+          <polyline points="9 1 15 7 9 13" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Card 3 (Collapsed / Default) -->
+    <div class="product-carousel__card">
+      <div class="product-carousel__visual">
+        <div class="product-carousel__visual-inner">
+          <!-- SWAPPABLE: image -->
+          <div class="product-carousel__screenshot">
+            <img src="https://placehold.co/660x371/F3F3FB/1A2761?text=Feature+Screenshot" alt="Feature screenshot">
+          </div>
+          <!-- /SWAPPABLE: image -->
+        </div>
+        <div class="product-carousel__visual-fade"></div>
+      </div>
+
+      <div class="product-carousel__text">
+        <!-- SWAPPABLE: title -->
+        <h3 class="product-carousel__title">AI-powered analysis</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <div class="product-carousel__desc-box">
+          <!-- SWAPPABLE: description -->
+          <p class="product-carousel__desc">Leverage AI agents that understand your entire application context.</p>
+          <!-- /SWAPPABLE: description -->
+        </div>
+      </div>
+
+      <div class="product-carousel__arrow">
+        <svg viewBox="0 0 16 14" aria-hidden="true">
+          <line x1="1" y1="7" x2="15" y2="7" />
+          <polyline points="9 1 15 7 9 13" />
+        </svg>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

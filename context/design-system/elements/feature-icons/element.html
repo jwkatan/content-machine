@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feature Icons — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Feature Icons — Element Styles
+       Figma node 3914:16267 (Swimm MCP Desktop variant)
+       ============================================================ */
+
+    body {
+      background: var(--blue-900);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+      gap: var(--sp-6);
+    }
+
+    /* --- Icon Container (Desktop: 120x120, Mobile: 80x80) --- */
+    .feature-icon {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+    }
+
+    .feature-icon--mobile {
+      width: 80px;
+      height: 80px;
+    }
+
+    /* --- Inner rotated geometric shape --- */
+    .feature-icon__shape {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      width: 192.437px;
+      height: 153.807px;
+    }
+
+    .feature-icon--mobile .feature-icon__shape {
+      width: 128.29px;
+      height: 102.54px;
+    }
+
+    .feature-icon__shape img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* --- Variant Labels (for preview only) --- */
+    .icon-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+
+    .icon-label {
+      font-family: var(--text-font);
+      font-size: var(--label-s-size);
+      font-weight: var(--label-s-weight);
+      color: var(--blue-300);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Swimm MCP (Desktop) -->
+  <div class="icon-row">
+    <div class="feature-icon" data-node-id="3914:16267">
+      <div class="feature-icon__shape">
+        <!-- Geometric gradient shape: overlapping blue/pink/peach rectangles -->
+        <svg viewBox="0 0 193 154" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="feat-grad-bg" x1="0" y1="0" x2="193" y2="154" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#AFC8FB"/>
+              <stop offset="1" stop-color="#527DFF"/>
+            </linearGradient>
+            <linearGradient id="feat-grad-mid" x1="40" y1="20" x2="160" y2="140" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#E99DB1"/>
+              <stop offset="0.5" stop-color="#FFC381"/>
+              <stop offset="1" stop-color="#FFDFBB"/>
+            </linearGradient>
+            <linearGradient id="feat-grad-top" x1="50" y1="30" x2="150" y2="130" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#D5E3FF"/>
+              <stop offset="1" stop-color="#6891F9"/>
+            </linearGradient>
+          </defs>
+          <!-- Back layer: blue gradient rectangle -->
+          <rect x="0" y="0" width="193" height="154" rx="4" fill="url(#feat-grad-bg)" opacity="0.6"/>
+          <!-- Middle layer: pink/peach gradient rectangle, offset -->
+          <rect x="30" y="15" width="140" height="124" rx="4" fill="url(#feat-grad-mid)" opacity="0.85"/>
+          <!-- Top layer: light blue gradient rectangle, offset further -->
+          <rect x="50" y="30" width="110" height="100" rx="4" fill="url(#feat-grad-top)" opacity="0.7"/>
+        </svg>
+      </div>
+    </div>
+    <span class="icon-label">Swimm MCP</span>
+  </div>
+
+  <!-- Governed Context (Desktop) -->
+  <div class="icon-row">
+    <div class="feature-icon">
+      <div class="feature-icon__shape">
+        <svg viewBox="0 0 193 154" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gov-grad-bg" x1="0" y1="0" x2="193" y2="154" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#527DFF"/>
+              <stop offset="1" stop-color="#2635A7"/>
+            </linearGradient>
+            <linearGradient id="gov-grad-mid" x1="30" y1="15" x2="170" y2="139" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#AFC8FB"/>
+              <stop offset="1" stop-color="#325BFF"/>
+            </linearGradient>
+            <linearGradient id="gov-grad-top" x1="55" y1="35" x2="155" y2="125" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#E2EBFF"/>
+              <stop offset="1" stop-color="#6891F9"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="193" height="154" rx="4" fill="url(#gov-grad-bg)" opacity="0.6"/>
+          <rect x="30" y="15" width="140" height="124" rx="4" fill="url(#gov-grad-mid)" opacity="0.85"/>
+          <rect x="55" y="35" width="100" height="90" rx="4" fill="url(#gov-grad-top)" opacity="0.7"/>
+        </svg>
+      </div>
+    </div>
+    <span class="icon-label">Governed Context</span>
+  </div>
+
+  <!-- Token Efficiency (Desktop) -->
+  <div class="icon-row">
+    <div class="feature-icon">
+      <div class="feature-icon__shape">
+        <svg viewBox="0 0 193 154" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="tok-grad-bg" x1="0" y1="154" x2="193" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#325BFF"/>
+              <stop offset="1" stop-color="#AFC8FB"/>
+            </linearGradient>
+            <linearGradient id="tok-grad-mid" x1="25" y1="10" x2="165" y2="144" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FFC381"/>
+              <stop offset="0.6" stop-color="#E99DB1"/>
+              <stop offset="1" stop-color="#AFC8FB"/>
+            </linearGradient>
+            <linearGradient id="tok-grad-top" x1="45" y1="25" x2="155" y2="130" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#D5E3FF"/>
+              <stop offset="1" stop-color="#527DFF"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="193" height="154" rx="4" fill="url(#tok-grad-bg)" opacity="0.6"/>
+          <rect x="25" y="10" width="145" height="130" rx="4" fill="url(#tok-grad-mid)" opacity="0.85"/>
+          <rect x="45" y="25" width="110" height="105" rx="4" fill="url(#tok-grad-top)" opacity="0.7"/>
+        </svg>
+      </div>
+    </div>
+    <span class="icon-label">Token Efficiency</span>
+  </div>
+
+  <!-- Swimm MCP (Mobile) -->
+  <div class="icon-row">
+    <div class="feature-icon feature-icon--mobile" data-node-id="3914:16267">
+      <div class="feature-icon__shape">
+        <svg viewBox="0 0 193 154" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="feat-grad-bg-m" x1="0" y1="0" x2="193" y2="154" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#AFC8FB"/>
+              <stop offset="1" stop-color="#527DFF"/>
+            </linearGradient>
+            <linearGradient id="feat-grad-mid-m" x1="40" y1="20" x2="160" y2="140" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#E99DB1"/>
+              <stop offset="0.5" stop-color="#FFC381"/>
+              <stop offset="1" stop-color="#FFDFBB"/>
+            </linearGradient>
+            <linearGradient id="feat-grad-top-m" x1="50" y1="30" x2="150" y2="130" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#D5E3FF"/>
+              <stop offset="1" stop-color="#6891F9"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="193" height="154" rx="4" fill="url(#feat-grad-bg-m)" opacity="0.6"/>
+          <rect x="30" y="15" width="140" height="124" rx="4" fill="url(#feat-grad-mid-m)" opacity="0.85"/>
+          <rect x="50" y="30" width="110" height="100" rx="4" fill="url(#feat-grad-top-m)" opacity="0.7"/>
+        </svg>
+      </div>
+    </div>
+    <span class="icon-label">Swimm MCP (Mobile)</span>
+  </div>
+
+</body>
+</html>

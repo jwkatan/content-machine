@@ -1,0 +1,25 @@
+name: "Feature Icons"
+description: "Geometric feature icons. Swimm MCP, Governed context, Token efficiency. Desktop (120x120px) and mobile (80x80px). Used inside icon-card-dark elements."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:16267"
+      label: "Swimm MCP Desktop"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - feature-icon
+  - card-icon
+
+when_to_use: "When placing geometric icons inside icon-card-dark elements or similar feature grids. Each icon is a specific variant — use the variant that matches the feature."
+when_not_to_use: "As standalone decorative images. For product capability icons (use icon-set instead)."
+
+swappable_slots: []
+
+surfaces:
+  - dark
+mediums:
+  - html
+  - marp
+  - pptx

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Icons — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Social Icons — Element Styles
+       Figma nodes 3914:13770 through 3914:13786
+       ============================================================ */
+
+    body {
+      background: var(--gray-100);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+      gap: var(--sp-6);
+    }
+
+    /* --- Icon Row (preview layout) --- */
+    .social-icon-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .social-icon-row--labeled {
+      gap: var(--sp-5);
+    }
+
+    /* --- Single Social Icon --- */
+    .social-icon {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .social-icon svg {
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Default fill: Blue 900 on light surfaces */
+    .social-icon svg path {
+      fill: var(--blue-900);
+      transition: fill 0.2s ease;
+    }
+
+    /* Hover: Blue 700 */
+    .social-icon:hover svg path {
+      fill: var(--blue-700);
+    }
+
+    /* --- Dark Surface Variant --- */
+    .social-icon--dark svg path {
+      fill: var(--blue-300);
+    }
+
+    .social-icon--dark:hover svg path {
+      fill: var(--gray-50);
+    }
+
+    /* --- Labels (for preview only) --- */
+    .social-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-1);
+    }
+
+    .social-icon-label {
+      font-family: var(--text-font);
+      font-size: var(--label-s-size);
+      font-weight: var(--label-s-weight);
+      color: var(--gray-500);
+    }
+
+    /* --- Section Labels --- */
+    .section-label {
+      font-family: var(--text-font);
+      font-size: var(--label-m-size);
+      font-weight: var(--label-m-weight);
+      color: var(--gray-300);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* --- Dark Surface Preview --- */
+    .dark-surface {
+      background: var(--blue-900);
+      padding: var(--sp-4);
+      border-radius: 8px;
+    }
+
+    .dark-surface .social-icon-label {
+      color: var(--blue-300);
+    }
+
+    .dark-surface .section-label {
+      color: var(--blue-300);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Light Surface ===== -->
+  <span class="section-label">Light Surface (Default)</span>
+
+  <div class="social-icon-row social-icon-row--labeled">
+
+    <!-- GitHub -->
+    <div class="social-icon-item">
+      <div class="social-icon" data-node-id="3914:13770">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+        </svg>
+      </div>
+      <span class="social-icon-label">GitHub</span>
+    </div>
+
+    <!-- Twitter / X -->
+    <div class="social-icon-item">
+      <div class="social-icon" data-node-id="3914:13774">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </div>
+      <span class="social-icon-label">Twitter</span>
+    </div>
+
+    <!-- LinkedIn -->
+    <div class="social-icon-item">
+      <div class="social-icon" data-node-id="3914:13778">
+        <svg viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM5 8H0v16h5V8zm7.982 0H8.014v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0V24H24V13.869c0-7.88-8.922-7.593-11.018-3.714V8z"/>
+        </svg>
+      </div>
+      <span class="social-icon-label">LinkedIn</span>
+    </div>
+
+    <!-- TikTok -->
+    <div class="social-icon-item">
+      <div class="social-icon" data-node-id="3914:13782">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.28 6.28 0 00-6.28 6.28 6.28 6.28 0 006.28 6.28 6.28 6.28 0 006.28-6.28V9.14a8.16 8.16 0 004.82 1.58V7.28a4.84 4.84 0 01-1-.59z"/>
+        </svg>
+      </div>
+      <span class="social-icon-label">TikTok</span>
+    </div>
+
+    <!-- YouTube -->
+    <div class="social-icon-item">
+      <div class="social-icon" data-node-id="3914:13786">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      </div>
+      <span class="social-icon-label">YouTube</span>
+    </div>
+
+  </div>
+
+  <!-- ===== Dark Surface ===== -->
+  <span class="section-label">Dark Surface</span>
+
+  <div class="dark-surface">
+    <div class="social-icon-row social-icon-row--labeled">
+
+      <!-- GitHub (Dark) -->
+      <div class="social-icon-item">
+        <div class="social-icon social-icon--dark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+        </div>
+        <span class="social-icon-label">GitHub</span>
+      </div>
+
+      <!-- Twitter (Dark) -->
+      <div class="social-icon-item">
+        <div class="social-icon social-icon--dark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </div>
+        <span class="social-icon-label">Twitter</span>
+      </div>
+
+      <!-- LinkedIn (Dark) -->
+      <div class="social-icon-item">
+        <div class="social-icon social-icon--dark">
+          <svg viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM5 8H0v16h5V8zm7.982 0H8.014v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0V24H24V13.869c0-7.88-8.922-7.593-11.018-3.714V8z"/>
+          </svg>
+        </div>
+        <span class="social-icon-label">LinkedIn</span>
+      </div>
+
+      <!-- TikTok (Dark) -->
+      <div class="social-icon-item">
+        <div class="social-icon social-icon--dark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.28 6.28 0 00-6.28 6.28 6.28 6.28 0 006.28 6.28 6.28 6.28 0 006.28-6.28V9.14a8.16 8.16 0 004.82 1.58V7.28a4.84 4.84 0 01-1-.59z"/>
+          </svg>
+        </div>
+        <span class="social-icon-label">TikTok</span>
+      </div>
+
+      <!-- YouTube (Dark) -->
+      <div class="social-icon-item">
+        <div class="social-icon social-icon--dark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </div>
+        <span class="social-icon-label">YouTube</span>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

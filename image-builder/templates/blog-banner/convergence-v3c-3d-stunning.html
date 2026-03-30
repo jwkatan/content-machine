@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Convergence V3C — 3D Stunning</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 1960px;
+      height: 960px;
+      background: #0A0A16;
+      overflow: hidden;
+    }
+
+    body {
+      position: relative;
+    }
+
+    /* ── Primary center glow — massive, intense ── */
+    .center-glow {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1400px;
+      height: 900px;
+      background: radial-gradient(ellipse, rgba(94,110,255,0.55) 0%, rgba(94,110,255,0.22) 30%, rgba(94,110,255,0.06) 55%, transparent 75%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Secondary purple accent glow ── */
+    .purple-glow {
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(209,119,255,0.18) 0%, rgba(209,119,255,0.05) 40%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Warm center hotspot ── */
+    .center-hotspot {
+      position: absolute;
+      top: 44%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(197,205,255,0.12) 30%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Vignette overlay — darkens corners, preserves center brightness ── */
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 65% 65% at 50% 48%, transparent 0%, rgba(6,6,14,0.25) 55%, rgba(6,6,14,0.75) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── 3D perspective container ── */
+    .perspective-container {
+      position: absolute;
+      inset: 0;
+      perspective: 1200px;
+      perspective-origin: 50% 40%;
+      z-index: 2;
+    }
+
+    /* ── The tilted plane ── */
+    .tilted-plane {
+      position: absolute;
+      width: 1960px;
+      height: 960px;
+      transform: rotateX(42deg);
+      transform-origin: 50% 50%;
+      transform-style: preserve-3d;
+    }
+
+    /* ── Floor reflection ── */
+    .reflection-container {
+      position: absolute;
+      inset: 0;
+      perspective: 1200px;
+      perspective-origin: 50% 40%;
+      z-index: 0;
+    }
+
+    .reflection-plane {
+      position: absolute;
+      width: 1960px;
+      height: 960px;
+      transform: rotateX(42deg) scaleY(-1) translateY(-300px);
+      transform-origin: 50% 50%;
+      opacity: 0.08;
+      filter: blur(3px);
+    }
+
+    /* ── Outer scatter SVG ── */
+    .scatter-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* ── Light rays from center ── */
+    .light-rays {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ── Logo ── */
+    .logo {
+      position: absolute;
+      bottom: 48px;
+      left: 64px;
+      opacity: 0.4;
+      z-index: 10;
+    }
+
+    .logo svg {
+      width: 120px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="center-glow"></div>
+  <div class="purple-glow"></div>
+  <div class="center-hotspot"></div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- LIGHT RAYS — subtle streaks from center            -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <svg class="light-rays" viewBox="0 0 1960 960" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="rayFade" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#5E6EFF" stop-opacity="0"/>
+        <stop offset="50%" stop-color="#5E6EFF" stop-opacity="0.06"/>
+        <stop offset="100%" stop-color="#5E6EFF" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <!-- Horizontal light streaks -->
+    <rect x="0" y="446" width="1960" height="1.5" fill="url(#rayFade)" opacity="0.7"/>
+    <rect x="200" y="460" width="1560" height="1" fill="url(#rayFade)" opacity="0.5"/>
+    <rect x="400" y="475" width="1160" height="0.8" fill="url(#rayFade)" opacity="0.4"/>
+    <rect x="200" y="490" width="1560" height="1" fill="url(#rayFade)" opacity="0.5"/>
+    <rect x="0" y="505" width="1960" height="1.5" fill="url(#rayFade)" opacity="0.7"/>
+    <!-- Diagonal streaks -->
+    <line x1="580" y1="0" x2="980" y2="480" stroke="#5E6EFF" stroke-opacity="0.025" stroke-width="1.5"/>
+    <line x1="1380" y1="0" x2="980" y2="480" stroke="#5E6EFF" stroke-opacity="0.025" stroke-width="1.5"/>
+    <line x1="580" y1="960" x2="980" y2="480" stroke="#5E6EFF" stroke-opacity="0.025" stroke-width="1.5"/>
+    <line x1="1380" y1="960" x2="980" y2="480" stroke="#5E6EFF" stroke-opacity="0.025" stroke-width="1.5"/>
+  </svg>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- BACKGROUND SCATTER — flat, no perspective          -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <svg class="scatter-layer" viewBox="0 0 1960 960" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- 3D box gradient for outer nodes -->
+      <linearGradient id="boxOuter" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#8090FF"/>
+        <stop offset="50%" stop-color="#5E6EFF"/>
+        <stop offset="100%" stop-color="#3A4ACC"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Far outer micro-dots — consistent gradient fill -->
+    <rect x="49" y="49" width="2" height="2" fill="url(#boxOuter)" opacity="0.18"/>
+    <rect x="168.8" y="468.8" width="2.4" height="2.4" fill="url(#boxOuter)" opacity="0.20"/>
+    <rect x="329" y="149" width="2" height="2" fill="url(#boxOuter)" opacity="0.18"/>
+    <rect x="448.8" y="828.8" width="2.4" height="2.4" fill="url(#boxOuter)" opacity="0.16"/>
+    <rect x="1499" y="49" width="2" height="2" fill="url(#boxOuter)" opacity="0.18"/>
+    <rect x="1698.8" y="468.8" width="2.4" height="2.4" fill="url(#boxOuter)" opacity="0.20"/>
+    <rect x="1599" y="849" width="2" height="2" fill="url(#boxOuter)" opacity="0.18"/>
+    <rect x="99" y="649" width="2" height="2" fill="url(#boxOuter)" opacity="0.16"/>
+    <rect x="1858.8" y="298.8" width="2.4" height="2.4" fill="url(#boxOuter)" opacity="0.18"/>
+    <rect x="979" y="49" width="2" height="2" fill="url(#boxOuter)" opacity="0.16"/>
+    <rect x="979" y="909" width="2" height="2" fill="url(#boxOuter)" opacity="0.16"/>
+    <rect x="259" y="599" width="2" height="2" fill="url(#boxOuter)" opacity="0.18"/>
+    <rect x="1719" y="619" width="2" height="2" fill="url(#boxOuter)" opacity="0.18"/>
+    <rect x="74.2" y="249.2" width="1.6" height="1.6" fill="url(#boxOuter)" opacity="0.16"/>
+    <rect x="1899.2" y="699.2" width="1.6" height="1.6" fill="url(#boxOuter)" opacity="0.16"/>
+    <rect x="599.2" y="49.2" width="1.6" height="1.6" fill="url(#boxOuter)" opacity="0.14"/>
+    <rect x="1349.2" y="919.2" width="1.6" height="1.6" fill="url(#boxOuter)" opacity="0.14"/>
+
+    <!-- Top edge -->
+    <rect x="83" y="53" width="4" height="4" fill="url(#boxOuter)" opacity="0.28"/>
+    <rect x="208.5" y="28.5" width="3" height="3" fill="url(#boxOuter)" opacity="0.22"/>
+    <rect x="377.8" y="67.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="518.2" y="43.2" width="3.6" height="3.6" fill="url(#boxOuter)" opacity="0.26"/>
+    <rect x="688" y="63" width="4" height="4" fill="url(#boxOuter)" opacity="0.30"/>
+    <rect x="828.5" y="33.5" width="3" height="3" fill="url(#boxOuter)" opacity="0.22"/>
+    <rect x="1128.2" y="38.2" width="3.6" height="3.6" fill="url(#boxOuter)" opacity="0.26"/>
+    <rect x="1278" y="58" width="4" height="4" fill="url(#boxOuter)" opacity="0.30"/>
+    <rect x="1437.8" y="27.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="1588.5" y="53.5" width="3" height="3" fill="url(#boxOuter)" opacity="0.22"/>
+    <rect x="1758" y="43" width="4" height="4" fill="url(#boxOuter)" opacity="0.28"/>
+    <rect x="1888.2" y="68.2" width="3.6" height="3.6" fill="url(#boxOuter)" opacity="0.26"/>
+
+    <!-- Bottom edge -->
+    <rect x="93" y="908" width="4" height="4" fill="url(#boxOuter)" opacity="0.28"/>
+    <rect x="238.2" y="928.2" width="3.6" height="3.6" fill="url(#boxOuter)" opacity="0.22"/>
+    <rect x="397.8" y="892.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.30"/>
+    <rect x="558.5" y="918.5" width="3" height="3" fill="url(#boxOuter)" opacity="0.26"/>
+    <rect x="718" y="903" width="4" height="4" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="1238" y="908" width="4" height="4" fill="url(#boxOuter)" opacity="0.30"/>
+    <rect x="1418.2" y="928.2" width="3.6" height="3.6" fill="url(#boxOuter)" opacity="0.26"/>
+    <rect x="1577.8" y="897.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="1748.5" y="923.5" width="3" height="3" fill="url(#boxOuter)" opacity="0.22"/>
+    <rect x="1878" y="893" width="4" height="4" fill="url(#boxOuter)" opacity="0.28"/>
+
+    <!-- Left edge -->
+    <rect x="33" y="158" width="4" height="4" fill="url(#boxOuter)" opacity="0.26"/>
+    <rect x="53.2" y="298.2" width="3.6" height="3.6" fill="url(#boxOuter)" opacity="0.22"/>
+    <rect x="22.8" y="477.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.28"/>
+    <rect x="43.5" y="618.5" width="3" height="3" fill="url(#boxOuter)" opacity="0.22"/>
+    <rect x="28" y="778" width="4" height="4" fill="url(#boxOuter)" opacity="0.30"/>
+
+    <!-- Right edge -->
+    <rect x="1928.2" y="138.2" width="3.6" height="3.6" fill="url(#boxOuter)" opacity="0.26"/>
+    <rect x="1918" y="318" width="4" height="4" fill="url(#boxOuter)" opacity="0.22"/>
+    <rect x="1937.8" y="497.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.28"/>
+    <rect x="1913.5" y="658.5" width="3" height="3" fill="url(#boxOuter)" opacity="0.22"/>
+    <rect x="1933" y="808" width="4" height="4" fill="url(#boxOuter)" opacity="0.30"/>
+
+    <!-- Second ring -->
+    <rect x="137.5" y="127.5" width="5" height="5" fill="url(#boxOuter)" opacity="0.35"/>
+    <rect x="287.8" y="102.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="177.2" y="247.2" width="5.6" height="5.6" fill="url(#boxOuter)" opacity="0.38"/>
+    <rect x="117.7" y="397.7" width="4.6" height="4.6" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="157.5" y="557.5" width="5" height="5" fill="url(#boxOuter)" opacity="0.35"/>
+    <rect x="137.8" y="717.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="197.2" y="837.2" width="5.6" height="5.6" fill="url(#boxOuter)" opacity="0.38"/>
+    <rect x="1807.5" y="117.5" width="5" height="5" fill="url(#boxOuter)" opacity="0.35"/>
+    <rect x="1697.8" y="87.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="1777.2" y="267.2" width="5.6" height="5.6" fill="url(#boxOuter)" opacity="0.38"/>
+    <rect x="1827.7" y="427.7" width="4.6" height="4.6" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="1787.5" y="577.5" width="5" height="5" fill="url(#boxOuter)" opacity="0.35"/>
+    <rect x="1817.8" y="737.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.32"/>
+    <rect x="1757.2" y="847.2" width="5.6" height="5.6" fill="url(#boxOuter)" opacity="0.38"/>
+    <rect x="467.5" y="107.5" width="5" height="5" fill="url(#boxOuter)" opacity="0.38"/>
+    <rect x="647.8" y="127.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.35"/>
+    <rect x="1307.5" y="117.5" width="5" height="5" fill="url(#boxOuter)" opacity="0.38"/>
+    <rect x="1517.8" y="97.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.35"/>
+    <rect x="487.5" y="837.5" width="5" height="5" fill="url(#boxOuter)" opacity="0.38"/>
+    <rect x="667.8" y="857.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.35"/>
+    <rect x="1287.5" y="847.5" width="5" height="5" fill="url(#boxOuter)" opacity="0.38"/>
+    <rect x="1507.8" y="867.8" width="4.4" height="4.4" fill="url(#boxOuter)" opacity="0.35"/>
+
+    <!-- Far outer chaotic connections -->
+    <line x1="85" y1="120" x2="210" y2="195" stroke="#5E6EFF" stroke-opacity="0.12" stroke-width="0.7"/>
+    <line x1="1820" y1="90" x2="1700" y2="180" stroke="#5E6EFF" stroke-opacity="0.10" stroke-width="0.7"/>
+    <line x1="140" y1="830" x2="280" y2="740" stroke="#5E6EFF" stroke-opacity="0.12" stroke-width="0.7"/>
+    <line x1="1870" y1="860" x2="1730" y2="760" stroke="#5E6EFF" stroke-opacity="0.10" stroke-width="0.7"/>
+    <line x1="60" y1="480" x2="190" y2="430" stroke="#5E6EFF" stroke-opacity="0.10" stroke-width="0.7"/>
+    <line x1="1910" y1="500" x2="1760" y2="530" stroke="#5E6EFF" stroke-opacity="0.10" stroke-width="0.7"/>
+
+    <!-- Mid-outer connections -->
+    <line x1="290" y1="180" x2="430" y2="270" stroke="#5E6EFF" stroke-opacity="0.18" stroke-width="0.9"/>
+    <line x1="1650" y1="160" x2="1510" y2="280" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.9"/>
+    <line x1="320" y1="750" x2="470" y2="650" stroke="#5E6EFF" stroke-opacity="0.18" stroke-width="0.9"/>
+    <line x1="1600" y1="780" x2="1470" y2="670" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.9"/>
+    <line x1="250" y1="440" x2="420" y2="400" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.9"/>
+    <line x1="1720" y1="460" x2="1540" y2="490" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.9"/>
+
+    <!-- Outer flow paths -->
+    <path d="M 140,130 Q 300,200 530,310" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.8" fill="none"/>
+    <path d="M 1810,120 Q 1650,200 1430,300" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.8" fill="none"/>
+    <path d="M 200,840 Q 350,750 540,590" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.8" fill="none"/>
+    <path d="M 1760,850 Q 1600,750 1420,600" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.8" fill="none"/>
+    <path d="M 120,400 Q 300,420 510,450" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.8" fill="none"/>
+    <path d="M 1830,430 Q 1650,450 1450,460" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.8" fill="none"/>
+    <path d="M 980,50 Q 980,170 980,290" stroke="#5E6EFF" stroke-opacity="0.14" stroke-width="0.7" fill="none"/>
+    <path d="M 980,910 Q 980,790 980,670" stroke="#5E6EFF" stroke-opacity="0.14" stroke-width="0.7" fill="none"/>
+  </svg>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- VIGNETTE                                           -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="vignette"></div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- FLOOR REFLECTION                                   -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="reflection-container">
+    <svg class="reflection-plane" viewBox="0 0 1960 960" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="reflGlow" cx="50%" cy="50%" r="35%">
+          <stop offset="0%" stop-color="#5E6EFF" stop-opacity="0.15"/>
+          <stop offset="60%" stop-color="#5E6EFF" stop-opacity="0.04"/>
+          <stop offset="100%" stop-color="#5E6EFF" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="reflFilter" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
+        </filter>
+      </defs>
+      <ellipse cx="980" cy="480" rx="400" ry="300" fill="url(#reflGlow)"/>
+      <g filter="url(#reflFilter)">
+        <line x1="860" y1="340" x2="860" y2="620" stroke="#5E6EFF" stroke-opacity="0.18" stroke-width="1"/>
+        <line x1="920" y1="320" x2="920" y2="640" stroke="#5E6EFF" stroke-opacity="0.22" stroke-width="1"/>
+        <line x1="980" y1="300" x2="980" y2="660" stroke="#5E6EFF" stroke-opacity="0.28" stroke-width="1"/>
+        <line x1="1040" y1="320" x2="1040" y2="640" stroke="#5E6EFF" stroke-opacity="0.22" stroke-width="1"/>
+        <line x1="1100" y1="340" x2="1100" y2="620" stroke="#5E6EFF" stroke-opacity="0.18" stroke-width="1"/>
+        <line x1="780" y1="420" x2="1180" y2="420" stroke="#5E6EFF" stroke-opacity="0.18" stroke-width="1"/>
+        <line x1="770" y1="480" x2="1190" y2="480" stroke="#5E6EFF" stroke-opacity="0.22" stroke-width="1"/>
+        <line x1="780" y1="540" x2="1180" y2="540" stroke="#5E6EFF" stroke-opacity="0.18" stroke-width="1"/>
+        <rect x="974" y="474" width="12" height="12" fill="#5E6EFF" opacity="0.55"/>
+        <rect x="916" y="476" width="8" height="8" fill="#5E6EFF" opacity="0.45"/>
+        <rect x="1036" y="476" width="8" height="8" fill="#5E6EFF" opacity="0.45"/>
+        <rect x="976" y="416" width="8" height="8" fill="#5E6EFF" opacity="0.40"/>
+        <rect x="976" y="536" width="8" height="8" fill="#5E6EFF" opacity="0.40"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- 3D PERSPECTIVE PLANE — the tilted convergence grid -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="perspective-container">
+    <svg class="tilted-plane" viewBox="0 0 1960 960" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Radial glow for center attraction — intense -->
+        <radialGradient id="coreGlow" cx="50%" cy="50%" r="38%">
+          <stop offset="0%" stop-color="#5E6EFF" stop-opacity="0.35"/>
+          <stop offset="40%" stop-color="#5E6EFF" stop-opacity="0.12"/>
+          <stop offset="70%" stop-color="#5E6EFF" stop-opacity="0.03"/>
+          <stop offset="100%" stop-color="#5E6EFF" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- 3D box gradient — lighter top-left, darker bottom-right -->
+        <linearGradient id="box3d" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#A0ADFF"/>
+          <stop offset="35%" stop-color="#7A8AFF"/>
+          <stop offset="65%" stop-color="#5E6EFF"/>
+          <stop offset="100%" stop-color="#3A4ACC"/>
+        </linearGradient>
+
+        <!-- Brighter 3D box for inner nodes -->
+        <linearGradient id="box3dBright" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#C5CDFF"/>
+          <stop offset="30%" stop-color="#A0ADFF"/>
+          <stop offset="60%" stop-color="#7A8AFF"/>
+          <stop offset="100%" stop-color="#5060DD"/>
+        </linearGradient>
+
+        <!-- Center node gradient — white-hot -->
+        <linearGradient id="box3dCore" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="25%" stop-color="#E0E4FF"/>
+          <stop offset="55%" stop-color="#C5CDFF"/>
+          <stop offset="100%" stop-color="#8090FF"/>
+        </linearGradient>
+
+        <!-- Consistent bloom applied to grid groups -->
+        <filter id="gridBloom" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="bloom"/>
+          <feMerge>
+            <feMergeNode in="bloom"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+
+        <!-- Intense bloom for center cluster -->
+        <filter id="centerBloom" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="bloom1"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="bloom2"/>
+          <feMerge>
+            <feMergeNode in="bloom1"/>
+            <feMergeNode in="bloom2"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+
+        <!-- Subtle line glow -->
+        <filter id="lineGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.5"/>
+        </filter>
+
+        <!-- Consistent depth shadow for ALL grid nodes -->
+        <filter id="nodeShadow" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
+        </filter>
+      </defs>
+
+      <!-- Background glow disc -->
+      <ellipse cx="980" cy="480" rx="520" ry="420" fill="url(#coreGlow)"/>
+
+      <!-- ════════════════════════════════════════════ -->
+      <!-- GRID LINES — brighter, with glow            -->
+      <!-- ════════════════════════════════════════════ -->
+
+      <!-- Glowed grid lines layer -->
+      <g filter="url(#lineGlow)" opacity="0.5">
+        <line x1="800" y1="340" x2="800" y2="620" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="860" y1="320" x2="860" y2="640" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="920" y1="300" x2="920" y2="660" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="980" y1="280" x2="980" y2="680" stroke="#5E6EFF" stroke-width="1.2"/>
+        <line x1="1040" y1="300" x2="1040" y2="660" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="1100" y1="320" x2="1100" y2="640" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="1160" y1="340" x2="1160" y2="620" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="740" y1="350" x2="1220" y2="350" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="730" y1="390" x2="1230" y2="390" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="720" y1="430" x2="1240" y2="430" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="710" y1="480" x2="1250" y2="480" stroke="#5E6EFF" stroke-width="1.2"/>
+        <line x1="720" y1="530" x2="1240" y2="530" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="730" y1="570" x2="1230" y2="570" stroke="#5E6EFF" stroke-width="1"/>
+        <line x1="740" y1="610" x2="1220" y2="610" stroke="#5E6EFF" stroke-width="1"/>
+      </g>
+
+      <!-- Sharp grid lines on top -->
+      <line x1="800" y1="340" x2="800" y2="620" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.8"/>
+      <line x1="860" y1="320" x2="860" y2="640" stroke="#5E6EFF" stroke-opacity="0.24" stroke-width="1"/>
+      <line x1="920" y1="300" x2="920" y2="660" stroke="#5E6EFF" stroke-opacity="0.32" stroke-width="1"/>
+      <line x1="980" y1="280" x2="980" y2="680" stroke="#5E6EFF" stroke-opacity="0.42" stroke-width="1.2"/>
+      <line x1="1040" y1="300" x2="1040" y2="660" stroke="#5E6EFF" stroke-opacity="0.32" stroke-width="1"/>
+      <line x1="1100" y1="320" x2="1100" y2="640" stroke="#5E6EFF" stroke-opacity="0.24" stroke-width="1"/>
+      <line x1="1160" y1="340" x2="1160" y2="620" stroke="#5E6EFF" stroke-opacity="0.16" stroke-width="0.8"/>
+
+      <line x1="740" y1="350" x2="1220" y2="350" stroke="#5E6EFF" stroke-opacity="0.14" stroke-width="0.8"/>
+      <line x1="730" y1="390" x2="1230" y2="390" stroke="#5E6EFF" stroke-opacity="0.20" stroke-width="0.9"/>
+      <line x1="720" y1="430" x2="1240" y2="430" stroke="#5E6EFF" stroke-opacity="0.28" stroke-width="1"/>
+      <line x1="710" y1="480" x2="1250" y2="480" stroke="#5E6EFF" stroke-opacity="0.38" stroke-width="1.2"/>
+      <line x1="720" y1="530" x2="1240" y2="530" stroke="#5E6EFF" stroke-opacity="0.28" stroke-width="1"/>
+      <line x1="730" y1="570" x2="1230" y2="570" stroke="#5E6EFF" stroke-opacity="0.20" stroke-width="0.9"/>
+      <line x1="740" y1="610" x2="1220" y2="610" stroke="#5E6EFF" stroke-opacity="0.14" stroke-width="0.8"/>
+
+      <!-- ════════════════════════════════════════════ -->
+      <!-- CONNECTION LINES — flowing toward grid       -->
+      <!-- ════════════════════════════════════════════ -->
+
+      <line x1="500" y1="280" x2="650" y2="340" stroke="#5E6EFF" stroke-opacity="0.26" stroke-width="1.0"/>
+      <line x1="1400" y1="260" x2="1270" y2="340" stroke="#5E6EFF" stroke-opacity="0.24" stroke-width="1.0"/>
+      <line x1="530" y1="650" x2="680" y2="580" stroke="#5E6EFF" stroke-opacity="0.26" stroke-width="1.0"/>
+      <line x1="1420" y1="680" x2="1280" y2="590" stroke="#5E6EFF" stroke-opacity="0.24" stroke-width="1.0"/>
+      <line x1="480" y1="460" x2="650" y2="450" stroke="#5E6EFF" stroke-opacity="0.22" stroke-width="1.0"/>
+      <line x1="1460" y1="490" x2="1300" y2="480" stroke="#5E6EFF" stroke-opacity="0.22" stroke-width="1.0"/>
+
+      <line x1="700" y1="350" x2="800" y2="370" stroke="#5E6EFF" stroke-opacity="0.40" stroke-width="1.2"/>
+      <line x1="1220" y1="340" x2="1160" y2="370" stroke="#5E6EFF" stroke-opacity="0.38" stroke-width="1.2"/>
+      <line x1="720" y1="570" x2="800" y2="555" stroke="#5E6EFF" stroke-opacity="0.40" stroke-width="1.2"/>
+      <line x1="1240" y1="590" x2="1160" y2="560" stroke="#5E6EFF" stroke-opacity="0.38" stroke-width="1.2"/>
+      <line x1="730" y1="460" x2="800" y2="480" stroke="#5E6EFF" stroke-opacity="0.44" stroke-width="1.2"/>
+      <line x1="1250" y1="470" x2="1160" y2="480" stroke="#5E6EFF" stroke-opacity="0.44" stroke-width="1.2"/>
+
+      <!-- Flow paths into grid -->
+      <path d="M 310,220 Q 500,290 680,350" stroke="#5E6EFF" stroke-opacity="0.24" stroke-width="0.9" fill="none"/>
+      <path d="M 680,350 Q 740,365 800,380" stroke="#5E6EFF" stroke-opacity="0.40" stroke-width="1.1" fill="none"/>
+      <path d="M 1540,260 Q 1400,310 1270,360" stroke="#5E6EFF" stroke-opacity="0.24" stroke-width="0.9" fill="none"/>
+      <path d="M 1270,360 Q 1215,370 1160,380" stroke="#5E6EFF" stroke-opacity="0.40" stroke-width="1.1" fill="none"/>
+      <path d="M 410,740 Q 560,660 690,540" stroke="#5E6EFF" stroke-opacity="0.24" stroke-width="0.9" fill="none"/>
+      <path d="M 690,540 Q 745,510 800,480" stroke="#5E6EFF" stroke-opacity="0.40" stroke-width="1.1" fill="none"/>
+      <path d="M 1550,750 Q 1400,660 1280,550" stroke="#5E6EFF" stroke-opacity="0.24" stroke-width="0.9" fill="none"/>
+      <path d="M 1280,550 Q 1220,515 1160,480" stroke="#5E6EFF" stroke-opacity="0.40" stroke-width="1.1" fill="none"/>
+      <path d="M 510,450 Q 600,460 700,455" stroke="#5E6EFF" stroke-opacity="0.28" stroke-width="1.0" fill="none"/>
+      <path d="M 700,455 Q 750,468 800,480" stroke="#5E6EFF" stroke-opacity="0.44" stroke-width="1.1" fill="none"/>
+      <path d="M 1450,460 Q 1350,470 1260,465" stroke="#5E6EFF" stroke-opacity="0.28" stroke-width="1.0" fill="none"/>
+      <path d="M 1260,465 Q 1210,473 1160,480" stroke="#5E6EFF" stroke-opacity="0.44" stroke-width="1.1" fill="none"/>
+      <path d="M 980,280 Q 980,335 980,380" stroke="#5E6EFF" stroke-opacity="0.38" stroke-width="1.1" fill="none"/>
+      <path d="M 980,680 Q 980,645 980,610" stroke="#5E6EFF" stroke-opacity="0.38" stroke-width="1.1" fill="none"/>
+
+      <!-- ════════════════════════════════════════════ -->
+      <!-- NODES — third ring (transitional)            -->
+      <!-- ALL use box3d gradient, NO individual filters -->
+      <!-- ════════════════════════════════════════════ -->
+
+      <rect x="307" y="217" width="6" height="6" fill="url(#box3d)" opacity="0.48"/>
+      <rect x="417.2" y="267.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.50"/>
+      <rect x="276.8" y="376.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.46"/>
+      <rect x="337.2" y="517.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.48"/>
+      <rect x="297" y="677" width="6" height="6" fill="url(#box3d)" opacity="0.48"/>
+      <rect x="407.2" y="737.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.50"/>
+      <rect x="1647" y="197" width="6" height="6" fill="url(#box3d)" opacity="0.48"/>
+      <rect x="1537.2" y="257.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.50"/>
+      <rect x="1676.8" y="396.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.46"/>
+      <rect x="1617.2" y="537.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.48"/>
+      <rect x="1657" y="697" width="6" height="6" fill="url(#box3d)" opacity="0.48"/>
+      <rect x="1547.2" y="747.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.50"/>
+      <rect x="597" y="187" width="6" height="6" fill="url(#box3d)" opacity="0.50"/>
+      <rect x="777.2" y="167.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.48"/>
+      <rect x="1177" y="177" width="6" height="6" fill="url(#box3d)" opacity="0.50"/>
+      <rect x="1367.2" y="197.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.48"/>
+      <rect x="617" y="767" width="6" height="6" fill="url(#box3d)" opacity="0.50"/>
+      <rect x="797.2" y="787.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.48"/>
+      <rect x="1157" y="777" width="6" height="6" fill="url(#box3d)" opacity="0.50"/>
+      <rect x="1357.2" y="757.2" width="5.6" height="5.6" fill="url(#box3d)" opacity="0.48"/>
+
+      <!-- ════════════════════════════════════════════ -->
+      <!-- NODES — fourth ring (approaching grid)       -->
+      <!-- All use box3d gradient, NO individual filters -->
+      <!-- ════════════════════════════════════════════ -->
+
+      <rect x="526.5" y="306.5" width="7" height="7" fill="url(#box3d)" opacity="0.62"/>
+      <rect x="506.8" y="446.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.58"/>
+      <rect x="536.5" y="586.5" width="7" height="7" fill="url(#box3d)" opacity="0.62"/>
+      <rect x="516.8" y="676.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.58"/>
+      <rect x="1426.5" y="296.5" width="7" height="7" fill="url(#box3d)" opacity="0.62"/>
+      <rect x="1446.8" y="456.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.58"/>
+      <rect x="1416.5" y="596.5" width="7" height="7" fill="url(#box3d)" opacity="0.62"/>
+      <rect x="1436.8" y="686.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.58"/>
+      <rect x="716.5" y="246.5" width="7" height="7" fill="url(#box3d)" opacity="0.62"/>
+      <rect x="896.8" y="236.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.58"/>
+      <rect x="1056.5" y="246.5" width="7" height="7" fill="url(#box3d)" opacity="0.62"/>
+      <rect x="1236.8" y="256.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.58"/>
+      <rect x="736.5" y="706.5" width="7" height="7" fill="url(#box3d)" opacity="0.62"/>
+      <rect x="916.8" y="716.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.58"/>
+      <rect x="1046.5" y="706.5" width="7" height="7" fill="url(#box3d)" opacity="0.62"/>
+      <rect x="1226.8" y="696.8" width="6.4" height="6.4" fill="url(#box3d)" opacity="0.58"/>
+
+      <!-- ════════════════════════════════════════════ -->
+      <!-- NODES — inner zone (near-grid, bright)       -->
+      <!-- All use box3dBright gradient                  -->
+      <!-- ════════════════════════════════════════════ -->
+
+      <rect x="676.2" y="346.2" width="7.6" height="7.6" fill="url(#box3dBright)" opacity="0.78"/>
+      <rect x="696.5" y="446.5" width="7" height="7" fill="url(#box3dBright)" opacity="0.75"/>
+      <rect x="686.2" y="536.2" width="7.6" height="7.6" fill="url(#box3dBright)" opacity="0.78"/>
+      <rect x="706.5" y="616.5" width="7" height="7" fill="url(#box3dBright)" opacity="0.75"/>
+      <rect x="1266.2" y="356.2" width="7.6" height="7.6" fill="url(#box3dBright)" opacity="0.78"/>
+      <rect x="1256.5" y="456.5" width="7" height="7" fill="url(#box3dBright)" opacity="0.75"/>
+      <rect x="1276.2" y="546.2" width="7.6" height="7.6" fill="url(#box3dBright)" opacity="0.78"/>
+      <rect x="1246.5" y="626.5" width="7" height="7" fill="url(#box3dBright)" opacity="0.75"/>
+      <rect x="856.2" y="286.2" width="7.6" height="7.6" fill="url(#box3dBright)" opacity="0.78"/>
+      <rect x="976" y="276" width="8" height="8" fill="url(#box3dBright)" opacity="0.82"/>
+      <rect x="1096.2" y="286.2" width="7.6" height="7.6" fill="url(#box3dBright)" opacity="0.78"/>
+      <rect x="856.2" y="666.2" width="7.6" height="7.6" fill="url(#box3dBright)" opacity="0.78"/>
+      <rect x="976" y="676" width="8" height="8" fill="url(#box3dBright)" opacity="0.82"/>
+      <rect x="1096.2" y="666.2" width="7.6" height="7.6" fill="url(#box3dBright)" opacity="0.78"/>
+
+      <!-- ════════════════════════════════════════════ -->
+      <!-- CENTER GRID — 8 rows with foreshortening     -->
+      <!-- Consistent box3dBright gradient, NO per-element filters -->
+      <!-- Group-level bloom applied to entire grid      -->
+      <!-- ════════════════════════════════════════════ -->
+
+      <!-- Depth shadows — group level -->
+      <g opacity="0.22">
+        <rect x="968" y="476" width="24" height="24" fill="#5E6EFF" filter="url(#nodeShadow)"/>
+        <rect x="912" y="480" width="16" height="16" fill="#5E6EFF" filter="url(#nodeShadow)"/>
+        <rect x="1032" y="480" width="16" height="16" fill="#5E6EFF" filter="url(#nodeShadow)"/>
+        <rect x="854" y="482" width="12" height="12" fill="#5E6EFF" filter="url(#nodeShadow)"/>
+        <rect x="1094" y="482" width="12" height="12" fill="#5E6EFF" filter="url(#nodeShadow)"/>
+      </g>
+
+      <!-- Outer grid rows — consistent bloom -->
+      <g filter="url(#gridBloom)">
+        <!-- Row 1 (back — farthest) -->
+        <rect x="858.6" y="348.6" width="3.9" height="3.9" fill="url(#box3dBright)" opacity="0.65"/>
+        <rect x="895.9" y="348.9" width="4.2" height="4.2" fill="url(#box3dBright)" opacity="0.68"/>
+        <rect x="933.8" y="348.8" width="4.5" height="4.5" fill="url(#box3dBright)" opacity="0.72"/>
+        <rect x="960.6" y="348.6" width="4.9" height="4.9" fill="url(#box3dBright)" opacity="0.75"/>
+        <rect x="995.6" y="348.6" width="4.9" height="4.9" fill="url(#box3dBright)" opacity="0.75"/>
+        <rect x="1033.8" y="348.8" width="4.5" height="4.5" fill="url(#box3dBright)" opacity="0.72"/>
+        <rect x="1070.9" y="348.9" width="4.2" height="4.2" fill="url(#box3dBright)" opacity="0.68"/>
+        <rect x="1106.6" y="348.6" width="3.9" height="3.9" fill="url(#box3dBright)" opacity="0.65"/>
+
+        <!-- Row 7 (front — closest) -->
+        <rect x="823" y="607" width="7.4" height="7.4" fill="url(#box3dBright)" opacity="0.68"/>
+        <rect x="870" y="607" width="7.8" height="7.8" fill="url(#box3dBright)" opacity="0.72"/>
+        <rect x="916.2" y="606.2" width="8.4" height="8.4" fill="url(#box3dBright)" opacity="0.75"/>
+        <rect x="953.8" y="605.8" width="8.8" height="8.8" fill="url(#box3dBright)" opacity="0.78"/>
+        <rect x="996.8" y="605.8" width="8.8" height="8.8" fill="url(#box3dBright)" opacity="0.78"/>
+        <rect x="1036.2" y="606.2" width="8.4" height="8.4" fill="url(#box3dBright)" opacity="0.75"/>
+        <rect x="1080" y="607" width="7.8" height="7.8" fill="url(#box3dBright)" opacity="0.72"/>
+        <rect x="1124" y="607" width="7.4" height="7.4" fill="url(#box3dBright)" opacity="0.68"/>
+      </g>
+
+      <!-- Inner grid rows — intense center bloom -->
+      <g filter="url(#centerBloom)">
+        <!-- Row 2 -->
+        <rect x="843.8" y="387.8" width="5.4" height="5.4" fill="url(#box3dBright)" opacity="0.75"/>
+        <rect x="882" y="387" width="6" height="6" fill="url(#box3dBright)" opacity="0.82"/>
+        <rect x="921.4" y="386.4" width="6.3" height="6.3" fill="url(#box3dBright)" opacity="0.88"/>
+        <rect x="956.7" y="386.7" width="6.6" height="6.6" fill="url(#box3dBright)" opacity="0.92"/>
+        <rect x="996.7" y="386.7" width="6.6" height="6.6" fill="url(#box3dBright)" opacity="0.92"/>
+        <rect x="1036.4" y="386.4" width="6.3" height="6.3" fill="url(#box3dBright)" opacity="0.88"/>
+        <rect x="1078" y="387" width="6" height="6" fill="url(#box3dBright)" opacity="0.82"/>
+        <rect x="1118.8" y="387.8" width="5.4" height="5.4" fill="url(#box3dBright)" opacity="0.75"/>
+
+        <!-- Row 3 -->
+        <rect x="828.5" y="426.5" width="7" height="7" fill="url(#box3dBright)" opacity="0.82"/>
+        <rect x="869" y="426" width="8" height="8" fill="url(#box3dBright)" opacity="0.90"/>
+        <rect x="912.5" y="425.5" width="9" height="9" fill="url(#box3dBright)" opacity="0.95"/>
+        <rect x="950.2" y="425.2" width="9.6" height="9.6" fill="url(#box3dBright)" opacity="1.0"/>
+        <rect x="1000.2" y="425.2" width="9.6" height="9.6" fill="url(#box3dBright)" opacity="1.0"/>
+        <rect x="1032.5" y="425.5" width="9" height="9" fill="url(#box3dBright)" opacity="0.95"/>
+        <rect x="1082" y="426" width="8" height="8" fill="url(#box3dBright)" opacity="0.90"/>
+        <rect x="1131.5" y="426.5" width="7" height="7" fill="url(#box3dBright)" opacity="0.82"/>
+
+        <!-- Row 4 — CENTER ROW -->
+        <rect x="804" y="476" width="8" height="8" fill="url(#box3dBright)" opacity="0.88"/>
+        <rect x="854.5" y="475.5" width="9" height="9" fill="url(#box3dBright)" opacity="0.95"/>
+        <rect x="909.8" y="474.8" width="10.4" height="10.4" fill="url(#box3dBright)" opacity="1.0"/>
+        <rect x="950.2" y="474.2" width="11.6" height="11.6" fill="url(#box3dCore)" opacity="1.0"/>
+        <rect x="998.2" y="474.2" width="11.6" height="11.6" fill="url(#box3dCore)" opacity="1.0"/>
+        <rect x="1029.8" y="474.8" width="10.4" height="10.4" fill="url(#box3dBright)" opacity="1.0"/>
+        <rect x="1085.5" y="475.5" width="9" height="9" fill="url(#box3dBright)" opacity="0.95"/>
+        <rect x="1142" y="476" width="8" height="8" fill="url(#box3dBright)" opacity="0.88"/>
+
+        <!-- Dead center node — white-hot, large -->
+        <rect x="971" y="471" width="18" height="18" fill="url(#box3dCore)" opacity="1.0"/>
+
+        <!-- Row 5 -->
+        <rect x="828.5" y="526.5" width="7" height="7" fill="url(#box3dBright)" opacity="0.82"/>
+        <rect x="869" y="526" width="8" height="8" fill="url(#box3dBright)" opacity="0.90"/>
+        <rect x="912.5" y="525.5" width="9" height="9" fill="url(#box3dBright)" opacity="0.95"/>
+        <rect x="950.2" y="525.2" width="9.6" height="9.6" fill="url(#box3dBright)" opacity="1.0"/>
+        <rect x="1000.2" y="525.2" width="9.6" height="9.6" fill="url(#box3dBright)" opacity="1.0"/>
+        <rect x="1032.5" y="525.5" width="9" height="9" fill="url(#box3dBright)" opacity="0.95"/>
+        <rect x="1082" y="526" width="8" height="8" fill="url(#box3dBright)" opacity="0.90"/>
+        <rect x="1131.5" y="526.5" width="7" height="7" fill="url(#box3dBright)" opacity="0.82"/>
+
+        <!-- Row 6 -->
+        <rect x="843.8" y="567.8" width="5.4" height="5.4" fill="url(#box3dBright)" opacity="0.75"/>
+        <rect x="882" y="567" width="6" height="6" fill="url(#box3dBright)" opacity="0.82"/>
+        <rect x="921.4" y="566.4" width="6.3" height="6.3" fill="url(#box3dBright)" opacity="0.88"/>
+        <rect x="956.7" y="566.7" width="6.6" height="6.6" fill="url(#box3dBright)" opacity="0.92"/>
+        <rect x="996.7" y="566.7" width="6.6" height="6.6" fill="url(#box3dBright)" opacity="0.92"/>
+        <rect x="1036.4" y="566.4" width="6.3" height="6.3" fill="url(#box3dBright)" opacity="0.88"/>
+        <rect x="1078" y="567" width="6" height="6" fill="url(#box3dBright)" opacity="0.82"/>
+        <rect x="1118.8" y="567.8" width="5.4" height="5.4" fill="url(#box3dBright)" opacity="0.75"/>
+      </g>
+
+    </svg>
+  </div>
+
+  <!-- Swimm logo -->
+  <div class="logo">
+    <svg width="1391" height="421" viewBox="0 0 1391 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M648.688 0C636.746 0 626.714 4.3105 618.594 12.4527C610.473 21.0739 606.174 31.1319 606.174 43.1057C606.174 55.0795 610.473 65.1376 618.594 73.2798C626.714 81.422 636.746 85.7325 648.688 85.7325C660.629 85.7325 670.661 81.422 678.781 73.2798C686.902 65.1376 691.201 55.0795 691.201 43.1057C691.201 31.1319 686.902 21.0739 678.781 12.4527C670.661 3.83155 660.629 0 648.688 0ZM1380.01 196.371C1373.8 181.523 1365.68 169.549 1355.65 161.407C1345.62 152.786 1335.11 147.039 1323.65 143.686C1312.18 140.333 1301.2 138.896 1291.17 138.896C1283.52 138.896 1275.88 139.854 1267.76 141.291C1259.64 143.207 1252 145.602 1244.35 148.954C1236.71 152.307 1230.02 157.097 1223.81 162.365C1217.6 167.634 1211.87 173.86 1207.57 181.044C1202.32 172.902 1196.58 166.197 1189.9 160.449C1188.46 159.491 1187.03 158.055 1185.6 157.097C1177 150.87 1167.92 146.081 1157.89 143.207C1146.43 139.854 1135.44 138.418 1125.41 138.418C1117.77 138.418 1110.12 139.375 1102 140.812C1093.88 142.728 1086.24 145.123 1078.6 148.476C1070.96 151.828 1064.27 156.618 1058.06 161.886C1051.85 167.155 1046.12 173.381 1041.82 180.565C1036.56 172.423 1030.83 165.718 1024.14 159.97C1022.71 159.013 1021.28 157.576 1019.84 156.618C1014.59 152.786 1009.33 149.433 1003.6 146.56C996.438 143.207 989.272 140.812 981.63 139.375C973.987 137.939 967.299 137.46 960.134 137.46C947.236 137.46 934.817 139.854 923.353 144.165C911.888 148.476 901.857 155.181 893.259 163.323L882.272 137.46H816.353V414.295H893.736V268.214C893.736 247.14 898.036 231.334 906.634 221.276C915.232 211.218 924.786 206.429 935.772 206.429C950.58 206.429 962.045 210.74 969.688 219.84C977.33 228.94 981.63 244.266 981.63 267.256V414.774H1059.01V266.777C1059.01 254.803 1060.45 245.224 1062.83 237.082C1065.22 229.419 1068.57 223.192 1072.87 218.882C1077.17 214.571 1081.46 211.218 1086.72 209.303C1091.97 207.387 1097.23 206.429 1102.48 206.429C1108.21 206.429 1113.47 207.387 1119.2 209.303C1124.46 211.218 1129.23 214.571 1133.53 219.361C1137.83 224.15 1140.7 230.377 1143.56 238.04C1145.95 245.703 1147.38 255.282 1147.38 266.298V413.816H1225.25V265.819C1225.25 253.845 1226.68 244.266 1229.07 236.124C1231.46 228.461 1234.8 222.234 1239.1 217.924C1243.4 213.613 1247.7 210.261 1252.95 208.345C1258.21 206.429 1263.46 205.471 1268.71 205.471C1274.45 205.471 1279.7 206.429 1285.43 208.345C1290.69 210.261 1295.46 213.613 1299.76 218.403C1304.06 223.192 1306.93 229.419 1309.79 237.082C1312.18 244.745 1313.62 254.324 1313.62 265.34V412.858H1391V250.972C1391 227.982 1387.66 208.824 1381.45 193.976L1380.01 196.371ZM721.295 261.03L709.83 221.755L685.946 138.896H606.652L648.688 277.793L690.245 415.253H766.674L744.701 339.578L721.772 261.03H721.295ZM437.554 138.418L381.665 338.62L323.866 138.418H244.572L328.165 415.253H425.612L465.737 282.104L470.036 242.35L473.857 282.104L513.982 415.253H535.478L557.451 339.578L501.562 138.418H437.076H437.554ZM159.545 256.719C169.098 260.551 177.219 264.861 184.384 270.13C204.924 284.498 214.955 305.093 214.955 331.915C214.955 344.368 212.089 355.862 206.357 366.399C200.625 377.415 192.504 386.515 182.473 394.658C172.442 402.8 160.5 409.026 147.125 413.816C133.75 418.605 119.42 421 104.134 421C92.6696 421 81.2054 419.563 70.2188 416.689C59.2322 413.816 49.201 409.505 39.6474 404.237C30.0938 398.968 21.9732 392.742 15.2857 385.558C8.5982 378.373 3.34375 370.231 0 361.131C8.59821 356.82 18.1517 352.51 28.6606 347.241C39.1696 342.452 48.2454 337.662 55.8883 333.352C59.232 339.099 64.4866 343.889 71.6518 348.678C78.817 353.468 88.3706 355.862 100.79 355.862C113.21 355.862 122.763 352.989 128.973 346.762C134.705 341.015 138.049 335.267 138.049 329.999C138.049 326.167 136.138 322.815 131.839 319.462C127.54 316.109 123.241 313.714 117.987 311.799C110.344 308.925 104.134 307.488 99.3572 307.009C94.5804 307.009 88.8484 305.572 82.6385 304.135C62.576 299.346 47.2903 293.119 36.3037 284.977C25.7947 276.835 18.152 268.693 12.8975 260.551C8.12074 252.408 5.25439 244.745 4.77671 237.082C4.29903 229.419 3.82152 223.671 3.82152 219.361C3.82152 207.387 6.20972 195.892 11.4642 185.355C16.7186 174.339 23.884 165.239 32.9599 157.097C42.0358 148.954 52.5447 142.728 64.9643 137.938C76.9063 133.149 90.2812 130.754 103.656 130.754C115.12 130.754 126.107 132.191 136.616 135.544C147.125 138.896 156.679 143.686 165.277 149.433C173.875 155.181 181.04 162.365 187.25 170.507C193.46 178.65 197.759 187.75 201.103 197.808L141.393 217.924C139.004 211.218 134.705 205.95 127.54 201.639C120.853 197.329 113.21 195.413 105.567 195.413C97.9241 195.413 91.2365 197.808 86.4597 203.076C81.6829 208.345 79.2948 213.613 79.2948 218.882C79.2948 225.108 81.6829 229.898 86.4597 233.729C91.2365 237.082 96.0133 239.956 101.745 241.392C106.045 242.35 109.866 242.829 113.687 243.308C117.509 243.787 121.33 244.745 125.152 245.224C138.049 248.098 149.513 251.45 159.067 255.282L159.545 256.719Z" fill="white"/>
+    </svg>
+  </div>
+
+</body>
+</html>

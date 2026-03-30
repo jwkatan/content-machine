@@ -1,0 +1,19 @@
+name: "AI Stages Progression"
+description: "Three-column infographic showing the progression from Autocomplete to AI Assistant to AI Agent, and how human oversight consolidates at the final gate."
+
+use_cases:
+  - blog-infographic
+  - thought-leadership
+  - diagram
+  - progression
+  - stages
+
+output:
+  width: 900
+  height: 380
+  format: png
+  lossless: true
+  background: white
+
+inputs:
+  static: true

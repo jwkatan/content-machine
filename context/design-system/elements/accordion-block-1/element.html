@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion Block 1 — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Accordion Block 1 — Element Styles
+       Figma node 3914:6941 (Active Desktop state)
+       ============================================================
+       Vertical stack of expandable items. Default is 70px
+       collapsed with light gradient; Active is 192px expanded
+       with dark blue-800/blue-900 gradient and decorative
+       dot-matrix visual accent in the top-right corner.
+       ============================================================ */
+
+    body {
+      background: var(--bg-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- Stack Container --- */
+    .accordion-stack {
+      display: flex;
+      flex-direction: column;
+      width: 648px;
+      max-width: 100%;
+    }
+
+    /* --- Individual Block (Default / Collapsed) --- */
+    .accordion-block {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 70px;
+      cursor: pointer;
+      isolation: isolate;
+      transition: height 0.35s ease;
+
+      /*
+       * Default state: light radial gradient from Figma
+       * Stops: gray-150 50% -> blue-200 75% -> gray-250 100%
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 648 70' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(42.799 7 -37.553 8.3612 220.01 0)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+    }
+
+    /* --- Hover State --- */
+    .accordion-block:hover:not(.accordion-block--active) {
+      filter: brightness(0.96);
+    }
+
+    /* --- Active State --- */
+    .accordion-block--active {
+      height: 192px;
+
+      /*
+       * Active state: dark diagonal gradient from Figma
+       * linear-gradient(222deg, blue-800 24.153%, blue-900 60.201%)
+       */
+      background-image: linear-gradient(
+        222deg,
+        var(--blue-800) 24.153%,
+        var(--blue-900) 60.201%
+      );
+    }
+
+    /* --- Decorative Visual Accent (dot-matrix pattern) --- */
+    .accordion-block__accent {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 648px;
+      height: 148px;
+      overflow: hidden;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .accordion-block--active .accordion-block__accent {
+      opacity: 1;
+    }
+
+    /*
+     * The dot-matrix pattern uses a radial gradient with a mask.
+     * Approximated with a repeating dot pattern in CSS.
+     */
+    .accordion-block__accent-inner {
+      position: absolute;
+      top: 0;
+      left: 204px;
+      width: 444px;
+      height: 156px;
+
+      /*
+       * Accent gradient from Figma (radial, warm-to-cool spectrum):
+       * gray-50 -> yellow-200 -> pink-400 -> blue-700 -> transparent
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 444 156' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-10.324 15.723 -38.511 -2.2999 463.52 -23.778)'><stop stop-color='rgba(253,252,254,1)' offset='0'/><stop stop-color='rgba(255,223,187,1)' offset='0.1127'/><stop stop-color='rgba(233,157,177,1)' offset='0.32298'/><stop stop-color='rgba(187,141,197,1)' offset='0.36294'/><stop stop-color='rgba(142,124,216,1)' offset='0.40291'/><stop stop-color='rgba(96,108,236,1)' offset='0.44288'/><stop stop-color='rgba(50,91,255,1)' offset='0.48285'/><stop stop-color='rgba(50,91,255,0)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+
+      /*
+       * Dot-matrix mask — creates the pixel-grid visual effect.
+       * Each dot is ~6px with 2px spacing.
+       */
+      -webkit-mask-image: radial-gradient(circle 3px at 4px 4px, black 100%, transparent 100%);
+      mask-image: radial-gradient(circle 3px at 4px 4px, black 100%, transparent 100%);
+      -webkit-mask-size: 8px 8px;
+      mask-size: 8px 8px;
+      -webkit-mask-repeat: repeat;
+      mask-repeat: repeat;
+    }
+
+    /* --- Text Container --- */
+    .accordion-block__text {
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 0;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: center;
+      padding: var(--sp-3) var(--sp-3) var(--sp-3) var(--sp-3);
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+    }
+
+    /* --- Active text: push content to bottom-left --- */
+    .accordion-block--active .accordion-block__text {
+      padding: 70px 194px var(--sp-3) var(--sp-3);
+    }
+
+    /* --- Title --- */
+    .accordion-block__title {
+      font-family: var(--title-font);
+      font-size: var(--h4-size);
+      font-weight: var(--h4-weight);
+      line-height: var(--h4-lh);
+      color: var(--text-heading-light);
+      white-space: nowrap;
+    }
+
+    .accordion-block--active .accordion-block__title {
+      color: var(--gray-50);
+    }
+
+    /* --- Content (description text) --- */
+    .accordion-block__content {
+      font-family: var(--text-font);
+      font-size: var(--p4-size);
+      font-weight: var(--p4-weight);
+      line-height: var(--p4-lh);
+      color: var(--blue-300);
+      width: 100%;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+    }
+
+    .accordion-block--active .accordion-block__content {
+      opacity: 1;
+      max-height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="accordion-stack">
+
+    <!-- Block 1 (Active / Expanded) -->
+    <div class="accordion-block accordion-block--active">
+      <div class="accordion-block__accent">
+        <div class="accordion-block__accent-inner"></div>
+      </div>
+
+      <div class="accordion-block__text">
+        <!-- SWAPPABLE: title -->
+        <h4 class="accordion-block__title">Complete, systematic</h4>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: content -->
+        <p class="accordion-block__content">Entire applications in their complete depth, deterministically without fragmented or anecdotal explanations.</p>
+        <!-- /SWAPPABLE: content -->
+      </div>
+    </div>
+
+    <!-- Block 2 (Default / Collapsed) -->
+    <div class="accordion-block">
+      <div class="accordion-block__accent">
+        <div class="accordion-block__accent-inner"></div>
+      </div>
+
+      <div class="accordion-block__text">
+        <!-- SWAPPABLE: title -->
+        <h4 class="accordion-block__title">Always current</h4>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: content -->
+        <p class="accordion-block__content">Continuously synced with the live codebase, never stale or manually maintained.</p>
+        <!-- /SWAPPABLE: content -->
+      </div>
+    </div>
+
+    <!-- Block 3 (Default / Collapsed) -->
+    <div class="accordion-block">
+      <div class="accordion-block__accent">
+        <div class="accordion-block__accent-inner"></div>
+      </div>
+
+      <div class="accordion-block__text">
+        <!-- SWAPPABLE: title -->
+        <h4 class="accordion-block__title">Multi-audience</h4>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: content -->
+        <p class="accordion-block__content">One understanding that serves AI agents, developers, architects, and business analysts equally.</p>
+        <!-- /SWAPPABLE: content -->
+      </div>
+    </div>
+
+    <!-- Block 4 (Default / Collapsed) -->
+    <div class="accordion-block">
+      <div class="accordion-block__accent">
+        <div class="accordion-block__accent-inner"></div>
+      </div>
+
+      <div class="accordion-block__text">
+        <!-- SWAPPABLE: title -->
+        <h4 class="accordion-block__title">Enterprise grade</h4>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: content -->
+        <p class="accordion-block__content">Built for complex, multi-language enterprise codebases with millions of lines of code.</p>
+        <!-- /SWAPPABLE: content -->
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

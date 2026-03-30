@@ -1,0 +1,37 @@
+name: "Icon Card (Dark)"
+description: "Card with radial gradient background designed for Blue 900 surfaces. Geometric icon, title, and description. Use for icon-driven content on dark backgrounds."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7391"
+      label: "Desktop"
+    - id: "3914:7396"
+      label: "Mobile"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - feature-highlight-dark
+  - capability-showcase
+  - icon-grid
+
+when_to_use: "When presenting icon-driven content (features, capabilities, benefits) on a dark Blue 900 surface. Typically used in a 3-column grid."
+when_not_to_use: "On light surfaces. For text-heavy content without icons."
+
+swappable_slots:
+  - name: icon
+    type: component
+    description: "Geometric icon (120x120px desktop, 80x80px mobile)"
+  - name: title
+    type: text
+    description: "H3 card title"
+  - name: description
+    type: text
+    description: "P4 card description text"
+
+surfaces:
+  - dark
+mediums:
+  - html
+  - marp
+  - pptx

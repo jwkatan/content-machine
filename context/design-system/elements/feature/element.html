@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feature — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Feature — Element Styles
+       Figma node 3914:7369 (Active state)
+       ============================================================
+       Single feature list item with three states:
+         - Active: white bg, title (H3) + description, warm accent
+           bottom border (yellow-200 transparent -> visible)
+         - Default: light radial gradient bg, title only (H4) in
+           gray-500, no description
+         - Hover: slight brightness shift on default state
+       Typically stacked vertically in the product-features element.
+       ============================================================ */
+
+    body {
+      background: var(--bg-light);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- Feature Stack Container --- */
+    .feature-stack {
+      display: flex;
+      flex-direction: column;
+      width: 471px;
+      max-width: 100%;
+    }
+
+    /* --- Feature Item (Default State) --- */
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: var(--sp-3);
+      position: relative;
+      width: 100%;
+      cursor: pointer;
+
+      /*
+       * Default: light radial gradient from Figma
+       * Stops: gray-150 50% -> blue-200 75% -> gray-250 100%
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 471 70' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(31.108 7 -27.296 8.3612 159.92 0)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+      border-bottom: 2px solid transparent;
+    }
+
+    /* --- Hover State (Default items only) --- */
+    .feature:hover:not(.feature--active) {
+      filter: brightness(0.97);
+    }
+
+    /* --- Active State --- */
+    .feature--active {
+      background-image: none;
+      background-color: var(--gray-50);
+      border-bottom: 2px solid rgba(255, 223, 187, 0);
+
+      /*
+       * Warm accent bottom border from Figma.
+       * Uses yellow-200 at 0 opacity (the accent is the 2px
+       * border styling itself with the gradient line treatment).
+       */
+    }
+
+    /* --- Feature Details Container --- */
+    .feature__details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    /* --- Title (Active: H3 blue-900) --- */
+    .feature__title {
+      font-family: var(--title-font);
+      font-size: var(--h3-size);
+      font-weight: var(--h3-weight);
+      line-height: var(--h3-lh);
+      color: var(--text-heading-light);
+      width: 100%;
+    }
+
+    /* --- Title (Default: H4 gray-500) --- */
+    .feature:not(.feature--active) .feature__title {
+      font-size: var(--h4-size);
+      color: var(--gray-500);
+    }
+
+    /* --- Description (Active only) --- */
+    .feature__desc {
+      font-family: var(--text-font);
+      font-size: var(--p4-size);
+      font-weight: var(--p4-weight);
+      line-height: var(--p4-lh);
+      color: var(--text-body-light);
+      width: 100%;
+    }
+
+    /* --- Hide description on default state --- */
+    .feature:not(.feature--active) .feature__desc {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="feature-stack">
+
+    <!-- Feature 1 (Active) -->
+    <div class="feature feature--active">
+      <div class="feature__details">
+        <!-- SWAPPABLE: title -->
+        <h3 class="feature__title">Map the application</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="feature__desc">See your application organized by business function. Automatically grouped into domains, explorable visually or with AI.</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+    <!-- Feature 2 (Default) -->
+    <div class="feature">
+      <div class="feature__details">
+        <!-- SWAPPABLE: title -->
+        <h3 class="feature__title">Unify domain language</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="feature__desc">A glossary unifies code-derived terminology and SME-defined concepts into a single source of truth.</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+    <!-- Feature 3 (Default) -->
+    <div class="feature">
+      <div class="feature__details">
+        <!-- SWAPPABLE: title -->
+        <h3 class="feature__title">Identify cross-system impact</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="feature__desc">Execution flows and dependency diagrams expose how changes propagate across programs, jobs, and data flows.</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+    <!-- Feature 4 (Default) -->
+    <div class="feature">
+      <div class="feature__details">
+        <!-- SWAPPABLE: title -->
+        <h3 class="feature__title">Create specs and user stories</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="feature__desc">Convert natural language business rules and organizational knowledge into modernization specifications and user stories.</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+    <!-- Feature 5 (Default) -->
+    <div class="feature">
+      <div class="feature__details">
+        <!-- SWAPPABLE: title -->
+        <h3 class="feature__title">Establish a verified baseline</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="feature__desc">Validate test suites against the existing and intended business rules to reduce the risk in agentic modernization.</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+name: "Accordion Block 1"
+description: "Expandable content section. States: Default (70px collapsed), Hover, Active (192px expanded). Desktop and mobile breakpoints. Dark blue gradient background in active state with decorative dot-matrix visual accent."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:6941"
+      label: "Active Desktop"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - faq
+  - feature-list
+  - expandable-content
+
+when_to_use: "When presenting expandable content in a vertical stack. Active state reveals description text and shifts to a dark blue gradient background. Good for feature differentiators and FAQ patterns."
+when_not_to_use: "For simple text blocks that don't need expand/collapse. For content that needs to be visible at all times."
+
+swappable_slots:
+  - name: title
+    type: text
+    description: "H4 accordion title (visible in all states)"
+  - name: content
+    type: text
+    description: "P4 description text (visible only in active state)"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

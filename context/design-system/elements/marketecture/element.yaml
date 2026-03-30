@@ -1,0 +1,25 @@
+name: "Marketecture"
+description: "Product architecture diagram. Full-width component (1252px) showing the Swimm platform structure with 5 phase columns (Assessment, Planning, Requirements, Forward engineering, Testing & deploy) connected by flowing curves to the central Swimm platform block."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:15803"
+      label: "Default breakpoint"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - platform-overview
+  - architecture-diagram
+
+when_to_use: "When showing the full Swimm platform structure and how it connects across the modernization lifecycle. Use as-is or adapt the phase labels."
+when_not_to_use: "For generic diagrams. For simplified feature lists (use icon-text or icon-card-dark instead)."
+
+swappable_slots: []
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

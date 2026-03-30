@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketecture — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Marketecture — Element Styles
+       Figma node 3914:15803 (Default breakpoint)
+       ============================================================ */
+
+    body {
+      background: var(--bg-off-white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-8) var(--sp-6);
+    }
+
+    /* --- Marketecture Wrapper --- */
+    .marketecture {
+      position: relative;
+      width: 1252px;
+      height: 388px;
+    }
+
+    /* --- Inner Positioning Layer --- */
+    .marketecture__inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 1252px;
+      height: 406px;
+    }
+
+    /* --- Phase Cards Row (top) --- */
+    .marketecture__phases {
+      display: flex;
+      gap: 23.04px;
+      align-items: center;
+      width: 1252px;
+      height: 166.26px;
+      position: absolute;
+      top: -7.29px;
+      left: -0.81px;
+    }
+
+    /* --- Individual Phase Card --- */
+    .marketecture__phase {
+      background: var(--blue-800);
+      display: flex;
+      flex-direction: column;
+      gap: 8.85px;
+      align-items: flex-start;
+      padding: 20.03px;
+      width: 232.36px;
+      flex-shrink: 0;
+    }
+
+    .marketecture__phase-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8.01px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    /* --- Phase Number (01, 02, etc.) --- */
+    .marketecture__phase-num {
+      font-family: var(--text-font);
+      font-size: 14.02px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--gray-150);
+      width: 100%;
+    }
+
+    /* --- Phase Title --- */
+    .marketecture__phase-title {
+      font-family: var(--title-font);
+      font-size: 20.03px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--gray-50);
+      width: 100%;
+    }
+
+    /* --- Phase Description --- */
+    .marketecture__phase-desc {
+      font-family: var(--text-font);
+      font-size: 14.02px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--blue-300);
+      width: 100%;
+    }
+
+    /* --- Flowing Curves (SVG connecting phases to platform) --- */
+    .marketecture__curves {
+      position: absolute;
+      left: 117px;
+      top: 129.51px;
+      width: 1023.14px;
+      height: 181.93px;
+    }
+
+    .marketecture__curves svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* --- Platform Block (bottom center) --- */
+    .marketecture__platform {
+      position: absolute;
+      left: 89.35px;
+      top: 279.16px;
+      width: 1071.68px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10.02px;
+    }
+
+    .marketecture__platform-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* --- "Swimm" Label + Accent Bar --- */
+    .marketecture__platform-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 11.06px;
+      padding-top: 11.06px;
+      width: 337.53px;
+
+      /*
+       * CRITICAL: Radial gradient background from Figma.
+       * Gradient/Accent/100
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 337.53 54.544' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(22.293 5.4544 -19.561 6.5151 114.6 4.1465e-7)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+    }
+
+    .marketecture__brand-name {
+      font-family: var(--title-font);
+      font-size: 25.4px;
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--blue-900);
+      white-space: nowrap;
+    }
+
+    /* --- Accent Gradient Bar ---
+     * Blue 700 → Pink 400 → Yellow 200 gradient bar
+     * separating the brand name from the subtitle.
+     */
+    .marketecture__accent-bar {
+      width: 336.23px;
+      height: 4.42px;
+      transform: scaleY(-1);
+      background: linear-gradient(
+        90deg,
+        var(--blue-700) 0%,
+        var(--pink-400) 50%,
+        var(--yellow-200) 100%
+      );
+      border-radius: 2px;
+    }
+
+    /* --- Subtitle Block --- */
+    .marketecture__subtitle {
+      background: var(--gray-100);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 337.53px;
+      height: 52.08px;
+    }
+
+    .marketecture__subtitle-text {
+      font-family: var(--title-font);
+      font-size: 20.03px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--blue-900);
+      width: 298.47px;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="marketecture">
+    <div class="marketecture__inner">
+
+      <!-- Phase Cards Row -->
+      <div class="marketecture__phases">
+
+        <div class="marketecture__phase">
+          <div class="marketecture__phase-header">
+            <p class="marketecture__phase-num">01</p>
+            <p class="marketecture__phase-title">Assessment</p>
+          </div>
+          <p class="marketecture__phase-desc">Accurate current-state baseline</p>
+        </div>
+
+        <div class="marketecture__phase">
+          <div class="marketecture__phase-header">
+            <p class="marketecture__phase-num">02</p>
+            <p class="marketecture__phase-title">Planning</p>
+          </div>
+          <p class="marketecture__phase-desc">Architecture views &amp; system maps</p>
+        </div>
+
+        <div class="marketecture__phase">
+          <div class="marketecture__phase-header">
+            <p class="marketecture__phase-num">03</p>
+            <p class="marketecture__phase-title">Requirements</p>
+          </div>
+          <p class="marketecture__phase-desc">Extracted business rules &amp; specs</p>
+        </div>
+
+        <div class="marketecture__phase">
+          <div class="marketecture__phase-header">
+            <p class="marketecture__phase-num">04</p>
+            <p class="marketecture__phase-title">Forward engineering</p>
+          </div>
+          <p class="marketecture__phase-desc">Verified context for AI &amp; developers</p>
+        </div>
+
+        <div class="marketecture__phase">
+          <div class="marketecture__phase-header">
+            <p class="marketecture__phase-num">05</p>
+            <p class="marketecture__phase-title">Testing &amp; deploy</p>
+          </div>
+          <p class="marketecture__phase-desc">Baseline behavior for validation</p>
+        </div>
+
+      </div>
+
+      <!-- Flowing Curves (connecting phases to platform) -->
+      <div class="marketecture__curves">
+        <svg viewBox="0 0 1023 182" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 5 curves flowing from each phase card down to center platform -->
+          <!-- Curve 1: Assessment (leftmost) -->
+          <path d="M0 0 C0 80, 200 120, 512 182" stroke="var(--blue-700)" stroke-width="3" fill="none"/>
+          <!-- Curve 2: Planning -->
+          <path d="M230 0 C230 60, 350 100, 512 182" stroke="var(--blue-600)" stroke-width="3" fill="none"/>
+          <!-- Curve 3: Requirements (center) -->
+          <path d="M460 0 C460 40, 490 100, 512 182" stroke="var(--pink-400)" stroke-width="3" fill="none"/>
+          <!-- Curve 4: Forward engineering -->
+          <path d="M693 0 C693 60, 600 100, 512 182" stroke="var(--yellow-300)" stroke-width="3" fill="none"/>
+          <!-- Curve 5: Testing & deploy (rightmost) -->
+          <path d="M1023 0 C1023 80, 750 120, 512 182" stroke="var(--blue-700)" stroke-width="3" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- Platform Block (bottom center) -->
+      <div class="marketecture__platform">
+        <div class="marketecture__platform-inner">
+          <div class="marketecture__platform-label">
+            <p class="marketecture__brand-name">Swimm</p>
+            <div class="marketecture__accent-bar"></div>
+          </div>
+          <div class="marketecture__subtitle">
+            <p class="marketecture__subtitle-text">Application Understanding Platform</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

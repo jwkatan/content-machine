@@ -1,0 +1,31 @@
+name: "Product Features"
+description: "Full assembled feature section. Feature list left (accordion-style) + screenshot area right (gradient-backed frame). 1160x435px. The primary feature presentation pattern combining the feature element with a visual demonstration."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7381"
+      label: "Desktop"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - product-page-features
+  - feature-demo-section
+
+when_to_use: "The main feature presentation section on product or use-case pages. Shows a vertical list of features on the left (one active at a time) and a screenshot/visual on the right inside a blue gradient frame."
+when_not_to_use: "For simple feature grids without visuals. For mobile-only layouts where the side-by-side pattern breaks."
+
+swappable_slots:
+  - name: features
+    type: list
+    description: "List of feature items, each with title (text) and description (text). One item is active at a time."
+  - name: screenshot
+    type: image
+    description: "Product screenshot or visual displayed in the right-side gradient frame (680x435px area)"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

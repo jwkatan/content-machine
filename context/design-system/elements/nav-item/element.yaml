@@ -1,0 +1,33 @@
+name: "Nav Item"
+description: "Navigation menu item. Blue-900 text in default state, shifting to blue-700 on hover. Optional dropdown arrow indicator. Uses Label L text style (16px, line-height 0.85)."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7043"
+      label: "Default"
+    - id: "3914:7048"
+      label: "Hover"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - navigation
+  - menu-item
+
+when_to_use: "Use for top-level navigation menu items in the site header."
+when_not_to_use: "Not for body text links — use link instead. Not for CTA buttons — use main-button or secondary-button."
+
+swappable_slots:
+  - name: text
+    type: text
+    description: "Navigation item label text"
+  - name: dropdown
+    type: boolean
+    description: "Whether to show the dropdown chevron arrow"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

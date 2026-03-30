@@ -1,0 +1,18 @@
+name: "Email Banner"
+description: "600x200 email banner for launch announcements and campaigns. Dark background with headline text, subtle brand depth, and Swimm logo. Supports {{HEADLINE}} and {{SUBHEADLINE}} tokens."
+
+use_cases:
+  - email-banner
+  - email-header
+  - launch-email
+  - campaign-email
+
+output:
+  width: 1200
+  height: 400
+  format: png
+  lossless: true
+  background: "#1A2761"
+
+inputs:
+  static: true

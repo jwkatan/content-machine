@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Block — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Visual Block — Element Styles
+       Figma node 3914:6922
+       ============================================================ */
+
+    body {
+      background: var(--bg-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- Visual Block Container --- */
+    .visual-block {
+      position: relative;
+      width: 330px;
+      height: 218px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 122px 98px 24px 24px;
+      gap: 12px;
+
+      /*
+       * CRITICAL: Radial gradient background from Figma.
+       * Exact gradient transform matrix: matrix(21.796 21.8 -19.124 26.039 112.04 0)
+       * Stops: Gray 150 → Blue 200 → Gray 250
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 330 218' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(21.796 21.8 -19.124 26.039 112.04 0.0000016573)'><stop stop-color='rgba(234,236,249,1)' offset='0.5'/><stop stop-color='rgba(213,227,255,1)' offset='0.75'/><stop stop-color='rgba(198,209,243,1)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+    }
+
+    /* --- Decorative Gradient Bars (background layer) ---
+     * Positioned absolutely within the block, behind the text.
+     * Same bar pattern as value-visual.
+     */
+    .visual-block__decoration {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .visual-block__bar {
+      position: absolute;
+      width: 27px;
+      transform-origin: center center;
+      transform: rotate(-90deg) scaleY(-1);
+    }
+
+    .visual-block__bar--1 {
+      height: 215.18px;
+      top: 37.16%;
+      right: -49.04%;
+      bottom: 50.46%;
+      left: 83.84%;
+      background: linear-gradient(
+        180deg,
+        var(--blue-700) 0%,
+        var(--blue-200) 50%,
+        var(--gray-150) 100%
+      );
+      opacity: 0.6;
+    }
+
+    .visual-block__bar--2 {
+      height: 283.93px;
+      top: 24.77%;
+      right: -47.59%;
+      bottom: 62.84%;
+      left: 61.55%;
+      background: linear-gradient(
+        180deg,
+        var(--blue-700) 0%,
+        var(--blue-200) 50%,
+        var(--gray-150) 100%
+      );
+      opacity: 0.7;
+    }
+
+    .visual-block__bar--3 {
+      height: 352.69px;
+      top: 12.39%;
+      right: -46.14%;
+      bottom: 75.23%;
+      left: 39.27%;
+      background: linear-gradient(
+        180deg,
+        var(--blue-700) 0%,
+        var(--blue-200) 50%,
+        var(--gray-150) 100%
+      );
+      opacity: 0.8;
+    }
+
+    .visual-block__bar--4 {
+      height: 419.2px;
+      top: 0;
+      right: -44.69%;
+      bottom: 87.61%;
+      left: 17.66%;
+      background: linear-gradient(
+        180deg,
+        var(--blue-700) 0%,
+        var(--blue-200) 50%,
+        var(--gray-150) 100%
+      );
+      opacity: 0.9;
+    }
+
+    /* --- Connector Line --- */
+    .visual-block__connector {
+      position: absolute;
+      top: 9.4%;
+      left: 28.92%;
+      right: 10.32%;
+      bottom: 61.28%;
+    }
+
+    .visual-block__connector svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* --- Gradient Dots --- */
+    .visual-block__dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .visual-block__dot--tl {
+      top: 7.8%;
+      left: 8.87%;
+      background: linear-gradient(
+        45deg,
+        var(--blue-900) 155.08%,
+        var(--blue-700) 57.93%,
+        var(--pink-400) 5.9%,
+        var(--yellow-200) 66.38%,
+        var(--gray-100) 100%
+      );
+      transform: rotate(180deg);
+    }
+
+    .visual-block__dot--mr {
+      top: 37.16%;
+      left: 78.14%;
+      background: linear-gradient(
+        45deg,
+        var(--blue-700) 0%,
+        var(--pink-400) 60%,
+        var(--yellow-200) 100%
+      );
+    }
+
+    .visual-block__dot--tr {
+      top: 7.8%;
+      left: 69.57%;
+      background: linear-gradient(
+        45deg,
+        var(--yellow-200) 0%,
+        var(--pink-400) 50%,
+        var(--blue-700) 100%
+      );
+    }
+
+    /* --- Content Text (P3) --- */
+    .visual-block__text {
+      font-family: var(--text-font);
+      font-size: var(--p3-size);
+      font-weight: var(--p3-weight);
+      line-height: var(--p3-lh);
+      color: var(--blue-900);
+      position: relative;
+      z-index: 1;
+      min-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="visual-block">
+    <!-- Decorative background layer -->
+    <div class="visual-block__decoration">
+      <div class="visual-block__bar visual-block__bar--1"></div>
+      <div class="visual-block__bar visual-block__bar--2"></div>
+      <div class="visual-block__bar visual-block__bar--3"></div>
+      <div class="visual-block__bar visual-block__bar--4"></div>
+
+      <div class="visual-block__connector">
+        <svg viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0 L0 64 L200 64" stroke="var(--blue-800)" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="visual-block__dot visual-block__dot--tl"></div>
+      <div class="visual-block__dot visual-block__dot--mr"></div>
+      <div class="visual-block__dot visual-block__dot--tr"></div>
+    </div>
+
+    <!-- SWAPPABLE: content -->
+    <p class="visual-block__text">Text</p>
+    <!-- /SWAPPABLE: content -->
+  </div>
+
+</body>
+</html>

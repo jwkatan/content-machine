@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Footer — Element Styles
+       Figma node 3914:6854
+       ============================================================ */
+
+    body {
+      background: var(--gray-50);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 100vh;
+    }
+
+    /* --- Footer Container --- */
+    .site-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: var(--page-max-w);
+      width: 100%;
+      margin: 0 auto;
+      background: var(--gray-100);
+    }
+
+    /* --- Links Container (top section) --- */
+    .site-footer__links-container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: var(--sp-6) 60px;
+      width: 100%;
+    }
+
+    /* --- Logo Column (left side) --- */
+    .site-footer__brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 22px;
+      flex: 1;
+      align-self: stretch;
+    }
+
+    .site-footer__logo {
+      width: 141px;
+      height: 51px;
+    }
+
+    .site-footer__logo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* --- Social Links Row --- */
+    .site-footer__social {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .site-footer__social-icon {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .site-footer__social-icon svg {
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.2s ease;
+    }
+
+    .site-footer__social-icon:hover svg {
+      opacity: 0.7;
+    }
+
+    /* --- Certification Badge --- */
+    .site-footer__cert {
+      width: 103px;
+      height: 103px;
+    }
+
+    .site-footer__cert img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* --- Link Columns (right side) --- */
+    .site-footer__columns {
+      display: flex;
+      flex: 1;
+      gap: 34px;
+      align-items: flex-start;
+    }
+
+    /* --- Single Column --- */
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .footer-column__heading {
+      font-family: var(--text-font);
+      font-size: var(--label-m-size);
+      font-weight: var(--label-m-weight);
+      line-height: 1;
+      color: var(--blue-900);
+    }
+
+    .footer-column__links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* --- Footer Link --- */
+    .footer-link {
+      display: flex;
+      align-items: center;
+      height: 34px;
+      padding: 6px 0;
+      font-family: var(--text-font);
+      font-size: var(--p4-size);
+      font-weight: var(--p4-weight);
+      line-height: var(--p4-lh);
+      color: var(--blue-700);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .footer-link:hover {
+      color: var(--blue-800);
+      text-decoration: underline;
+    }
+
+    /* --- Credits Bar (bottom section) --- */
+    .site-footer__credits {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--sp-3) 60px;
+      width: 100%;
+    }
+
+    .site-footer__credits-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    /* --- Credits Text --- */
+    .site-footer__copyright {
+      font-family: var(--text-font);
+      font-size: var(--label-s-size);
+      font-weight: var(--label-s-weight);
+      line-height: var(--label-s-lh);
+      color: var(--gray-300);
+      letter-spacing: 0.12px;
+      white-space: nowrap;
+    }
+
+    /* --- Credits Links --- */
+    .site-footer__credits-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--text-font);
+      font-size: var(--label-s-size);
+      font-weight: var(--label-s-weight);
+      line-height: var(--label-s-lh);
+      color: var(--gray-300);
+      letter-spacing: 0.12px;
+      white-space: nowrap;
+    }
+
+    .site-footer__credits-links a {
+      color: var(--gray-300);
+      text-decoration: none;
+    }
+
+    .site-footer__credits-links a:hover {
+      color: var(--blue-700);
+      text-decoration: underline;
+    }
+
+    /* --- "by" Badge --- */
+    .site-footer__by {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      opacity: 0.5;
+    }
+
+    .site-footer__by-text {
+      font-family: var(--text-font);
+      font-size: 10px;
+      color: var(--gray-300);
+    }
+
+    .site-footer__by-logo {
+      height: 15px;
+      width: 43px;
+    }
+
+    .site-footer__by-logo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* --- Mobile --- */
+    @media (max-width: 768px) {
+      .site-footer__links-container {
+        flex-direction: column;
+        gap: var(--sp-5);
+        padding: var(--sp-4) var(--sp-3);
+      }
+
+      .site-footer__columns {
+        flex-direction: column;
+        gap: var(--sp-4);
+      }
+
+      .site-footer__credits {
+        padding: var(--sp-2) var(--sp-3);
+      }
+
+      .site-footer__credits-inner {
+        flex-direction: column;
+        gap: var(--sp-2);
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <footer class="site-footer" data-node-id="3914:6854">
+
+    <!-- Links Container -->
+    <div class="site-footer__links-container" data-node-id="3914:6855">
+
+      <!-- Brand Column (Logo, Social, Cert) -->
+      <div class="site-footer__brand" data-node-id="3914:6856">
+
+        <!-- Logo -->
+        <div class="site-footer__logo" data-node-id="3914:6857">
+          <svg viewBox="0 0 141 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.2 37c-4.8 0-8.7-1.5-11.7-4.5l3.6-4.5c2.4 2.1 5.1 3.15 7.95 3.15 2.7 0 4.05-.9 4.05-2.4 0-.75-.3-1.35-.75-1.8-.45-.45-1.35-.75-2.4-.9l-3.75-.6C9.6 24.75 7.5 22.2 7.5 18.45c0-2.25.9-4.2 2.55-5.7 1.8-1.5 4.35-2.25 7.65-2.25 4.2 0 7.5 1.2 9.9 3.45l-3.45 4.2c-2.1-1.65-4.5-2.55-6.75-2.55-2.25 0-3.45.75-3.45 2.1 0 .75.3 1.2.75 1.65.6.45 1.35.75 2.4.9l3.75.6c3.6.6 5.55 3 5.55 6.75 0 2.4-.9 4.5-2.7 6C21.9 35.85 19.35 37 16.2 37zM42.9 36.45l-6.15-15-3.45 15H26.7l6-25.5h6l6.45 16.2L51.45 10.95h6l6 25.5h-6.6l-3.45-15-6 15h-4.35zM70.2 10.95h6.3v25.5h-6.3v-25.5zM82.95 10.95h6.45l4.8 15.3 4.8-15.3h6.6l4.8 15.3 4.8-15.3h6.3l-7.8 25.5h-6.15l-4.95-15.75-4.95 15.75H91.6l-8.55-25.5z" fill="var(--blue-900)"/>
+          </svg>
+        </div>
+
+        <!-- Social Links -->
+        <div class="site-footer__social" data-node-id="3914:6858">
+
+          <!-- GitHub -->
+          <div class="site-footer__social-icon" data-node-id="3914:13770">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="var(--blue-900)"/>
+            </svg>
+          </div>
+
+          <!-- Twitter / X -->
+          <div class="site-footer__social-icon" data-node-id="3914:13774">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="var(--blue-900)"/>
+            </svg>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="site-footer__social-icon" data-node-id="3914:13778">
+            <svg viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM5 8H0v16h5V8zm7.982 0H8.014v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0V24H24V13.869c0-7.88-8.922-7.593-11.018-3.714V8z" fill="var(--blue-900)"/>
+            </svg>
+          </div>
+
+          <!-- TikTok -->
+          <div class="site-footer__social-icon" data-node-id="3914:13782">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.28 6.28 0 00-6.28 6.28 6.28 6.28 0 006.28 6.28 6.28 6.28 0 006.28-6.28V9.14a8.16 8.16 0 004.82 1.58V7.28a4.84 4.84 0 01-1-.59z" fill="var(--blue-900)"/>
+            </svg>
+          </div>
+
+          <!-- YouTube -->
+          <div class="site-footer__social-icon" data-node-id="3914:13786">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="var(--blue-900)"/>
+            </svg>
+          </div>
+
+        </div>
+
+        <!-- Certification Badge -->
+        <div class="site-footer__cert" data-node-id="3914:6865">
+          <!-- Gartner Cool Vendor badge (placeholder — replace with actual badge image) -->
+          <svg viewBox="0 0 103 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="103" height="103" rx="6" fill="var(--blue-900)"/>
+            <text x="51.5" y="28" text-anchor="middle" fill="var(--gray-50)" font-family="var(--text-font)" font-size="10" font-weight="400">Gartner</text>
+            <text x="51.5" y="50" text-anchor="middle" fill="var(--gray-50)" font-family="var(--title-font)" font-size="14" font-weight="400">COOL</text>
+            <text x="51.5" y="67" text-anchor="middle" fill="var(--gray-50)" font-family="var(--title-font)" font-size="14" font-weight="400">VENDOR</text>
+            <text x="51.5" y="88" text-anchor="middle" fill="var(--blue-300)" font-family="var(--text-font)" font-size="12" font-weight="400">2024</text>
+          </svg>
+        </div>
+
+      </div>
+
+      <!-- SWAPPABLE: link_columns -->
+      <div class="site-footer__columns" data-node-id="3914:6866">
+
+        <!-- Platform Column -->
+        <div class="footer-column" data-node-id="3914:6867">
+          <span class="footer-column__heading">Platform</span>
+          <div class="footer-column__links" data-node-id="3914:6869">
+            <a class="footer-link" href="#">Application Understanding</a>
+            <a class="footer-link" href="#">Integrations</a>
+          </div>
+        </div>
+
+        <!-- Resources Column -->
+        <div class="footer-column" data-node-id="3914:6872">
+          <span class="footer-column__heading">Resources</span>
+          <div class="footer-column__links" data-node-id="3914:6874">
+            <a class="footer-link" href="#">Blog</a>
+            <a class="footer-link" href="#">Learning center</a>
+            <a class="footer-link" href="#">Guides</a>
+            <a class="footer-link" href="#">Customer stories</a>
+          </div>
+        </div>
+
+        <!-- Company Column -->
+        <div class="footer-column" data-node-id="3914:6879">
+          <span class="footer-column__heading">Company</span>
+          <div class="footer-column__links" data-node-id="3914:6881">
+            <a class="footer-link" href="#">Get a demo</a>
+            <a class="footer-link" href="#">Partners</a>
+            <a class="footer-link" href="#">About us</a>
+            <a class="footer-link" href="#">Careers</a>
+            <a class="footer-link" href="#">Contact us</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- /SWAPPABLE: link_columns -->
+
+    </div>
+
+    <!-- Credits Bar -->
+    <div class="site-footer__credits" data-node-id="3914:6897">
+      <div class="site-footer__credits-inner" data-node-id="3914:6898">
+
+        <!-- SWAPPABLE: credits -->
+        <span class="site-footer__copyright" data-node-id="3914:6900">&copy; Swimm ltd 2026</span>
+        <!-- /SWAPPABLE: credits -->
+
+        <div class="site-footer__credits-links" data-node-id="3914:6901">
+          <a href="#">SOC 2</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Privacy policy</a>
+        </div>
+
+        <div class="site-footer__by" data-node-id="3914:6905">
+          <span class="site-footer__by-text">by</span>
+          <div class="site-footer__by-logo" data-node-id="3914:6909">
+            <svg viewBox="0 0 43 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="12" fill="var(--gray-300)" font-family="var(--text-font)" font-size="11" font-weight="400">&amp;more</text>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+</body>
+</html>

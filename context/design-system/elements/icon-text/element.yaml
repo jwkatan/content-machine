@@ -1,0 +1,36 @@
+name: "Icon Text"
+description: "Icon (64px) to the left of title + description text. Flexible — use for any icon-plus-text layout. 24px gap between icon and text group."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:6917"
+      label: "Default"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - feature-item
+  - trust-point
+  - capability-list
+
+when_to_use: "When pairing an icon with a title and description in a horizontal layout. Good for feature lists, trust indicators, and capability grids."
+when_not_to_use: "For icon-only displays. For centered card layouts (use icon-card-dark instead)."
+
+swappable_slots:
+  - name: icon
+    type: component
+    description: "64x64px icon slot"
+  - name: title
+    type: text
+    description: "H4 title text (20px, Regesto Grotesk)"
+  - name: description
+    type: text
+    description: "P4 description text (16px, Manrope)"
+
+surfaces:
+  - dark
+  - light
+mediums:
+  - html
+  - marp
+  - pptx

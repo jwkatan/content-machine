@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Value Visual — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Value Visual — Element Styles
+       Figma node 3914:15846 (Accurate variant)
+       ============================================================ */
+
+    body {
+      background: var(--bg-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- Value Visual Container --- */
+    .value-visual {
+      position: relative;
+      width: 330px;
+      height: 218px;
+      overflow: hidden;
+    }
+
+    /* --- Decorative Gradient Bars ---
+     * Four rotated rectangular bars creating the signature
+     * perspective-line treatment. Each bar uses the brand
+     * gradient (Blue 700 → Blue 200 → Gray 150) with varying
+     * widths and positions.
+     */
+    .value-visual__bar {
+      position: absolute;
+      width: 27px;
+      transform-origin: center center;
+      transform: rotate(-90deg) scaleY(-1);
+    }
+
+    .value-visual__bar--1 {
+      height: 215.18px;
+      top: 37.16%;
+      right: -49.04%;
+      bottom: 50.46%;
+      left: 83.84%;
+      background: linear-gradient(
+        180deg,
+        var(--blue-700) 0%,
+        var(--blue-200) 50%,
+        var(--gray-150) 100%
+      );
+      opacity: 0.6;
+    }
+
+    .value-visual__bar--2 {
+      height: 283.93px;
+      top: 24.77%;
+      right: -47.59%;
+      bottom: 62.84%;
+      left: 61.55%;
+      background: linear-gradient(
+        180deg,
+        var(--blue-700) 0%,
+        var(--blue-200) 50%,
+        var(--gray-150) 100%
+      );
+      opacity: 0.7;
+    }
+
+    .value-visual__bar--3 {
+      height: 352.69px;
+      top: 12.39%;
+      right: -46.14%;
+      bottom: 75.23%;
+      left: 39.27%;
+      background: linear-gradient(
+        180deg,
+        var(--blue-700) 0%,
+        var(--blue-200) 50%,
+        var(--gray-150) 100%
+      );
+      opacity: 0.8;
+    }
+
+    .value-visual__bar--4 {
+      height: 419.2px;
+      top: 0;
+      right: -44.69%;
+      bottom: 87.61%;
+      left: 17.66%;
+      background: linear-gradient(
+        180deg,
+        var(--blue-700) 0%,
+        var(--blue-200) 50%,
+        var(--gray-150) 100%
+      );
+      opacity: 0.9;
+    }
+
+    /* --- Connector Line (L-shaped path) --- */
+    .value-visual__connector {
+      position: absolute;
+      top: 9.4%;
+      left: 28.92%;
+      right: 10.32%;
+      bottom: 61.28%;
+    }
+
+    .value-visual__connector svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* --- Gradient Dot (top-left) --- */
+    .value-visual__dot--tl {
+      position: absolute;
+      top: 7.8%;
+      left: 8.87%;
+      width: 10px;
+      height: 10px;
+      transform: rotate(180deg);
+      background: linear-gradient(
+        45deg,
+        var(--blue-900) 155.08%,
+        var(--blue-700) 57.93%,
+        var(--pink-400) 5.9%,
+        var(--yellow-200) 66.38%,
+        var(--gray-100) 100%
+      );
+      border-radius: 50%;
+    }
+
+    /* --- Gradient Dot (mid-right) --- */
+    .value-visual__dot--mr {
+      position: absolute;
+      top: 37.16%;
+      left: 78.14%;
+      right: 18.83%;
+      bottom: 58.26%;
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(
+        45deg,
+        var(--blue-700) 0%,
+        var(--pink-400) 60%,
+        var(--yellow-200) 100%
+      );
+      border-radius: 50%;
+    }
+
+    /* --- Gradient Dot (top-right) --- */
+    .value-visual__dot--tr {
+      position: absolute;
+      top: 7.8%;
+      left: 69.57%;
+      right: 27.4%;
+      bottom: 87.61%;
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(
+        45deg,
+        var(--yellow-200) 0%,
+        var(--pink-400) 50%,
+        var(--blue-700) 100%
+      );
+      border-radius: 50%;
+    }
+
+    /* --- Content Overlay ---
+     * The actual value-proposition content sits ON TOP of
+     * the decorative treatment. Position as needed.
+     */
+    .value-visual__content {
+      position: absolute;
+      bottom: var(--sp-3);
+      left: var(--sp-3);
+      right: var(--sp-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-1);
+      z-index: 1;
+    }
+
+    /* --- Icon Slot --- */
+    .value-visual__icon {
+      position: absolute;
+      top: var(--sp-2);
+      left: var(--sp-2);
+      width: 40px;
+      height: 40px;
+      z-index: 1;
+    }
+
+    .value-visual__icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* --- Title (H4) --- */
+    .value-visual__title {
+      font-family: var(--title-font);
+      font-size: var(--h4-size);
+      font-weight: var(--h4-weight);
+      line-height: var(--h4-lh);
+      color: var(--blue-900);
+    }
+
+    /* --- Description (P4) --- */
+    .value-visual__desc {
+      font-family: var(--text-font);
+      font-size: var(--p4-size);
+      font-weight: var(--p4-weight);
+      line-height: var(--p4-lh);
+      color: var(--gray-500);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="value-visual">
+    <!-- Decorative gradient bars (background treatment) -->
+    <div class="value-visual__bar value-visual__bar--1"></div>
+    <div class="value-visual__bar value-visual__bar--2"></div>
+    <div class="value-visual__bar value-visual__bar--3"></div>
+    <div class="value-visual__bar value-visual__bar--4"></div>
+
+    <!-- Connector line (L-shaped path) -->
+    <div class="value-visual__connector">
+      <svg viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0 L0 64 L200 64" stroke="var(--blue-800)" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Gradient dots at connector endpoints -->
+    <div class="value-visual__dot--tl"></div>
+    <div class="value-visual__dot--mr"></div>
+    <div class="value-visual__dot--tr"></div>
+
+    <!-- SWAPPABLE: icon -->
+    <div class="value-visual__icon">
+      <img src="https://placehold.co/40x40/325BFF/E2EBFF?text=%E2%9C%93" alt="Value icon">
+    </div>
+    <!-- /SWAPPABLE: icon -->
+
+    <!-- Content overlay -->
+    <div class="value-visual__content">
+      <!-- SWAPPABLE: title -->
+      <h4 class="value-visual__title">Accurate</h4>
+      <!-- /SWAPPABLE: title -->
+
+      <!-- SWAPPABLE: description -->
+      <p class="value-visual__desc">Verified understanding you can trust for critical decisions</p>
+      <!-- /SWAPPABLE: description -->
+    </div>
+  </div>
+
+</body>
+</html>

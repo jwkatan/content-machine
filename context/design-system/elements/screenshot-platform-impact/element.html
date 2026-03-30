@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screenshot Platform — Impact — Swimm Design System Element</title>
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <!-- Manrope (text font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       Screenshot Platform — Identify Cross-System Impact
+       ==========================================================
+       Platform page screenshot frame at 680x435px.
+       Blue 400 → Blue 700 gradient background (242.78deg) with
+       a Blue 100 content area where the screenshot sits.
+       Left border accent in Blue 800.
+       Bottom fade overlay for depth.
+
+       Figma source:
+         File  epnCa2oEzyBli5hF8YI8Ed
+         Node  3914:16181  (Desktop)
+       ========================================================== */
+
+    /* ---------- Outer frame ---------- */
+    .screenshot-platform-impact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 680px;
+      height: 435px;
+      min-width: 680px;
+      overflow: hidden;
+      position: relative;
+      background-image: linear-gradient(
+        242.78deg,
+        var(--blue-400) 24.153%,
+        var(--blue-700) 60.201%
+      );
+    }
+
+    /* ---------- Content card ---------- */
+    .screenshot-platform-impact__card {
+      position: relative;
+      width: 560px;
+      height: 327px;
+      background-color: var(--blue-100);
+      border-left: 10px solid var(--blue-800);
+      overflow: hidden;
+    }
+
+    /* ---------- Screenshot area (white inset) ---------- */
+    .screenshot-platform-impact__inner {
+      position: absolute;
+      bottom: 11.5px;
+      left: 15.41px;
+      width: 526px;
+      height: 250px;
+      background-color: var(--gray-50);
+      overflow: hidden;
+    }
+
+    /* ---------- Screenshot image ---------- */
+    .screenshot-platform-impact__screenshot {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---------- Bottom fade overlay ---------- */
+    .screenshot-platform-impact__fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 560px;
+      height: 153px;
+      background: linear-gradient(
+        180deg,
+        rgba(157, 192, 255, 0) 62.5%,
+        rgba(157, 192, 255, 0.54) 100%
+      );
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Screenshot Platform — Identify Cross-System Impact (680x435px)
+       ============================================================ -->
+  <div class="screenshot-platform-impact">
+    <div class="screenshot-platform-impact__card">
+
+      <!-- Screenshot area (white inset) -->
+      <div class="screenshot-platform-impact__inner">
+        <!-- SWAPPABLE: screenshot -->
+        <img
+          class="screenshot-platform-impact__screenshot"
+          src="https://placehold.co/526x250/FDFCFE/1A2761?text=Cross-System+Impact"
+          alt="Identify cross-system impact screenshot"
+        >
+        <!-- /SWAPPABLE: screenshot -->
+      </div>
+
+      <!-- Bottom fade overlay -->
+      <div class="screenshot-platform-impact__fade"></div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grad Section — Swimm Design System Element</title>
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <!-- Manrope (text font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       Grad Section
+       ==========================================================
+       Signature gradient section with 4 nested concentric border
+       frames.  The radial top-gradient fades into layered linear
+       gradients that run Blue 900 -> Blue 700 -> Pink 400 ->
+       Yellow 200 -> Gray 50 (transparent).
+
+       Figma source:
+         File  epnCa2oEzyBli5hF8YI8Ed
+         Node  3914:7214  (1440px breakpoint)
+       ========================================================== */
+
+    /* ---------- Accent gradient (shared by all 4 border layers) ---------- */
+    .grad-section__accent-gradient {
+      background-image: linear-gradient(
+        180deg,
+        rgba(253, 252, 254, 0) 0%,
+        var(--yellow-200) 17.929%,
+        var(--pink-400) 44.716%,
+        var(--blue-400) 76.917%,
+        var(--blue-700) 95.028%,
+        var(--blue-800) 107.44%
+      );
+    }
+
+    /* ---------- Outermost wrapper ---------- */
+    .grad-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Frame 0 — radial gradient background ---------- */
+    .grad-section__frame-0 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0 36px 36px;
+      gap: 10px;
+
+      /* Radial gradient — the warm-to-cool top glow */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 472' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-5.984e-14 -35.492 115.63 -5.7906e-13 720 530.51)'><stop stop-color='rgba(38,53,167,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.1599'/><stop stop-color='rgba(50,91,255,1)' offset='0.3198'/><stop stop-color='rgba(77,118,252,1)' offset='0.47842'/><stop stop-color='rgba(104,145,249,1)' offset='0.63705'/><stop stop-color='rgba(136,148,231,1)' offset='0.66408'/><stop stop-color='rgba(169,151,213,1)' offset='0.69112'/><stop stop-color='rgba(233,157,177,1)' offset='0.74519'/><stop stop-color='rgba(255,223,187,1)' offset='0.8642'/><stop stop-color='rgba(253,252,254,0)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+    }
+
+    /* Absolute bottom overlay for frame 0 */
+    .grad-section__frame-0-bg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 297px;
+    }
+
+    /* ---------- Frame 1 (outermost border ring) ---------- */
+    .grad-section__frame-1 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1440px;
+      padding: 0 36px 36px;
+      gap: 10px;
+      overflow: clip;
+    }
+
+    .grad-section__frame-1-bg {
+      position: absolute;
+      top: 28.6%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    /* ---------- Frame 2 (middle border ring) ---------- */
+    .grad-section__frame-2 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0 36px 36px;
+      gap: 10px;
+      overflow: clip;
+    }
+
+    .grad-section__frame-2-bg {
+      position: absolute;
+      top: 11.82%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    /* ---------- Frame 3 (innermost border ring) ---------- */
+    .grad-section__frame-3 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 36px;
+      gap: 10px;
+      overflow: clip;
+    }
+
+    .grad-section__frame-3-bg {
+      position: absolute;
+      top: -12.43%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    /* ---------- Content card ---------- */
+    .grad-section__content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 52px;
+      width: 100%;
+      padding: 100px;
+      background-color: var(--gray-100);
+      color: var(--blue-900);
+      overflow: clip;
+    }
+
+    /* ---------- Heading ---------- */
+    .grad-section__heading {
+      flex: 1 0 0;
+      font-family: var(--title-font);
+      font-size: var(--h2-size);
+      font-weight: var(--h2-weight);
+      line-height: var(--h2-lh);
+      color: var(--blue-900);
+      min-width: 1px;
+      min-height: 1px;
+    }
+
+    /* ---------- Subheading (P4 body text) ---------- */
+    .grad-section__subheading {
+      flex: 1 0 0;
+      font-family: var(--text-font);
+      font-size: var(--p4-size);
+      font-weight: var(--p4-weight);
+      line-height: var(--p4-lh);
+      color: var(--blue-900);
+      min-width: 1px;
+      min-height: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Grad Section — 1440px breakpoint
+       ============================================================ -->
+  <div class="grad-section">
+    <!-- Frame 0: radial gradient background -->
+    <div class="grad-section__frame-0">
+      <div class="grad-section__frame-0-bg grad-section__accent-gradient"></div>
+
+      <!-- Frame 1: outermost border ring -->
+      <div class="grad-section__frame-1">
+        <div class="grad-section__frame-1-bg grad-section__accent-gradient"></div>
+
+        <!-- Frame 2: middle border ring -->
+        <div class="grad-section__frame-2">
+          <div class="grad-section__frame-2-bg grad-section__accent-gradient"></div>
+
+          <!-- Frame 3: innermost border ring -->
+          <div class="grad-section__frame-3">
+            <div class="grad-section__frame-3-bg grad-section__accent-gradient"></div>
+
+            <!-- Content card -->
+            <div class="grad-section__content">
+
+              <!-- SWAPPABLE: heading -->
+              <h2 class="grad-section__heading">One understanding
+for AI and people</h2>
+
+              <!-- SWAPPABLE: subheading -->
+              <p class="grad-section__subheading">AI agents consume structured context through the Swimm MCP. Business analysts read and verify rules in their own language. Architects trace dependencies across system boundaries. One understanding. No drift.</p>
+
+              <!-- SWAPPABLE: cta_button -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

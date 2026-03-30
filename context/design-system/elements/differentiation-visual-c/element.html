@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Differentiation Visual C — Swimm Design System Element</title>
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <!-- Manrope (text font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       Differentiation Visual C
+       ==========================================================
+       Background treatment C for differentiating content.
+       Different visual pattern from A and B. Two variants:
+       Icon and Pattern. Both 648x192px containers with a
+       444x156px gradient layer masked by an SVG shape.
+
+       Figma source:
+         File  epnCa2oEzyBli5hF8YI8Ed
+         Node  3914:12380  (State=Icon)
+         Node  3914:12792  (State=Pattern)
+       ========================================================== */
+
+    /* ---------- Preview layout (element demo only) ---------- */
+    .preview {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px;
+    }
+
+    .preview__section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .preview__label {
+      font-family: var(--text-font);
+      font-size: var(--label-m-size);
+      font-weight: var(--label-m-weight);
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .preview__surface--dark {
+      background-color: var(--blue-900);
+      padding: 20px;
+    }
+
+    .preview__surface--light {
+      background-color: var(--gray-100);
+      padding: 20px;
+    }
+
+    /* ---------- Shared container (both variants) ---------- */
+    .diff-visual-c {
+      position: relative;
+      width: 648px;
+      height: 192px;
+      overflow: hidden;
+    }
+
+    /* ---------- Color layer (shared positioning) ---------- */
+    .diff-visual-c__color {
+      position: absolute;
+      top: 0;
+      left: 203.99px;
+      width: 444.014px;
+      height: 156px;
+
+      /* Mask settings (shared) */
+      -webkit-mask-size: 444.014px 156px;
+      mask-size: 444.014px 156px;
+      -webkit-mask-position: 0px 0px;
+      mask-position: 0px 0px;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-composite: intersect;
+      mask-composite: intersect;
+    }
+
+    /* ---------- Variant: Icon ----------
+       Linear gradient masked by the icon SVG shape.
+       Gradient angle 226.8deg through the signature
+       spectrum: Gray 50 -> Yellow 200 -> Pink 400 ->
+       Blue 700 -> transparent Blue 700. */
+
+    .diff-visual-c__color--icon {
+      background-image: linear-gradient(
+        226.796deg,
+        var(--gray-50)     48.569%,
+        var(--yellow-200)  34.45%,
+        var(--pink-400)    24.668%,
+        var(--blue-700)     5.636%,
+        rgba(50, 91, 255, 0) 76.704%
+      );
+      -webkit-mask-image: url('mask-icon.svg');
+      mask-image: url('mask-icon.svg');
+    }
+
+    /* ---------- Variant: Pattern ----------
+       Radial gradient (SVG-encoded) masked by the pattern SVG.
+       Same color spectrum as Icon but with a radial falloff
+       from the top-right corner. */
+
+    .diff-visual-c__color--pattern {
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 444.01 156' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-10.324 15.723 -38.511 -2.2999 463.52 -23.778)'><stop stop-color='rgba(253,252,254,1)' offset='0'/><stop stop-color='rgba(255,223,187,1)' offset='0.1127'/><stop stop-color='rgba(233,157,177,1)' offset='0.32298'/><stop stop-color='rgba(187,141,197,1)' offset='0.36294'/><stop stop-color='rgba(142,124,216,1)' offset='0.40291'/><stop stop-color='rgba(96,108,236,1)' offset='0.44288'/><stop stop-color='rgba(50,91,255,1)' offset='0.48285'/><stop stop-color='rgba(50,91,255,0)' offset='1'/></radialGradient></defs></svg>");
+      -webkit-mask-image: url('mask-pattern.svg');
+      mask-image: url('mask-pattern.svg');
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Differentiation Visual C
+       ============================================================
+       Decorative background treatment. Layer over dark or light
+       surfaces using position: absolute. These are purely visual
+       — no interactive or text content.
+       ============================================================ -->
+
+  <div class="preview">
+
+    <!-- ---- Icon variant ---- -->
+    <div class="preview__section">
+      <span class="preview__label">Icon variant — dark surface</span>
+      <div class="preview__surface--dark">
+        <div class="diff-visual-c">
+          <div class="diff-visual-c__color diff-visual-c__color--icon"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview__section">
+      <span class="preview__label">Icon variant — light surface</span>
+      <div class="preview__surface--light">
+        <div class="diff-visual-c">
+          <div class="diff-visual-c__color diff-visual-c__color--icon"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Pattern variant ---- -->
+    <div class="preview__section">
+      <span class="preview__label">Pattern variant — dark surface</span>
+      <div class="preview__surface--dark">
+        <div class="diff-visual-c">
+          <div class="diff-visual-c__color diff-visual-c__color--pattern"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview__section">
+      <span class="preview__label">Pattern variant — light surface</span>
+      <div class="preview__surface--light">
+        <div class="diff-visual-c">
+          <div class="diff-visual-c__color diff-visual-c__color--pattern"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

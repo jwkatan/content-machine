@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon Card (Dark) — Swimm Design System</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Icon Card (Dark) — Element Styles
+       Figma node 3914:7391 (Desktop variant)
+       ============================================================ */
+
+    body {
+      background: var(--blue-900);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: var(--sp-6);
+    }
+
+    /* --- 3-Column Grid Context --- */
+    .icon-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-3);
+      max-width: var(--content-max-w);
+      width: 100%;
+    }
+
+    /* --- Card --- */
+    .icon-card-dark {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--card-icon-gap);        /* 24px — icon-to-text */
+      padding: var(--card-pad);          /* 32px */
+      min-height: 275px;
+      position: relative;
+      overflow: hidden;
+
+      /*
+       * CRITICAL: Radial gradient background from Figma.
+       * Inline SVG gradient at 20% opacity with exact transform matrix:
+       *   matrix(-40 -29.3 2.7062 -36.344 400 293)
+       * Gradient stops: Blue 700 → #2C48D3 → Blue 800
+       */
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 293' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.20000000298023224'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-40 -29.3 2.7062 -36.344 400 293)'><stop stop-color='rgba(50,91,255,1)' offset='0'/><stop stop-color='rgba(44,72,211,1)' offset='0.5'/><stop stop-color='rgba(38,53,167,1)' offset='1'/></radialGradient></defs></svg>");
+      background-size: 100% 100%;
+    }
+
+    /* --- Icon Slot --- */
+    .icon-card-dark__icon {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+
+    .icon-card-dark__icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* --- Text Block --- */
+    .icon-card-dark__text {
+      display: flex;
+      flex-direction: column;
+      gap: var(--card-text-gap);         /* 12px — title-to-description */
+      text-align: center;
+      width: 100%;
+    }
+
+    /* --- Title (H3) --- */
+    .icon-card-dark__title {
+      font-family: var(--title-font);
+      font-size: var(--h3-size);         /* 26px */
+      font-weight: var(--h3-weight);     /* 400 */
+      line-height: var(--h3-lh);         /* 1.1 */
+      color: var(--gray-50);
+    }
+
+    /* --- Description (P4) --- */
+    .icon-card-dark__desc {
+      font-family: var(--text-font);
+      font-size: var(--p4-size);         /* 16px */
+      font-weight: var(--p4-weight);     /* 400 */
+      line-height: var(--p4-lh);         /* 1.4 */
+      color: var(--blue-300);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 3-column grid context (the card is typically one of three) -->
+  <div class="icon-card-grid">
+
+    <!-- Card 1 -->
+    <div class="icon-card-dark">
+      <!-- SWAPPABLE: icon -->
+      <div class="icon-card-dark__icon">
+        <img src="https://placehold.co/120x120/325BFF/E2EBFF?text=Icon" alt="Feature icon">
+      </div>
+      <!-- /SWAPPABLE: icon -->
+
+      <div class="icon-card-dark__text">
+        <!-- SWAPPABLE: title -->
+        <h3 class="icon-card-dark__title">Swimm MCP</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="icon-card-dark__desc">Integrate one Understanding Layer across agentic tools, platforms, and frameworks</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="icon-card-dark">
+      <!-- SWAPPABLE: icon -->
+      <div class="icon-card-dark__icon">
+        <img src="https://placehold.co/120x120/325BFF/E2EBFF?text=Icon" alt="Feature icon">
+      </div>
+      <!-- /SWAPPABLE: icon -->
+
+      <div class="icon-card-dark__text">
+        <!-- SWAPPABLE: title -->
+        <h3 class="icon-card-dark__title">AI Rules Engine</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="icon-card-dark__desc">Define guardrails and coding standards that AI agents follow automatically</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="icon-card-dark">
+      <!-- SWAPPABLE: icon -->
+      <div class="icon-card-dark__icon">
+        <img src="https://placehold.co/120x120/325BFF/E2EBFF?text=Icon" alt="Feature icon">
+      </div>
+      <!-- /SWAPPABLE: icon -->
+
+      <div class="icon-card-dark__text">
+        <!-- SWAPPABLE: title -->
+        <h3 class="icon-card-dark__title">Auto Documentation</h3>
+        <!-- /SWAPPABLE: title -->
+
+        <!-- SWAPPABLE: description -->
+        <p class="icon-card-dark__desc">Keep documentation continuously updated as your codebase evolves</p>
+        <!-- /SWAPPABLE: description -->
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

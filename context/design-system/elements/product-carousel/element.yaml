@@ -1,0 +1,35 @@
+name: "Product Carousel"
+description: "Expanding card pattern. Three states: Default (collapsed, 241px wide), Hover (241px, visual change), Active (expanded, 660px). Shows feature details when expanded."
+
+figma:
+  file: epnCa2oEzyBli5hF8YI8Ed
+  nodes:
+    - id: "3914:7031"
+      label: "Active/Expanded (Desktop)"
+  last_synced: "2026-03-22"
+
+use_cases:
+  - feature-showcase
+  - product-tour
+  - expandable-cards
+
+when_to_use: "When presenting product features that benefit from a visual preview. Cards expand on click to reveal a screenshot and description. Typically used as a row of 3 collapsed cards where one is active at a time."
+when_not_to_use: "For simple feature lists without visuals. For mobile-first layouts where horizontal expansion is impractical."
+
+swappable_slots:
+  - name: title
+    type: text
+    description: "H3 feature title shown below the visual area"
+  - name: description
+    type: text
+    description: "P4 feature description alongside the title"
+  - name: image
+    type: component
+    description: "Visual content area (screenshot, diagram, illustration) displayed inside the gradient frame"
+
+surfaces:
+  - light
+mediums:
+  - html
+  - marp
+  - pptx
